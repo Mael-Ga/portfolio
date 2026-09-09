@@ -1,53 +1,332 @@
 <!DOCTYPE html>
-<html lang="fr" data-theme="dark">
+<html lang="fr" data-theme="dark" data-lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mael - À Propos</title>
+    <title>Mael — À Propos &amp; Compétences</title>
+    <meta name="description" content="Présentation, soft skills, compétences linguistiques et méthodologies d'ingénierie de Mael.">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <nav class="navbar no-print">
-        <a href="index.html" class="nav-brand">Mael.</a>
-        <div class="nav-links">
-            <a href="index.html">Accueil</a>
-            <a href="about.html">À Propos</a>
-            <a href="projets.html">Projets</a>
-            <a href="parcours.html">Parcours</a>
-        </div>
-    </nav>
 
-    <div class="settings-panel no-print" contenteditable="false">
-        <!-- Même panneau que index.html -->
-        <div class="controls-wrapper">
-            <button id="theme-toggle-btn" class="control-btn" onclick="toggleTheme()"><span>☀️ Mode Clair</span></button>
-            <button class="control-btn primary" onclick="downloadPDF()"><span>📄 Exporter PDF</span></button>
-            <button class="control-btn save" onclick="saveHTML()"><span>💾 Sauvegarder HTML</span></button>
-        </div>
-    </div>
+    <div class="site-wrapper">
+        <!-- En-tête Global avec Branding & Navigation -->
+        <header class="top-header no-print">
+            <div class="brand-block">
+                <a href="index.html" class="brand-link">
+                    <span class="brand-prompt">&gt;_</span>
+                    <span>mael::dev</span>
+                </a>
+                <span class="status-pill">
+                    <span class="pulse-dot"></span>
+                    <span class="lang-fr">Disponible</span>
+                    <span class="lang-en">Available</span>
+                </span>
+            </div>
 
-    <div class="container" contenteditable="true" spellcheck="false">
-        <section>
-            <h2>À Propos de moi</h2>
-            <p style="text-align: justify; margin-bottom: 1.5rem;">
-                Étudiant en deuxième année à l'École Nationale d'Ingénieurs de Brest (ENIB)[cite: 1], je suis actuellement à la recherche d'un emploi saisonnier pour financer mes études. Fort de mon expérience internationale grâce à un semestre de mobilité à l'Université Aristote de Thessalonique, je m'adapte rapidement aux nouveaux environnements techniques.
-            </p>
-            <p style="text-align: justify;">
-                Sérieux, extrêmement adaptable et autonome, je m'épanouis dans les environnements techniques complexes et le travail d'équipe. Mes nombreux projets en ingénierie logicielle m'ont permis de développer une forte capacité d'analyse logique et une grande proactivité. Je suis pleinement disponible de jour comme de nuit, prêt à m m'engager sur des missions exigeantes[cite: 1].
-            </p>
-        </section>
+            <nav class="nav-bar" aria-label="Navigation principale">
+                <a href="index.html" class="nav-link">
+                    <span class="lang-fr">Accueil</span>
+                    <span class="lang-en">Home</span>
+                </a>
+                <a href="about.html" class="nav-link active">
+                    <span class="lang-fr">À Propos</span>
+                    <span class="lang-en">About</span>
+                </a>
+                <a href="projets.html" class="nav-link">
+                    <span class="lang-fr">Projets</span>
+                    <span class="lang-en">Projects</span>
+                </a>
+                <a href="parcours.html" class="nav-link">
+                    <span class="lang-fr">Parcours</span>
+                    <span class="lang-en">Career</span>
+                </a>
+                <a href="cv.html" class="nav-link cv-link">
+                    <span class="lang-fr">CV Format PDF</span>
+                    <span class="lang-en">CV / Resume</span>
+                </a>
+            </nav>
+        </header>
 
-        <section>
-            <h2>Soft Skills & Langues[cite: 1]</h2>
-            <div class="skills-container">
-                <span class="skill-tag">Créatif & Réfléchi[cite: 1]</span>
-                <span class="skill-tag">Multitâches[cite: 1]</span>
-                <span class="skill-tag">Communication Orale[cite: 1]</span>
-                <span class="skill-tag">Français (Natif)[cite: 1]</span>
-                <span class="skill-tag">Anglais (B2)[cite: 1]</span>
-                <span class="skill-tag">Allemand (Bases)[cite: 1]</span>
+        <!-- Barre d'Outils Unifiée -->
+        <section class="controls-bar no-print" aria-label="Contrôles du portfolio">
+            <div class="controls-info">
+                <span>sys::station [v2.4]</span>
+                <span style="opacity: 0.5;">|</span>
+                <span class="lang-fr">À Propos &amp; Profil</span>
+                <span class="lang-en">About &amp; Profile</span>
+            </div>
+
+            <div class="controls-buttons">
+                <button id="theme-toggle-btn" class="btn-ctrl" onclick="toggleTheme()" title="Basculer le thème">
+                    <span>☀️ <span class="lang-fr">Mode Clair</span><span class="lang-en">Light Mode</span></span>
+                </button>
+                <button id="lang-toggle-btn" class="btn-ctrl" onclick="toggleLang()" title="Changer la langue">
+                    <span>🇬🇧 English</span>
+                </button>
+                <button id="edit-toggle-btn" class="btn-ctrl edit-btn" onclick="toggleEditMode()" title="Modifier les textes directement">
+                    <span>✏️ <span class="lang-fr">Éditer</span><span class="lang-en">Edit</span></span>
+                </button>
+                <button class="btn-ctrl" onclick="saveHTML()" title="Télécharger la page HTML avec vos modifications">
+                    <span>💾 <span class="lang-fr">Sauvegarder HTML</span><span class="lang-en">Save HTML</span></span>
+                </button>
+                <button class="btn-ctrl primary" onclick="downloadPDF()" title="Imprimer ou exporter en PDF">
+                    <span>📄 <span class="lang-fr">Exporter PDF</span><span class="lang-en">Export PDF</span></span>
+                </button>
             </div>
         </section>
+
+        <!-- Bannière Mode Édition -->
+        <div class="edit-mode-banner no-print">
+            <span>✏️ <strong>Mode Édition Actif :</strong> Cliquez sur n'importe quel texte pour le modifier directement. Cliquez ensuite sur "Sauvegarder HTML" pour exporter vos changements.</span>
+            <button class="btn-ctrl" onclick="toggleEditMode()" style="padding: 0.2rem 0.5rem; font-size: 0.75rem;">Fermer</button>
+        </div>
+
+        <!-- Contenu Principal -->
+        <main class="content-card">
+            <div class="terminal-prompt font-mono">
+                <span class="user">mael</span>@<span class="host">workstation</span>:<span class="path">~/portfolio</span>$ cat about_me.md
+            </div>
+
+            <!-- Présentation Personnelle & Vision -->
+            <div class="editable-area">
+                <header style="margin-bottom: 2rem;">
+                    <h1>
+                        <span class="lang-fr">À Propos de Moi</span>
+                        <span class="lang-en">About Me</span>
+                    </h1>
+                    <p class="font-mono" style="color: var(--accent-terminal); font-size: 1.05rem;">
+                        <span class="lang-fr">&gt; Profil d'ingénieur, démarche scientifique &amp; autonomie opérationnelle</span>
+                        <span class="lang-en">&gt; Engineering profile, scientific mindset &amp; operational autonomy</span>
+                    </p>
+                </header>
+
+                <section style="margin-bottom: 2.5rem;">
+                    <h2>
+                        <span class="section-prefix">01.</span>
+                        <span class="lang-fr">Présentation &amp; Philosophie Technique</span>
+                        <span class="lang-en">Background &amp; Technical Philosophy</span>
+                    </h2>
+
+                    <p style="text-align: justify; font-size: 1rem; line-height: 1.7;">
+                        <span class="lang-fr">
+                            Actuellement étudiant en cycle ingénieur à l'<strong>École Nationale d'Ingénieurs de Brest (ENIB)</strong>, mon cursus s'articule autour des systèmes électroniques, du génie logiciel et du contrôle-commande. Convaincu que l'excellence en ingénierie requiert une compréhension de l'ensemble de la chaîne de valeur — du silicium jusqu'à la couche réseau —, j'ai complété ma formation par un semestre de mobilité internationale à l'<strong>Université Aristote de Thessalonique</strong> (Grèce), orienté vers la mécatronique et la robotique autonome.
+                        </span>
+                        <span class="lang-en">
+                            Currently enrolled in the graduate engineering program at the <strong>École Nationale d'Ingénieurs de Brest (ENIB)</strong>, my curriculum centers on electronic systems, software engineering, and control theory. Convinced that true engineering proficiency demands a comprehensive grasp of the full stack — from silicon gates up to distributed networks —, I enhanced my education with an international semester at the <strong>Aristotle University of Thessaloniki</strong> (Greece), focusing on mechatronics and autonomous robotics.
+                        </span>
+                    </p>
+
+                    <p style="text-align: justify; font-size: 1rem; line-height: 1.7;">
+                        <span class="lang-fr">
+                            Sérieux, extrêmement adaptable et animé par une curiosité constante, je m'épanouis dans les environnements techniques exigeants. Mon investissement personnel dans des projets d'envergure (moteur multijoueur asynchrone SLASHER, simulations de réseaux moléculaires AnyLogic, plugins audio C++/JUCE) témoigne de ma capacité à appréhender rapidement des documentations complexes, à architecturer des solutions pérennes et à travailler en autonomie complète.
+                        </span>
+                        <span class="lang-en">
+                            Committed, highly adaptable, and driven by continuous curiosity, I thrive in demanding technical contexts. My personal investments into production-scale projects (the SLASHER asynchronous multiplayer engine, AnyLogic nanonetwork simulations, and C++/JUCE audio plugins) demonstrate my aptitude for mastering dense specifications, designing robust architectures, and executing with total autonomy.
+                        </span>
+                    </p>
+
+                    <p style="text-align: justify; font-size: 1rem; line-height: 1.7;">
+                        <span class="lang-fr">
+                            Je suis pleinement disponible pour des missions d'ingénierie, stages et emplois saisonniers (y compris en horaires de nuit ou décalés), avec une disponibilité immédiate et une grande flexibilité géographique.
+                        </span>
+                        <span class="lang-en">
+                            I am fully available for engineering assignments, internships, and seasonal technical missions (including night or flexible shifts), with immediate availability and high mobility across France and internationally.
+                        </span>
+                    </p>
+                </section>
+
+                <!-- Soft Skills & Qualités d'Ingénieur -->
+                <section style="margin-bottom: 2.5rem;">
+                    <h2>
+                        <span class="section-prefix">02.</span>
+                        <span class="lang-fr">Soft Skills &amp; Compétences Humaines</span>
+                        <span class="lang-en">Soft Skills &amp; Professional Traits</span>
+                    </h2>
+
+                    <div class="skills-columns">
+                        <div class="skill-category-card">
+                            <div class="skill-category-title">
+                                <span>🧠</span>
+                                <span class="lang-fr">Rigueur Analytique &amp; Résolution de Problèmes</span>
+                                <span class="lang-en">Analytical Rigor &amp; Problem Solving</span>
+                            </div>
+                            <p style="font-size: 0.88rem; color: var(--text-secondary);">
+                                <span class="lang-fr">Capacité à décomposer des systèmes complexes en sous-problèmes élémentaires, modélisation mathématique rigoureuse et traçabilité des bugs.</span>
+                                <span class="lang-en">Ability to decompose complex systems into solvable modules, rigorous mathematical modeling, and systematic root-cause debugging.</span>
+                            </p>
+                        </div>
+
+                        <div class="skill-category-card">
+                            <div class="skill-category-title">
+                                <span>🌍</span>
+                                <span class="lang-fr">Adaptabilité &amp; Immersion Internationale</span>
+                                <span class="lang-en">Adaptability &amp; International Mindset</span>
+                            </div>
+                            <p style="font-size: 0.88rem; color: var(--text-secondary);">
+                                <span class="lang-fr">Habitude d'évoluer en contextes multiculturels (Erasmus Grèce), maîtrise de l'anglais technique et assimilation ultra-rapide de nouvelles stacks.</span>
+                                <span class="lang-en">Comfortable in multicultural teams (Erasmus Greece), fluent technical English, and swift onboarding onto unfamiliar technological stacks.</span>
+                            </p>
+                        </div>
+
+                        <div class="skill-category-card">
+                            <div class="skill-category-title">
+                                <span>🎯</span>
+                                <span class="lang-fr">Autonomie &amp; Sens des Responsabilités</span>
+                                <span class="lang-en">Autonomy &amp; Ownership</span>
+                            </div>
+                            <p style="font-size: 0.88rem; color: var(--text-secondary);">
+                                <span class="lang-fr">Prise en charge complète de projets de bout en bout, respect strict des engagements, gestion proactive des priorités et polyvalence.</span>
+                                <span class="lang-en">End-to-end project ownership, strict deadline compliance, proactive issue escalation, and versatile multitasking.</span>
+                            </p>
+                        </div>
+
+                        <div class="skill-category-card">
+                            <div class="skill-category-title">
+                                <span>💬</span>
+                                <span class="lang-fr">Communication &amp; Esprit d'Équipe</span>
+                                <span class="lang-en">Communication &amp; Team Collaboration</span>
+                            </div>
+                            <p style="font-size: 0.88rem; color: var(--text-secondary);">
+                                <span class="lang-fr">Aisance à l'oral comme à l'écrit, rédaction de documentation technique claire, transmission des connaissances et écoute active.</span>
+                                <span class="lang-en">Clear written and oral technical communication, structured documentation writing, constructive knowledge sharing, and active listening.</span>
+                            </p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Compétences Linguistiques -->
+                <section style="margin-bottom: 2.5rem;">
+                    <h2>
+                        <span class="section-prefix">03.</span>
+                        <span class="lang-fr">Langues Pratiquées</span>
+                        <span class="lang-en">Languages</span>
+                    </h2>
+
+                    <div class="metrics-grid">
+                        <div class="metric-card">
+                            <div class="metric-number">Français</div>
+                            <div class="metric-label">Langue Maternelle</div>
+                            <div class="metric-desc">Communication orale et écrite irréprochable, animation de présentations techniques.</div>
+                        </div>
+
+                        <div class="metric-card">
+                            <div class="metric-number">Anglais</div>
+                            <div class="metric-label">Niveau B2+ / Professionnel</div>
+                            <div class="metric-desc">Cours d'ingénierie suivis en anglais, rédaction de documentations techniques et échanges quotidiens en mobilité internationale.</div>
+                        </div>
+
+                        <div class="metric-card">
+                            <div class="metric-number">Allemand</div>
+                            <div class="metric-label">Bases A2</div>
+                            <div class="metric-desc">Notions fondamentales acquises en milieu scolaire, communication basique.</div>
+                        </div>
+
+                        <div class="metric-card">
+                            <div class="metric-number">Grec</div>
+                            <div class="metric-label">Immersion Quotidienne</div>
+                            <div class="metric-desc">Vocabulaire du quotidien acquis lors du semestre de mobilité à Thessalonique.</div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Outillage & Environnements -->
+                <section style="margin-bottom: 2rem;">
+                    <h2>
+                        <span class="section-prefix">04.</span>
+                        <span class="lang-fr">Méthodologies &amp; Environnements de Travail</span>
+                        <span class="lang-en">Methodologies &amp; Tooling</span>
+                    </h2>
+
+                    <div class="skills-columns">
+                        <div class="skill-category-card">
+                            <div class="skill-category-title">
+                                <span>🛠️</span>
+                                <span>Systèmes &amp; Ligne de Commande</span>
+                            </div>
+                            <div class="skill-pills">
+                                <span class="skill-pill">Linux (Ubuntu / Debian)</span>
+                                <span class="skill-pill">Bash &amp; Shell Scripting</span>
+                                <span class="skill-pill">SSH / SCP</span>
+                                <span class="skill-pill">Git / GitHub CLI</span>
+                                <span class="skill-pill">Gestion de Dépendances</span>
+                            </div>
+                        </div>
+
+                        <div class="skill-category-card">
+                            <div class="skill-category-title">
+                                <span>📐</span>
+                                <span>Conception &amp; Simulation d'Ingénierie</span>
+                            </div>
+                            <div class="skill-pills">
+                                <span class="skill-pill">SolidWorks</span>
+                                <span class="skill-pill">Catia V5</span>
+                                <span class="skill-pill">AnyLogic Multi-agents</span>
+                                <span class="skill-pill">Gazebo &amp; RViz</span>
+                                <span class="skill-pill">MATLAB / Simulink (Notions)</span>
+                            </div>
+                        </div>
+
+                        <div class="skill-category-card">
+                            <div class="skill-category-title">
+                                <span>⚡</span>
+                                <span>Compilateurs &amp; Écosystèmes Dév</span>
+                            </div>
+                            <div class="skill-pills">
+                                <span class="skill-pill">GCC / Clang</span>
+                                <span class="skill-pill">CMake / Projucer</span>
+                                <span class="skill-pill">Maven / Gradle</span>
+                                <span class="skill-pill">Cargo (Rust)</span>
+                                <span class="skill-pill">Valgrind / GDB</span>
+                            </div>
+                        </div>
+
+                        <div class="skill-category-card">
+                            <div class="skill-category-title">
+                                <span>🔌</span>
+                                <span>Matériel &amp; Mesure Électronique</span>
+                            </div>
+                            <div class="skill-pills">
+                                <span class="skill-pill">Oscilloscopes numériques</span>
+                                <span class="skill-pill">Générateurs BF</span>
+                                <span class="skill-pill">Brasage CMS &amp; Traversant</span>
+                                <span class="skill-pill">Diodes TVS &amp; Varistances</span>
+                                <span class="skill-pill">Diagnostic cartes mères</span>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <!-- Lien de continuité -->
+            <section style="margin-top: 2rem; border-top: 1px dashed var(--border-crisp); padding-top: 1.5rem;">
+                <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+                    <div>
+                        <span class="font-mono" style="color: var(--accent-terminal); font-size: 0.9rem;">&gt; Découvrir les projets concrets :</span>
+                    </div>
+                    <div>
+                        <a href="projets.html" class="btn-ctrl primary">
+                            <span class="lang-fr">Explorer la grille des projets →</span>
+                            <span class="lang-en">Explore project showcase →</span>
+                        </a>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Pied de Page -->
+        <footer class="site-footer">
+            <div>
+                <span>© 2026 Mael — Profil d'Ingénieur &amp; Compétences</span>
+            </div>
+            <div class="footer-links">
+                <a href="index.html">Accueil</a>
+                <a href="about.html">À Propos</a>
+                <a href="projets.html">Projets</a>
+                <a href="parcours.html">Parcours</a>
+                <a href="cv.html">CV</a>
+            </div>
+        </footer>
     </div>
 
     <script src="script.js"></script>

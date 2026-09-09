@@ -1,81 +1,297 @@
 <!DOCTYPE html>
-<html lang="fr" data-theme="dark">
+<html lang="fr" data-theme="dark" data-lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mael - Parcours</title>
+    <title>Mael — Parcours &amp; Expériences</title>
+    <meta name="description" content="Chronologie académique et professionnelle de Mael : ENIB, Université Aristote de Thessalonique, Chambre de Métiers et de l'Artisanat.">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <nav class="navbar no-print">
-        <a href="index.html" class="nav-brand">Mael.</a>
-        <div class="nav-links">
-            <a href="index.html">Accueil</a>
-            <a href="about.html">À Propos</a>
-            <a href="projets.html">Projets</a>
-            <a href="parcours.html">Parcours</a>
-        </div>
-    </nav>
 
-    <div class="settings-panel no-print" contenteditable="false">
-        <div class="controls-wrapper">
-            <button id="theme-toggle-btn" class="control-btn" onclick="toggleTheme()"><span>☀️ Mode Clair</span></button>
-            <button class="control-btn primary" onclick="downloadPDF()"><span>📄 Exporter PDF</span></button>
-            <button class="control-btn save" onclick="saveHTML()"><span>💾 Sauvegarder HTML</span></button>
-        </div>
-    </div>
-
-    <div class="container" contenteditable="true" spellcheck="false">
-        <section>
-            <h2>Éducation[cite: 1]</h2>
-            <div class="section-item">
-                <div class="item-header">
-                    <span class="item-title">Université Aristote de Thessalonique</span>
-                    <span class="item-date">2026</span>
-                </div>
-                <div class="item-subtitle">Semestre de Mobilité Académique (Erasmus)</div>
-                <ul>
-                    <li>Spécialisation en ingénierie, systèmes de contrôle et mécatronique.</li>
-                </ul>
+    <div class="site-wrapper">
+        <!-- En-tête Global avec Branding & Navigation -->
+        <header class="top-header no-print">
+            <div class="brand-block">
+                <a href="index.html" class="brand-link">
+                    <span class="brand-prompt">&gt;_</span>
+                    <span>mael::dev</span>
+                </a>
+                <span class="status-pill">
+                    <span class="pulse-dot"></span>
+                    <span class="lang-fr">Disponible</span>
+                    <span class="lang-en">Available</span>
+                </span>
             </div>
 
-            <div class="section-item">
-                <div class="item-header">
-                    <span class="item-title">École Nationale d'Ingénieurs de Brest (ENIB)[cite: 1]</span>
-                    <span class="item-date">2023 - 2025[cite: 1]</span>
-                </div>
-                <div class="item-subtitle">A-1 & A-2: Cycle Préparatoire Intégré[cite: 1]</div>
-                <ul>
-                    <li>Mathématiques appliquées, électronique, systèmes embarqués et génie logiciel[cite: 1].</li>
-                </ul>
+            <nav class="nav-bar" aria-label="Navigation principale">
+                <a href="index.html" class="nav-link">
+                    <span class="lang-fr">Accueil</span>
+                    <span class="lang-en">Home</span>
+                </a>
+                <a href="about.html" class="nav-link">
+                    <span class="lang-fr">À Propos</span>
+                    <span class="lang-en">About</span>
+                </a>
+                <a href="projets.html" class="nav-link">
+                    <span class="lang-fr">Projets</span>
+                    <span class="lang-en">Projects</span>
+                </a>
+                <a href="parcours.html" class="nav-link active">
+                    <span class="lang-fr">Parcours</span>
+                    <span class="lang-en">Career</span>
+                </a>
+                <a href="cv.html" class="nav-link cv-link">
+                    <span class="lang-fr">CV Format PDF</span>
+                    <span class="lang-en">CV / Resume</span>
+                </a>
+            </nav>
+        </header>
+
+        <!-- Barre d'Outils Unifiée -->
+        <section class="controls-bar no-print" aria-label="Contrôles du portfolio">
+            <div class="controls-info">
+                <span>sys::station [v2.4]</span>
+                <span style="opacity: 0.5;">|</span>
+                <span class="lang-fr">Timeline Chronologique</span>
+                <span class="lang-en">Chronological Timeline</span>
             </div>
 
-            <div class="section-item">
-                <div class="item-header">
-                    <span class="item-title">Lycée Chaptal[cite: 1]</span>
-                    <span class="item-date">2020 - 2023[cite: 1]</span>
-                </div>
-                <div class="item-subtitle">Baccalauréat Général[cite: 1]</div>
-                <ul>
-                    <li>Spécialité : Sciences de l'ingénieur[cite: 1].</li>
-                </ul>
-            </div>
-        </section>
-
-        <section>
-            <h2>Expérience Professionnelle[cite: 1]</h2>
-            <div class="section-item">
-                <div class="item-header">
-                    <span class="item-title">Chambre de Métiers et de l'Artisanat[cite: 1]</span>
-                    <span class="item-date">2024 - 2025[cite: 1]</span>
-                </div>
-                <div class="item-subtitle">Stagiaire en Maintenance Informatique et Technique (1 Mois)[cite: 1]</div>
-                <ul>
-                    <li>Exécution de tâches de maintenance : déploiement d'images système (ghosting), mises à jour OS et optimisation matérielle[cite: 1].</li>
-                    <li>Garantie de la stabilité du réseau et résolution des problèmes techniques de routine[cite: 1].</li>
-                </ul>
+            <div class="controls-buttons">
+                <button id="theme-toggle-btn" class="btn-ctrl" onclick="toggleTheme()" title="Basculer le thème">
+                    <span>☀️ <span class="lang-fr">Mode Clair</span><span class="lang-en">Light Mode</span></span>
+                </button>
+                <button id="lang-toggle-btn" class="btn-ctrl" onclick="toggleLang()" title="Changer la langue">
+                    <span>🇬🇧 English</span>
+                </button>
+                <button id="edit-toggle-btn" class="btn-ctrl edit-btn" onclick="toggleEditMode()" title="Modifier les textes directement">
+                    <span>✏️ <span class="lang-fr">Éditer</span><span class="lang-en">Edit</span></span>
+                </button>
+                <button class="btn-ctrl" onclick="saveHTML()" title="Télécharger la page HTML avec vos modifications">
+                    <span>💾 <span class="lang-fr">Sauvegarder HTML</span><span class="lang-en">Save HTML</span></span>
+                </button>
+                <button class="btn-ctrl primary" onclick="downloadPDF()" title="Imprimer ou exporter en PDF">
+                    <span>📄 <span class="lang-fr">Exporter PDF</span><span class="lang-en">Export PDF</span></span>
+                </button>
             </div>
         </section>
+
+        <!-- Bannière Mode Édition -->
+        <div class="edit-mode-banner no-print">
+            <span>✏️ <strong>Mode Édition Actif :</strong> Cliquez sur n'importe quel texte pour le modifier directement. Cliquez ensuite sur "Sauvegarder HTML" pour exporter vos changements.</span>
+            <button class="btn-ctrl" onclick="toggleEditMode()" style="padding: 0.2rem 0.5rem; font-size: 0.75rem;">Fermer</button>
+        </div>
+
+        <!-- Contenu Principal -->
+        <main class="content-card">
+            <div class="terminal-prompt font-mono">
+                <span class="user">mael</span>@<span class="host">workstation</span>:<span class="path">~/portfolio</span>$ git log --graph --oneline --timeline
+            </div>
+
+            <header style="margin-bottom: 2rem;">
+                <h1>
+                    <span class="lang-fr">Parcours &amp; Expériences</span>
+                    <span class="lang-en">Career &amp; Education Timeline</span>
+                </h1>
+                <p class="font-mono" style="color: var(--accent-terminal); font-size: 1.05rem;">
+                    <span class="lang-fr">&gt; Formation d'ingénieur, mobilité internationale &amp; immersion professionnelle</span>
+                    <span class="lang-en">&gt; Engineering curriculum, international mobility &amp; professional experience</span>
+                </p>
+            </header>
+
+            <div class="editable-area">
+                <!-- Section Formation Académique -->
+                <section style="margin-bottom: 3rem;">
+                    <h2>
+                        <span class="section-prefix">01.</span>
+                        <span class="lang-fr">Formation &amp; Cursus Académique</span>
+                        <span class="lang-en">Education &amp; Academic Background</span>
+                    </h2>
+
+                    <div class="timeline-list">
+
+                        <!-- Étape 1 : Thessalonique -->
+                        <div class="timeline-item">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-date">2026 — Semestre International</div>
+                            <h3 class="timeline-title">Université Aristote de Thessalonique (Grèce)</h3>
+                            <div class="timeline-subtitle">Mobilité Académique Internationale (Erasmus) — Mécatronique &amp; Robotique</div>
+                            <div class="timeline-content">
+                                <p>
+                                    <span class="lang-fr">Semestre universitaire suivi intégralement en langue anglaise au sein du département d'ingénierie. Spécialisation dans les systèmes mécatroniques et la théorie moderne du contrôle.</span>
+                                    <span class="lang-en">International academic semester taught entirely in English within the engineering faculty. Core specialization in mechatronics systems and modern control theory.</span>
+                                </p>
+                                <ul>
+                                    <li>
+                                        <span class="lang-fr"><strong>Systèmes de Contrôle &amp; Robotique :</strong> Modélisation dynamique de robots manipulateurs, cinématique inverse et implémentation sous ROS.</span>
+                                        <span class="lang-en"><strong>Control Systems &amp; Robotics :</strong> Dynamic modeling of robot manipulators, inverse kinematics, and ROS implementation.</span>
+                                    </li>
+                                    <li>
+                                        <span class="lang-fr"><strong>Communication &amp; Immersion :</strong> Travaux d'ingénierie en équipes multiculturelles et consolidation d'un anglais technique courant.</span>
+                                        <span class="lang-en"><strong>Communication &amp; Immersion :</strong> Collaborative engineering labs in multicultural teams and daily technical English fluency.</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- Étape 2 : ENIB -->
+                        <div class="timeline-item">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-date">2023 - 2025</div>
+                            <h3 class="timeline-title">École Nationale d'Ingénieurs de Brest (ENIB)</h3>
+                            <div class="timeline-subtitle">A-1 &amp; A-2 : Cycle Préparatoire Intégré d'Ingénieur</div>
+                            <div class="timeline-content">
+                                <p>
+                                    <span class="lang-fr">Formation d'ingénieur généraliste dispensant des bases scientifiques et techniques solides combinant théorie fondamentale et mise en pratique industrielle en laboratoire.</span>
+                                    <span class="lang-en">Generalist engineering program instilling strong scientific and technological foundations through combined theoretical coursework and practical laboratory work.</span>
+                                </p>
+                                <ul>
+                                    <li>
+                                        <span class="lang-fr"><strong>Sciences de Base :</strong> Mathématiques appliquées, calcul différentiel, algèbre linéaire, électromagnétisme et physique ondulatoire.</span>
+                                        <span class="lang-en"><strong>Fundamental Sciences :</strong> Applied mathematics, differential calculus, linear algebra, electromagnetism, and wave physics.</span>
+                                    </li>
+                                    <li>
+                                        <span class="lang-fr"><strong>Électronique &amp; Systèmes Embarqués :</strong> Électronique analogique et numérique, microcontrôleurs, bancs de test et programmation en langage C.</span>
+                                        <span class="lang-en"><strong>Electronics &amp; Embedded Systems :</strong> Analog and digital electronics, microcontroller architectures, test benches, and low-level C programming.</span>
+                                    </li>
+                                    <li>
+                                        <span class="lang-fr"><strong>Génie Logiciel :</strong> Algorithmique avancée, structures de données complexes, programmation orientée objet et méthodologies de projet.</span>
+                                        <span class="lang-en"><strong>Software Engineering :</strong> Advanced algorithms, data structures, object-oriented design patterns, and engineering project methodologies.</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- Étape 3 : Lycée Chaptal -->
+                        <div class="timeline-item">
+                            <div class="timeline-dot"></div>
+                            <div class="timeline-date">2020 - 2023</div>
+                            <h3 class="timeline-title">Lycée Chaptal</h3>
+                            <div class="timeline-subtitle">Baccalauréat Général — Spécialité Sciences de l'Ingénieur &amp; Mathématiques</div>
+                            <div class="timeline-content">
+                                <p>
+                                    <span class="lang-fr">Parcours scientifique axé sur l'ingénierie mécanique, l'électrotechnique et l'analyse de systèmes pluritechnologiques. Mention obtenue.</span>
+                                    <span class="lang-en">Scientific curriculum focused on mechanical engineering, electrical systems, and multi-domain system analysis with academic honors.</span>
+                                </p>
+                                <ul>
+                                    <li>
+                                        <span class="lang-fr"><strong>Olympiades de l'Ingénierie :</strong> Développement du projet <em>UpStair</em> (dispositif d'accessibilité PMR primé par un jury d'ingénieurs).</span>
+                                        <span class="lang-en"><strong>Engineering Olympiads :</strong> Engineering of the <em>UpStair</em> accessibility device, commended by an industrial jury.</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                    </div>
+                </section>
+
+                <!-- Section Expériences Professionnelles -->
+                <section style="margin-bottom: 2.5rem;">
+                    <h2>
+                        <span class="section-prefix">02.</span>
+                        <span class="lang-fr">Expérience Professionnelle &amp; Stages</span>
+                        <span class="lang-en">Professional Experience &amp; Internships</span>
+                    </h2>
+
+                    <div class="timeline-list">
+
+                        <!-- Expérience 1 : Chambre de Métiers -->
+                        <div class="timeline-item">
+                            <div class="timeline-dot" style="background-color: var(--accent-amber);"></div>
+                            <div class="timeline-date">2024 - 2025 (1 Mois)</div>
+                            <h3 class="timeline-title">Chambre de Métiers et de l'Artisanat</h3>
+                            <div class="timeline-subtitle">Stagiaire en Maintenance Informatique, Systèmes &amp; Réseaux</div>
+                            <div class="timeline-content">
+                                <p>
+                                    <span class="lang-fr">Immersion au sein de la direction des systèmes d'information. Gestion opérationnelle et maintien en condition opérationnelle du parc informatique institutionnel.</span>
+                                    <span class="lang-en">Internship inside the IT and Systems Directorate. Operational maintenance and deployment across the institutional infrastructure.</span>
+                                </p>
+                                <ul>
+                                    <li>
+                                        <span class="lang-fr"><strong>Déploiement d'Images Système (Ghosting) :</strong> Préparation, clonage et masterisation rapide de postes de travail hétérogènes avec scripts de configuration automatisés.</span>
+                                        <span class="lang-en"><strong>System Image Deployment (Ghosting) :</strong> Master image creation, cloning, and rapid disk imaging across enterprise workstations.</span>
+                                    </li>
+                                    <li>
+                                        <span class="lang-fr"><strong>Maintenance &amp; Mises à Niveau OS :</strong> Audit de sécurité, patchs de vulnérabilité OS, remplacement de composants physiques et optimisation matérielle.</span>
+                                        <span class="lang-en"><strong>OS Upgrades &amp; Hardware Maintenance :</strong> System security audits, OS patch management, critical hardware component replacement, and system tuning.</span>
+                                    </li>
+                                    <li>
+                                        <span class="lang-fr"><strong>Réseaux &amp; Support Utilisateurs :</strong> Diagnostic de connectivité réseau locale (câblage, switchs, baux DHCP) et assistance technique aux agents.</span>
+                                        <span class="lang-en"><strong>Networking &amp; User Support :</strong> Local network diagnostic troubleshooting (cabling, patch panels, DHCP leases) and responsive support for operational teams.</span>
+                                    </li>
+                                </ul>
+                                <div class="tags-list" style="margin-top: 0.75rem;">
+                                    <span class="tag-badge highlight">Masterisation OS</span>
+                                    <span class="tag-badge">Clonage Ghost</span>
+                                    <span class="tag-badge">Dépannage Hardware</span>
+                                    <span class="tag-badge">Réseau Local</span>
+                                    <span class="tag-badge">Assistance IT</span>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </section>
+
+                <!-- Section Disponibilité & Engagement -->
+                <section style="margin-bottom: 2rem;">
+                    <h2>
+                        <span class="section-prefix">03.</span>
+                        <span class="lang-fr">Disponibilité Opérationnelle &amp; Modalités</span>
+                        <span class="lang-en">Operational Availability</span>
+                    </h2>
+
+                    <div class="metrics-grid">
+                        <div class="metric-card">
+                            <div class="metric-number">Jour &amp; Nuit</div>
+                            <div class="metric-label">Horaires Flexibles</div>
+                            <div class="metric-desc">Parfaitement disponible pour des shifts de nuit, astreintes techniques ou missions saisonnières intensives.</div>
+                        </div>
+
+                        <div class="metric-card">
+                            <div class="metric-number">France</div>
+                            <div class="metric-label">Mobilité Géographique</div>
+                            <div class="metric-desc">Basé à Brest avec flexibilité immédiate pour missions partout en France et à l'étranger.</div>
+                        </div>
+
+                        <div class="metric-card">
+                            <div class="metric-number">Immédiate</div>
+                            <div class="metric-label">Prise de Poste</div>
+                            <div class="metric-desc">Prêt à m'engager sans délai sur des missions exigeantes nécessitant rigueur et autonomie.</div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <!-- Accès Direct CV -->
+            <section style="margin-top: 2rem; border-top: 1px dashed var(--border-crisp); padding-top: 1.5rem;">
+                <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+                    <div>
+                        <span class="font-mono" style="color: var(--accent-terminal); font-size: 0.9rem;">&gt; Vous souhaitez un format résumé synthétique pour recrutement ?</span>
+                    </div>
+                    <div>
+                        <a href="cv.html" class="btn-ctrl primary">
+                            <span class="lang-fr">Consulter le CV complet en ligne / PDF →</span>
+                            <span class="lang-en">View online &amp; printable CV →</span>
+                        </a>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Pied de Page -->
+        <footer class="site-footer">
+            <div>
+                <span>© 2026 Mael — Chronologie du Parcours d'Ingénieur</span>
+            </div>
+            <div class="footer-links">
+                <a href="index.html">Accueil</a>
+                <a href="about.html">À Propos</a>
+                <a href="projets.html">Projets</a>
+                <a href="parcours.html">Parcours</a>
+                <a href="cv.html">CV</a>
+            </div>
+        </footer>
     </div>
 
     <script src="script.js"></script>

@@ -1,93 +1,418 @@
 <!DOCTYPE html>
-<html lang="fr" data-theme="dark">
+<html lang="fr" data-theme="dark" data-lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mael - Projets</title>
+    <title>Mael — Projets d'Ingénierie &amp; Systèmes</title>
+    <meta name="description" content="Catalogue des projets techniques de Mael : architecture backend, robotique ROS, audio DSP, simulation et systèmes embarqués.">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <nav class="navbar no-print">
-        <a href="index.html" class="nav-brand">Mael.</a>
-        <div class="nav-links">
-            <a href="index.html">Accueil</a>
-            <a href="about.html">À Propos</a>
-            <a href="projets.html">Projets</a>
-            <a href="parcours.html">Parcours</a>
-        </div>
-    </nav>
 
-    <div class="settings-panel no-print" contenteditable="false">
-        <div class="controls-wrapper">
-            <button id="theme-toggle-btn" class="control-btn" onclick="toggleTheme()"><span>☀️ Mode Clair</span></button>
-            <button class="control-btn primary" onclick="downloadPDF()"><span>📄 Exporter PDF</span></button>
-            <button class="control-btn save" onclick="saveHTML()"><span>💾 Sauvegarder HTML</span></button>
-        </div>
-    </div>
-
-    <div class="container" contenteditable="true" spellcheck="false">
-        <section>
-            <h2>Projets Majeurs</h2>
-            <div class="section-item">
-                <div class="item-title">Robotique & ROS Melodic</div>
-                <ul>
-                    <li>Développement de nœuds ROS temps réel pour le positionnement de drones (publishers/subscribers).</li>
-                    <li>Utilisation experte de RViz, Gazebo et Turtlesim pour la modélisation de trajectoires complexes.</li>
-                </ul>
-            </div>
-            
-            <div class="section-item">
-                <div class="item-title">Modélisation de Réseaux Nanoscopiques</div>
-                <ul>
-                    <li>Création de simulations AnyLogic pour évaluer des algorithmes d'encodage moléculaire (Concentration Shift Keying, PPM).</li>
-                </ul>
+    <div class="site-wrapper">
+        <!-- En-tête Global avec Branding & Navigation -->
+        <header class="top-header no-print">
+            <div class="brand-block">
+                <a href="index.html" class="brand-link">
+                    <span class="brand-prompt">&gt;_</span>
+                    <span>mael::dev</span>
+                </a>
+                <span class="status-pill">
+                    <span class="pulse-dot"></span>
+                    <span class="lang-fr">Disponible</span>
+                    <span class="lang-en">Available</span>
+                </span>
             </div>
 
-            <div class="section-item">
-                <div class="item-title">SLASHER (Jeu Multijoueur Asymétrique)[cite: 1]</div>
-                <ul>
-                    <li>Développement d'un jeu compétitif 1vsN avec Java sur l'API Paper 1.21.10[cite: 1].</li>
-                    <li>Architecture orientée performances backend : opérations asynchrones, protection contre les fuites de mémoire et stabilité du tick-rate[cite: 1].</li>
-                </ul>
+            <nav class="nav-bar" aria-label="Navigation principale">
+                <a href="index.html" class="nav-link">
+                    <span class="lang-fr">Accueil</span>
+                    <span class="lang-en">Home</span>
+                </a>
+                <a href="about.html" class="nav-link">
+                    <span class="lang-fr">À Propos</span>
+                    <span class="lang-en">About</span>
+                </a>
+                <a href="projets.html" class="nav-link active">
+                    <span class="lang-fr">Projets</span>
+                    <span class="lang-en">Projects</span>
+                </a>
+                <a href="parcours.html" class="nav-link">
+                    <span class="lang-fr">Parcours</span>
+                    <span class="lang-en">Career</span>
+                </a>
+                <a href="cv.html" class="nav-link cv-link">
+                    <span class="lang-fr">CV Format PDF</span>
+                    <span class="lang-en">CV / Resume</span>
+                </a>
+            </nav>
+        </header>
+
+        <!-- Barre d'Outils Unifiée -->
+        <section class="controls-bar no-print" aria-label="Contrôles du portfolio">
+            <div class="controls-info">
+                <span>sys::station [v2.4]</span>
+                <span style="opacity: 0.5;">|</span>
+                <span class="lang-fr">7 Projets Répertoriés</span>
+                <span class="lang-en">7 Featured Projects</span>
             </div>
 
-            <div class="section-item">
-                <div class="item-title">Programmation Graphique 3D</div>
-                <ul>
-                    <li>Création d'environnements interactifs 3D en C natif à l'aide des bibliothèques OpenGL et FreeGLUT.</li>
-                </ul>
-            </div>
-
-            <div class="section-item">
-                <div class="item-title">Sécurité des Systèmes Embarqués[cite: 1]</div>
-                <ul>
-                    <li>Recherche et conception d'architectures de protection contre les surtensions matérielles (Diodes TVS, MOVs)[cite: 1].</li>
-                    <li>Analyse de vulnérabilités logicielles (débordements de tampon, failles d'injection).</li>
-                </ul>
-            </div>
-
-            <div class="section-item">
-                <div class="item-title">Plugin Audio VST en C++[cite: 1]</div>
-                <ul>
-                    <li>Développement d'un saturateur audio personnalisé ciblant les basses fréquences via le framework JUCE[cite: 1].</li>
-                </ul>
-            </div>
-        </section>
-
-        <section>
-            <h2>Stack Technique Principale[cite: 1]</h2>
-            <div class="skills-container">
-                <span class="skill-tag">Java (Paper API)[cite: 1]</span>
-                <span class="skill-tag">C / C++ (OpenGL, JUCE)[cite: 1]</span>
-                <span class="skill-tag">Python[cite: 1]</span>
-                <span class="skill-tag">Rust[cite: 1]</span>
-                <span class="skill-tag">ROS Melodic</span>
-                <span class="skill-tag">AnyLogic</span>
-                <span class="skill-tag">Linux / Bash[cite: 1]</span>
-                <span class="skill-tag">HTML / CSS[cite: 1]</span>
-                <span class="skill-tag">SolidWorks / Catia (3D)[cite: 1]</span>
+            <div class="controls-buttons">
+                <button id="theme-toggle-btn" class="btn-ctrl" onclick="toggleTheme()" title="Basculer le thème">
+                    <span>☀️ <span class="lang-fr">Mode Clair</span><span class="lang-en">Light Mode</span></span>
+                </button>
+                <button id="lang-toggle-btn" class="btn-ctrl" onclick="toggleLang()" title="Changer la langue">
+                    <span>🇬🇧 English</span>
+                </button>
+                <button id="edit-toggle-btn" class="btn-ctrl edit-btn" onclick="toggleEditMode()" title="Modifier les textes directement">
+                    <span>✏️ <span class="lang-fr">Éditer</span><span class="lang-en">Edit</span></span>
+                </button>
+                <button class="btn-ctrl" onclick="saveHTML()" title="Télécharger la page HTML avec vos modifications">
+                    <span>💾 <span class="lang-fr">Sauvegarder HTML</span><span class="lang-en">Save HTML</span></span>
+                </button>
+                <button class="btn-ctrl primary" onclick="downloadPDF()" title="Imprimer ou exporter en PDF">
+                    <span>📄 <span class="lang-fr">Exporter PDF</span><span class="lang-en">Export PDF</span></span>
+                </button>
             </div>
         </section>
+
+        <!-- Bannière Mode Édition -->
+        <div class="edit-mode-banner no-print">
+            <span>✏️ <strong>Mode Édition Actif :</strong> Cliquez sur n'importe quel texte pour le modifier directement. Cliquez ensuite sur "Sauvegarder HTML" pour exporter vos changements.</span>
+            <button class="btn-ctrl" onclick="toggleEditMode()" style="padding: 0.2rem 0.5rem; font-size: 0.75rem;">Fermer</button>
+        </div>
+
+        <!-- Contenu Principal -->
+        <main class="content-card">
+            <div class="terminal-prompt font-mono">
+                <span class="user">mael</span>@<span class="host">workstation</span>:<span class="path">~/portfolio</span>$ ./list-projects --verbose
+            </div>
+
+            <header style="margin-bottom: 1.5rem;">
+                <h1>
+                    <span class="lang-fr">Projets &amp; Réalisations Techniques</span>
+                    <span class="lang-en">Engineering Projects &amp; Systems</span>
+                </h1>
+                <p class="font-mono" style="color: var(--accent-terminal); font-size: 1.05rem;">
+                    <span class="lang-fr">&gt; Systèmes distribués, embarqué, simulation de réseaux, DSP audio &amp; robotique</span>
+                    <span class="lang-en">&gt; Distributed systems, embedded, network simulation, audio DSP &amp; robotics</span>
+                </p>
+            </header>
+
+            <!-- Filtres de Catégories (Interactif JS) -->
+            <div class="filter-tabs no-print">
+                <button class="filter-btn active" onclick="filterProjects('all', this)">
+                    <span class="lang-fr">Tous (7)</span>
+                    <span class="lang-en">All (7)</span>
+                </button>
+                <button class="filter-btn" onclick="filterProjects('backend', this)">
+                    <span class="lang-fr">Backend &amp; Réseaux</span>
+                    <span class="lang-en">Backend &amp; Network</span>
+                </button>
+                <button class="filter-btn" onclick="filterProjects('embedded', this)">
+                    <span class="lang-fr">Embarqué &amp; Robotique</span>
+                    <span class="lang-en">Embedded &amp; Robotics</span>
+                </button>
+                <button class="filter-btn" onclick="filterProjects('audio', this)">
+                    <span class="lang-fr">Audio DSP &amp; Graphique</span>
+                    <span class="lang-en">Audio DSP &amp; Graphics</span>
+                </button>
+            </div>
+
+            <!-- Grille des Projets Détaillés -->
+            <div class="projects-grid editable-area">
+
+                <!-- Projet 1 : SLASHER -->
+                <article class="project-card" data-category="backend">
+                    <div class="project-header">
+                        <div>
+                            <h3 class="project-title">SLASHER (mcslasher.com)</h3>
+                            <div class="project-meta">Java (Paper API 1.21.10) | Architecture Distribuée Asynchrone</div>
+                        </div>
+                        <span class="project-badge production">Production / Live</span>
+                    </div>
+                    <p class="project-desc">
+                        <span class="lang-fr">
+                            Développement complet du backend d'un jeu multijoueur asymétrique compétitif (1vsN). L'architecture logicielle a été conçue sur mesure pour traiter des volumes massifs de paquets et d'événements physiques sans pénaliser la boucle d'exécution principale.
+                        </span>
+                        <span class="lang-en">
+                            End-to-end backend engineering for an asymmetric competitive multiplayer game (1vsN). The architecture was custom-tailored to process high-throughput packet streams and spatial state calculations without blocking the main event tick loop.
+                        </span>
+                    </p>
+                    <ul class="project-bullets">
+                        <li>
+                            <span class="lang-fr"><strong>Optimisation Concurrence :</strong> Déportation des calculs non-bloquants sur un pool de threads asynchrones dédiés, maintenant un tick-rate rigoureusement stable à 20 TPS.</span>
+                            <span class="lang-en"><strong>Concurrency Optimization :</strong> Delegated non-blocking computations onto dedicated asynchronous thread pools, enforcing a solid 20 TPS tick-rate.</span>
+                        </li>
+                        <li>
+                            <span class="lang-fr"><strong>Protection Mémoire :</strong> Audit et neutralisation des fuites de mémoire (garbage collector pressure, cycles de rétention d'entités).</span>
+                            <span class="lang-en"><strong>Memory Integrity :</strong> Comprehensive profiling against GC pauses, memory leaks, and entity retention cycles.</span>
+                        </li>
+                        <li>
+                            <span class="lang-fr"><strong>Systèmes de Jeu :</strong> Implémentation d'arbres de compétences modulaires, mécaniques de furtivité et interface utilisateur réactive.</span>
+                            <span class="lang-en"><strong>Game Mechanics :</strong> Implementation of modular skill progression trees, ray-traced stealth detection, and custom UI elements.</span>
+                        </li>
+                    </ul>
+                    <div class="tags-list">
+                        <span class="tag-badge highlight">Java</span>
+                        <span class="tag-badge highlight">Paper API</span>
+                        <span class="tag-badge">Multithreading</span>
+                        <span class="tag-badge">Asynchronous I/O</span>
+                        <span class="tag-badge">20 TPS Stable</span>
+                        <span class="tag-badge">Protocols</span>
+                    </div>
+                </article>
+
+                <!-- Projet 2 : Robotique ROS Melodic -->
+                <article class="project-card" data-category="embedded">
+                    <div class="project-header">
+                        <div>
+                            <h3 class="project-title">Robotique Mobile &amp; Nœuds Temps Réel ROS Melodic</h3>
+                            <div class="project-meta">C++ / Python | ROS Melodic | Gazebo &amp; RViz</div>
+                        </div>
+                        <span class="project-badge system">Systèmes / Robotique</span>
+                    </div>
+                    <p class="project-desc">
+                        <span class="lang-fr">
+                            Développement d'architectures de contrôle-commande pour drones et robots mobiles. Projet conduit dans le cadre des enseignements avancés de mécatronique à l'Université Aristote de Thessalonique et à l'ENIB.
+                        </span>
+                        <span class="lang-en">
+                            Development of real-time control architectures for UAV positioning and mobile robots. Conducted during advanced mechatronics coursework at Aristotle University of Thessaloniki and ENIB.
+                        </span>
+                    </p>
+                    <ul class="project-bullets">
+                        <li>
+                            <span class="lang-fr"><strong>Architecture ROS :</strong> Programmation de nœuds Publisher / Subscriber en C++ natif et Python avec synchronisation stricte des messages d'odométrie.</span>
+                            <span class="lang-en"><strong>ROS Architecture :</strong> Engineered C++ and Python Publisher/Subscriber nodes with strict timestamped odometry message synchronization.</span>
+                        </li>
+                        <li>
+                            <span class="lang-fr"><strong>Simulation &amp; Trajectoire :</strong> Modélisation de trajectoires 3D cinématiques et dynamiques, validées dans les environnements de simulation physique Gazebo, RViz et Turtlesim.</span>
+                            <span class="lang-en"><strong>Simulation &amp; Kinematics :</strong> 3D kinematic trajectory planning, stress-tested inside Gazebo physics engine, RViz, and Turtlesim.</span>
+                        </li>
+                    </ul>
+                    <div class="tags-list">
+                        <span class="tag-badge highlight">ROS Melodic</span>
+                        <span class="tag-badge highlight">C++</span>
+                        <span class="tag-badge">Python</span>
+                        <span class="tag-badge">Gazebo</span>
+                        <span class="tag-badge">RViz</span>
+                        <span class="tag-badge">Cinématique</span>
+                        <span class="tag-badge">Linux</span>
+                    </div>
+                </article>
+
+                <!-- Projet 3 : Simulation Réseaux Nanoscopiques AnyLogic -->
+                <article class="project-card" data-category="backend">
+                    <div class="project-header">
+                        <div>
+                            <h3 class="project-title">Modélisation &amp; Simulation de Réseaux Nanoscopiques</h3>
+                            <div class="project-meta">AnyLogic | Modélisation Multi-agents | Java</div>
+                        </div>
+                        <span class="project-badge research">Recherche / Simulation</span>
+                    </div>
+                    <p class="project-desc">
+                        <span class="lang-fr">
+                            Étude de faisabilité et simulation computationnelle de protocoles de communication biomoléculaire à l'échelle nanométrique pour des applications de diagnostic in-vivo.
+                        </span>
+                        <span class="lang-en">
+                            Feasibility research and computational simulation of biomolecular communication schemes at the nanoscale for future biomedical in-vivo diagnostics.
+                        </span>
+                    </p>
+                    <ul class="project-bullets">
+                        <li>
+                            <span class="lang-fr"><strong>Modélisation Stochastique :</strong> Simulation multi-agents de la diffusion brownienne de molécules émettrices et réceptrices au sein de milieux fluides complexes.</span>
+                            <span class="lang-en"><strong>Stochastic Modeling :</strong> Multi-agent modeling of Brownian molecular motion and emission/absorption across viscous biological mediums.</span>
+                        </li>
+                        <li>
+                            <span class="lang-fr"><strong>Algorithmes d'Encodage :</strong> Comparaison des performances de modulation : <em>Concentration Shift Keying</em> (CSK) vs <em>Pulse Position Modulation</em> (PPM) en termes de rapport signal/bruit et de taux d'erreur binaire.</span>
+                            <span class="lang-en"><strong>Modulation Schemes :</strong> Performance benchmark comparing <em>Concentration Shift Keying</em> (CSK) vs <em>Pulse Position Modulation</em> (PPM) against inter-symbol interference.</span>
+                        </li>
+                    </ul>
+                    <div class="tags-list">
+                        <span class="tag-badge highlight">AnyLogic</span>
+                        <span class="tag-badge">Java</span>
+                        <span class="tag-badge">Modélisation Multi-agents</span>
+                        <span class="tag-badge">CSK / PPM</span>
+                        <span class="tag-badge">Stochastique</span>
+                    </div>
+                </article>
+
+                <!-- Projet 4 : Plugin Audio VST en C++ (JUCE) -->
+                <article class="project-card" data-category="audio">
+                    <div class="project-header">
+                        <div>
+                            <h3 class="project-title">Plugin Audio VST en C++ (JUCE Framework)</h3>
+                            <div class="project-meta">C++ moderne | JUCE | Projucer | DSP 64-bit</div>
+                        </div>
+                        <span class="project-badge system">DSP &amp; Audio</span>
+                    </div>
+                    <p class="project-desc">
+                        <span class="lang-fr">
+                            Conception et programmation d'un saturateur audio harmonique spécifique aux basses fréquences (sub-bass / kick) au format VST3/AU compatible avec les stations audionumériques standard du marché.
+                        </span>
+                        <span class="lang-en">
+                            Design and programming of a low-frequency harmonic saturator plugin targeted at bass and kick drums, built for VST3/AU standard digital audio workstations.
+                        </span>
+                    </p>
+                    <ul class="project-bullets">
+                        <li>
+                            <span class="lang-fr"><strong>Algorithmes DSP :</strong> Calcul de fonctions de transfert non-linéaires (saturation douce tanh, asymétrique) sans aliasing audio dans la boucle de rendu sonore temps réel.</span>
+                            <span class="lang-en"><strong>DSP Algorithms :</strong> Real-time discrete non-linear transfer functions (soft tanh clipping, asymmetric saturation) with anti-aliasing filtering.</span>
+                        </li>
+                        <li>
+                            <span class="lang-fr"><strong>Filtrage &amp; Crossover :</strong> Séparation précise des bandes de fréquences avec compensation de phase pour préserver la dynamique des transitoires.</span>
+                            <span class="lang-en"><strong>Crossover Filtering :</strong> Linear-phase band-splitting to isolate sub-frequencies without transient phase cancellation.</span>
+                        </li>
+                    </ul>
+                    <div class="tags-list">
+                        <span class="tag-badge highlight">C++</span>
+                        <span class="tag-badge highlight">JUCE</span>
+                        <span class="tag-badge">Projucer</span>
+                        <span class="tag-badge">DSP Audio</span>
+                        <span class="tag-badge">Temps Réel</span>
+                        <span class="tag-badge">VST3 / AU</span>
+                    </div>
+                </article>
+
+                <!-- Projet 5 : Sécurité Embarquée & Hardware -->
+                <article class="project-card" data-category="embedded">
+                    <div class="project-header">
+                        <div>
+                            <h3 class="project-title">Sécurité Matérielle &amp; Protection des Systèmes Embarqués</h3>
+                            <div class="project-meta">Électronique de Puissance | Diodes TVS | Sécurité C</div>
+                        </div>
+                        <span class="project-badge research">Hardware &amp; Firmware</span>
+                    </div>
+                    <p class="project-desc">
+                        <span class="lang-fr">
+                            Étude approfondie de la résilience physique et logicielle des cartes microcontrôleurs face aux surtensions transitoires et aux attaques par injection de données.
+                        </span>
+                        <span class="lang-en">
+                            In-depth investigation of hardware surge resilience and firmware-level hardening against transient voltage spikes and memory corruption exploits.
+                        </span>
+                    </p>
+                    <ul class="project-bullets">
+                        <li>
+                            <span class="lang-fr"><strong>Protection Matérielle :</strong> Dimensionnement et benchmarking de composants de décharge : diodes TVS (Transient Voltage Suppressors) et varistances à oxyde métallique (MOV).</span>
+                            <span class="lang-en"><strong>Hardware Clamping :</strong> Sizing and benchmarking suppression circuitry: TVS diodes and metal oxide varistors (MOVs) against ESD surges.</span>
+                        </li>
+                        <li>
+                            <span class="lang-fr"><strong>Audit Logiciel :</strong> Analyse des failles d'intégrité de la pile mémoire en C (buffer overflows, injection de commandes) et durcissement des handlers d'interruptions.</span>
+                            <span class="lang-en"><strong>Software Auditing :</strong> Stack integrity vulnerability inspection in low-level C, hardening firmware interrupt routines against illegal pointer dereferences.</span>
+                        </li>
+                    </ul>
+                    <div class="tags-list">
+                        <span class="tag-badge highlight">Électronique</span>
+                        <span class="tag-badge">Diodes TVS</span>
+                        <span class="tag-badge">MOVs</span>
+                        <span class="tag-badge">Sécurité C</span>
+                        <span class="tag-badge">Banc de Test</span>
+                    </div>
+                </article>
+
+                <!-- Projet 6 : Moteur Graphique 3D C / OpenGL -->
+                <article class="project-card" data-category="audio">
+                    <div class="project-header">
+                        <div>
+                            <h3 class="project-title">Moteur Graphique 3D Interactif en C &amp; OpenGL</h3>
+                            <div class="project-meta">C natif | OpenGL | FreeGLUT | Calcul Matriciel</div>
+                        </div>
+                        <span class="project-badge system">Moteur Graphique</span>
+                    </div>
+                    <p class="project-desc">
+                        <span class="lang-fr">
+                            Développement d'un environnement graphique 3D complet sans framework lourd, exploitant directement les primitives géométriques d'OpenGL.
+                        </span>
+                        <span class="lang-en">
+                            Custom 3D graphics rendering engine built without external heavy engines, directly programming low-level OpenGL graphics primitives.
+                        </span>
+                    </p>
+                    <ul class="project-bullets">
+                        <li>
+                            <span class="lang-fr"><strong>Pipeline Graphique :</strong> Gestion mathématique des matrices MVP (Model-View-Projection), calcul des vecteurs normaux et éclairage spéculaire Phong.</span>
+                            <span class="lang-en"><strong>Graphics Pipeline :</strong> Mathematical implementation of MVP matrices, normal vector calculations, and Phong illumination shading.</span>
+                        </li>
+                        <li>
+                            <span class="lang-fr"><strong>Performances :</strong> Rendu fluide à 60+ images/seconde avec contrôle caméra temps réel (pitch/yaw/roll) et gestion des événements clavier/souris.</span>
+                            <span class="lang-en"><strong>Performance :</strong> Smooth 60+ FPS rendering loop with real-time pitch/yaw camera controls and event loop management.</span>
+                        </li>
+                    </ul>
+                    <div class="tags-list">
+                        <span class="tag-badge highlight">C</span>
+                        <span class="tag-badge highlight">OpenGL</span>
+                        <span class="tag-badge">FreeGLUT</span>
+                        <span class="tag-badge">Algèbre Linéaire</span>
+                        <span class="tag-badge">Rendu 60 FPS</span>
+                    </div>
+                </article>
+
+                <!-- Projet 7 : UpStair (Olympiades de l'Ingénierie) -->
+                <article class="project-card" data-category="embedded">
+                    <div class="project-header">
+                        <div>
+                            <h3 class="project-title">UpStair — Dispositif Mécanique d'Accessibilité PMR</h3>
+                            <div class="project-meta">SolidWorks | Mécatronique | Olympiades des Sciences de l'Ingénieur</div>
+                        </div>
+                        <span class="project-badge production">Projet Primé</span>
+                    </div>
+                    <p class="project-desc">
+                        <span class="lang-fr">
+                            Conception d'une solution d'accessibilité universelle destinée à faciliter le franchissement d'escaliers et de dénivelés pour les personnes en situation de handicap moteur.
+                        </span>
+                        <span class="lang-en">
+                            Universal mechanical accessibility device engineered to facilitate stair and step crossing for individuals with reduced physical mobility.
+                        </span>
+                    </p>
+                    <ul class="project-bullets">
+                        <li>
+                            <span class="lang-fr"><strong>Conception Assistée par Ordinateur :</strong> Modélisation cinématique complète sous SolidWorks avec simulation des efforts mécaniques et calculs de charge (RDM).</span>
+                            <span class="lang-en"><strong>CAD Modeling :</strong> Complete kinematic assembly inside SolidWorks with finite element stress calculations (mechanics of materials).</span>
+                        </li>
+                        <li>
+                            <span class="lang-fr"><strong>Distinction :</strong> Projet développé et soutenu avec succès devant un jury d'ingénieurs dans le cadre des Olympiades des Sciences de l'Ingénieur.</span>
+                            <span class="lang-en"><strong>Award :</strong> Selected and defended before a jury of industry engineers during the National Engineering Sciences Olympiads.</span>
+                        </li>
+                    </ul>
+                    <div class="tags-list">
+                        <span class="tag-badge highlight">SolidWorks</span>
+                        <span class="tag-badge">Mécatronique</span>
+                        <span class="tag-badge">RDM</span>
+                        <span class="tag-badge">Capteurs &amp; Moteurs</span>
+                        <span class="tag-badge">Olympiades</span>
+                    </div>
+                </article>
+
+            </div>
+
+            <!-- Redirection Parcours -->
+            <section style="margin-top: 2.5rem; border-top: 1px dashed var(--border-crisp); padding-top: 1.5rem;">
+                <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+                    <div>
+                        <span class="font-mono" style="color: var(--accent-terminal); font-size: 0.9rem;">&gt; Consulter la chronologie académique :</span>
+                    </div>
+                    <div>
+                        <a href="parcours.html" class="btn-ctrl primary">
+                            <span class="lang-fr">Voir le parcours complet &amp; expériences →</span>
+                            <span class="lang-en">View career &amp; education timeline →</span>
+                        </a>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Pied de Page -->
+        <footer class="site-footer">
+            <div>
+                <span>© 2026 Mael — Catalogue de Projets d'Ingénierie</span>
+            </div>
+            <div class="footer-links">
+                <a href="index.html">Accueil</a>
+                <a href="about.html">À Propos</a>
+                <a href="projets.html">Projets</a>
+                <a href="parcours.html">Parcours</a>
+                <a href="cv.html">CV</a>
+            </div>
+        </footer>
     </div>
 
     <script src="script.js"></script>
