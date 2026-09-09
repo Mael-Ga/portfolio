@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="fr" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mael - À Propos</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav class="navbar no-print">
+        <a href="index.html" class="nav-brand">Mael.</a>
+        <div class="nav-links">
+            <a href="index.html">Accueil</a>
+            <a href="about.html">À Propos</a>
+            <a href="projets.html">Projets</a>
+            <a href="parcours.html">Parcours</a>
+        </div>
+    </nav>
+
+    <div class="settings-panel no-print" contenteditable="false">
+        <!-- Même panneau que index.html -->
+        <div class="controls-wrapper">
+            <button id="theme-toggle-btn" class="control-btn" onclick="toggleTheme()"><span>☀️ Mode Clair</span></button>
+            <button class="control-btn primary" onclick="downloadPDF()"><span>📄 Exporter PDF</span></button>
+            <button class="control-btn save" onclick="saveHTML()"><span>💾 Sauvegarder HTML</span></button>
+        </div>
+    </div>
+
+    <div class="container" contenteditable="true" spellcheck="false">
+        <section>
+            <h2>À Propos de moi</h2>
+            <p style="text-align: justify; margin-bottom: 1.5rem;">
+                Étudiant en deuxième année à l'École Nationale d'Ingénieurs de Brest (ENIB)[cite: 1], je suis actuellement à la recherche d'un emploi saisonnier pour financer mes études. Fort de mon expérience internationale grâce à un semestre de mobilité à l'Université Aristote de Thessalonique, je m'adapte rapidement aux nouveaux environnements techniques.
+            </p>
+            <p style="text-align: justify;">
+                Sérieux, extrêmement adaptable et autonome, je m'épanouis dans les environnements techniques complexes et le travail d'équipe. Mes nombreux projets en ingénierie logicielle m'ont permis de développer une forte capacité d'analyse logique et une grande proactivité. Je suis pleinement disponible de jour comme de nuit, prêt à m m'engager sur des missions exigeantes[cite: 1].
+            </p>
+        </section>
+
+        <section>
+            <h2>Soft Skills & Langues[cite: 1]</h2>
+            <div class="skills-container">
+                <span class="skill-tag">Créatif & Réfléchi[cite: 1]</span>
+                <span class="skill-tag">Multitâches[cite: 1]</span>
+                <span class="skill-tag">Communication Orale[cite: 1]</span>
+                <span class="skill-tag">Français (Natif)[cite: 1]</span>
+                <span class="skill-tag">Anglais (B2)[cite: 1]</span>
+                <span class="skill-tag">Allemand (Bases)[cite: 1]</span>
+            </div>
+        </section>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

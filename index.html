@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="fr" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mael - Accueil</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav class="navbar no-print">
+        <a href="index.html" class="nav-brand">Mael.</a>
+        <div class="nav-links">
+            <a href="index.html">Accueil</a>
+            <a href="about.html">À Propos</a>
+            <a href="projets.html">Projets</a>
+            <a href="parcours.html">Parcours</a>
+        </div>
+    </nav>
+
+    <div class="settings-panel no-print" contenteditable="false">
+        <h3>⚙️ Paramètres & Sauvegarde</h3>
+        <p style="margin-bottom: 15px; font-size: 0.9rem;"><em>Modifiez le texte en cliquant dessus, puis sauvegardez le fichier HTML de cette page.</em></p>
+        <div class="controls-wrapper">
+            <button id="theme-toggle-btn" class="control-btn" onclick="toggleTheme()"><span>☀️ Mode Clair</span></button>
+            <button class="control-btn primary" onclick="downloadPDF()"><span>📄 Exporter PDF</span></button>
+            <button class="control-btn save" onclick="saveHTML()"><span>💾 Sauvegarder HTML</span></button>
+        </div>
+    </div>
+
+    <div class="container" contenteditable="true" spellcheck="false">
+        <header style="border-bottom: none; margin-bottom: 0; padding-bottom: 0;">
+            <h1>Mael[cite: 1]</h1>
+            <div class="subtitle">Étudiant Ingénieur & Développeur Backend / Systèmes[cite: 1]</div>
+            <div class="contact-bar" style="margin-top: 1.5rem;">
+                <span class="contact-badge">France[cite: 1]</span>
+                <span class="contact-badge">Disponible missions saisonnières/nuit[cite: 1]</span>
+            </div>
+            <p style="margin-top: 2rem; text-align: justify;">
+                Bienvenue sur mon portfolio. Je suis un futur ingénieur passionné par l'architecture logicielle, les systèmes embarqués et la robotique. Explorez mes projets académiques et personnels via la navigation ci-dessus.
+            </p>
+        </header>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="fr" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mael - Projets</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav class="navbar no-print">
+        <a href="index.html" class="nav-brand">Mael.</a>
+        <div class="nav-links">
+            <a href="index.html">Accueil</a>
+            <a href="about.html">À Propos</a>
+            <a href="projets.html">Projets</a>
+            <a href="parcours.html">Parcours</a>
+        </div>
+    </nav>
+
+    <div class="settings-panel no-print" contenteditable="false">
+        <div class="controls-wrapper">
+            <button id="theme-toggle-btn" class="control-btn" onclick="toggleTheme()"><span>☀️ Mode Clair</span></button>
+            <button class="control-btn primary" onclick="downloadPDF()"><span>📄 Exporter PDF</span></button>
+            <button class="control-btn save" onclick="saveHTML()"><span>💾 Sauvegarder HTML</span></button>
+        </div>
+    </div>
+
+    <div class="container" contenteditable="true" spellcheck="false">
+        <section>
+            <h2>Projets Majeurs</h2>
+            <div class="section-item">
+                <div class="item-title">Robotique & ROS Melodic</div>
+                <ul>
+                    <li>Développement de nœuds ROS temps réel pour le positionnement de drones (publishers/subscribers).</li>
+                    <li>Utilisation experte de RViz, Gazebo et Turtlesim pour la modélisation de trajectoires complexes.</li>
+                </ul>
+            </div>
+            
+            <div class="section-item">
+                <div class="item-title">Modélisation de Réseaux Nanoscopiques</div>
+                <ul>
+                    <li>Création de simulations AnyLogic pour évaluer des algorithmes d'encodage moléculaire (Concentration Shift Keying, PPM).</li>
+                </ul>
+            </div>
+
+            <div class="section-item">
+                <div class="item-title">SLASHER (Jeu Multijoueur Asymétrique)[cite: 1]</div>
+                <ul>
+                    <li>Développement d'un jeu compétitif 1vsN avec Java sur l'API Paper 1.21.10[cite: 1].</li>
+                    <li>Architecture orientée performances backend : opérations asynchrones, protection contre les fuites de mémoire et stabilité du tick-rate[cite: 1].</li>
+                </ul>
+            </div>
+
+            <div class="section-item">
+                <div class="item-title">Programmation Graphique 3D</div>
+                <ul>
+                    <li>Création d'environnements interactifs 3D en C natif à l'aide des bibliothèques OpenGL et FreeGLUT.</li>
+                </ul>
+            </div>
+
+            <div class="section-item">
+                <div class="item-title">Sécurité des Systèmes Embarqués[cite: 1]</div>
+                <ul>
+                    <li>Recherche et conception d'architectures de protection contre les surtensions matérielles (Diodes TVS, MOVs)[cite: 1].</li>
+                    <li>Analyse de vulnérabilités logicielles (débordements de tampon, failles d'injection).</li>
+                </ul>
+            </div>
+
+            <div class="section-item">
+                <div class="item-title">Plugin Audio VST en C++[cite: 1]</div>
+                <ul>
+                    <li>Développement d'un saturateur audio personnalisé ciblant les basses fréquences via le framework JUCE[cite: 1].</li>
+                </ul>
+            </div>
+        </section>
+
+        <section>
+            <h2>Stack Technique Principale[cite: 1]</h2>
+            <div class="skills-container">
+                <span class="skill-tag">Java (Paper API)[cite: 1]</span>
+                <span class="skill-tag">C / C++ (OpenGL, JUCE)[cite: 1]</span>
+                <span class="skill-tag">Python[cite: 1]</span>
+                <span class="skill-tag">Rust[cite: 1]</span>
+                <span class="skill-tag">ROS Melodic</span>
+                <span class="skill-tag">AnyLogic</span>
+                <span class="skill-tag">Linux / Bash[cite: 1]</span>
+                <span class="skill-tag">HTML / CSS[cite: 1]</span>
+                <span class="skill-tag">SolidWorks / Catia (3D)[cite: 1]</span>
+            </div>
+        </section>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

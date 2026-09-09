@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="fr" data-theme="dark"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mael | Portfolio</title>
+    <style>
+        :root {
+            /* Dark Theme Variables */
+            --bg-main: #0d1117;
+            --bg-card: #161b22;
+            --text-main: #c9d1d9;
+            --text-heading: #ffffff;
+            --text-muted: #8b949e;
+            --accent: #58a6ff;
+            --border: #30363d;
+            --tag-bg: rgba(88, 166, 255, 0.1);
+            --tag-border: rgba(88, 166, 255, 0.4);
+            --transition: all 0.3s ease;
+        }
+
+        [data-theme="light"] {
+            /* Light Theme Variables */
+            --bg-main: #f6f8fa;
+            --bg-card: #ffffff;
+            --text-main: #24292f;
+            --text-heading: #1f2328;
+            --text-muted: #57606a;
+            --accent: #0969da;
+            --border: #d0d7de;
+            --tag-bg: rgba(9, 105, 218, 0.08);
+            --tag-border: rgba(9, 105, 218, 0.3);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-main);
+            color: var(--text-main);
+            line-height: 1.6;
+            transition: var(--transition);
+        }
+
+        /* Container & Layout */
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        section {
+            margin-bottom: 4rem;
+            animation: fadeIn 0.8s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Typography */
+        h1, h2, h3 { color: var(--text-heading); }
+        h1 { font-size: 3rem; margin-bottom: 0.5rem; letter-spacing: -1px; }
+        h2 { font-size: 1.8rem; margin-bottom: 1.5rem; border-bottom: 2px solid var(--border); padding-bottom: 0.5rem; }
+        h3 { font-size: 1.2rem; color: var(--accent); margin-bottom: 0.5rem; }
+        .subtitle { font-size: 1.2rem; color: var(--text-muted); margin-bottom: 1.5rem; }
+
+        /* Links & Buttons */
+        a { color: var(--accent); text-decoration: none; }
+        a:hover { text-decoration: underline; }
+        
+        .btn {
+            display: inline-block;
+            padding: 0.6rem 1.2rem;
+            background-color: var(--bg-card);
+            color: var(--accent);
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: var(--transition);
+            text-decoration: none;
+        }
+        .btn:hover {
+            background-color: var(--border);
+            text-decoration: none;
+        }
+        .btn-primary {
+            background-color: #238636;
+            color: white;
+            border-color: rgba(255,255,255,0.1);
+        }
+        .btn-primary:hover {
+            background-color: #2ea043;
+        }
+
+        /* Grids */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        /* Cards */
+        .card {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 1.5rem;
+            transition: var(--transition);
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            border-color: var(--accent);
+        }
+
+        /* Tags */
+        .tags { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1rem; }
+        .tag {
+            background-color: var(--tag-bg);
+            color: var(--accent);
+            border: 1px solid var(--tag-border);
+            padding: 0.2rem 0.6rem;
+            border-radius: 12px;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        /* Experience Timeline */
+        .timeline-item {
+            margin-bottom: 1.5rem;
+            padding-left: 1.5rem;
+            border-left: 2px solid var(--border);
+            position: relative;
+        }
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -6px;
+            top: 5px;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background-color: var(--accent);
+        }
+        .date { font-size: 0.9rem; color: var(--text-muted); }
+
+        /* Navigation */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+            margin-bottom: 3rem;
+            border-bottom: 1px solid var(--border);
+        }
+        .nav-links { display: flex; gap: 1.5rem; }
+
+        /* Settings Floating Menu */
+        .settings-panel {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            padding: 1rem;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            z-index: 1000;
+        }
+        
+        /* Edit Mode Styles */
+        .editing [contenteditable="true"] {
+            outline: 2px dashed var(--accent);
+            outline-offset: 4px;
+            border-radius: 4px;
+            background: rgba(88, 166, 255, 0.05);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Floating Settings Panel -->
+    <div class="settings-panel" id="settingsPanel">
+        <div style="font-size: 0.8rem; color: var(--text-muted); margin-bottom: 5px; font-weight: bold; text-transform: uppercase;">Paramètres</div>
+        <button class="btn" onclick="toggleTheme()" id="themeBtn">☀️ Thème Clair</button>
+        <button class="btn" onclick="toggleEditMode()" id="editBtn">✏️ Activer Mode Édition</button>
+        <button class="btn btn-primary" onclick="saveModifications()">💾 Exporter HTML modifié</button>
+    </div>
+
+    <div class="container">
+        <!-- Navigation -->
+        <nav>
+            <strong style="font-size: 1.2rem;" class="editable">Mael.</strong>
+            <div class="nav-links">
+                <a href="#about">À propos</a>
+                <a href="#projects">Projets</a>
+                <a href="#experience">Parcours</a>
+                <a href="cv.html" class="btn" style="padding: 0.3rem 0.8rem;">Voir CV</a>
+            </div>
+        </nav>
+
+        <!-- Hero Section -->
+        <sectionce portfolio="" interactif="" centralise="" vos="" compétences="" en="" développement="" et="" ingénierie.="" l'ensemble="" de="" la="" page="" est="" éditable="" un="" clic="" :="" modifiez="" le="" texte="" directement,="" puis="" utilisez="" section="" **paramètres**="" pour="" sauvegarder="" nouveau="" fichier="" html="" sur="" votre="" ordinateur.="" ```html="" <!doctype="">
+
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mael - Étudiant Ingénieur &amp; Développeur</title>
+    <style>
+        :root {
+            --bg-color: #0d1117;
+            --card-bg: #161b22;
+            --text-color: #c9d1d9;
+            --text-heading: #ffffff;
+            --text-muted: #8b949e;
+            --accent-color: #58a6ff;
+            --border-color: #30363d;
+            --badge-bg: #21262d;
+            --tag-bg: rgba(88, 166, 255, 0.1);
+            --tag-border: rgba(88, 166, 255, 0.4);
+            --btn-bg: #21262d;
+            --btn-hover: #30363d;
+            --btn-text: #c9d1d9;
+            --btn-primary-bg: #238636;
+            --btn-primary-hover: #2ea043;
+            --shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+
+        [data-theme="light"] {
+            --bg-color: #f6f8fa;
+            --card-bg: #ffffff;
+            --text-color: #24292f;
+            --text-heading: #1f2328;
+            --text-muted: #57606a;
+            --accent-color: #0969da;
+            --border-color: #d0d7de;
+            --badge-bg: #eff1f3;
+            --tag-bg: rgba(9, 105, 218, 0.08);
+            --tag-border: rgba(9, 105, 218, 0.3);
+            --btn-bg: #f3f4f6;
+            --btn-hover: #e5e7eb;
+            --btn-text: #24292f;
+            --btn-primary-bg: #1f883d;
+            --btn-primary-hover: #1a7f37;
+            --shadow: 0 8px 24px rgba(140, 149, 159, 0.2);
+        }
+
+        * {
+            box-sizing: border-box;
+            transition: background-color 0.25s ease, color 0.25s ease, border-color 0.25s ease;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            margin: 0;
+            padding: 2rem 1rem;
+        }
+
+        /* Section Paramètres */
+        .settings-panel {
+            max-width: 900px;
+            margin: 0 auto 2rem auto;
+            background-color: var(--card-bg);
+            border: 2px dashed var(--accent-color);
+            border-radius: 8px;
+            padding: 1.5rem;
+            box-shadow: var(--shadow);
+        }
+        
+        .settings-panel h3 {
+            margin-top: 0;
+            color: var(--accent-color);
+            margin-bottom: 1rem;
+        }
+
+        .controls-wrapper {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .control-btn {
+            background-color: var(--btn-bg);
+            color: var(--btn-text);
+            border: 1px solid var(--border-color);
+            padding: 0.6rem 1.2rem;
+            border-radius: 6px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .control-btn:hover { background-color: var(--btn-hover); }
+        .control-btn.primary { background-color: var(--btn-primary-bg); color: #ffffff; border-color: rgba(255,255,255,0.1); }
+        .control-btn.primary:hover { background-color: var(--btn-primary-hover); }
+        .control-btn.save { background-color: var(--accent-color); color: #fff; border: none; }
+        .control-btn.save:hover { opacity: 0.9; }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 2.5rem;
+            box-shadow: var(--shadow);
+        }
+        
+        .container:focus-visible { outline: 2px solid var(--accent-color); }
+
+        header { border-bottom: 2px solid var(--border-color); padding-bottom: 1.5rem; margin-bottom: 2rem; }
+        h1 { color: var(--text-heading); margin: 0 0 0.4rem 0; font-size: 2.5rem; }
+        .subtitle { font-size: 1.25rem; color: var(--accent-color); font-weight: 500; margin-bottom: 1rem; }
+        
+        .contact-bar { display: flex; gap: 0.75rem; flex-wrap: wrap; }
+        .contact-badge { background-color: var(--badge-bg); border: 1px solid var(--border-color); color: var(--text-muted); padding: 0.4rem 0.8rem; border-radius: 20px; font-size: 0.88rem; }
+        
+        h2 { color: var(--text-heading); border-bottom: 1px solid var(--border-color); padding-bottom: 0.5rem; margin-top: 2rem; margin-bottom: 1.2rem; font-size: 1.4rem; }
+        
+        .grid-2-col { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
+        @media (max-width: 768px) { .grid-2-col { grid-template-columns: 1fr; } }
+
+        .section-item { margin-bottom: 1.5rem; }
+        .item-header { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 0.3rem; }
+        .item-title { font-weight: 600; color: var(--accent-color); font-size: 1.05rem; }
+        .item-date { font-size: 0.88rem; color: var(--text-muted); }
+        .item-subtitle { font-style: italic; color: var(--text-heading); font-size: 0.95rem; margin-bottom: 0.5rem; }
+
+        ul { margin: 0; padding-left: 1.25rem; }
+        li { margin-bottom: 0.4rem; color: var(--text-color); }
+
+        .skills-container { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+        .skill-tag { background-color: var(--tag-bg); color: var(--accent-color); border: 1px solid var(--tag-border); padding: 0.35rem 0.75rem; border-radius: 15px; font-size: 0.88rem; font-weight: 500; }
+
+        @media print {
+            .settings-panel { display: none !important; }
+            body { background-color: #ffffff !important; color: #1f2328 !important; padding: 0 !important; }
+            .container { box-shadow: none !important; border: none !important; }
+            h1, h2 { color: #1f2328 !important; border-bottom-color: #d0d7de !important; }
+            .subtitle, .item-title { color: #0969da !important; }
+            .contact-badge, .skill-tag { background-color: #eff1f3 !important; color: #1f2328 !important; border-color: #d0d7de !important; }
+        }
+    </style>
+
+
+
+    <!-- Panneau de Paramètres Exclusif -->
+    <div class="settings-panel no-print" contenteditable="false">
+        <h3>⚙️ Espace Paramètres &amp; Sauvegarde</h3>
+        <p style="margin-bottom: 15px; font-size: 0.9rem;"><em>Modifiez le texte du portfolio directement en cliquant dessus. Une fois terminé, téléchargez la version mise à jour ci-dessous.</em></p>
+        <div class="controls-wrapper">
+            <button id="theme-toggle-btn" class="control-btn" onclick="toggleTheme()" aria-label="Toggle Theme"><span>☀️ Mode Clair</span></button>
+            <button class="control-btn primary" onclick="downloadPDF()" aria-label="Export as PDF">
+                <span>📄 Exporter en PDF</span>
+            </button>
+            <button class="control-btn save" onclick="saveHTML()" aria-label="Save HTML">
+                <span>💾 Sauvegarder le fichier HTML</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- Contenu Éditable -->
+    <div class="container" contenteditable="true" spellcheck="false">
+        <header>
+            <h1>Mael[cite: 1]</h1>
+            <div class="subtitle">Étudiant Ingénieur &amp; Développeur Logiciel/Système[cite: 1]</div>
+            <div class="contact-bar">
+                <span class="contact-badge">Disponible pour des missions saisonnières/de nuit[cite: 1]</span>
+                <span class="contact-badge">France[cite: 1]</span>
+            </div>
+        </header>
+
+        <section>
+            <h2>À Propos</h2>
+            <p class="about-text">
+                Étudiant en école d'ingénieurs à l'ENIB[cite: 1], j'ai enrichi mon parcours par une mobilité à l'Université Aristote de Thessalonique. Autonome et rigoureux[cite: 1], je m'investis activement dans l'architecture backend, le développement 3D en C/C++ et la robotique[cite: 1]. 
+            </p>
+        </section>
+
+        <div class="grid-2-col">
+            <div>
+                <section>
+                    <h2>Éducation</h2>
+                    <div class="section-item">
+                        <div class="item-header">
+                            <span class="item-title">Université Aristote de Thessalonique</span>
+                            <span class="item-date">2026</span>
+                        </div>
+                        <div class="item-subtitle">Semestre de Mobilité Académique</div>
+                        <ul>
+                            <li>Cours en ingénierie et mécatronique.</li>
+                        </ul>
+                    </div>
+                    <div class="section-item">
+                        <div class="item-header">
+                            <span class="item-title">École Nationale d'Ingénieurs de Brest (ENIB)</span>
+                            <span class="item-date">2023 - 2025</span>
+                        </div>
+                        <div class="item-subtitle">A-1 &amp; A-2: Cycle Préparatoire Intégré[cite: 1]</div>
+                        <ul>
+                            <li>Systèmes embarqués, électronique et ingénierie logicielle[cite: 1].</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <section>
+                    <h2>Expérience</h2>
+                    <div class="section-item">
+                        <div class="item-header">
+                            <span class="item-title">Chambre de Métiers et de l'Artisanat</span>
+                            <span class="item-date">2024 - 2025</span>
+                        </div>
+                        <div class="item-subtitle">Stagiaire en Maintenance Informatique[cite: 1]</div>
+                        <ul>
+                            <li>Mises à jour des systèmes OS, optimisation matérielle et diagnostic réseau[cite: 1].</li>
+                        </ul>
+                    </div>
+                </section>
+            </div>
+
+            <div>
+                <section>
+                    <h2>Projets Majeurs</h2>
+                    <div class="section-item">
+                        <div class="item-title">Robotique Mobile &amp; Systèmes ROS</div>
+                        <ul>
+                            <li>Développement de nœuds ROS Melodic temps réel pour le positionnement de drones et la simulation de trajectoires via Turtlesim, RViz et Gazebo.</li>
+                        </ul>
+                    </div>
+                    <div class="section-item">
+                        <div class="item-title">Simulation AnyLogic &amp; Réseaux</div>
+                        <ul>
+                            <li>Modélisation d'algorithmes d'encodage (Concentration Shift Keying, PPM) pour les systèmes de communication moléculaire à l'échelle nanométrique.</li>
+                        </ul>
+                    </div>
+                    <div class="section-item">
+                        <div class="item-title">SLASHER (Backend Java)</div>
+                        <ul>
+                            <li>Création d'un jeu multijoueur (1vsN) sur Paper 1.21.10, avec optimisation asynchrone pointue et protection contre les fuites de mémoire[cite: 1].</li>
+                        </ul>
+                    </div>
+                    <div class="section-item">
+                        <div class="item-title">Graphisme 3D (C/OpenGL)</div>
+                        <ul>
+                            <li>Développement et compilation d'applications interactives de modèles 3D à l'aide de FreeGLUT et MSYS2.</li>
+                        </ul>
+                    </div>
+                    <div class="section-item">
+                        <div class="item-title">Sécurité &amp; Systèmes Embarqués</div>
+                        <ul>
+                            <li>Analyse de vulnérabilités logicielles (débordements de tampon) et présentation sur les normes de protection contre les surtensions (Diodes TVS, MOVs).</li>
+                        </ul>
+                    </div>
+                </section>
+            </div>
+        </div>
+
+        <section>
+            <h2>Compétences Techniques</h2>
+            <div class="skills-container">
+                <span class="skill-tag">C / C++ (OpenGL, JUCE)[cite: 1]</span>
+                <span class="skill-tag">Java (Paper API)[cite: 1]</span>
+                <span class="skill-tag">Python &amp; Rust[cite: 1]</span>
+                <span class="skill-tag">ROS Melodic &amp; Robotique</span>
+                <span class="skill-tag">Simulation AnyLogic</span>
+                <span class="skill-tag">Linux / Bash[cite: 1]</span>
+                <span class="skill-tag">Méthodes Numériques (Runge-Kutta)</span>
+                <span class="skill-tag">Filtres de Kalman (EKF, UKF)</span>
+                <span class="skill-tag">Sécurité Logicielle</span>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        function toggleTheme() {
+            const html = document.documentElement;
+            const currentTheme = html.getAttribute('data-theme') || 'dark';
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            
+            html.setAttribute('data-theme', newTheme);
+            localStorage.setItem('cv_theme', newTheme);
+            
+            const btn = document.getElementById('theme-toggle-btn');
+            if (btn) btn.innerHTML = newTheme === 'dark' ? '<span>☀️ Mode Clair</span>' : '<span>🌙 Mode Sombre</span>';
+        }
+
+        function downloadPDF() {
+            window.print();
+        }
+
+        function saveHTML() {
+            if(document.activeElement) document.activeElement.blur();
+            const htmlContent = "<!DOCTYPE html>\n" + document.documentElement.outerHTML;
+            const blob = new Blob([htmlContent], { type: "text/html;charset=utf-8" });
+            const a = document.createElement("a");
+            a.href = URL.createObjectURL(blob);
+            a.download = "portfolio_mael_modifie.html";
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(a.href);
+        }
+
+        (function() {
+            const savedTheme = localStorage.getItem('cv_theme') || 'dark';
+            document.documentElement.setAttribute('data-theme', savedTheme);
+            const btn = document.getElementById('theme-toggle-btn');
+            if (btn) btn.innerHTML = savedTheme === 'dark' ? '<span>☀️ Mode Clair</span>' : '<span>🌙 Mode Sombre</span>';
+        })();
+    </script>
+
+</sectionce></div></body></html>

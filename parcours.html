@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="fr" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mael - Parcours</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav class="navbar no-print">
+        <a href="index.html" class="nav-brand">Mael.</a>
+        <div class="nav-links">
+            <a href="index.html">Accueil</a>
+            <a href="about.html">À Propos</a>
+            <a href="projets.html">Projets</a>
+            <a href="parcours.html">Parcours</a>
+        </div>
+    </nav>
+
+    <div class="settings-panel no-print" contenteditable="false">
+        <div class="controls-wrapper">
+            <button id="theme-toggle-btn" class="control-btn" onclick="toggleTheme()"><span>☀️ Mode Clair</span></button>
+            <button class="control-btn primary" onclick="downloadPDF()"><span>📄 Exporter PDF</span></button>
+            <button class="control-btn save" onclick="saveHTML()"><span>💾 Sauvegarder HTML</span></button>
+        </div>
+    </div>
+
+    <div class="container" contenteditable="true" spellcheck="false">
+        <section>
+            <h2>Éducation[cite: 1]</h2>
+            <div class="section-item">
+                <div class="item-header">
+                    <span class="item-title">Université Aristote de Thessalonique</span>
+                    <span class="item-date">2026</span>
+                </div>
+                <div class="item-subtitle">Semestre de Mobilité Académique (Erasmus)</div>
+                <ul>
+                    <li>Spécialisation en ingénierie, systèmes de contrôle et mécatronique.</li>
+                </ul>
+            </div>
+
+            <div class="section-item">
+                <div class="item-header">
+                    <span class="item-title">École Nationale d'Ingénieurs de Brest (ENIB)[cite: 1]</span>
+                    <span class="item-date">2023 - 2025[cite: 1]</span>
+                </div>
+                <div class="item-subtitle">A-1 & A-2: Cycle Préparatoire Intégré[cite: 1]</div>
+                <ul>
+                    <li>Mathématiques appliquées, électronique, systèmes embarqués et génie logiciel[cite: 1].</li>
+                </ul>
+            </div>
+
+            <div class="section-item">
+                <div class="item-header">
+                    <span class="item-title">Lycée Chaptal[cite: 1]</span>
+                    <span class="item-date">2020 - 2023[cite: 1]</span>
+                </div>
+                <div class="item-subtitle">Baccalauréat Général[cite: 1]</div>
+                <ul>
+                    <li>Spécialité : Sciences de l'ingénieur[cite: 1].</li>
+                </ul>
+            </div>
+        </section>
+
+        <section>
+            <h2>Expérience Professionnelle[cite: 1]</h2>
+            <div class="section-item">
+                <div class="item-header">
+                    <span class="item-title">Chambre de Métiers et de l'Artisanat[cite: 1]</span>
+                    <span class="item-date">2024 - 2025[cite: 1]</span>
+                </div>
+                <div class="item-subtitle">Stagiaire en Maintenance Informatique et Technique (1 Mois)[cite: 1]</div>
+                <ul>
+                    <li>Exécution de tâches de maintenance : déploiement d'images système (ghosting), mises à jour OS et optimisation matérielle[cite: 1].</li>
+                    <li>Garantie de la stabilité du réseau et résolution des problèmes techniques de routine[cite: 1].</li>
+                </ul>
+            </div>
+        </section>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
