@@ -9,8 +9,16 @@
 </head>
 <body>
 
+    <!-- Arrière-plan Ambiant Immersif pour réfraction optique QuickLiquid -->
+    <div class="ambient-backdrop no-print" aria-hidden="true">
+        <div class="ambient-orb orb-1"></div>
+        <div class="ambient-orb orb-2"></div>
+        <div class="ambient-orb orb-3"></div>
+        <div class="ambient-grid"></div>
+    </div>
+
     <div class="site-wrapper">
-        <!-- En-tête Global avec Branding & Navigation -->
+        <!-- En-tête Global avec Branding & Navigation (Dock Flottant Liquid Glass) -->
         <header class="top-header no-print">
             <div class="brand-block">
                 <a href="index.html" class="brand-link">
@@ -93,7 +101,7 @@
                     <span class="lang-fr">Parcours &amp; Expériences</span>
                     <span class="lang-en">Career &amp; Education Timeline</span>
                 </h1>
-                <p class="font-mono" style="color: var(--accent-terminal); font-size: 1.05rem;">
+                <p class="font-mono" style="color: var(--accent-emerald); font-size: 1.05rem;">
                     <span class="lang-fr">&gt; Formation d'ingénieur, mobilité internationale &amp; immersion professionnelle</span>
                     <span class="lang-en">&gt; Engineering curriculum, international mobility &amp; professional experience</span>
                 </p>
@@ -197,7 +205,7 @@
 
                         <!-- Expérience 1 : Chambre de Métiers -->
                         <div class="timeline-item">
-                            <div class="timeline-dot" style="background-color: var(--accent-amber);"></div>
+                            <div class="timeline-dot" style="background-color: var(--accent-amber); box-shadow: 0 0 12px var(--accent-amber);"></div>
                             <div class="timeline-date">2024 - 2025 (1 Mois)</div>
                             <h3 class="timeline-title">Chambre de Métiers et de l'Artisanat</h3>
                             <div class="timeline-subtitle">Stagiaire en Maintenance Informatique, Systèmes &amp; Réseaux</div>
@@ -220,7 +228,7 @@
                                         <span class="lang-en"><strong>Networking &amp; User Support :</strong> Local network diagnostic troubleshooting (cabling, patch panels, DHCP leases) and responsive support for operational teams.</span>
                                     </li>
                                 </ul>
-                                <div class="tags-list" style="margin-top: 0.75rem;">
+                                <div class="tags-list" style="margin-top: 0.85rem;">
                                     <span class="tag-badge highlight">Masterisation OS</span>
                                     <span class="tag-badge">Clonage Ghost</span>
                                     <span class="tag-badge">Dépannage Hardware</span>
@@ -264,10 +272,10 @@
             </div>
 
             <!-- Accès Direct CV -->
-            <section style="margin-top: 2rem; border-top: 1px dashed var(--border-crisp); padding-top: 1.5rem;">
-                <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+            <section style="margin-top: 2.5rem; border-top: 1px solid var(--glass-border); padding-top: 1.75rem;">
+                <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1.25rem;">
                     <div>
-                        <span class="font-mono" style="color: var(--accent-terminal); font-size: 0.9rem;">&gt; Vous souhaitez un format résumé synthétique pour recrutement ?</span>
+                        <span class="font-mono" style="color: var(--accent-emerald); font-size: 0.9rem; font-weight: 600;">&gt; Vous souhaitez un format résumé synthétique pour recrutement ?</span>
                     </div>
                     <div>
                         <a href="cv.html" class="btn-ctrl primary">
@@ -294,6 +302,7 @@
         </footer>
     </div>
 
+    <script src="quick-liquid.js"></script>
     <script src="script.js"></script>
 </body>
 </html>

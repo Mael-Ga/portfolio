@@ -9,8 +9,16 @@
 </head>
 <body>
 
+    <!-- Arrière-plan Ambiant Immersif pour réfraction optique QuickLiquid -->
+    <div class="ambient-backdrop no-print" aria-hidden="true">
+        <div class="ambient-orb orb-1"></div>
+        <div class="ambient-orb orb-2"></div>
+        <div class="ambient-orb orb-3"></div>
+        <div class="ambient-grid"></div>
+    </div>
+
     <div class="site-wrapper">
-        <!-- En-tête Global avec Branding & Navigation -->
+        <!-- En-tête Global avec Branding & Navigation (Dock Flottant Liquid Glass) -->
         <header class="top-header no-print">
             <div class="brand-block">
                 <a href="index.html" class="brand-link">
@@ -88,12 +96,12 @@
                 <span class="user">mael</span>@<span class="host">workstation</span>:<span class="path">~/portfolio</span>$ ./list-projects --verbose
             </div>
 
-            <header style="margin-bottom: 1.5rem;">
+            <header style="margin-bottom: 1.75rem;">
                 <h1>
                     <span class="lang-fr">Projets &amp; Réalisations Techniques</span>
                     <span class="lang-en">Engineering Projects &amp; Systems</span>
                 </h1>
-                <p class="font-mono" style="color: var(--accent-terminal); font-size: 1.05rem;">
+                <p class="font-mono" style="color: var(--accent-emerald); font-size: 1.05rem;">
                     <span class="lang-fr">&gt; Systèmes distribués, embarqué, simulation de réseaux, DSP audio &amp; robotique</span>
                     <span class="lang-en">&gt; Distributed systems, embedded, network simulation, audio DSP &amp; robotics</span>
                 </p>
@@ -385,10 +393,10 @@
             </div>
 
             <!-- Redirection Parcours -->
-            <section style="margin-top: 2.5rem; border-top: 1px dashed var(--border-crisp); padding-top: 1.5rem;">
-                <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+            <section style="margin-top: 2.5rem; border-top: 1px solid var(--glass-border); padding-top: 1.75rem;">
+                <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1.25rem;">
                     <div>
-                        <span class="font-mono" style="color: var(--accent-terminal); font-size: 0.9rem;">&gt; Consulter la chronologie académique :</span>
+                        <span class="font-mono" style="color: var(--accent-emerald); font-size: 0.9rem; font-weight: 600;">&gt; Consulter la chronologie académique :</span>
                     </div>
                     <div>
                         <a href="parcours.html" class="btn-ctrl primary">
@@ -415,6 +423,7 @@
         </footer>
     </div>
 
+    <script src="quick-liquid.js"></script>
     <script src="script.js"></script>
 </body>
 </html>

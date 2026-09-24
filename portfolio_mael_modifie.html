@@ -1,527 +1,1717 @@
 <!DOCTYPE html>
-<html lang="fr" data-theme="dark"><head>
+<html lang="fr" data-theme="dark" data-lang="fr">
+
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mael | Portfolio</title>
+    <title>Maël Galan — Portfolio Ingénieur | Élève-Ingénieur ENIB</title>
+    <meta name="description"
+        content="Portfolio de Maël Galan : Élève-ingénieur à l'ENIB, spécialisé en mécatronique, systèmes embarqués, robotique ROS et génie logiciel. Recherche stage assistant ingénieur (80 à 136 jours ouvrés).">
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap');
+
         :root {
-            /* Dark Theme Variables */
-            --bg-main: #0d1117;
-            --bg-card: #161b22;
-            --text-main: #c9d1d9;
-            --text-heading: #ffffff;
-            --text-muted: #8b949e;
-            --accent: #58a6ff;
-            --border: #30363d;
-            --tag-bg: rgba(88, 166, 255, 0.1);
-            --tag-border: rgba(88, 166, 255, 0.4);
-            --transition: all 0.3s ease;
+            --font-sans: -apple-system, BlinkMacSystemFont, "Plus Jakarta Sans", "SF Pro Display", "Helvetica Neue", sans-serif;
+            --font-mono: 'JetBrains Mono', SFMono-Regular, Menlo, monospace;
+            --bg-canvas: #05070b;
+            --bg-glass-card: rgba(18, 22, 32, 0.65);
+            --bg-glass-subtle: rgba(255, 255, 255, 0.04);
+            --bg-glass-hover: rgba(255, 255, 255, 0.08);
+            --bg-pill: rgba(255, 255, 255, 0.06);
+            --glass-border: rgba(255, 255, 255, 0.10);
+            --glass-border-highlight: rgba(255, 255, 255, 0.22);
+            --glass-specular: inset 0 1px 0 rgba(255, 255, 255, 0.25), 0 20px 40px -15px rgba(0, 0, 0, 0.6);
+            --glass-blur: blur(36px) saturate(180%);
+            --text-primary: #f5f5f7;
+            --text-secondary: #98989f;
+            --text-tertiary: #636366;
+            --ios-blue: #2997ff;
+            --ios-blue-subtle: rgba(41, 151, 255, 0.12);
+            --ios-green: #30d158;
+            --ios-green-subtle: rgba(48, 209, 88, 0.14);
+            --ios-indigo: #5e5ce6;
+            --ios-amber: #ff9f0a;
+            --ios-amber-subtle: rgba(255, 159, 10, 0.12);
+            --ios-purple: #bf5af2;
+            --ios-purple-subtle: rgba(191, 90, 242, 0.12);
+            --radius-card: 26px;
+            --radius-item: 16px;
+            --radius-badge: 10px;
+            --radius-pill: 9999px;
+            --spring: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
         [data-theme="light"] {
-            /* Light Theme Variables */
-            --bg-main: #f6f8fa;
-            --bg-card: #ffffff;
-            --text-main: #24292f;
-            --text-heading: #1f2328;
-            --text-muted: #57606a;
-            --accent: #0969da;
-            --border: #d0d7de;
-            --tag-bg: rgba(9, 105, 218, 0.08);
-            --tag-border: rgba(9, 105, 218, 0.3);
+            --bg-canvas: #f5f5f7;
+            --bg-glass-card: rgba(255, 255, 255, 0.78);
+            --bg-glass-subtle: rgba(0, 0, 0, 0.025);
+            --bg-glass-hover: rgba(0, 0, 0, 0.05);
+            --bg-pill: rgba(0, 0, 0, 0.04);
+            --glass-border: rgba(0, 0, 0, 0.08);
+            --glass-border-highlight: rgba(255, 255, 255, 0.95);
+            --glass-specular: inset 0 1px 0 rgba(255, 255, 255, 1), 0 16px 36px -10px rgba(0, 0, 0, 0.06);
+            --glass-blur: blur(30px) saturate(190%);
+            --text-primary: #1d1d1f;
+            --text-secondary: #6e6e73;
+            --text-tertiary: #86868b;
+            --ios-blue: #0071e3;
+            --ios-blue-subtle: rgba(0, 113, 227, 0.08);
+            --ios-green: #34c759;
+            --ios-green-subtle: rgba(52, 199, 89, 0.10);
+            --ios-indigo: #5856d6;
+            --ios-amber: #d97706;
+            --ios-amber-subtle: rgba(217, 119, 6, 0.08);
+            --ios-purple: #9333ea;
+            --ios-purple-subtle: rgba(147, 51, 234, 0.08);
         }
 
-        * {
+        *,
+        *::before,
+        *::after {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
         }
 
+        html {
+            font-size: 16px;
+            scroll-behavior: smooth;
+            -webkit-text-size-adjust: 100%;
+        }
+
         body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            background-color: var(--bg-main);
-            color: var(--text-main);
+            font-family: var(--font-sans);
+            background-color: var(--bg-canvas);
+            color: var(--text-primary);
             line-height: 1.6;
-            transition: var(--transition);
+            padding: 2rem 1.25rem 5rem;
+            min-height: 100vh;
+            transition: background-color 0.3s ease, color 0.3s ease;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
         }
 
-        /* Container & Layout */
-        .container {
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 2rem;
+        [data-lang="fr"] .lang-en {
+            display: none !important;
         }
 
-        section {
-            margin-bottom: 4rem;
-            animation: fadeIn 0.8s ease-in-out;
+        [data-lang="en"] .lang-fr {
+            display: none !important;
         }
 
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        /* Typography */
-        h1, h2, h3 { color: var(--text-heading); }
-        h1 { font-size: 3rem; margin-bottom: 0.5rem; letter-spacing: -1px; }
-        h2 { font-size: 1.8rem; margin-bottom: 1.5rem; border-bottom: 2px solid var(--border); padding-bottom: 0.5rem; }
-        h3 { font-size: 1.2rem; color: var(--accent); margin-bottom: 0.5rem; }
-        .subtitle { font-size: 1.2rem; color: var(--text-muted); margin-bottom: 1.5rem; }
-
-        /* Links & Buttons */
-        a { color: var(--accent); text-decoration: none; }
-        a:hover { text-decoration: underline; }
-        
-        .btn {
-            display: inline-block;
-            padding: 0.6rem 1.2rem;
-            background-color: var(--bg-card);
-            color: var(--accent);
-            border: 1px solid var(--border);
-            border-radius: 6px;
-            cursor: pointer;
-            font-weight: 600;
-            transition: var(--transition);
-            text-decoration: none;
-        }
-        .btn:hover {
-            background-color: var(--border);
-            text-decoration: none;
-        }
-        .btn-primary {
-            background-color: #238636;
-            color: white;
-            border-color: rgba(255,255,255,0.1);
-        }
-        .btn-primary:hover {
-            background-color: #2ea043;
-        }
-
-        /* Grids */
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 1.5rem;
-        }
-
-        /* Cards */
-        .card {
-            background-color: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: 8px;
-            padding: 1.5rem;
-            transition: var(--transition);
-        }
-        .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-            border-color: var(--accent);
-        }
-
-        /* Tags */
-        .tags { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1rem; }
-        .tag {
-            background-color: var(--tag-bg);
-            color: var(--accent);
-            border: 1px solid var(--tag-border);
-            padding: 0.2rem 0.6rem;
-            border-radius: 12px;
-            font-size: 0.85rem;
-            font-weight: 500;
-        }
-
-        /* Experience Timeline */
-        .timeline-item {
-            margin-bottom: 1.5rem;
-            padding-left: 1.5rem;
-            border-left: 2px solid var(--border);
-            position: relative;
-        }
-        .timeline-item::before {
-            content: '';
-            position: absolute;
-            left: -6px;
-            top: 5px;
-            width: 10px;
-            height: 10px;
-            border-radius: 50%;
-            background-color: var(--accent);
-        }
-        .date { font-size: 0.9rem; color: var(--text-muted); }
-
-        /* Navigation */
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1rem 0;
-            margin-bottom: 3rem;
-            border-bottom: 1px solid var(--border);
-        }
-        .nav-links { display: flex; gap: 1.5rem; }
-
-        /* Settings Floating Menu */
-        .settings-panel {
+        .ambient-aurora {
             position: fixed;
-            bottom: 2rem;
-            right: 2rem;
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            padding: 1rem;
-            border-radius: 8px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100vw;
+            max-width: 1400px;
+            height: 550px;
+            pointer-events: none;
+            z-index: 0;
+            background: radial-gradient(circle at 50% -10%, rgba(41, 151, 255, 0.12) 0%, rgba(94, 92, 230, 0.06) 40%, transparent 70%);
+            opacity: 0.85;
+            filter: blur(60px);
+        }
+
+        [data-theme="light"] .ambient-aurora {
+            background: radial-gradient(circle at 50% -10%, rgba(0, 113, 227, 0.08) 0%, rgba(88, 86, 214, 0.04) 40%, transparent 70%);
+        }
+
+        .content-container {
+            max-width: 960px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* === iOS Island Nav === */
+        .ios-island {
+            position: sticky;
+            top: 1.25rem;
+            z-index: 100;
+            margin-bottom: 2.25rem;
             display: flex;
-            flex-direction: column;
-            gap: 0.5rem;
-            z-index: 1000;
-        }
-        
-        /* Edit Mode Styles */
-        .editing [contenteditable="true"] {
-            outline: 2px dashed var(--accent);
-            outline-offset: 4px;
-            border-radius: 4px;
-            background: rgba(88, 166, 255, 0.05);
-        }
-    </style>
-</head>
-<body>
-
-    <!-- Floating Settings Panel -->
-    <div class="settings-panel" id="settingsPanel">
-        <div style="font-size: 0.8rem; color: var(--text-muted); margin-bottom: 5px; font-weight: bold; text-transform: uppercase;">Paramètres</div>
-        <button class="btn" onclick="toggleTheme()" id="themeBtn">☀️ Thème Clair</button>
-        <button class="btn" onclick="toggleEditMode()" id="editBtn">✏️ Activer Mode Édition</button>
-        <button class="btn btn-primary" onclick="saveModifications()">💾 Exporter HTML modifié</button>
-    </div>
-
-    <div class="container">
-        <!-- Navigation -->
-        <nav>
-            <strong style="font-size: 1.2rem;" class="editable">Mael.</strong>
-            <div class="nav-links">
-                <a href="#about">À propos</a>
-                <a href="#projects">Projets</a>
-                <a href="#experience">Parcours</a>
-                <a href="cv.html" class="btn" style="padding: 0.3rem 0.8rem;">Voir CV</a>
-            </div>
-        </nav>
-
-        <!-- Hero Section -->
-        <sectionce portfolio="" interactif="" centralise="" vos="" compétences="" en="" développement="" et="" ingénierie.="" l'ensemble="" de="" la="" page="" est="" éditable="" un="" clic="" :="" modifiez="" le="" texte="" directement,="" puis="" utilisez="" section="" **paramètres**="" pour="" sauvegarder="" nouveau="" fichier="" html="" sur="" votre="" ordinateur.="" ```html="" <!doctype="">
-
-
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mael - Étudiant Ingénieur &amp; Développeur</title>
-    <style>
-        :root {
-            --bg-color: #0d1117;
-            --card-bg: #161b22;
-            --text-color: #c9d1d9;
-            --text-heading: #ffffff;
-            --text-muted: #8b949e;
-            --accent-color: #58a6ff;
-            --border-color: #30363d;
-            --badge-bg: #21262d;
-            --tag-bg: rgba(88, 166, 255, 0.1);
-            --tag-border: rgba(88, 166, 255, 0.4);
-            --btn-bg: #21262d;
-            --btn-hover: #30363d;
-            --btn-text: #c9d1d9;
-            --btn-primary-bg: #238636;
-            --btn-primary-hover: #2ea043;
-            --shadow: 0 10px 30px rgba(0,0,0,0.5);
+            align-items: center;
+            justify-content: space-between;
+            padding: 0.6rem 1rem;
+            background: var(--bg-glass-card);
+            backdrop-filter: var(--glass-blur);
+            -webkit-backdrop-filter: var(--glass-blur);
+            border: 1px solid var(--glass-border);
+            border-radius: var(--radius-pill);
+            box-shadow: var(--glass-specular);
+            transition: var(--spring);
         }
 
-        [data-theme="light"] {
-            --bg-color: #f6f8fa;
-            --card-bg: #ffffff;
-            --text-color: #24292f;
-            --text-heading: #1f2328;
-            --text-muted: #57606a;
-            --accent-color: #0969da;
-            --border-color: #d0d7de;
-            --badge-bg: #eff1f3;
-            --tag-bg: rgba(9, 105, 218, 0.08);
-            --tag-border: rgba(9, 105, 218, 0.3);
-            --btn-bg: #f3f4f6;
-            --btn-hover: #e5e7eb;
-            --btn-text: #24292f;
-            --btn-primary-bg: #1f883d;
-            --btn-primary-hover: #1a7f37;
-            --shadow: 0 8px 24px rgba(140, 149, 159, 0.2);
-        }
-
-        * {
-            box-sizing: border-box;
-            transition: background-color 0.25s ease, color 0.25s ease, border-color 0.25s ease;
-        }
-
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            background-color: var(--bg-color);
-            color: var(--text-color);
-            line-height: 1.6;
-            margin: 0;
-            padding: 2rem 1rem;
-        }
-
-        /* Section Paramètres */
-        .settings-panel {
-            max-width: 900px;
-            margin: 0 auto 2rem auto;
-            background-color: var(--card-bg);
-            border: 2px dashed var(--accent-color);
-            border-radius: 8px;
-            padding: 1.5rem;
-            box-shadow: var(--shadow);
-        }
-        
-        .settings-panel h3 {
-            margin-top: 0;
-            color: var(--accent-color);
-            margin-bottom: 1rem;
-        }
-
-        .controls-wrapper {
+        .island-brand {
             display: flex;
-            gap: 10px;
-            flex-wrap: wrap;
+            align-items: center;
+            gap: 0.65rem;
+            text-decoration: none;
+            color: var(--text-primary);
         }
 
-        .control-btn {
-            background-color: var(--btn-bg);
-            color: var(--btn-text);
-            border: 1px solid var(--border-color);
-            padding: 0.6rem 1.2rem;
-            border-radius: 6px;
-            font-size: 0.95rem;
+        .island-avatar {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--ios-blue), var(--ios-indigo));
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 0.75rem;
+            letter-spacing: -0.02em;
+            box-shadow: 0 2px 8px rgba(41, 151, 255, 0.3);
+        }
+
+        .island-title {
+            font-weight: 600;
+            font-size: 0.92rem;
+            letter-spacing: -0.01em;
+        }
+
+        .island-nav-links {
+            display: flex;
+            align-items: center;
+            gap: 0.35rem;
+        }
+
+        .nav-pill-link {
+            text-decoration: none;
+            font-size: 0.84rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+            padding: 0.4rem 0.85rem;
+            border-radius: var(--radius-pill);
+            transition: var(--spring);
+        }
+
+        .nav-pill-link:hover {
+            color: var(--text-primary);
+            background: var(--bg-glass-hover);
+        }
+
+        .island-controls {
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .ios-btn {
+            background: var(--bg-glass-subtle);
+            color: var(--text-primary);
+            border: 1px solid var(--glass-border);
+            padding: 0.42rem 0.85rem;
+            border-radius: var(--radius-pill);
+            font-family: inherit;
+            font-size: 0.82rem;
             font-weight: 600;
             cursor: pointer;
             display: inline-flex;
             align-items: center;
-            gap: 8px;
+            gap: 0.4rem;
+            transition: var(--spring);
+            user-select: none;
+            outline: none;
         }
 
-        .control-btn:hover { background-color: var(--btn-hover); }
-        .control-btn.primary { background-color: var(--btn-primary-bg); color: #ffffff; border-color: rgba(255,255,255,0.1); }
-        .control-btn.primary:hover { background-color: var(--btn-primary-hover); }
-        .control-btn.save { background-color: var(--accent-color); color: #fff; border: none; }
-        .control-btn.save:hover { opacity: 0.9; }
-
-        .container {
-            max-width: 900px;
-            margin: 0 auto;
-            background-color: var(--card-bg);
-            border: 1px solid var(--border-color);
-            border-radius: 8px;
-            padding: 2.5rem;
-            box-shadow: var(--shadow);
+        .ios-btn:hover {
+            background: var(--bg-glass-hover);
+            border-color: var(--glass-border-highlight);
+            transform: translateY(-1px);
         }
-        
-        .container:focus-visible { outline: 2px solid var(--accent-color); }
 
-        header { border-bottom: 2px solid var(--border-color); padding-bottom: 1.5rem; margin-bottom: 2rem; }
-        h1 { color: var(--text-heading); margin: 0 0 0.4rem 0; font-size: 2.5rem; }
-        .subtitle { font-size: 1.25rem; color: var(--accent-color); font-weight: 500; margin-bottom: 1rem; }
-        
-        .contact-bar { display: flex; gap: 0.75rem; flex-wrap: wrap; }
-        .contact-badge { background-color: var(--badge-bg); border: 1px solid var(--border-color); color: var(--text-muted); padding: 0.4rem 0.8rem; border-radius: 20px; font-size: 0.88rem; }
-        
-        h2 { color: var(--text-heading); border-bottom: 1px solid var(--border-color); padding-bottom: 0.5rem; margin-top: 2rem; margin-bottom: 1.2rem; font-size: 1.4rem; }
-        
-        .grid-2-col { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
-        @media (max-width: 768px) { .grid-2-col { grid-template-columns: 1fr; } }
+        .ios-btn:active {
+            transform: scale(0.97);
+        }
 
-        .section-item { margin-bottom: 1.5rem; }
-        .item-header { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 0.3rem; }
-        .item-title { font-weight: 600; color: var(--accent-color); font-size: 1.05rem; }
-        .item-date { font-size: 0.88rem; color: var(--text-muted); }
-        .item-subtitle { font-style: italic; color: var(--text-heading); font-size: 0.95rem; margin-bottom: 0.5rem; }
+        .ios-btn.primary {
+            background: var(--ios-blue);
+            color: #fff;
+            border-color: transparent;
+            box-shadow: 0 4px 14px rgba(41, 151, 255, 0.3);
+        }
 
-        ul { margin: 0; padding-left: 1.25rem; }
-        li { margin-bottom: 0.4rem; color: var(--text-color); }
+        .ios-btn.primary:hover {
+            background: #1a88f0;
+            box-shadow: 0 6px 20px rgba(41, 151, 255, 0.4);
+        }
 
-        .skills-container { display: flex; flex-wrap: wrap; gap: 0.5rem; }
-        .skill-tag { background-color: var(--tag-bg); color: var(--accent-color); border: 1px solid var(--tag-border); padding: 0.35rem 0.75rem; border-radius: 15px; font-size: 0.88rem; font-weight: 500; }
+        .ios-btn.active {
+            background: var(--ios-green-subtle);
+            color: var(--ios-green);
+            border-color: var(--ios-green);
+        }
 
+        /* === Section Cards === */
+        .section-card {
+            background: var(--bg-glass-card);
+            backdrop-filter: var(--glass-blur);
+            -webkit-backdrop-filter: var(--glass-blur);
+            border: 1px solid var(--glass-border);
+            border-radius: var(--radius-card);
+            box-shadow: var(--glass-specular);
+            padding: 2.5rem 3rem;
+            margin-bottom: 2rem;
+            transition: var(--spring);
+        }
+
+        /* === Hero === */
+        .hero-header {
+            text-align: center;
+        }
+
+        .hero-name {
+            font-size: clamp(2.4rem, 5vw, 3.4rem);
+            font-weight: 800;
+            letter-spacing: -0.04em;
+            line-height: 1.05;
+            margin-bottom: 0.65rem;
+            background: linear-gradient(135deg, var(--text-primary) 0%, var(--ios-blue) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-headline {
+            font-size: 1.12rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+            margin-bottom: 1.4rem;
+        }
+
+        .hero-headline strong {
+            color: var(--ios-blue);
+            font-weight: 700;
+        }
+
+        .status-capsule {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.55rem;
+            background: var(--ios-green-subtle);
+            border: 1px solid rgba(48, 209, 88, 0.25);
+            color: var(--ios-green);
+            font-size: 0.83rem;
+            font-weight: 600;
+            padding: 0.42rem 1rem;
+            border-radius: var(--radius-pill);
+            margin-bottom: 1.6rem;
+        }
+
+        .status-dot {
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background-color: var(--ios-green);
+            box-shadow: 0 0 8px var(--ios-green);
+            animation: pulseDot 2.2s infinite ease-in-out;
+        }
+
+        @keyframes pulseDot {
+
+            0%,
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+
+            50% {
+                transform: scale(1.3);
+                opacity: 0.6;
+            }
+        }
+
+        .contact-strip {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+            gap: 0.6rem;
+        }
+
+        .contact-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.45rem;
+            background: var(--bg-pill);
+            border: 1px solid var(--glass-border);
+            color: var(--text-secondary);
+            font-size: 0.86rem;
+            font-weight: 500;
+            padding: 0.38rem 0.85rem;
+            border-radius: var(--radius-pill);
+            text-decoration: none;
+            transition: var(--spring);
+        }
+
+        .contact-pill:hover {
+            color: var(--text-primary);
+            background: var(--bg-glass-hover);
+            border-color: var(--glass-border-highlight);
+        }
+
+        .contact-pill.highlight {
+            color: var(--text-primary);
+            border-color: rgba(41, 151, 255, 0.3);
+            background: var(--ios-blue-subtle);
+        }
+
+        /* === Section Labels === */
+        .section-label {
+            display: flex;
+            align-items: center;
+            gap: 0.65rem;
+            font-size: 0.79rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--text-tertiary);
+            margin-bottom: 1.5rem;
+        }
+
+        .section-label::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: var(--glass-border);
+        }
+
+        /* === About Grid === */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 2.5rem;
+        }
+
+        .about-text {
+            font-size: 0.98rem;
+            line-height: 1.8;
+            color: var(--text-secondary);
+        }
+
+        .about-text strong {
+            color: var(--text-primary);
+            font-weight: 600;
+        }
+
+        .about-text p {
+            margin-bottom: 1rem;
+        }
+
+        .about-text p:last-child {
+            margin-bottom: 0;
+        }
+
+        .info-cards {
+            display: flex;
+            flex-direction: column;
+            gap: 0.65rem;
+        }
+
+        .info-card {
+            background: var(--bg-glass-subtle);
+            border: 1px solid var(--glass-border);
+            border-radius: var(--radius-item);
+            padding: 0.8rem 1rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 0.8rem;
+            transition: var(--spring);
+        }
+
+        .info-card:hover {
+            background: var(--bg-glass-hover);
+        }
+
+        .info-icon {
+            font-size: 1.1rem;
+            flex-shrink: 0;
+            margin-top: 0.1rem;
+        }
+
+        .info-label {
+            font-size: 0.72rem;
+            font-weight: 700;
+            color: var(--text-tertiary);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 0.1rem;
+        }
+
+        .info-value {
+            font-size: 0.88rem;
+            font-weight: 500;
+            color: var(--text-primary);
+        }
+
+        /* === Timeline === */
+        .timeline {
+            position: relative;
+            padding-left: 2.2rem;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 0.5rem;
+            top: 0.5rem;
+            bottom: 0.5rem;
+            width: 2px;
+            background: linear-gradient(to bottom, var(--ios-blue), var(--ios-indigo), var(--ios-purple));
+            opacity: 0.35;
+            border-radius: 2px;
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 2.25rem;
+        }
+
+        .timeline-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .timeline-dot {
+            position: absolute;
+            left: -1.8rem;
+            top: 0.4rem;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--ios-blue);
+            border: 2px solid var(--bg-canvas);
+            box-shadow: 0 0 8px rgba(41, 151, 255, 0.5);
+            transition: var(--spring);
+        }
+
+        .timeline-item:hover .timeline-dot {
+            transform: scale(1.4);
+        }
+
+        .timeline-dot.green {
+            background: var(--ios-green);
+            box-shadow: 0 0 8px rgba(48, 209, 88, 0.5);
+        }
+
+        .timeline-dot.amber {
+            background: var(--ios-amber);
+            box-shadow: 0 0 8px rgba(255, 159, 10, 0.5);
+        }
+
+        .timeline-dot.purple {
+            background: var(--ios-purple);
+            box-shadow: 0 0 8px rgba(191, 90, 242, 0.5);
+        }
+
+        .timeline-date {
+            font-size: 0.76rem;
+            font-weight: 600;
+            color: var(--text-tertiary);
+            background: var(--bg-pill);
+            padding: 0.15rem 0.55rem;
+            border-radius: var(--radius-pill);
+            display: inline-block;
+            margin-bottom: 0.35rem;
+        }
+
+        .timeline-title {
+            font-size: 1.02rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            letter-spacing: -0.01em;
+            margin-bottom: 0.15rem;
+        }
+
+        .timeline-org {
+            font-size: 0.88rem;
+            font-weight: 500;
+            color: var(--ios-blue);
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-desc {
+            font-size: 0.88rem;
+            color: var(--text-secondary);
+            line-height: 1.65;
+        }
+
+        .timeline-desc ul {
+            padding-left: 1.1rem;
+        }
+
+        .timeline-desc li {
+            margin-bottom: 0.3rem;
+        }
+
+        .timeline-desc strong {
+            color: var(--text-primary);
+            font-weight: 600;
+        }
+
+        /* === Projects Grid === */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.25rem;
+        }
+
+        .project-card {
+            background: var(--bg-glass-subtle);
+            border: 1px solid var(--glass-border);
+            border-radius: var(--radius-item);
+            padding: 1.35rem 1.45rem;
+            transition: var(--spring);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--ios-blue), var(--ios-indigo));
+            opacity: 0;
+            transition: var(--spring);
+        }
+
+        .project-card:hover {
+            background: var(--bg-glass-hover);
+            border-color: var(--glass-border-highlight);
+            transform: translateY(-2px);
+        }
+
+        .project-card:hover::before {
+            opacity: 1;
+        }
+
+        .project-card.featured::before {
+            opacity: 1;
+            background: linear-gradient(90deg, var(--ios-amber), var(--ios-purple));
+        }
+
+        .project-tag {
+            display: inline-flex;
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            padding: 0.2rem 0.6rem;
+            border-radius: var(--radius-pill);
+            margin-bottom: 0.7rem;
+        }
+
+        .project-tag.blue {
+            background: var(--ios-blue-subtle);
+            color: var(--ios-blue);
+        }
+
+        .project-tag.green {
+            background: var(--ios-green-subtle);
+            color: var(--ios-green);
+        }
+
+        .project-tag.amber {
+            background: var(--ios-amber-subtle);
+            color: var(--ios-amber);
+        }
+
+        .project-tag.purple {
+            background: var(--ios-purple-subtle);
+            color: var(--ios-purple);
+        }
+
+        .project-title {
+            font-size: 1.02rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 0.3rem;
+            letter-spacing: -0.01em;
+        }
+
+        .project-sub {
+            font-size: 0.82rem;
+            font-weight: 500;
+            color: var(--ios-blue);
+            margin-bottom: 0.7rem;
+        }
+
+        .project-desc {
+            font-size: 0.87rem;
+            color: var(--text-secondary);
+            line-height: 1.65;
+            margin-bottom: 0.85rem;
+        }
+
+        .project-desc strong {
+            color: var(--text-primary);
+            font-weight: 600;
+        }
+
+        .project-chips {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.38rem;
+        }
+
+        .chip {
+            background: var(--bg-glass-subtle);
+            border: 1px solid var(--glass-border);
+            color: var(--text-secondary);
+            font-size: 0.75rem;
+            font-weight: 500;
+            padding: 0.2rem 0.55rem;
+            border-radius: var(--radius-badge);
+            font-family: var(--font-mono);
+        }
+
+        /* === Skills === */
+        .skills-mega-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+
+        .skill-cat-title {
+            font-size: 0.86rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 0.65rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .skill-cat-dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
+
+        .skill-cat-dot.blue {
+            background: var(--ios-blue);
+        }
+
+        .skill-cat-dot.green {
+            background: var(--ios-green);
+        }
+
+        .skill-cat-dot.amber {
+            background: var(--ios-amber);
+        }
+
+        .skill-cat-dot.purple {
+            background: var(--ios-purple);
+        }
+
+        .skills-wrap {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.4rem;
+        }
+
+        .skill-chip {
+            background: var(--bg-glass-subtle);
+            border: 1px solid var(--glass-border);
+            color: var(--text-primary);
+            font-size: 0.82rem;
+            font-weight: 500;
+            padding: 0.28rem 0.68rem;
+            border-radius: var(--radius-badge);
+            transition: var(--spring);
+        }
+
+        .skill-chip:hover {
+            background: var(--bg-glass-hover);
+            border-color: var(--glass-border-highlight);
+            transform: translateY(-1px);
+        }
+
+        .skill-chip.featured {
+            background: var(--ios-blue-subtle);
+            border-color: rgba(41, 151, 255, 0.25);
+            font-weight: 600;
+        }
+
+        /* === Languages === */
+        .lang-capsules {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 0.65rem;
+            margin-top: 0;
+        }
+
+        .lang-card {
+            background: var(--bg-glass-subtle);
+            border: 1px solid var(--glass-border);
+            padding: 0.8rem 1rem;
+            border-radius: var(--radius-item);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .lang-name {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .lang-level {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            font-weight: 500;
+        }
+
+        /* === Interests === */
+        .interests-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+            gap: 1rem;
+        }
+
+        .interest-card {
+            background: var(--bg-glass-subtle);
+            border: 1px solid var(--glass-border);
+            border-radius: var(--radius-item);
+            padding: 1rem 1.1rem;
+            text-align: center;
+            transition: var(--spring);
+        }
+
+        .interest-card:hover {
+            background: var(--bg-glass-hover);
+            transform: translateY(-2px);
+        }
+
+        .interest-icon {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        .interest-label {
+            font-size: 0.88rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 0.2rem;
+        }
+
+        .interest-sub {
+            font-size: 0.76rem;
+            color: var(--text-secondary);
+        }
+
+        /* === Edit Banner === */
+        .edit-mode-banner {
+            display: none;
+            background: var(--ios-blue-subtle);
+            border: 1px solid rgba(41, 151, 255, 0.3);
+            color: var(--text-primary);
+            border-radius: var(--radius-item);
+            padding: 0.75rem 1.25rem;
+            margin-bottom: 1.5rem;
+            font-size: 0.88rem;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        body.editing-active .edit-mode-banner {
+            display: flex;
+        }
+
+        body.editing-active .editable-main {
+            outline: 2px dashed rgba(41, 151, 255, 0.4);
+            outline-offset: 8px;
+            cursor: text;
+        }
+
+        /* === Toast === */
+        .ios-toast {
+            position: fixed;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%) translateY(100px);
+            background: var(--bg-glass-card);
+            backdrop-filter: var(--glass-blur);
+            -webkit-backdrop-filter: var(--glass-blur);
+            border: 1px solid var(--glass-border-highlight);
+            color: var(--text-primary);
+            padding: 0.65rem 1.3rem;
+            border-radius: var(--radius-pill);
+            font-size: 0.88rem;
+            font-weight: 600;
+            box-shadow: var(--glass-specular);
+            z-index: 999;
+            opacity: 0;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            pointer-events: none;
+        }
+
+        .ios-toast.visible {
+            transform: translateX(-50%) translateY(0);
+            opacity: 1;
+        }
+
+        /* === Responsive === */
+        @media (max-width: 768px) {
+            body {
+                padding: 1rem 0.75rem 3rem;
+            }
+
+            .ios-island {
+                padding: 0.5rem 0.75rem;
+            }
+
+            .island-nav-links {
+                display: none;
+            }
+
+            .section-card {
+                padding: 1.75rem 1.5rem;
+                border-radius: 20px;
+            }
+
+            .about-grid,
+            .projects-grid,
+            .skills-mega-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* === Print === */
         @media print {
-            .settings-panel { display: none !important; }
-            body { background-color: #ffffff !important; color: #1f2328 !important; padding: 0 !important; }
-            .container { box-shadow: none !important; border: none !important; }
-            h1, h2 { color: #1f2328 !important; border-bottom-color: #d0d7de !important; }
-            .subtitle, .item-title { color: #0969da !important; }
-            .contact-badge, .skill-tag { background-color: #eff1f3 !important; color: #1f2328 !important; border-color: #d0d7de !important; }
+            body {
+                background: #fff !important;
+                color: #0f172a !important;
+                padding: 0 !important;
+                font-size: 10pt;
+            }
+
+            .ambient-aurora,
+            .ios-island,
+            .edit-mode-banner,
+            .ios-toast,
+            .no-print {
+                display: none !important;
+            }
+
+            .content-container {
+                max-width: 100% !important;
+                margin: 0 !important;
+            }
+
+            .section-card {
+                background: transparent !important;
+                border: 1px solid #e2e8f0 !important;
+                box-shadow: none !important;
+                padding: 1.25rem !important;
+                break-inside: avoid;
+                margin-bottom: 1rem !important;
+            }
+
+            .hero-name {
+                -webkit-text-fill-color: #0f172a !important;
+                background: none !important;
+                font-size: 22pt !important;
+            }
+
+            .projects-grid,
+            .skills-mega-grid,
+            .about-grid {
+                grid-template-columns: 1fr 1fr !important;
+            }
+
+            .interests-grid {
+                grid-template-columns: repeat(5, 1fr) !important;
+            }
         }
     </style>
+</head>
 
+<body>
+    <div class="ambient-aurora" aria-hidden="true"></div>
+    <div class="content-container">
 
-
-    <!-- Panneau de Paramètres Exclusif -->
-    <div class="settings-panel no-print" contenteditable="false">
-        <h3>⚙️ Espace Paramètres &amp; Sauvegarde</h3>
-        <p style="margin-bottom: 15px; font-size: 0.9rem;"><em>Modifiez le texte du portfolio directement en cliquant dessus. Une fois terminé, téléchargez la version mise à jour ci-dessous.</em></p>
-        <div class="controls-wrapper">
-            <button id="theme-toggle-btn" class="control-btn" onclick="toggleTheme()" aria-label="Toggle Theme"><span>☀️ Mode Clair</span></button>
-            <button class="control-btn primary" onclick="downloadPDF()" aria-label="Export as PDF">
-                <span>📄 Exporter en PDF</span>
-            </button>
-            <button class="control-btn save" onclick="saveHTML()" aria-label="Save HTML">
-                <span>💾 Sauvegarder le fichier HTML</span>
-            </button>
-        </div>
-    </div>
-
-    <!-- Contenu Éditable -->
-    <div class="container" contenteditable="true" spellcheck="false">
-        <header>
-            <h1>Mael[cite: 1]</h1>
-            <div class="subtitle">Étudiant Ingénieur &amp; Développeur Logiciel/Système[cite: 1]</div>
-            <div class="contact-bar">
-                <span class="contact-badge">Disponible pour des missions saisonnières/de nuit[cite: 1]</span>
-                <span class="contact-badge">France[cite: 1]</span>
+        <!-- Navigation iOS Island -->
+        <header class="ios-island no-print" aria-label="Navigation principale">
+            <a href="index.html" class="island-brand" title="Retour à l'accueil">
+                <div class="island-avatar">MG</div>
+                <span class="island-title">Maël Galan</span>
+            </a>
+            <nav class="island-nav-links" aria-label="Navigation">
+                <a href="#about" class="nav-pill-link"><span class="lang-fr">À propos</span><span
+                        class="lang-en">About</span></a>
+                <a href="#parcours" class="nav-pill-link"><span class="lang-fr">Parcours</span><span
+                        class="lang-en">Journey</span></a>
+                <a href="#projets" class="nav-pill-link"><span class="lang-fr">Projets</span><span
+                        class="lang-en">Projects</span></a>
+                <a href="#competences" class="nav-pill-link"><span class="lang-fr">Compétences</span><span
+                        class="lang-en">Skills</span></a>
+                <a href="cv.html" class="nav-pill-link" target="_blank">CV PDF</a>
+            </nav>
+            <div class="island-controls">
+                <button id="theme-toggle-btn" class="ios-btn" onclick="toggleTheme()"><span>☀️ <span
+                            class="lang-fr">Clair</span><span class="lang-en">Light</span></span></button>
+                <button id="lang-toggle-btn" class="ios-btn" onclick="toggleLang()"><span>🇬🇧 EN</span></button>
+                <button id="edit-toggle-btn" class="ios-btn" onclick="toggleEditMode()"><span>✏️ <span
+                            class="lang-fr">Éditer</span><span class="lang-en">Edit</span></span></button>
+                <button class="ios-btn primary" onclick="window.print()"><span>📄 PDF</span></button>
             </div>
         </header>
 
-        <section>
-            <h2>À Propos</h2>
-            <p class="about-text">
-                Étudiant en école d'ingénieurs à l'ENIB[cite: 1], j'ai enrichi mon parcours par une mobilité à l'Université Aristote de Thessalonique. Autonome et rigoureux[cite: 1], je m'investis activement dans l'architecture backend, le développement 3D en C/C++ et la robotique[cite: 1]. 
-            </p>
-        </section>
-
-        <div class="grid-2-col">
-            <div>
-                <section>
-                    <h2>Éducation</h2>
-                    <div class="section-item">
-                        <div class="item-header">
-                            <span class="item-title">Université Aristote de Thessalonique</span>
-                            <span class="item-date">2026</span>
-                        </div>
-                        <div class="item-subtitle">Semestre de Mobilité Académique</div>
-                        <ul>
-                            <li>Cours en ingénierie et mécatronique.</li>
-                        </ul>
-                    </div>
-                    <div class="section-item">
-                        <div class="item-header">
-                            <span class="item-title">École Nationale d'Ingénieurs de Brest (ENIB)</span>
-                            <span class="item-date">2023 - 2025</span>
-                        </div>
-                        <div class="item-subtitle">A-1 &amp; A-2: Cycle Préparatoire Intégré[cite: 1]</div>
-                        <ul>
-                            <li>Systèmes embarqués, électronique et ingénierie logicielle[cite: 1].</li>
-                        </ul>
-                    </div>
-                </section>
-
-                <section>
-                    <h2>Expérience</h2>
-                    <div class="section-item">
-                        <div class="item-header">
-                            <span class="item-title">Chambre de Métiers et de l'Artisanat</span>
-                            <span class="item-date">2024 - 2025</span>
-                        </div>
-                        <div class="item-subtitle">Stagiaire en Maintenance Informatique[cite: 1]</div>
-                        <ul>
-                            <li>Mises à jour des systèmes OS, optimisation matérielle et diagnostic réseau[cite: 1].</li>
-                        </ul>
-                    </div>
-                </section>
-            </div>
-
-            <div>
-                <section>
-                    <h2>Projets Majeurs</h2>
-                    <div class="section-item">
-                        <div class="item-title">Robotique Mobile &amp; Systèmes ROS</div>
-                        <ul>
-                            <li>Développement de nœuds ROS Melodic temps réel pour le positionnement de drones et la simulation de trajectoires via Turtlesim, RViz et Gazebo.</li>
-                        </ul>
-                    </div>
-                    <div class="section-item">
-                        <div class="item-title">Simulation AnyLogic &amp; Réseaux</div>
-                        <ul>
-                            <li>Modélisation d'algorithmes d'encodage (Concentration Shift Keying, PPM) pour les systèmes de communication moléculaire à l'échelle nanométrique.</li>
-                        </ul>
-                    </div>
-                    <div class="section-item">
-                        <div class="item-title">SLASHER (Backend Java)</div>
-                        <ul>
-                            <li>Création d'un jeu multijoueur (1vsN) sur Paper 1.21.10, avec optimisation asynchrone pointue et protection contre les fuites de mémoire[cite: 1].</li>
-                        </ul>
-                    </div>
-                    <div class="section-item">
-                        <div class="item-title">Graphisme 3D (C/OpenGL)</div>
-                        <ul>
-                            <li>Développement et compilation d'applications interactives de modèles 3D à l'aide de FreeGLUT et MSYS2.</li>
-                        </ul>
-                    </div>
-                    <div class="section-item">
-                        <div class="item-title">Sécurité &amp; Systèmes Embarqués</div>
-                        <ul>
-                            <li>Analyse de vulnérabilités logicielles (débordements de tampon) et présentation sur les normes de protection contre les surtensions (Diodes TVS, MOVs).</li>
-                        </ul>
-                    </div>
-                </section>
-            </div>
+        <div class="edit-mode-banner no-print">
+            <span>✏️ <strong>Mode Édition Activé :</strong> Cliquez sur le texte pour le modifier.</span>
+            <button class="ios-btn" onclick="saveHTML()" style="padding:0.3rem 0.75rem;">💾 Sauvegarder</button>
         </div>
 
-        <section>
-            <h2>Compétences Techniques</h2>
-            <div class="skills-container">
-                <span class="skill-tag">C / C++ (OpenGL, JUCE)[cite: 1]</span>
-                <span class="skill-tag">Java (Paper API)[cite: 1]</span>
-                <span class="skill-tag">Python &amp; Rust[cite: 1]</span>
-                <span class="skill-tag">ROS Melodic &amp; Robotique</span>
-                <span class="skill-tag">Simulation AnyLogic</span>
-                <span class="skill-tag">Linux / Bash[cite: 1]</span>
-                <span class="skill-tag">Méthodes Numériques (Runge-Kutta)</span>
-                <span class="skill-tag">Filtres de Kalman (EKF, UKF)</span>
-                <span class="skill-tag">Sécurité Logicielle</span>
-            </div>
-        </section>
+        <main class="editable-main" id="portfolio-content">
+
+            <!-- HERO -->
+            <section class="section-card hero-header" id="hero">
+                <h1 class="hero-name">Maël Galan</h1>
+                <p class="hero-headline">
+                    <span class="lang-fr">Élève-Ingénieur <strong>ENIB</strong> — Mécatronique · Systèmes Embarqués ·
+                        Robotique</span>
+                    <span class="lang-en">ENIB Engineering Student — <strong>Mechatronics</strong> · Embedded Systems ·
+                        Robotics</span>
+                </p>
+                <div class="status-capsule">
+                    <span class="status-dot"></span>
+                    <span class="lang-fr">Recherche Stage Assistant Ingénieur • 80 à 136 jours ouvrés (env. 4–6
+                        mois)</span>
+                    <span class="lang-en">Seeking Assistant Engineer Internship • 80 to 136 working days (approx. 4–6
+                        months)</span>
+                </div>
+                <div class="contact-strip">
+                    <span class="contact-pill highlight">📍 Brest / Saint-Brieuc — Bretagne</span>
+                    <a href="mailto:contact@mael.dev" class="contact-pill">✉️ contact@mael.dev</a>
+                    <span class="contact-pill">📞 [Numéro de téléphone]</span>
+                    <span class="contact-pill">🚗 Permis B — Véhiculé</span>
+                    <a href="https://linkedin.com" target="_blank" rel="noopener" class="contact-pill">💼 LinkedIn</a>
+                    <a href="https://github.com" target="_blank" rel="noopener" class="contact-pill">💻 GitHub</a>
+                </div>
+            </section>
+
+            <!-- À PROPOS -->
+            <section class="section-card" id="about">
+                <div class="section-label">
+                    <span class="lang-fr">À Propos de Moi</span>
+                    <span class="lang-en">About Me</span>
+                </div>
+                <div class="about-grid">
+                    <div class="about-text">
+                        <p>
+                            <span class="lang-fr">Je suis <strong>Maël Galan</strong>, élève-ingénieur à l'<strong>École
+                                    Nationale d'Ingénieurs de Brest (ENIB)</strong>, une grande école d'ingénieurs
+                                reconnue pour ses filières en électronique, mécatronique et informatique industrielle.
+                                Mon cursus, enrichi d'un semestre international à l'<strong>Université Aristote de
+                                    Thessalonique</strong> (Erasmus, Grèce, 2026), m'a permis de développer une approche
+                                transversale et rigoureuse des systèmes techniques complexes.</span>
+                            <span class="lang-en">I am <strong>Maël Galan</strong>, an engineering student at the
+                                <strong>École Nationale d'Ingénieurs de Brest (ENIB)</strong>, a leading French
+                                engineering school specializing in electronics, mechatronics, and industrial computing.
+                                My training, enriched by an international Erasmus semester at the <strong>Aristotle
+                                    University of Thessaloniki</strong> (Greece, 2026), developed a rigorous and
+                                cross-disciplinary approach to complex technical systems.</span>
+                        </p>
+                        <p>
+                            <span class="lang-fr">Ma zone de compétence se situe à l'interface du matériel et du
+                                logiciel : je programme des microcontrôleurs <strong>STM32</strong> au registre près, je
+                                maîtrise les bus de communication industriels (I²C, SPI, UART, CAN) et j'interviens sur
+                                la robustesse électrique des circuits embarqués. En parallèle, je travaille sur des
+                                architectures logicielles exigeantes en <strong>C/C++</strong> et Java, ainsi que sur
+                                des systèmes robotiques autonomes avec <strong>ROS</strong>.</span>
+                            <span class="lang-en">My core competency lies at the hardware-software interface: I program
+                                <strong>STM32</strong> microcontrollers at the register level, master industrial
+                                communication buses (I²C, SPI, UART, CAN), and work on the electrical robustness of
+                                embedded circuits. In parallel, I build demanding software architectures in
+                                <strong>C/C++</strong> and Java, as well as autonomous robotic systems with
+                                <strong>ROS</strong>.</span>
+                        </p>
+                        <p>
+                            <span class="lang-fr">En parallèle de mes études, j'ai conçu et déployé une
+                                <strong>plateforme communautaire en ligne multijoueur</strong> entièrement de A à Z — de
+                                l'architecture du moteur asynchrone (gestion multi-thread, stabilité) à l'administration
+                                serveur en production. Ce projet personnel m'a confronté concrètement aux enjeux de
+                                robustesse, de scalabilité et de gestion de la concurrence en conditions réelles.</span>
+                            <span class="lang-en">Alongside my studies, I designed and deployed an <strong>online
+                                    multiplayer community platform</strong> entirely from scratch — from the
+                                asynchronous engine architecture (multi-thread management, stable 20 TPS) to production
+                                server administration. This personal project gave me hands-on experience with
+                                robustness, scalability, and concurrency management in real conditions.</span>
+                        </p>
+                    </div>
+                    <div class="info-cards">
+                        <div class="info-card">
+                            <span class="info-icon">🎓</span>
+                            <div>
+                                <div class="info-label"><span class="lang-fr">Formation</span><span
+                                        class="lang-en">Education</span></div>
+                                <div class="info-value">ENIB — <span class="lang-fr">Cycle Ingénieur (2023 –
+                                        présent)</span><span class="lang-en">Engineering Cycle (2023 – present)</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="info-card">
+                            <span class="info-icon">🌍</span>
+                            <div>
+                                <div class="info-label">Erasmus</div>
+                                <div class="info-value"><span class="lang-fr">Université Aristote de Thessalonique —
+                                        2026</span><span class="lang-en">Aristotle University of Thessaloniki —
+                                        2026</span></div>
+                            </div>
+                        </div>
+                        <div class="info-card">
+                            <span class="info-icon">🔍</span>
+                            <div>
+                                <div class="info-label"><span class="lang-fr">Recherche</span><span
+                                        class="lang-en">Seeking</span></div>
+                                <div class="info-value"><span class="lang-fr">Stage Assistant Ingénieur — 80 à 136 jours
+                                        ouvrés</span><span class="lang-en">Assistant Engineer Internship — 80 to 136
+                                        working days</span></div>
+                            </div>
+                        </div>
+                        <div class="info-card">
+                            <span class="info-icon">📍</span>
+                            <div>
+                                <div class="info-label"><span class="lang-fr">Mobilité</span><span
+                                        class="lang-en">Mobility</span></div>
+                                <div class="info-value"><span class="lang-fr">Brest / Saint-Brieuc — Bretagne · Permis
+                                        B</span><span class="lang-en">Brest / Saint-Brieuc — Brittany · Driver's
+                                        License</span></div>
+                            </div>
+                        </div>
+                        <div class="info-card">
+                            <span class="info-icon">🏆</span>
+                            <div>
+                                <div class="info-label"><span class="lang-fr">Distinction</span><span
+                                        class="lang-en">Award</span></div>
+                                <div class="info-value"><span class="lang-fr">Olympiades Nationales des Sciences de
+                                        l'Ingénieur</span><span class="lang-en">National Engineering Olympiad
+                                        Award</span></div>
+                            </div>
+                        </div>
+                        <div class="info-card">
+                            <span class="info-icon">🗣️</span>
+                            <div>
+                                <div class="info-label"><span class="lang-fr">Langues</span><span
+                                        class="lang-en">Languages</span></div>
+                                <div class="info-value">Français (natif) · Anglais B2+ · Allemand A2</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- PARCOURS -->
+            <section class="section-card" id="parcours">
+                <div class="section-label">
+                    <span class="lang-fr">Parcours Académique & Professionnel</span>
+                    <span class="lang-en">Academic & Professional Journey</span>
+                </div>
+                <div class="timeline">
+
+                    <div class="timeline-item">
+                        <div class="timeline-dot blue"></div>
+                        <div class="timeline-date">2026</div>
+                        <div class="timeline-title"><span class="lang-fr">Semestre Erasmus — Mécatronique & Robotique
+                                Avancée</span><span class="lang-en">Erasmus Semester — Advanced Mechatronics &
+                                Robotics</span></div>
+                        <div class="timeline-org"><span class="lang-fr">Université Aristote de Thessalonique —
+                                Grèce</span><span class="lang-en">Aristotle University of Thessaloniki — Greece</span>
+                        </div>
+                        <div class="timeline-desc">
+                            <ul>
+                                <li><span class="lang-fr">Spécialisation en <strong>mécatronique avancée</strong> :
+                                        cinématique des robots, modélisation de systèmes de contrôle-commande
+                                        (correcteurs PID, systèmes d'état), régulation numérique.</span><span
+                                        class="lang-en">Specialization in <strong>advanced mechatronics</strong>: robot
+                                        kinematics, control system modeling (PID controllers, state-space systems),
+                                        digital regulation.</span></li>
+                                <li><span class="lang-fr">Robotique mobile et navigation autonome : implémentation
+                                        d'algorithmes de planification de trajectoires sous ROS en environnement
+                                        académique international.</span><span class="lang-en">Mobile robotics and
+                                        autonomous navigation: implementation of trajectory planning algorithms under
+                                        ROS in an international academic environment.</span></li>
+                                <li><span class="lang-fr">Immersion complète en <strong>anglais technique</strong> :
+                                        cours, rédaction de rapports et soutenance de projets en anglais.</span><span
+                                        class="lang-en">Full immersion in <strong>technical English</strong>: courses,
+                                        report writing, and project defenses in English.</span></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-dot green"></div>
+                        <div class="timeline-date">2024 – 2025</div>
+                        <div class="timeline-title"><span class="lang-fr">Stagiaire — Maintenance Systèmes, Matériel &
+                                Réseaux</span><span class="lang-en">Intern — IT Systems, Hardware & Network
+                                Maintenance</span></div>
+                        <div class="timeline-org"><span class="lang-fr">Chambre de Métiers et de l'Artisanat
+                                (Bretagne)</span><span class="lang-en">Chamber of Trades and Crafts (Brittany)</span>
+                        </div>
+                        <div class="timeline-desc">
+                            <ul>
+                                <li><span class="lang-fr"><strong>Déploiement d'images système</strong>
+                                        (masterisation/ghosting) sur parcs informatiques multi-sites : automatisation du
+                                        provisionnement OS et configuration des postes de travail.</span><span
+                                        class="lang-en"><strong>System image deployment</strong> (ghosting) across
+                                        multi-site computer parks: automated OS provisioning and workstation
+                                        configuration.</span></li>
+                                <li><span class="lang-fr"><strong>Diagnostic matériel approfondi</strong> : remplacement
+                                        de composants défaillants (disques, RAM, alimentations), audit de connectivité
+                                        réseau filaire (RJ45) et Wi-Fi (802.11).</span><span
+                                        class="lang-en"><strong>In-depth hardware diagnostics</strong>: faulty component
+                                        replacement (drives, RAM, PSUs), wired (RJ45) and Wi-Fi (802.11) network
+                                        connectivity auditing.</span></li>
+                                <li><span class="lang-fr">Intervention en environnement professionnel structuré avec
+                                        respect des procédures de sécurité et rédaction de fiches
+                                        d'intervention.</span><span class="lang-en">Operation in a structured
+                                        professional environment with adherence to safety procedures and maintenance
+                                        report writing.</span></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-dot blue"></div>
+                        <div class="timeline-date">2023 – Présent</div>
+                        <div class="timeline-title"><span class="lang-fr">Formation Ingénieur Généraliste — Cycle
+                                Ingénieur</span><span class="lang-en">General Engineering Program — Engineering
+                                Cycle</span></div>
+                        <div class="timeline-org">École Nationale d'Ingénieurs de Brest (ENIB)</div>
+                        <div class="timeline-desc">
+                            <ul>
+                                <li><span class="lang-fr"><strong>Électronique analogique et numérique :</strong>
+                                        conception de circuits, filtres actifs, amplificateurs opérationnels, CAN/CNA,
+                                        électronique de puissance.</span><span class="lang-en"><strong>Analog and
+                                            digital electronics:</strong> circuit design, active filters, op-amps,
+                                        ADC/DAC, power electronics.</span></li>
+                                <li><span class="lang-fr"><strong>Systèmes embarqués :</strong> programmation bare-metal
+                                        en C sur STM32 (registres directs, GPIO, Timers, DMA, interruptions), protocoles
+                                        I²C, SPI, UART, CAN.</span><span class="lang-en"><strong>Embedded
+                                            systems:</strong> bare-metal C programming on STM32 (direct registers, GPIO,
+                                        Timers, DMA, interrupts), I²C, SPI, UART, CAN protocols.</span></li>
+                                <li><span class="lang-fr"><strong>Automatique et asservissements :</strong> modélisation
+                                        de systèmes dynamiques, correcteurs PID, réponse fréquentielle, stabilité,
+                                        simulation MATLAB/Simulink.</span><span class="lang-en"><strong>Control systems
+                                            & automation:</strong> dynamic system modeling, PID controllers, frequency
+                                        response, stability, MATLAB/Simulink simulation.</span></li>
+                                <li><span class="lang-fr"><strong>Génie logiciel :</strong> programmation orientée objet
+                                        (C++, Java), concurrence multi-thread, Git, algorithmique et structures de
+                                        données.</span><span class="lang-en"><strong>Software engineering:</strong>
+                                        object-oriented programming (C++, Java), multi-threaded concurrency, Git,
+                                        algorithms and data structures.</span></li>
+                                <li><span class="lang-fr"><strong>Robotique :</strong> ROS (Robot Operating System),
+                                        Gazebo, RViz, modélisation cinématique et dynamique de robots
+                                        mobiles.</span><span class="lang-en"><strong>Robotics:</strong> ROS (Robot
+                                        Operating System), Gazebo, RViz, kinematic and dynamic modeling of mobile
+                                        robots.</span></li>
+                                <li><span class="lang-fr">Cycle préparatoire intégré (A1/A2) validé avec
+                                        mention.</span><span class="lang-en">Integrated preparatory cycle (Year 1/2)
+                                        completed with distinction.</span></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-dot amber"></div>
+                        <div class="timeline-date">2022 – 2023</div>
+                        <div class="timeline-title"><span class="lang-fr">🏆 Olympiades Nationales SI — Projet
+                                UpStair</span><span class="lang-en">🏆 National Engineering Olympiad — UpStair
+                                Project</span></div>
+                        <div class="timeline-org"><span class="lang-fr">Lycée Chaptal, Saint-Brieuc</span><span
+                                class="lang-en">Lycée Chaptal, Saint-Brieuc</span></div>
+                        <div class="timeline-desc">
+                            <ul>
+                                <li><span class="lang-fr">Conception et modélisation CAO 3D sous
+                                        <strong>SolidWorks</strong> d'un dispositif mécatronique d'aide à la montée
+                                        d'escaliers pour personnes à mobilité réduite.</span><span class="lang-en">3D
+                                        CAD design and modeling in <strong>SolidWorks</strong> of a mechatronic
+                                        stair-climbing aid for persons with reduced mobility.</span></li>
+                                <li><span class="lang-fr">Dimensionnement cinématique, analyse des contraintes
+                                        mécaniques, soutenance devant jury national.</span><span
+                                        class="lang-en">Kinematic dimensioning, mechanical stress analysis, defense
+                                        before a national jury.</span></li>
+                                <li><span class="lang-fr"><strong>Projet primé aux Olympiades nationales</strong> pour
+                                        l'innovation de la solution mécanique proposée.</span><span
+                                        class="lang-en"><strong>Award-winning project at the National Olympiad</strong>
+                                        for the innovative mechanical solution proposed.</span></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-dot purple"></div>
+                        <div class="timeline-date">2020 – 2023</div>
+                        <div class="timeline-title"><span class="lang-fr">Baccalauréat Général — Sciences de l'Ingénieur
+                                & Mathématiques</span><span class="lang-en">General High School Diploma — Engineering
+                                Sciences & Mathematics</span></div>
+                        <div class="timeline-org"><span class="lang-fr">Lycée Chaptal, Saint-Brieuc</span><span
+                                class="lang-en">Lycée Chaptal, Saint-Brieuc</span></div>
+                        <div class="timeline-desc">
+                            <span class="lang-fr">Spécialités Sciences de l'Ingénieur et Mathématiques. Formation à
+                                l'analyse des systèmes pluritechnologiques, à la modélisation mécatronique et aux
+                                mathématiques appliquées.</span>
+                            <span class="lang-en">Majors in Engineering Sciences and Mathematics. Training in
+                                multitechnology system analysis, mechatronic modeling, and applied mathematics.</span>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+            <!-- PROJETS TECHNIQUES -->
+            <section class="section-card" id="projets">
+                <div class="section-label">
+                    <span class="lang-fr">Projets Techniques Majeurs</span>
+                    <span class="lang-en">Major Technical Projects</span>
+                </div>
+                <div class="projects-grid">
+
+                    <!-- Projet ROS -->
+                    <div class="project-card">
+                        <div class="project-tag blue"><span class="lang-fr">Robotique — Scolaire</span><span
+                                class="lang-en">Robotics — Academic</span></div>
+                        <div class="project-title"><span class="lang-fr">Robotique Mobile Autonome & ROS</span><span
+                                class="lang-en">Autonomous Mobile Robotics & ROS</span></div>
+                        <div class="project-sub">ROS · Gazebo · RViz · C++ · Python · Linux</div>
+                        <div class="project-desc">
+                            <span class="lang-fr">
+                                <strong>Contexte :</strong> Modéliser et simuler un robot mobile autonome en
+                                environnement contrôlé.<br>
+                                <strong>Réalisé :</strong> Conception de <strong>nœuds ROS temps réel</strong>
+                                (publishers/subscribers) pour la planification de trajectoires et la commande
+                                cinématique d'un vecteur mobile. Intégration d'un environnement physique sous
+                                <strong>Gazebo</strong> avec gestion des capteurs (LiDAR, encodeurs, IMU) et
+                                visualisation dans <strong>RViz</strong>.<br>
+                                <strong>Résultat :</strong> Maîtrise de l'architecture distribuée ROS et des contraintes
+                                temps réel.
+                            </span>
+                            <span class="lang-en">
+                                <strong>Context:</strong> Model and simulate an autonomous mobile robot in a controlled
+                                environment.<br>
+                                <strong>Achieved:</strong> Designed real-time <strong>ROS nodes</strong>
+                                (publishers/subscribers) for trajectory planning and kinematic control. Integrated a
+                                simulated physical environment in <strong>Gazebo</strong> with sensor management (LiDAR,
+                                encoders, IMU) and visualization in <strong>RViz</strong>.<br>
+                                <strong>Result:</strong> Demonstrated mastery of ROS distributed architecture and
+                                real-time constraints.
+                            </span>
+                        </div>
+                        <div class="project-chips">
+                            <span class="chip">ROS</span><span class="chip">Gazebo</span><span
+                                class="chip">RViz</span><span class="chip">C++</span><span
+                                class="chip">Python</span><span class="chip">Linux</span>
+                        </div>
+                    </div>
+
+                    <!-- Projet STM32 -->
+                    <div class="project-card">
+                        <div class="project-tag blue"><span class="lang-fr">Embarqué — Scolaire & Personnel</span><span
+                                class="lang-en">Embedded — Academic & Personal</span></div>
+                        <div class="project-title"><span class="lang-fr">Systèmes Embarqués STM32 & Sécurité
+                                Matérielle</span><span class="lang-en">STM32 Embedded Systems & Hardware Safety</span>
+                        </div>
+                        <div class="project-sub">C (bare-metal) · STM32 · I²C · SPI · UART · CAN · TVS/MOV</div>
+                        <div class="project-desc">
+                            <span class="lang-fr">
+                                <strong>Contexte :</strong> Programmer des MCU STM32 au plus proche du silicium tout en
+                                garantissant la robustesse électrique.<br>
+                                <strong>Réalisé :</strong> Programmation <strong>bare-metal en C</strong> (registres
+                                directs) : timers hardware, interruptions, DMA, communication I²C/SPI/UART/CAN.
+                                Implémentation de protections contre les transitoires (diodes TVS, varistances MOVs) et
+                                <strong>audit de robustesse mémoire</strong> (dépassements de tampon, gestion mémoire
+                                sécurisée).<br>
+                                <strong>Résultat :</strong> Compréhension profonde de l'architecture MCU et des enjeux
+                                de fiabilité en systèmes embarqués industriels.
+                            </span>
+                            <span class="lang-en">
+                                <strong>Context:</strong> Program STM32 MCUs close to the hardware while guaranteeing
+                                electrical robustness.<br>
+                                <strong>Achieved:</strong> <strong>Bare-metal C programming</strong> (direct registers):
+                                hardware timers, interrupts, DMA, I²C/SPI/UART/CAN communication. Electrical transient
+                                protection (TVS diodes, MOV varistors) and <strong>memory safety audit</strong> (buffer
+                                overflow prevention, safe memory management).<br>
+                                <strong>Result:</strong> Deep understanding of MCU architecture and reliability in
+                                industrial embedded systems.
+                            </span>
+                        </div>
+                        <div class="project-chips">
+                            <span class="chip">C bare-metal</span><span class="chip">STM32</span><span
+                                class="chip">I²C/SPI/UART</span><span class="chip">CAN</span><span
+                                class="chip">DMA</span><span class="chip">TVS/MOV</span>
+                        </div>
+                    </div>
+
+                    <!-- Projet UpStair -->
+                    <div class="project-card">
+                        <div class="project-tag amber"><span class="lang-fr">Mécatronique — Olympiades SI 🏆</span><span
+                                class="lang-en">Mechatronics — Engineering Olympiad 🏆</span></div>
+                        <div class="project-title">UpStair</div>
+                        <div class="project-sub">SolidWorks · CAO 3D · Cinématique · Dimensionnement mécanique</div>
+                        <div class="project-desc">
+                            <span class="lang-fr">
+                                <strong>Contexte :</strong> Concevoir un système mécatronique d'aide à la montée
+                                d'escaliers pour PMR.<br>
+                                <strong>Réalisé :</strong> Modélisation CAO 3D complète sous
+                                <strong>SolidWorks</strong>, dimensionnement cinématique des mécanismes d'actionnement,
+                                analyse des contraintes statiques et dynamiques. Rédaction du dossier technique et
+                                soutenance devant jury national.<br>
+                                <strong>Résultat :</strong> <strong>Projet primé aux Olympiades Nationales des Sciences
+                                    de l'Ingénieur</strong> pour l'innovation de la solution proposée.
+                            </span>
+                            <span class="lang-en">
+                                <strong>Context:</strong> Design a mechatronic stair-climbing assistance system for
+                                PRM.<br>
+                                <strong>Achieved:</strong> Full 3D CAD modeling in <strong>SolidWorks</strong>,
+                                kinematic dimensioning of actuation mechanisms, static and dynamic stress analysis.
+                                Technical report and national jury defense.<br>
+                                <strong>Result:</strong> <strong>Award-winning project at the National Engineering
+                                    Olympiad</strong> for the innovative mechanical solution.
+                            </span>
+                        </div>
+                        <div class="project-chips">
+                            <span class="chip">SolidWorks</span><span class="chip">CAO 3D</span><span
+                                class="chip">Cinématique</span><span class="chip">Mécatronique</span>
+                        </div>
+                    </div>
+
+                    <!-- Projet Plateforme communautaire (mcslasher) -->
+                    <div class="project-card featured">
+                        <div class="project-tag purple"><span class="lang-fr">Architecture Logicielle — Projet Personnel
+                                ⭐</span><span class="lang-en">Software Architecture — Personal Project ⭐</span></div>
+                        <div class="project-title"><span class="lang-fr">Plateforme Communautaire en Ligne
+                                Multijoueur</span><span class="lang-en">Online Multiplayer Community Platform</span>
+                        </div>
+                        <div class="project-sub">Java · Moteur Asynchrone · Multi-thread · TCP/IP · Administration
+                            Serveur</div>
+                        <div class="project-desc">
+                            <span class="lang-fr">
+                                <strong>Contexte :</strong> Concevoir et déployer une plateforme de jeu en ligne
+                                communautaire capable de gérer plusieurs utilisateurs simultanés avec une faible latence
+                                et une stabilité garantie en production.<br>
+                                <strong>Réalisé :</strong> Développement complet d'un <strong>moteur asynchrone haute
+                                    performance</strong> en Java, garantissant un <strong>tick-rate stable à 20
+                                    TPS</strong> sous charge. Architecture multi-thread avec synchronisation fine des
+                                accès mémoire partagée (thread-safety, files d'attente sans verrou). Conception d'un
+                                système de gestion d'événements découplé permettant l'extension modulaire. Déploiement
+                                et administration de l'infrastructure : gestion des connexions réseau (TCP/IP),
+                                monitoring des performances et maintenance en conditions de production.<br>
+                                <strong>Rôle :</strong> Développeur principal et administrateur — conception,
+                                implémentation, déploiement et maintenance de bout en bout.<br>
+                                <strong>Résultat :</strong> Plateforme en production stable, démontrant la maîtrise des
+                                enjeux de <strong>concurrence mémoire</strong>, de <strong>robustesse temps
+                                    réel</strong> et de <strong>gestion de charge réseau</strong> en contexte applicatif
+                                réel.
+                            </span>
+                            <span class="lang-en">
+                                <strong>Context:</strong> Design and deploy an online community gaming platform capable
+                                of handling multiple simultaneous users with low latency and guaranteed production
+                                stability.<br>
+                                <strong>Achieved:</strong> Full development of a <strong>high-performance asynchronous
+                                    engine</strong> in Java, maintaining a <strong>stable 20 TPS tick-rate</strong>
+                                under load. Multi-threaded architecture with fine-grained shared memory synchronization
+                                (thread-safety, lock-free queues). Decoupled event management system for modular feature
+                                extension. Infrastructure deployment and administration: network connection management
+                                (TCP/IP), performance monitoring, and production maintenance.<br>
+                                <strong>Role:</strong> Lead developer and administrator — design, implementation,
+                                deployment, and end-to-end maintenance.<br>
+                                <strong>Result:</strong> Stable production platform demonstrating mastery of
+                                <strong>memory concurrency</strong>, <strong>real-time robustness</strong>, and
+                                <strong>network load management</strong> in a real application context.
+                            </span>
+                        </div>
+                        <div class="project-chips">
+                            <span class="chip">Java</span><span class="chip">Multi-thread</span><span class="chip">Async
+                                Engine</span><span class="chip">TCP/IP</span><span class="chip">20 TPS</span><span
+                                class="chip">Admin Serveur</span>
+                        </div>
+                    </div>
+
+                    <!-- Projet DSP -->
+                    <div class="project-card">
+                        <div class="project-tag green"><span class="lang-fr">Traitement du Signal —
+                                Personnel</span><span class="lang-en">Signal Processing — Personal</span></div>
+                        <div class="project-title"><span class="lang-fr">Plugin DSP Audio — Saturateur Harmonique
+                                64-bit</span><span class="lang-en">Audio DSP Plugin — 64-bit Harmonic Saturator</span>
+                        </div>
+                        <div class="project-sub">C++ · JUCE Framework · DSP Temps Réel · Filtres IIR</div>
+                        <div class="project-desc">
+                            <span class="lang-fr">
+                                <strong>Contexte :</strong> Développer un plugin de traitement audio temps réel
+                                compatible DAW professionnel avec transformations non-linéaires à faible latence.<br>
+                                <strong>Réalisé :</strong> Développement en <strong>C++</strong> avec le framework
+                                <strong>JUCE</strong> d'un saturateur harmonique en double précision (64-bit).
+                                Algorithmes de distorsion non-linéaire (soft-clipping, waveshaping), filtres numériques
+                                IIR pour compensation spectrale, optimisation sous contrainte de latence minimale
+                                (real-time safe code).<br>
+                                <strong>Résultat :</strong> Plugin fonctionnel démontrant la maîtrise du
+                                <strong>traitement numérique du signal</strong> et de la programmation C++ temps réel
+                                sous contraintes strictes.
+                            </span>
+                            <span class="lang-en">
+                                <strong>Context:</strong> Develop a real-time audio processing plugin compatible with
+                                professional DAWs using low-latency non-linear transformations.<br>
+                                <strong>Achieved:</strong> Development in <strong>C++</strong> with the
+                                <strong>JUCE</strong> framework of a double-precision (64-bit) harmonic saturator.
+                                Non-linear distortion algorithms (soft-clipping, waveshaping), IIR digital filters for
+                                spectral compensation, optimization under minimum-latency constraints (real-time safe
+                                code).<br>
+                                <strong>Result:</strong> Functional plugin demonstrating mastery of <strong>digital
+                                    signal processing</strong> and real-time C++ programming under strict performance
+                                constraints.
+                            </span>
+                        </div>
+                        <div class="project-chips">
+                            <span class="chip">C++</span><span class="chip">JUCE</span><span
+                                class="chip">DSP</span><span class="chip">64-bit</span><span class="chip">Filtres
+                                IIR</span><span class="chip">Temps réel</span>
+                        </div>
+                    </div>
+
+                    <!-- Projet Maintenance IT -->
+                    <div class="project-card">
+                        <div class="project-tag green"><span class="lang-fr">Systèmes & Réseaux — Stage</span><span
+                                class="lang-en">Systems & Networks — Internship</span></div>
+                        <div class="project-title"><span class="lang-fr">Maintenance Systèmes, Matériel &
+                                Réseaux</span><span class="lang-en">IT Systems, Hardware & Network Maintenance</span>
+                        </div>
+                        <div class="project-sub"><span class="lang-fr">Déploiement OS · Diagnostic Réseau · Gestion de
+                                Parc Informatique</span><span class="lang-en">OS Deployment · Network Diagnostics · IT
+                                Fleet Management</span></div>
+                        <div class="project-desc">
+                            <span class="lang-fr">
+                                Stage à la Chambre de Métiers et de l'Artisanat : <strong>déploiement d'images
+                                    système</strong> (ghosting/masterisation) sur parcs multi-sites, <strong>diagnostic
+                                    et réparation matérielle</strong> (disques, RAM, alimentation), qualification de
+                                connectivité réseau filaire et Wi-Fi. Apprentissage de la rigueur procédurale et du
+                                travail en autonomie dans un environnement opérationnel professionnel.
+                            </span>
+                            <span class="lang-en">
+                                Internship at the Chamber of Trades: <strong>system image deployment</strong> (ghosting)
+                                across multi-site computer parks, <strong>hardware diagnostics and repair</strong>
+                                (drives, RAM, PSUs), wired/Wi-Fi network connectivity qualification. Learned procedural
+                                rigor and autonomous work in a professional operational environment.
+                            </span>
+                        </div>
+                        <div class="project-chips">
+                            <span class="chip">Ghost/Imaging</span><span class="chip">Windows</span><span
+                                class="chip">LAN/Wi-Fi</span><span class="chip">Diagnostic matériel</span>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+            <!-- COMPÉTENCES -->
+            <section class="section-card" id="competences">
+                <div class="section-label">
+                    <span class="lang-fr">Compétences Techniques</span>
+                    <span class="lang-en">Technical Skills</span>
+                </div>
+                <div class="skills-mega-grid">
+                    <div>
+                        <div class="skill-cat-title">
+                            <div class="skill-cat-dot blue"></div><span class="lang-fr">Embarqué, Électronique &
+                                Mesure</span><span class="lang-en">Embedded, Electronics & Instrumentation</span>
+                        </div>
+                        <div class="skills-wrap">
+                            <span class="skill-chip featured">Microcontrôleurs STM32</span>
+                            <span class="skill-chip featured">C / C++ Bas Niveau</span>
+                            <span class="skill-chip">I²C · SPI · UART · CAN</span>
+                            <span class="skill-chip">GPIO · Timers · DMA</span>
+                            <span class="skill-chip">Interruptions matérielles</span>
+                            <span class="skill-chip">Protections TVS & MOV</span>
+                            <span class="skill-chip">Oscilloscope numérique</span>
+                            <span class="skill-chip">Analyseur logique</span>
+                            <span class="skill-chip">Électronique analogique</span>
+                            <span class="skill-chip">Filtres actifs</span>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="skill-cat-title">
+                            <div class="skill-cat-dot green"></div><span class="lang-fr">Robotique, Automatisme &
+                                Simulation</span><span class="lang-en">Robotics, Automation & Simulation</span>
+                        </div>
+                        <div class="skills-wrap">
+                            <span class="skill-chip featured">ROS (Robot Operating System)</span>
+                            <span class="skill-chip featured">Gazebo & RViz</span>
+                            <span class="skill-chip">SolidWorks (CAO 3D)</span>
+                            <span class="skill-chip">Cinématique & Dynamique</span>
+                            <span class="skill-chip">Correcteurs PID</span>
+                            <span class="skill-chip">Asservissements</span>
+                            <span class="skill-chip">Automates industriels</span>
+                            <span class="skill-chip">AnyLogic</span>
+                            <span class="skill-chip">Contrôle-Commande</span>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="skill-cat-title">
+                            <div class="skill-cat-dot amber"></div><span class="lang-fr">Génie Logiciel &
+                                Systèmes</span><span class="lang-en">Software Engineering & Systems</span>
+                        </div>
+                        <div class="skills-wrap">
+                            <span class="skill-chip featured">Linux / Shell Bash</span>
+                            <span class="skill-chip featured">Python</span>
+                            <span class="skill-chip">Java (Multi-thread)</span>
+                            <span class="skill-chip">Git / GitHub</span>
+                            <span class="skill-chip">Architecture asynchrone</span>
+                            <span class="skill-chip">Concurrence mémoire</span>
+                            <span class="skill-chip">DSP Audio (JUCE)</span>
+                            <span class="skill-chip">TCP/IP</span>
+                            <span class="skill-chip">Réseau LAN/Wi-Fi</span>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="skill-cat-title">
+                            <div class="skill-cat-dot purple"></div><span class="lang-fr">Langues & Mobilité</span><span
+                                class="lang-en">Languages & Mobility</span>
+                        </div>
+                        <div class="lang-capsules">
+                            <div class="lang-card"><span class="lang-name">Français</span><span class="lang-level"><span
+                                        class="lang-fr">Langue maternelle</span><span
+                                        class="lang-en">Native</span></span></div>
+                            <div class="lang-card"><span class="lang-name">Anglais</span><span class="lang-level">B2+
+                                    (Erasmus)</span></div>
+                            <div class="lang-card"><span class="lang-name">Allemand</span><span
+                                    class="lang-level">A2</span></div>
+                            <div class="lang-card"><span class="lang-name"><span class="lang-fr">Permis B</span><span
+                                        class="lang-en">Driver's License</span></span><span class="lang-level"><span
+                                        class="lang-fr">Véhiculé</span><span class="lang-en">Own vehicle</span></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- CENTRES D'INTÉRÊT -->
+            <section class="section-card" id="interets">
+                <div class="section-label">
+                    <span class="lang-fr">Centres d'Intérêt</span>
+                    <span class="lang-en">Interests</span>
+                </div>
+                <div class="interests-grid">
+                    <div class="interest-card">
+                        <span class="interest-icon">🤖</span>
+                        <div class="interest-label"><span class="lang-fr">Robotique & DIY</span><span
+                                class="lang-en">Robotics & DIY</span></div>
+                        <div class="interest-sub"><span class="lang-fr">Projets électroniques personnels,
+                                prototypage</span><span class="lang-en">Personal electronics projects,
+                                prototyping</span></div>
+                    </div>
+                    <div class="interest-card">
+                        <span class="interest-icon">🎵</span>
+                        <div class="interest-label"><span class="lang-fr">Audio & Traitement du Son</span><span
+                                class="lang-en">Audio & Signal Processing</span></div>
+                        <div class="interest-sub"><span class="lang-fr">Plugins VST, synthèse, production</span><span
+                                class="lang-en">VST plugins, synthesis, music production</span></div>
+                    </div>
+                    <div class="interest-card">
+                        <span class="interest-icon">💻</span>
+                        <div class="interest-label"><span class="lang-fr">Architecture Logicielle</span><span
+                                class="lang-en">Software Architecture</span></div>
+                        <div class="interest-sub"><span class="lang-fr">Moteurs de jeu, systèmes distribués</span><span
+                                class="lang-en">Game engines, distributed systems</span></div>
+                    </div>
+                    <div class="interest-card">
+                        <span class="interest-icon">⚡</span>
+                        <div class="interest-label"><span class="lang-fr">Électronique</span><span
+                                class="lang-en">Electronics</span></div>
+                        <div class="interest-sub"><span class="lang-fr">Protections de circuit, mesure, CEM</span><span
+                                class="lang-en">Circuit protection, measurement, EMC</span></div>
+                    </div>
+                    <div class="interest-card">
+                        <span class="interest-icon">🌍</span>
+                        <div class="interest-label"><span class="lang-fr">Voyages & Cultures</span><span
+                                class="lang-en">Travel & Cultures</span></div>
+                        <div class="interest-sub"><span class="lang-fr">Erasmus Grèce, ouverture
+                                internationale</span><span class="lang-en">Erasmus Greece, international openness</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </main>
     </div>
 
+    <div id="ios-toast" class="ios-toast" role="status" aria-live="polite"></div>
+
     <script>
+        function showToast(msg) {
+            const t = document.getElementById('ios-toast');
+            if (!t) return;
+            t.textContent = msg;
+            t.classList.add('visible');
+            setTimeout(() => t.classList.remove('visible'), 2600);
+        }
         function toggleTheme() {
             const html = document.documentElement;
-            const currentTheme = html.getAttribute('data-theme') || 'dark';
-            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-            
-            html.setAttribute('data-theme', newTheme);
-            localStorage.setItem('cv_theme', newTheme);
-            
+            const next = (html.getAttribute('data-theme') || 'dark') === 'dark' ? 'light' : 'dark';
+            html.setAttribute('data-theme', next);
+            try { localStorage.setItem('portfolio_theme', next); } catch (e) { }
             const btn = document.getElementById('theme-toggle-btn');
-            if (btn) btn.innerHTML = newTheme === 'dark' ? '<span>☀️ Mode Clair</span>' : '<span>🌙 Mode Sombre</span>';
+            if (btn) btn.innerHTML = next === 'dark' ? '<span>☀️ <span class="lang-fr">Clair</span><span class="lang-en">Light</span></span>' : '<span>🌙 <span class="lang-fr">Sombre</span><span class="lang-en">Dark</span></span>';
+            showToast(next === 'dark' ? '✨ Mode Sombre' : '☀️ Mode Clair');
         }
-
-        function downloadPDF() {
-            window.print();
+        function toggleLang() {
+            const html = document.documentElement;
+            const next = (html.getAttribute('data-lang') || 'fr') === 'fr' ? 'en' : 'fr';
+            html.setAttribute('data-lang', next);
+            try { localStorage.setItem('portfolio_lang', next); } catch (e) { }
+            const btn = document.getElementById('lang-toggle-btn');
+            if (btn) btn.innerHTML = next === 'fr' ? '<span>🇬🇧 EN</span>' : '<span>🇫🇷 FR</span>';
+            showToast(next === 'fr' ? '🇫🇷 Français' : '🇬🇧 English');
         }
-
+        let isEditing = false;
+        function toggleEditMode() {
+            isEditing = !isEditing;
+            const main = document.getElementById('portfolio-content');
+            const editBtn = document.getElementById('edit-toggle-btn');
+            if (isEditing) {
+                document.body.classList.add('editing-active');
+                main.setAttribute('contenteditable', 'true');
+                main.setAttribute('spellcheck', 'false');
+                if (editBtn) { editBtn.classList.add('active'); editBtn.innerHTML = '<span>🔒 <span class="lang-fr">Terminer</span><span class="lang-en">Done</span></span>'; }
+                showToast('✏️ Cliquez pour modifier');
+            } else {
+                document.body.classList.remove('editing-active');
+                main.removeAttribute('contenteditable');
+                if (editBtn) { editBtn.classList.remove('active'); editBtn.innerHTML = '<span>✏️ <span class="lang-fr">Éditer</span><span class="lang-en">Edit</span></span>'; }
+                showToast('🔒 Modifications verrouillées');
+            }
+        }
         function saveHTML() {
-            if(document.activeElement) document.activeElement.blur();
-            const htmlContent = "<!DOCTYPE html>\n" + document.documentElement.outerHTML;
-            const blob = new Blob([htmlContent], { type: "text/html;charset=utf-8" });
-            const a = document.createElement("a");
-            a.href = URL.createObjectURL(blob);
-            a.download = "portfolio_mael_modifie.html";
-            document.body.appendChild(a);
-            a.click();
-            document.body.removeChild(a);
-            URL.revokeObjectURL(a.href);
+            const wasEditing = isEditing;
+            const main = document.getElementById('portfolio-content');
+            document.body.classList.remove('editing-active');
+            main.removeAttribute('contenteditable');
+            const blob = new Blob(['<!DOCTYPE html>\n' + document.documentElement.outerHTML], { type: 'text/html;charset=utf-8' });
+            const link = document.createElement('a');
+            link.href = URL.createObjectURL(blob);
+            link.download = 'portfolio_mael_modifie.html';
+            document.body.appendChild(link); link.click(); document.body.removeChild(link);
+            URL.revokeObjectURL(link.href);
+            if (wasEditing) { document.body.classList.add('editing-active'); main.setAttribute('contenteditable', 'true'); }
+            showToast('💾 Fichier sauvegardé !');
         }
-
-        (function() {
-            const savedTheme = localStorage.getItem('cv_theme') || 'dark';
-            document.documentElement.setAttribute('data-theme', savedTheme);
-            const btn = document.getElementById('theme-toggle-btn');
-            if (btn) btn.innerHTML = savedTheme === 'dark' ? '<span>☀️ Mode Clair</span>' : '<span>🌙 Mode Sombre</span>';
-        })();
+        document.addEventListener('DOMContentLoaded', () => {
+            try {
+                const st = localStorage.getItem('portfolio_theme');
+                if (st) { document.documentElement.setAttribute('data-theme', st); const b = document.getElementById('theme-toggle-btn'); if (b && st === 'light') b.innerHTML = '<span>🌙 <span class="lang-fr">Sombre</span><span class="lang-en">Dark</span></span>'; }
+                const sl = localStorage.getItem('portfolio_lang');
+                if (sl) { document.documentElement.setAttribute('data-lang', sl); const b = document.getElementById('lang-toggle-btn'); if (b && sl === 'en') b.innerHTML = '<span>🇫🇷 FR</span>'; }
+            } catch (e) { }
+        });
     </script>
+</body>
 
-</sectionce></div></body></html>
+</html>

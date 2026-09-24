@@ -3,14 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mael — Étudiant Ingénieur & Développeur Systèmes / Backend</title>
+    <title>Mael — Étudiant Ingénieur &amp; Développeur Systèmes / Backend</title>
     <meta name="description" content="Portfolio d'ingénieur de Mael : architecture backend, systèmes embarqués, robotique ROS et développement bas-niveau.">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
+    <!-- Arrière-plan Ambiant Immersif pour réfraction optique QuickLiquid -->
+    <div class="ambient-backdrop no-print" aria-hidden="true">
+        <div class="ambient-orb orb-1"></div>
+        <div class="ambient-orb orb-2"></div>
+        <div class="ambient-orb orb-3"></div>
+        <div class="ambient-grid"></div>
+    </div>
+
     <div class="site-wrapper">
-        <!-- En-tête Global avec Branding & Navigation -->
+        <!-- En-tête Global avec Branding & Navigation (Dock Flottant Liquid Glass) -->
         <header class="top-header no-print">
             <div class="brand-block">
                 <a href="index.html" class="brand-link">
@@ -92,7 +100,7 @@
             <div class="editable-area">
                 <header style="margin-bottom: 2rem;">
                     <h1>Mael</h1>
-                    <p class="font-mono" style="color: var(--accent-terminal); font-size: 1.15rem; font-weight: 500; margin-bottom: 0.8rem;">
+                    <p class="font-mono" style="color: var(--accent-emerald); font-size: 1.15rem; font-weight: 500; margin-bottom: 0.8rem;">
                         <span class="lang-fr">&gt; Étudiant Ingénieur ENIB &amp; Développeur Systèmes / Backend</span>
                         <span class="lang-en">&gt; ENIB Engineering Student &amp; Backend / Systems Developer</span>
                     </p>
@@ -244,16 +252,16 @@
             </section>
 
             <!-- Accès Rapide & Navigation Projets -->
-            <section style="margin-top: 2rem; border-top: 1px dashed var(--border-crisp); padding-top: 1.5rem;">
-                <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+            <section style="margin-top: 2.5rem; border-top: 1px solid var(--glass-border); padding-top: 1.75rem;">
+                <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1.25rem;">
                     <div>
-                        <span class="font-mono" style="color: var(--accent-terminal); font-size: 0.9rem;">&gt; Prochaine étape :</span>
-                        <span style="color: var(--text-secondary); font-size: 0.9rem; margin-left: 0.5rem;">
+                        <span class="font-mono" style="color: var(--accent-emerald); font-size: 0.9rem; font-weight: 600;">&gt; Prochaine étape :</span>
+                        <span style="color: var(--text-secondary); font-size: 0.92rem; margin-left: 0.5rem;">
                             <span class="lang-fr">Consulter les réalisations techniques ou l'historique de formation.</span>
                             <span class="lang-en">Explore technical achievements or educational timeline.</span>
                         </span>
                     </div>
-                    <div style="display: flex; gap: 0.6rem;">
+                    <div style="display: flex; gap: 0.6rem; flex-wrap: wrap;">
                         <a href="projets.html" class="btn-ctrl">
                             <span class="lang-fr">Voir les 7 Projets →</span>
                             <span class="lang-en">View 7 Projects →</span>
@@ -286,6 +294,7 @@
         </footer>
     </div>
 
+    <script src="quick-liquid.js"></script>
     <script src="script.js"></script>
 </body>
 </html>

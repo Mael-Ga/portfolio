@@ -3,457 +3,1207 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mael — Curriculum Vitae | Étudiant Ingénieur &amp; Développeur</title>
-    <meta name="description" content="Curriculum Vitae de Mael : École Nationale d'Ingénieurs de Brest (ENIB), Université Aristote de Thessalonique, architectures logicielles et systèmes embarqués.">
-    <link rel="stylesheet" href="style.css">
+    <title>Maël Galan — Curriculum Vitae | Élève-Ingénieur ENIB</title>
+    <meta name="description" content="Curriculum Vitae de Maël Galan : Élève-ingénieur à l'ENIB, spécialisé en mécatronique, systèmes embarqués, robotique ROS et génie logiciel bas-niveau. Recherche stage assistant ingénieur.">
+
     <style>
-        /* Optimisations spécifiques au document CV */
-        .cv-document {
-            background-color: var(--bg-surface);
-            border: 1px solid var(--border-crisp);
-            border-radius: var(--radius-md);
-            padding: 2.5rem;
-            box-shadow: var(--shadow-crisp);
-            margin-bottom: 2rem;
+        /* ==========================================================================
+           APPLE iOS LIQUID GLASS DESIGN SYSTEM (iOS 18 / VisionOS Inspired)
+           Style épuré, authentique, ultra-premium, lisible et naturel (Non-IA)
+           ========================================================================== */
+
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap');
+
+        :root {
+            /* Typographie Apple System */
+            --font-sans: -apple-system, BlinkMacSystemFont, "Plus Jakarta Sans", "SF Pro Display", "SF Pro Text", "Helvetica Neue", sans-serif;
+            --font-mono: 'JetBrains Mono', SFMono-Regular, Menlo, monospace;
+
+            /* iOS Dark Mode — Obsidian Deep Space */
+            --bg-canvas: #05070b;
+            --bg-glass-card: rgba(18, 22, 32, 0.65);
+            --bg-glass-subtle: rgba(255, 255, 255, 0.04);
+            --bg-glass-hover: rgba(255, 255, 255, 0.08);
+            --bg-glass-active: rgba(255, 255, 255, 0.12);
+            --bg-pill: rgba(255, 255, 255, 0.06);
+
+            /* Verre liquide optique */
+            --glass-border: rgba(255, 255, 255, 0.10);
+            --glass-border-highlight: rgba(255, 255, 255, 0.22);
+            --glass-specular: inset 0 1px 0 rgba(255, 255, 255, 0.25), 0 20px 40px -15px rgba(0, 0, 0, 0.6);
+            --glass-blur: blur(36px) saturate(180%);
+
+            /* Textes & Contrastes */
+            --text-primary: #f5f5f7;
+            --text-secondary: #98989f;
+            --text-tertiary: #636366;
+
+            /* Accents iOS subtils */
+            --ios-blue: #2997ff;
+            --ios-blue-subtle: rgba(41, 151, 255, 0.12);
+            --ios-green: #30d158;
+            --ios-green-subtle: rgba(48, 209, 88, 0.14);
+            --ios-indigo: #5e5ce6;
+            --ios-amber: #ff9f0a;
+
+            /* Rayons de courbure Apple (Squircles) */
+            --radius-card: 26px;
+            --radius-item: 16px;
+            --radius-badge: 10px;
+            --radius-pill: 9999px;
+
+            /* Transitions */
+            --spring: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
-        .cv-header-block {
-            border-bottom: 2px solid var(--border-crisp);
-            padding-bottom: 1.5rem;
-            margin-bottom: 1.75rem;
+        /* iOS Light Mode — Frosted Pearl Canvas */
+        [data-theme="light"] {
+            --bg-canvas: #f5f5f7;
+            --bg-glass-card: rgba(255, 255, 255, 0.78);
+            --bg-glass-subtle: rgba(0, 0, 0, 0.025);
+            --bg-glass-hover: rgba(0, 0, 0, 0.05);
+            --bg-glass-active: rgba(0, 0, 0, 0.08);
+            --bg-pill: rgba(0, 0, 0, 0.04);
+
+            --glass-border: rgba(0, 0, 0, 0.08);
+            --glass-border-highlight: rgba(255, 255, 255, 0.95);
+            --glass-specular: inset 0 1px 0 rgba(255, 255, 255, 1), 0 16px 36px -10px rgba(0, 0, 0, 0.06);
+            --glass-blur: blur(30px) saturate(190%);
+
+            --text-primary: #1d1d1f;
+            --text-secondary: #6e6e73;
+            --text-tertiary: #86868b;
+
+            --ios-blue: #0071e3;
+            --ios-blue-subtle: rgba(0, 113, 227, 0.08);
+            --ios-green: #34c759;
+            --ios-green-subtle: rgba(52, 199, 89, 0.10);
+            --ios-indigo: #5856d6;
+            --ios-amber: #d97706;
         }
 
-        .cv-two-col {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 2rem;
+        /* --- Reset & Layout Base --- */
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            font-size: 16px;
+            scroll-behavior: smooth;
+            -webkit-text-size-adjust: 100%;
+        }
+
+        body {
+            font-family: var(--font-sans);
+            background-color: var(--bg-canvas);
+            color: var(--text-primary);
+            line-height: 1.6;
+            padding: 2rem 1.25rem 5rem 1.25rem;
+            min-height: 100vh;
+            transition: background-color 0.3s ease, color 0.3s ease;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            position: relative;
+        }
+
+        /* Bilinguisme natif */
+        [data-lang="fr"] .lang-en { display: none !important; }
+        [data-lang="en"] .lang-fr { display: none !important; }
+
+        /* Arrière-plan subtil avec gradients optiques naturels (sans agressivité) */
+        .ambient-aurora {
+            position: fixed;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100vw;
+            max-width: 1400px;
+            height: 550px;
+            pointer-events: none;
+            z-index: 0;
+            background: radial-gradient(circle at 50% -10%, rgba(41, 151, 255, 0.12) 0%, rgba(94, 92, 230, 0.06) 40%, transparent 70%);
+            opacity: 0.85;
+            filter: blur(60px);
+        }
+
+        [data-theme="light"] .ambient-aurora {
+            background: radial-gradient(circle at 50% -10%, rgba(0, 113, 227, 0.08) 0%, rgba(88, 86, 214, 0.04) 40%, transparent 70%);
+        }
+
+        .content-container {
+            max-width: 920px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* --- 1. Barre Flottante iOS (Dynamic Glass Island) --- */
+        .ios-island {
+            position: sticky;
+            top: 1.25rem;
+            z-index: 100;
+            margin-bottom: 2.25rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0.6rem 1rem;
+            background: var(--bg-glass-card);
+            backdrop-filter: var(--glass-blur);
+            -webkit-backdrop-filter: var(--glass-blur);
+            border: 1px solid var(--glass-border);
+            border-radius: var(--radius-pill);
+            box-shadow: var(--glass-specular);
+            transition: var(--spring);
+        }
+
+        .island-brand {
+            display: flex;
+            align-items: center;
+            gap: 0.65rem;
+            text-decoration: none;
+            color: var(--text-primary);
+        }
+
+        .island-avatar {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--ios-blue), var(--ios-indigo));
+            color: #ffffff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 0.85rem;
+            letter-spacing: -0.02em;
+            box-shadow: 0 2px 8px rgba(41, 151, 255, 0.3);
+        }
+
+        .island-title {
+            font-weight: 600;
+            font-size: 0.92rem;
+            letter-spacing: -0.01em;
+        }
+
+        .island-nav-links {
+            display: flex;
+            align-items: center;
+            gap: 0.35rem;
+        }
+
+        .nav-pill-link {
+            text-decoration: none;
+            font-size: 0.84rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+            padding: 0.4rem 0.85rem;
+            border-radius: var(--radius-pill);
+            transition: var(--spring);
+        }
+
+        .nav-pill-link:hover {
+            color: var(--text-primary);
+            background: var(--bg-glass-hover);
+        }
+
+        .island-controls {
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .ios-btn {
+            background: var(--bg-glass-subtle);
+            color: var(--text-primary);
+            border: 1px solid var(--glass-border);
+            padding: 0.42rem 0.85rem;
+            border-radius: var(--radius-pill);
+            font-family: inherit;
+            font-size: 0.82rem;
+            font-weight: 600;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            transition: var(--spring);
+            user-select: none;
+            outline: none;
+        }
+
+        .ios-btn:hover {
+            background: var(--bg-glass-hover);
+            border-color: var(--glass-border-highlight);
+            transform: translateY(-1px);
+        }
+
+        .ios-btn:active {
+            transform: scale(0.97);
+        }
+
+        .ios-btn.primary {
+            background: var(--ios-blue);
+            color: #ffffff;
+            border-color: transparent;
+            box-shadow: 0 4px 14px rgba(41, 151, 255, 0.3);
+        }
+
+        .ios-btn.primary:hover {
+            background: #1a88f0;
+            box-shadow: 0 6px 20px rgba(41, 151, 255, 0.4);
+        }
+
+        .ios-btn.active {
+            background: var(--ios-green-subtle);
+            color: var(--ios-green);
+            border-color: var(--ios-green);
+        }
+
+        /* --- 2. Document CV Principal (Carte Apple Liquid Glass) --- */
+        .cv-card {
+            background: var(--bg-glass-card);
+            backdrop-filter: var(--glass-blur);
+            -webkit-backdrop-filter: var(--glass-blur);
+            border: 1px solid var(--glass-border);
+            border-radius: var(--radius-card);
+            box-shadow: var(--glass-specular);
+            padding: 3rem 3.25rem;
+            transition: var(--spring);
+            position: relative;
         }
 
         @media (max-width: 768px) {
-            .cv-two-col {
+            body { padding: 1rem 0.75rem 3rem 0.75rem; }
+            .ios-island { padding: 0.5rem 0.75rem; }
+            .island-nav-links { display: none; }
+            .cv-card { padding: 2rem 1.5rem; border-radius: 20px; }
+        }
+
+        /* --- 3. En-Tête du CV --- */
+        .cv-header {
+            border-bottom: 1px solid var(--glass-border);
+            padding-bottom: 2rem;
+            margin-bottom: 2.25rem;
+        }
+
+        .cv-header-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            gap: 1.25rem;
+            margin-bottom: 0.85rem;
+        }
+
+        .cv-name {
+            font-size: 2.6rem;
+            font-weight: 800;
+            letter-spacing: -0.04em;
+            line-height: 1.1;
+            color: var(--text-primary);
+        }
+
+        .status-capsule {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.55rem;
+            background: var(--ios-green-subtle);
+            border: 1px solid rgba(48, 209, 88, 0.25);
+            color: var(--ios-green);
+            font-size: 0.82rem;
+            font-weight: 600;
+            padding: 0.38rem 0.9rem;
+            border-radius: var(--radius-pill);
+        }
+
+        .status-dot {
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background-color: var(--ios-green);
+            box-shadow: 0 0 8px var(--ios-green);
+            animation: pulseDot 2.2s infinite ease-in-out;
+        }
+
+        @keyframes pulseDot {
+            0%, 100% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.3); opacity: 0.6; }
+        }
+
+        .cv-headline {
+            font-size: 1.22rem;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            color: var(--ios-blue);
+            margin-bottom: 1.25rem;
+        }
+
+        .contact-strip {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 0.6rem;
+        }
+
+        .contact-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.45rem;
+            background: var(--bg-pill);
+            border: 1px solid var(--glass-border);
+            color: var(--text-secondary);
+            font-size: 0.86rem;
+            font-weight: 500;
+            padding: 0.35rem 0.8rem;
+            border-radius: var(--radius-pill);
+            text-decoration: none;
+            transition: var(--spring);
+        }
+
+        .contact-pill:hover {
+            color: var(--text-primary);
+            background: var(--bg-glass-hover);
+            border-color: var(--glass-border-highlight);
+        }
+
+        .contact-pill.highlight {
+            color: var(--text-primary);
+            border-color: rgba(41, 151, 255, 0.3);
+            background: var(--ios-blue-subtle);
+        }
+
+        /* --- 4. Typographie des Sections --- */
+        .section-block {
+            margin-bottom: 2.25rem;
+        }
+
+        .section-label {
+            display: flex;
+            align-items: center;
+            gap: 0.65rem;
+            font-size: 0.82rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--text-tertiary);
+            margin-bottom: 1.15rem;
+        }
+
+        .section-label::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: var(--glass-border);
+        }
+
+        .profile-summary {
+            font-size: 1.02rem;
+            line-height: 1.7;
+            color: var(--text-secondary);
+            text-align: justify;
+        }
+
+        .profile-summary strong {
+            color: var(--text-primary);
+            font-weight: 600;
+        }
+
+        /* --- 5. Grille Deux Colonnes Fluide --- */
+        .cv-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2.5rem;
+        }
+
+        @media (max-width: 840px) {
+            .cv-grid {
                 grid-template-columns: 1fr;
-                gap: 1rem;
-            }
-            .cv-document {
-                padding: 1.25rem;
+                gap: 1.75rem;
             }
         }
 
-        .cv-item {
-            margin-bottom: 1.4rem;
+        /* --- 6. Items / Cartes d'Expérience & Projets --- */
+        .cv-entry {
+            margin-bottom: 1.6rem;
+            position: relative;
         }
 
-        .cv-item-header {
+        .cv-entry:last-child {
+            margin-bottom: 0;
+        }
+
+        .entry-header {
             display: flex;
             justify-content: space-between;
             align-items: baseline;
-            margin-bottom: 0.2rem;
             flex-wrap: wrap;
             gap: 0.5rem;
+            margin-bottom: 0.25rem;
         }
 
-        .cv-item-title {
-            font-family: var(--font-mono);
-            font-size: 1.05rem;
+        .entry-title {
+            font-size: 1.04rem;
+            font-weight: 700;
+            letter-spacing: -0.01em;
+            color: var(--text-primary);
+        }
+
+        .entry-date {
+            font-size: 0.82rem;
             font-weight: 600;
-            color: var(--accent-terminal);
+            color: var(--text-tertiary);
+            background: var(--bg-pill);
+            padding: 0.2rem 0.6rem;
+            border-radius: var(--radius-pill);
         }
 
-        .cv-item-date {
-            font-family: var(--font-mono);
-            font-size: 0.8rem;
-            color: var(--accent-amber);
-            font-weight: 500;
-        }
-
-        .cv-item-sub {
+        .entry-subtitle {
             font-size: 0.92rem;
-            color: var(--accent-blue);
-            font-style: italic;
-            margin-bottom: 0.4rem;
+            font-weight: 500;
+            color: var(--ios-blue);
+            margin-bottom: 0.55rem;
         }
 
-        .cv-item ul {
+        .entry-list {
             padding-left: 1.25rem;
-            font-size: 0.9rem;
+            font-size: 0.92rem;
             color: var(--text-secondary);
+            line-height: 1.65;
         }
 
-        .cv-item li {
+        .entry-list li {
             margin-bottom: 0.35rem;
         }
 
-        /* Print A4 Specific Tuning */
+        .entry-list strong {
+            color: var(--text-primary);
+            font-weight: 600;
+        }
+
+        /* --- 7. Compétences & Outils (Badges Verre Liquide) --- */
+        .skills-group {
+            margin-bottom: 1.25rem;
+        }
+
+        .skills-group-title {
+            font-size: 0.86rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 0.6rem;
+        }
+
+        .skills-wrap {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.45rem;
+        }
+
+        .skill-chip {
+            background: var(--bg-glass-subtle);
+            border: 1px solid var(--glass-border);
+            color: var(--text-primary);
+            font-size: 0.84rem;
+            font-weight: 500;
+            padding: 0.32rem 0.75rem;
+            border-radius: var(--radius-badge);
+            transition: var(--spring);
+        }
+
+        .skill-chip:hover {
+            background: var(--bg-glass-hover);
+            border-color: var(--glass-border-highlight);
+            transform: translateY(-1px);
+        }
+
+        .skill-chip.featured {
+            background: var(--ios-blue-subtle);
+            border-color: rgba(41, 151, 255, 0.25);
+            color: var(--text-primary);
+            font-weight: 600;
+        }
+
+        /* --- 8. Langues & Atouts --- */
+        .lang-capsules {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 0.75rem;
+            margin-top: 0.5rem;
+        }
+
+        .lang-card {
+            background: var(--bg-glass-subtle);
+            border: 1px solid var(--glass-border);
+            padding: 0.85rem 1rem;
+            border-radius: var(--radius-item);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .lang-name {
+            font-size: 0.92rem;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .lang-level {
+            font-size: 0.82rem;
+            color: var(--text-secondary);
+            font-weight: 500;
+        }
+
+        /* --- 9. Bannière Mode Édition --- */
+        .edit-mode-banner {
+            display: none;
+            background: var(--ios-blue-subtle);
+            border: 1px solid rgba(41, 151, 255, 0.3);
+            color: var(--text-primary);
+            border-radius: var(--radius-item);
+            padding: 0.75rem 1.25rem;
+            margin-bottom: 1.5rem;
+            font-size: 0.88rem;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        body.editing-active .edit-mode-banner {
+            display: flex;
+        }
+
+        body.editing-active .editable-area {
+            outline: 2px dashed rgba(41, 151, 255, 0.4);
+            outline-offset: 8px;
+            cursor: text;
+        }
+
+        /* --- 10. Toast Notification --- */
+        .ios-toast {
+            position: fixed;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%) translateY(100px);
+            background: var(--bg-glass-card);
+            backdrop-filter: var(--glass-blur);
+            -webkit-backdrop-filter: var(--glass-blur);
+            border: 1px solid var(--glass-border-highlight);
+            color: var(--text-primary);
+            padding: 0.65rem 1.3rem;
+            border-radius: var(--radius-pill);
+            font-size: 0.88rem;
+            font-weight: 600;
+            box-shadow: var(--glass-specular);
+            z-index: 999;
+            opacity: 0;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            pointer-events: none;
+        }
+
+        .ios-toast.visible {
+            transform: translateX(-50%) translateY(0);
+            opacity: 1;
+        }
+
+        /* --- 11. Optimisations Impression A4 (Print Strict & Précis) --- */
         @media print {
-            .cv-document {
+            body {
+                background: #ffffff !important;
+                color: #0f172a !important;
+                padding: 0 !important;
+                font-size: 11pt;
+            }
+            .ambient-aurora,
+            .ios-island,
+            .edit-mode-banner,
+            .ios-toast,
+            .no-print {
+                display: none !important;
+            }
+            .content-container {
+                max-width: 100% !important;
+                margin: 0 !important;
+            }
+            .cv-card {
+                background: transparent !important;
                 border: none !important;
                 box-shadow: none !important;
                 padding: 0 !important;
-                background: transparent !important;
             }
-            .cv-header-block {
-                border-bottom: 2px solid #1f2328 !important;
-                padding-bottom: 1rem !important;
-                margin-bottom: 1.2rem !important;
+            .cv-header {
+                border-bottom: 2px solid #0f172a !important;
+                padding-bottom: 1.25rem !important;
+                margin-bottom: 1.5rem !important;
             }
-            .cv-item-title {
-                color: #1f2328 !important;
+            .cv-name {
+                color: #0f172a !important;
+                font-size: 24pt !important;
             }
-            .cv-item-sub {
-                color: #0969da !important;
+            .cv-headline {
+                color: #0284c7 !important;
             }
-            .cv-item-date {
-                color: #57606a !important;
+            .entry-title {
+                color: #0f172a !important;
             }
-            .cv-two-col {
+            .entry-subtitle {
+                color: #0284c7 !important;
+            }
+            .entry-date {
+                background: #f1f5f9 !important;
+                color: #475569 !important;
+                border: 1px solid #e2e8f0 !important;
+            }
+            .section-label {
+                color: #0f172a !important;
+            }
+            .section-label::after {
+                background: #cbd5e1 !important;
+            }
+            .skill-chip {
+                background: #f8fafc !important;
+                border: 1px solid #cbd5e1 !important;
+                color: #0f172a !important;
+            }
+            .skill-chip.featured {
+                background: #e0f2fe !important;
+                border-color: #7dd3fc !important;
+            }
+            .status-capsule {
+                border: 1px solid #16a34a !important;
+                background: #f0fdf4 !important;
+                color: #16a34a !important;
+            }
+            .cv-grid {
                 display: grid !important;
                 grid-template-columns: 1fr 1fr !important;
-                gap: 1.5rem !important;
+                gap: 1.75rem !important;
             }
         }
     </style>
 </head>
 <body>
 
-    <div class="site-wrapper">
-        <!-- En-tête Global avec Branding & Navigation -->
-        <header class="top-header no-print">
-            <div class="brand-block">
-                <a href="index.html" class="brand-link">
-                    <span class="brand-prompt">&gt;_</span>
-                    <span>mael::dev</span>
-                </a>
-                <span class="status-pill">
-                    <span class="pulse-dot"></span>
-                    <span class="lang-fr">Disponible</span>
-                    <span class="lang-en">Available</span>
-                </span>
-            </div>
+    <!-- Halo Ambiant Supérieur -->
+    <div class="ambient-aurora" aria-hidden="true"></div>
 
-            <nav class="nav-bar" aria-label="Navigation principale">
-                <a href="index.html" class="nav-link">
+    <div class="content-container">
+
+        <!-- Barre de Contrôle Flottante iOS (Dynamic Glass Island) -->
+        <header class="ios-island no-print" aria-label="Commandes du CV">
+            <a href="index.html" class="island-brand" title="Retour à l'accueil">
+                <div class="island-avatar">M</div>
+                <span class="island-title">Mael</span>
+            </a>
+
+            <nav class="island-nav-links" aria-label="Navigation principale">
+                <a href="index.html" class="nav-pill-link">
                     <span class="lang-fr">Accueil</span>
                     <span class="lang-en">Home</span>
                 </a>
-                <a href="about.html" class="nav-link">
+                <a href="about.html" class="nav-pill-link">
                     <span class="lang-fr">À Propos</span>
                     <span class="lang-en">About</span>
                 </a>
-                <a href="projets.html" class="nav-link">
+                <a href="projets.html" class="nav-pill-link">
                     <span class="lang-fr">Projets</span>
                     <span class="lang-en">Projects</span>
                 </a>
-                <a href="parcours.html" class="nav-link">
+                <a href="parcours.html" class="nav-pill-link">
                     <span class="lang-fr">Parcours</span>
                     <span class="lang-en">Career</span>
                 </a>
-                <a href="cv.html" class="nav-link cv-link active">
-                    <span class="lang-fr">CV Format PDF</span>
-                    <span class="lang-en">CV / Resume</span>
-                </a>
             </nav>
-        </header>
 
-        <!-- Barre d'Outils Unifiée -->
-        <section class="controls-bar no-print" aria-label="Contrôles du portfolio">
-            <div class="controls-info">
-                <span>sys::station [v2.4]</span>
-                <span style="opacity: 0.5;">|</span>
-                <span class="lang-fr">Document CV — Prêt pour Impression A4</span>
-                <span class="lang-en">Resume Document — A4 Print Ready</span>
-            </div>
-
-            <div class="controls-buttons">
-                <button id="theme-toggle-btn" class="btn-ctrl" onclick="toggleTheme()" title="Basculer le thème">
-                    <span>☀️ <span class="lang-fr">Mode Clair</span><span class="lang-en">Light Mode</span></span>
+            <div class="island-controls">
+                <button id="theme-toggle-btn" class="ios-btn" onclick="toggleTheme()" title="Basculer le thème">
+                    <span>☀️ <span class="lang-fr">Clair</span><span class="lang-en">Light</span></span>
                 </button>
-                <button id="lang-toggle-btn" class="btn-ctrl" onclick="toggleLang()" title="Changer la langue">
-                    <span>🇬🇧 English</span>
+                <button id="lang-toggle-btn" class="ios-btn" onclick="toggleLang()" title="Changer la langue">
+                    <span>🇬🇧 EN</span>
                 </button>
-                <button id="edit-toggle-btn" class="btn-ctrl edit-btn" onclick="toggleEditMode()" title="Modifier les textes directement">
+                <button id="edit-toggle-btn" class="ios-btn" onclick="toggleEditMode()" title="Éditer le texte directement">
                     <span>✏️ <span class="lang-fr">Éditer</span><span class="lang-en">Edit</span></span>
                 </button>
-                <button class="btn-ctrl" onclick="saveHTML()" title="Télécharger la page HTML avec vos modifications">
-                    <span>💾 <span class="lang-fr">Sauvegarder HTML</span><span class="lang-en">Save HTML</span></span>
-                </button>
-                <button class="btn-ctrl primary" onclick="downloadPDF()" title="Imprimer ou enregistrer en PDF (A4)">
-                    <span>📄 <span class="lang-fr">Exporter / Imprimer PDF</span><span class="lang-en">Export / Print PDF</span></span>
+                <button class="ios-btn primary" onclick="downloadPDF()" title="Imprimer ou enregistrer en PDF (A4)">
+                    <span>📄 <span class="lang-fr">PDF</span><span class="lang-en">PDF</span></span>
                 </button>
             </div>
-        </section>
+        </header>
 
         <!-- Bannière Mode Édition -->
         <div class="edit-mode-banner no-print">
-            <span>✏️ <strong>Mode Édition Actif :</strong> Vous pouvez modifier le texte directement dans le CV. Cliquez ensuite sur "Sauvegarder HTML" ou "Exporter PDF".</span>
-            <button class="btn-ctrl" onclick="toggleEditMode()" style="padding: 0.2rem 0.5rem; font-size: 0.75rem;">Fermer</button>
+            <span>✏️ <strong>Mode Édition Activé :</strong> Vous pouvez modifier chaque texte directement sur la page.</span>
+            <button class="ios-btn" onclick="saveHTML()" style="padding: 0.3rem 0.75rem;">💾 Sauvegarder</button>
         </div>
 
-        <!-- Document CV Imprimable & Éditable -->
-        <main class="cv-document editable-area">
-            <!-- En-tête CV -->
-            <div class="cv-header-block">
-                <div style="display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 0.5rem;">
-                    <h1>Mael</h1>
-                    <span class="font-mono" style="font-size: 0.85rem; color: var(--accent-amber);">CV.VERSION_2026.09</span>
-                </div>
-                
-                <div class="font-mono" style="font-size: 1.15rem; color: var(--accent-terminal); font-weight: 600; margin-bottom: 0.8rem;">
-                    <span class="lang-fr">Étudiant Ingénieur &amp; Développeur Systèmes / Backend</span>
-                    <span class="lang-en">Engineering Student &amp; Backend / Systems Developer</span>
+        <!-- Document CV Liquid Glass -->
+        <main class="cv-card editable-area" id="cv-content">
+
+            <!-- En-tête Principal -->
+            <header class="cv-header">
+                <div class="cv-header-top">
+                    <div>
+                        <h1 class="cv-name">Maël Galan</h1>
+                        <div class="cv-headline">
+                            <span class="lang-fr">Élève-Ingénieur ENIB — Mécatronique, Systèmes Embarqués &amp; Robotique</span>
+                            <span class="lang-en">ENIB Engineering Student — Mechatronics, Embedded Systems &amp; Robotics</span>
+                        </div>
+                    </div>
+                    <div class="status-capsule">
+                        <span class="status-dot"></span>
+                        <span class="lang-fr">Recherche Stage Assistant Ingénieur • 80 à 136 jours ouvrés</span>
+                        <span class="lang-en">Seeking Assistant Engineer Internship • 80 to 136 working days</span>
+                    </div>
                 </div>
 
-                <div style="display: flex; flex-wrap: wrap; gap: 0.4rem;">
-                    <span class="tag-badge highlight">
-                        <span class="lang-fr">Disponible pour missions saisonnières &amp; horaires décalés/nuit</span>
-                        <span class="lang-en">Available for seasonal &amp; flexible/night shifts</span>
+                <!-- Coordonnées & Liens -->
+                <div class="contact-strip">
+                    <span class="contact-pill highlight">
+                        📍 Brest / Saint-Brieuc — Bretagne
                     </span>
-                    <span class="tag-badge">Brest / Mobilité France</span>
-                    <span class="tag-badge">ENIB (Brest) &amp; Univ. Aristote (Grèce)</span>
+                    <a href="mailto:contact@mael.dev" class="contact-pill">
+                        ✉️ contact@mael.dev
+                    </a>
+                    <span class="contact-pill">
+                        📞 [Numéro de téléphone]
+                    </span>
+                    <span class="contact-pill">
+                        🚗 Permis B — Véhiculé
+                    </span>
+                    <a href="https://linkedin.com" target="_blank" rel="noopener" class="contact-pill">
+                        💼 LinkedIn
+                    </a>
+                    <a href="https://github.com" target="_blank" rel="noopener" class="contact-pill">
+                        💻 Portfolio / GitHub
+                    </a>
                 </div>
-            </div>
+            </header>
 
-            <!-- Résumé / About Me -->
-            <section style="margin-bottom: 1.75rem;">
-                <h2>
-                    <span class="section-prefix">&gt;</span>
+            <!-- Profil Professionnel -->
+            <section class="section-block">
+                <div class="section-label">
                     <span class="lang-fr">Profil Professionnel</span>
-                    <span class="lang-en">Professional Profile</span>
-                </h2>
-                <p style="text-align: justify; font-size: 0.95rem; line-height: 1.65; margin: 0;">
+                    <span class="lang-en">Professional Summary</span>
+                </div>
+                <p class="profile-summary">
                     <span class="lang-fr">
-                        Étudiant en cycle ingénieur à l'École Nationale d'Ingénieurs de Brest (ENIB) avec mobilité internationale à l'Université Aristote de Thessalonique (Grèce), je recherche activement des missions d'ingénierie et emplois saisonniers. Sérieux, autonome et hautement adaptable, je combine une grande rigueur analytique à une passion pour les architectures backend complexes, les systèmes embarqués et la robotique. Pleinement disponible de jour comme de nuit, je m'investis avec réactivité sur des projets exigeants.
+                        Élève-ingénieur à l'<strong>École Nationale d'Ingénieurs de Brest (ENIB)</strong>, complété par un semestre international à l'<strong>Université Aristote de Thessalonique</strong> (Grèce, Erasmus 2026), je recherche un <strong>stage assistant ingénieur obligatoire de 80 à 136 jours ouvrés</strong>. Je conjugue une solide formation en mécatronique et automatique à une pratique avancée du développement bas niveau (C/C++, microcontrôleurs STM32, Linux) et de la robotique mobile (ROS, Gazebo). Mon objectif est d'apporter une contribution technique immédiate au sein d'un bureau d'études, d'un laboratoire R&amp;D ou sur des bancs de test et d'intégration.
                     </span>
                     <span class="lang-en">
-                        Engineering student at the École Nationale d'Ingénieurs de Brest (ENIB) with international academic exchange at the Aristotle University of Thessaloniki (Greece), actively seeking seasonal engineering roles and technical missions. Reliable, autonomous, and highly adaptable, I combine analytical rigor with a passion for complex backend architectures, embedded systems, and robotics. Fully available day and night, ready to commit to demanding technical challenges.
+                        Engineering student at the <strong>École Nationale d'Ingénieurs de Brest (ENIB)</strong>, complemented by an international Erasmus semester at the <strong>Aristotle University of Thessaloniki</strong> (Greece, 2026), seeking a <strong>mandatory assistant engineer internship of 80 to 136 working days</strong>. I combine a robust foundation in mechatronics and control systems with advanced proficiency in low-level development (C/C++, STM32 microcontrollers, Linux) and mobile robotics (ROS, Gazebo). Ready to deliver immediate technical value in R&amp;D, testing, or systems engineering.
                     </span>
                 </p>
             </section>
 
-            <!-- Deux Colonnes : Expérience & Formation / Projets Clés -->
-            <div class="cv-two-col">
-                <!-- Colonne Gauche : Expérience & Formation -->
+            <!-- Grille Centrale : Formation / Expérience & Projets d'Ingénierie -->
+            <div class="cv-grid">
+
+                <!-- Colonne Gauche : Formation & Expérience -->
                 <div>
-                    <section style="margin-bottom: 1.75rem;">
-                        <h2>
-                            <span class="section-prefix">&gt;</span>
-                            <span class="lang-fr">Expérience Professionnelle</span>
-                            <span class="lang-en">Professional Experience</span>
-                        </h2>
-
-                        <div class="cv-item">
-                            <div class="cv-item-header">
-                                <span class="cv-item-title">Chambre de Métiers et de l'Artisanat</span>
-                                <span class="cv-item-date">2024 - 2025</span>
-                            </div>
-                            <div class="cv-item-sub">
-                                <span class="lang-fr">Stagiaire Maintenance Informatique, Systèmes &amp; Réseaux (1 Mois)</span>
-                                <span class="lang-en">IT, Systems &amp; Network Maintenance Intern (1 Month)</span>
-                            </div>
-                            <ul>
-                                <li>
-                                    <span class="lang-fr">Déploiement d'images système (ghosting), masterisation de postes et mises à jour d'OS.</span>
-                                    <span class="lang-en">System ghosting deployment, workstation provisioning, and OS maintenance.</span>
-                                </li>
-                                <li>
-                                    <span class="lang-fr">Diagnostic matériel, remplacement de composants et garantie de la connectivité réseau.</span>
-                                    <span class="lang-en">Hardware troubleshooting, component replacement, and local network diagnostics.</span>
-                                </li>
-                            </ul>
-                        </div>
-                    </section>
-
-                    <section style="margin-bottom: 1.75rem;">
-                        <h2>
-                            <span class="section-prefix">&gt;</span>
+                    <!-- Formation -->
+                    <section class="section-block">
+                        <div class="section-label">
                             <span class="lang-fr">Formation Académique</span>
                             <span class="lang-en">Education</span>
-                        </h2>
+                        </div>
 
-                        <div class="cv-item">
-                            <div class="cv-item-header">
-                                <span class="cv-item-title">Université Aristote de Thessalonique</span>
-                                <span class="cv-item-date">2026</span>
+                        <article class="cv-entry">
+                            <div class="entry-header">
+                                <span class="entry-title">Université Aristote de Thessalonique</span>
+                                <span class="entry-date">2026</span>
                             </div>
-                            <div class="cv-item-sub">
-                                <span class="lang-fr">Semestre de Mobilité Internationale (Erasmus)</span>
-                                <span class="lang-en">International Academic Mobility (Erasmus)</span>
+                            <div class="entry-subtitle">
+                                <span class="lang-fr">Semestre International Erasmus — Grèce</span>
+                                <span class="lang-en">International Erasmus Semester — Greece</span>
                             </div>
-                            <ul>
+                            <ul class="entry-list">
                                 <li>
-                                    <span class="lang-fr">Spécialisation en mécatronique, systèmes de contrôle et robotique mobile.</span>
-                                    <span class="lang-en">Specialized coursework in mechatronics, control systems, and mobile robotics.</span>
+                                    <span class="lang-fr">Spécialisation en <strong>mécatronique</strong>, cinématique, robotique mobile et systèmes de contrôle-commande avancés.</span>
+                                    <span class="lang-en">Specialized coursework in <strong>mechatronics</strong>, mobile robotics, and advanced control systems.</span>
+                                </li>
+                                <li>
+                                    <span class="lang-fr">Immersion en environnement académique international anglophone.</span>
+                                    <span class="lang-en">Full immersion in an international English-speaking academic environment.</span>
                                 </li>
                             </ul>
-                        </div>
+                        </article>
 
-                        <div class="cv-item">
-                            <div class="cv-item-header">
-                                <span class="cv-item-title">École Nationale d'Ingénieurs de Brest (ENIB)</span>
-                                <span class="cv-item-date">2023 - 2025</span>
+                        <article class="cv-entry">
+                            <div class="entry-header">
+                                <span class="entry-title">École Nationale d'Ingénieurs de Brest (ENIB)</span>
+                                <span class="entry-date">2023 – Présent</span>
                             </div>
-                            <div class="cv-item-sub">
-                                <span class="lang-fr">A-1 &amp; A-2 : Cycle Préparatoire Intégré</span>
-                                <span class="lang-en">A-1 &amp; A-2 : Integrated Preparatory Engineering Cycle</span>
+                            <div class="entry-subtitle">
+                                <span class="lang-fr">Formation d'Ingénieur Généraliste</span>
+                                <span class="lang-en">General Engineering Curriculum</span>
                             </div>
-                            <ul>
+                            <ul class="entry-list">
                                 <li>
-                                    <span class="lang-fr">Mathématiques appliquées, systèmes embarqués, électronique et génie logiciel.</span>
-                                    <span class="lang-en">Applied mathematics, embedded systems, electronics, and software engineering.</span>
+                                    <span class="lang-fr">Sciences de l'ingénieur : électronique analogique et numérique, systèmes embarqués, génie logiciel, automatique et asservissements.</span>
+                                    <span class="lang-en">Engineering sciences: analog &amp; digital electronics, embedded systems, software engineering, and automation.</span>
+                                </li>
+                                <li>
+                                    <span class="lang-fr">Cycle préparatoire intégré (A1/A2) validé avec mention.</span>
+                                    <span class="lang-en">Integrated preparatory cycle successfully completed.</span>
                                 </li>
                             </ul>
+                        </article>
+
+                        <article class="cv-entry">
+                            <div class="entry-header">
+                                <span class="entry-title">Lycée Chaptal</span>
+                                <span class="entry-date">2020 – 2023</span>
+                            </div>
+                            <div class="entry-subtitle">
+                                <span class="lang-fr">Baccalauréat Général Scientifique</span>
+                                <span class="lang-en">General High School Diploma (STEM)</span>
+                            </div>
+                            <ul class="entry-list">
+                                <li>
+                                    <span class="lang-fr">Spécialités : Sciences de l'Ingénieur &amp; Mathématiques.</span>
+                                    <span class="lang-en">Majors: Engineering Sciences &amp; Applied Mathematics.</span>
+                                </li>
+                            </ul>
+                        </article>
+                    </section>
+
+                    <!-- Expérience Professionnelle -->
+                    <section class="section-block">
+                        <div class="section-label">
+                            <span class="lang-fr">Expérience Professionnelle</span>
+                            <span class="lang-en">Professional Experience</span>
                         </div>
 
-                        <div class="cv-item">
-                            <div class="cv-item-header">
-                                <span class="cv-item-title">Lycée Chaptal</span>
-                                <span class="cv-item-date">2020 - 2023</span>
+                        <article class="cv-entry">
+                            <div class="entry-header">
+                                <span class="entry-title">Chambre de Métiers et de l'Artisanat</span>
+                                <span class="entry-date">2024 – 2025</span>
                             </div>
-                            <div class="cv-item-sub">
-                                <span class="lang-fr">Baccalauréat Général (Sciences de l'Ingénieur &amp; Mathématiques)</span>
-                                <span class="lang-en">General Baccalaureate (Engineering Sciences &amp; Math)</span>
+                            <div class="entry-subtitle">
+                                <span class="lang-fr">Stagiaire Maintenance Systèmes, Matériel &amp; Réseaux</span>
+                                <span class="lang-en">IT Systems, Hardware &amp; Network Intern</span>
                             </div>
-                        </div>
+                            <ul class="entry-list">
+                                <li>
+                                    <span class="lang-fr">Déploiement d'images système (masterisation/ghosting) et maintenance opérationnelle de parcs informatiques.</span>
+                                    <span class="lang-en">System ghosting deployment, automated provisioning, and operating system maintenance.</span>
+                                </li>
+                                <li>
+                                    <span class="lang-fr">Diagnostic matériel approfondi, remplacement de composants et qualification de connectivité réseau filaire/Wi-Fi.</span>
+                                    <span class="lang-en">Hardware troubleshooting, component replacement, and network infrastructure diagnostics.</span>
+                                </li>
+                            </ul>
+                        </article>
                     </section>
                 </div>
 
-                <!-- Colonne Droite : Projets Clés -->
+                <!-- Colonne Droite : Projets Techniques Clés -->
                 <div>
-                    <section style="margin-bottom: 1.75rem;">
-                        <h2>
-                            <span class="section-prefix">&gt;</span>
+                    <section class="section-block">
+                        <div class="section-label">
                             <span class="lang-fr">Projets Majeurs d'Ingénierie</span>
                             <span class="lang-en">Key Engineering Projects</span>
-                        </h2>
-
-                        <div class="cv-item">
-                            <div class="cv-item-title">SLASHER (mcslasher.com)</div>
-                            <div class="cv-item-sub">Java / Paper API 1.21.10 — Backend Asynchrone</div>
-                            <ul>
-                                <li>
-                                    <span class="lang-fr">Jeu multijoueur asymétrique (1vsN) à haute performance backend.</span>
-                                    <span class="lang-en">Asymmetric multiplayer game engine (1vsN) focused on backend throughput.</span>
-                                </li>
-                                <li>
-                                    <span class="lang-fr">Opérations asynchrones thread-safe, protection mémoire et tick-rate stable à 20 TPS.</span>
-                                    <span class="lang-en">Thread-safe async operations, GC leak prevention, and rock-solid 20 TPS.</span>
-                                </li>
-                            </ul>
                         </div>
 
-                        <div class="cv-item">
-                            <div class="cv-item-title">
-                                <span class="lang-fr">Robotique &amp; ROS Melodic</span>
-                                <span class="lang-en">Robotics &amp; ROS Melodic</span>
+                        <article class="cv-entry">
+                            <div class="entry-header">
+                                <span class="entry-title">Robotique Mobile Autonome &amp; ROS</span>
+                                <span class="entry-date">ROS / Gazebo</span>
                             </div>
-                            <div class="cv-item-sub">C++ / Python / Gazebo &amp; RViz</div>
-                            <ul>
+                            <div class="entry-subtitle">C++ / Python / Linux</div>
+                            <ul class="entry-list">
                                 <li>
-                                    <span class="lang-fr">Nœuds ROS temps réel pour le positionnement de drones et simulation de trajectoires.</span>
-                                    <span class="lang-en">Real-time ROS nodes for UAV positioning and kinematic trajectory simulation.</span>
+                                    <span class="lang-fr">Conception et implémentation de <strong>nœuds ROS temps réel</strong> pour la simulation de trajectoires et le positionnement de vecteurs mobiles.</span>
+                                    <span class="lang-en">Developed real-time ROS nodes for trajectory planning and mobile platform kinematic simulations.</span>
+                                </li>
+                                <li>
+                                    <span class="lang-fr">Intégration d'environnements physiques sous Gazebo, visualisation des flux de données capteurs dans RViz.</span>
+                                    <span class="lang-en">Integrated physical models under Gazebo and analyzed multi-sensor data streams via RViz.</span>
                                 </li>
                             </ul>
-                        </div>
+                        </article>
 
-                        <div class="cv-item">
-                            <div class="cv-item-title">
-                                <span class="lang-fr">Plugin Audio VST en C++</span>
-                                <span class="lang-en">C++ Audio VST Plugin</span>
+                        <article class="cv-entry">
+                            <div class="entry-header">
+                                <span class="entry-title">Systèmes Embarqués &amp; Sécurité Matérielle</span>
+                                <span class="entry-date">STM32 / Hardware</span>
                             </div>
-                            <div class="cv-item-sub">JUCE Framework / DSP 64-bit</div>
-                            <ul>
+                            <div class="entry-subtitle">C Bas Niveau / Électronique de Protection</div>
+                            <ul class="entry-list">
                                 <li>
-                                    <span class="lang-fr">Saturateur harmonique basse fréquence avec algorithmes non-linéaires en temps réel.</span>
-                                    <span class="lang-en">Low-frequency harmonic saturator utilizing real-time non-linear DSP algorithms.</span>
+                                    <span class="lang-fr">Programmation de microcontrôleurs <strong>STM32</strong> en C, gestion des timers, interruptions matérielles et bus série (I2C, SPI, UART).</span>
+                                    <span class="lang-en">Low-level C programming on STM32 MCUs, hardware interrupts, timers, and bus protocols (I2C, SPI, UART).</span>
+                                </li>
+                                <li>
+                                    <span class="lang-fr">Étude et implémentation de protections contre les transitoires électriques (diodes TVS, varistances MOVs) et audit de robustesse mémoire.</span>
+                                    <span class="lang-en">Hardware surge protection design (TVS diodes, MOVs) and memory safety verification in C.</span>
                                 </li>
                             </ul>
-                        </div>
+                        </article>
 
-                        <div class="cv-item">
-                            <div class="cv-item-title">
-                                <span class="lang-fr">Sécurité des Systèmes Embarqués</span>
-                                <span class="lang-en">Embedded Systems Security</span>
+                        <article class="cv-entry">
+                            <div class="entry-header">
+                                <span class="entry-title">UpStair — Dispositif Mécatronique PMR</span>
+                                <span class="entry-date">Olympiades SI</span>
                             </div>
-                            <div class="cv-item-sub">Hardware &amp; Firmware</div>
-                            <ul>
+                            <div class="entry-subtitle">SolidWorks / Conception Mécanique</div>
+                            <ul class="entry-list">
                                 <li>
-                                    <span class="lang-fr">Protection matérielle surtensions (Diodes TVS, MOVs) et audit de robustesse mémoire en C.</span>
-                                    <span class="lang-en">Hardware surge protection (TVS Diodes, MOVs) and memory safety audit in low-level C.</span>
+                                    <span class="lang-fr">Conception CAO 3D et dimensionnement cinématique d'un système mécatronique d'accessibilité.</span>
+                                    <span class="lang-en">3D CAD design and kinematic dimensioning of a mechatronic accessibility mechanism.</span>
+                                </li>
+                                <li>
+                                    <span class="lang-fr"><strong>Projet primé aux Olympiades nationales des Sciences de l'Ingénieur</strong> pour son innovation mécanique.</span>
+                                    <span class="lang-en"><strong>National Engineering Olympiad Award</strong> for mechanical innovation.</span>
                                 </li>
                             </ul>
-                        </div>
+                        </article>
 
-                        <div class="cv-item">
-                            <div class="cv-item-title">UpStair — Olympiades de l'Ingénierie</div>
-                            <div class="cv-item-sub">SolidWorks / Mécatronique</div>
-                            <ul>
+                        <article class="cv-entry">
+                            <div class="entry-header">
+                                <span class="entry-title">Plateforme Communautaire en Ligne Multijoueur</span>
+                                <span class="entry-date">Architecture Logicielle</span>
+                            </div>
+                            <div class="entry-subtitle">Java · Architecture Asynchrone · Multi-thread · TCP/IP</div>
+                            <ul class="entry-list">
                                 <li>
-                                    <span class="lang-fr">Dispositif mécanique d'accessibilité PMR primé aux Olympiades des Sciences de l'Ingénieur.</span>
-                                    <span class="lang-en">Mechanical accessibility PMR device awarded in the Engineering Olympiads.</span>
+                                    <span class="lang-fr">Développement d'un <strong>moteur de jeu asynchrone haute performance</strong> en Java, garantissant un tick-rate stable à <strong>20 TPS</strong> sous charge, avec synchronisation fine des accès mémoire partagée (thread-safety, files sans-verrou).</span>
+                                    <span class="lang-en">Engineered a <strong>high-performance async game engine</strong> in Java, maintaining a stable <strong>20 TPS tick-rate</strong> under load, with fine-grained shared memory synchronization (thread-safety, lock-free queues).</span>
+                                </li>
+                                <li>
+                                    <span class="lang-fr">Déploiement et administration complète de la plateforme : infrastructure serveur, gestion des connexions réseau (TCP/IP), monitoring des performances runtime en production.</span>
+                                    <span class="lang-en">Full platform deployment and administration: server infrastructure, network connection management (TCP/IP), runtime performance monitoring in production.</span>
                                 </li>
                             </ul>
-                        </div>
+                        </article>
+
+                        <article class="cv-entry">
+                            <div class="entry-header">
+                                <span class="entry-title">Traitement du Signal Numérique (DSP)</span>
+                                <span class="entry-date">C++ / JUCE</span>
+                            </div>
+                            <div class="entry-subtitle">Algorithmes Audio Temps Réel</div>
+                            <ul class="entry-list">
+                                <li>
+                                    <span class="lang-fr">Développement d'un saturateur harmonique 64-bit avec traitement non-linéaire à faible latence.</span>
+                                    <span class="lang-en">Developed a 64-bit harmonic saturator plugin using real-time non-linear DSP algorithms.</span>
+                                </li>
+                            </ul>
+                        </article>
                     </section>
                 </div>
             </div>
 
-            <!-- Compétences Techniques & Outils -->
-            <section style="margin-bottom: 1.75rem;">
-                <h2>
-                    <span class="section-prefix">&gt;</span>
-                    <span class="lang-fr">Stack Technique &amp; Outils</span>
+            <!-- Compétences Techniques & Outils (Badges Verre Liquide) -->
+            <section class="section-block">
+                <div class="section-label">
+                    <span class="lang-fr">Compétences Techniques &amp; Environnements</span>
                     <span class="lang-en">Technical Skills &amp; Tooling</span>
-                </h2>
-                <div class="tags-list">
-                    <span class="tag-badge highlight">Java (Paper API)</span>
-                    <span class="tag-badge highlight">C / C++ (JUCE, OpenGL)</span>
-                    <span class="tag-badge highlight">Rust</span>
-                    <span class="tag-badge highlight">Python</span>
-                    <span class="tag-badge">ROS Melodic</span>
-                    <span class="tag-badge">AnyLogic</span>
-                    <span class="tag-badge">Linux / Bash</span>
-                    <span class="tag-badge">Git / GitHub</span>
-                    <span class="tag-badge">HTML5 / CSS3 / JS</span>
-                    <span class="tag-badge">SolidWorks / Catia (3D)</span>
-                    <span class="tag-badge">Électronique &amp; Dépannage</span>
-                    <span class="tag-badge">Diodes TVS &amp; Varistances</span>
+                </div>
+
+                <div class="skills-group">
+                    <div class="skills-group-title">
+                        <span class="lang-fr">Embarqué, Électronique &amp; Mesure</span>
+                        <span class="lang-en">Embedded, Electronics &amp; Instrumentation</span>
+                    </div>
+                    <div class="skills-wrap">
+                        <span class="skill-chip featured">Microcontrôleurs STM32</span>
+                        <span class="skill-chip featured">C / C++ Bas Niveau</span>
+                        <span class="skill-chip">Bus I2C / SPI / UART / CAN</span>
+                        <span class="skill-chip">Protections TVS &amp; Varistances</span>
+                        <span class="skill-chip">Dépannage &amp; Diagnostic Matériel</span>
+                        <span class="skill-chip">Oscilloscope &amp; Analyseur Logique</span>
+                    </div>
+                </div>
+
+                <div class="skills-group">
+                    <div class="skills-group-title">
+                        <span class="lang-fr">Robotique, Automatisme &amp; Modélisation</span>
+                        <span class="lang-en">Robotics, Automation &amp; Simulation</span>
+                    </div>
+                    <div class="skills-wrap">
+                        <span class="skill-chip featured">ROS (Robot Operating System)</span>
+                        <span class="skill-chip featured">Gazebo &amp; RViz</span>
+                        <span class="skill-chip">SolidWorks (Conception CAO 3D)</span>
+                        <span class="skill-chip">Automates Industriels &amp; Contrôle-Commande</span>
+                        <span class="skill-chip">AnyLogic (Simulation de Flux)</span>
+                        <span class="skill-chip">Cinématique &amp; Asservissements</span>
+                    </div>
+                </div>
+
+                <div class="skills-group" style="margin-bottom: 0;">
+                    <div class="skills-group-title">
+                        <span class="lang-fr">Génie Logiciel, Systèmes &amp; Réseaux</span>
+                        <span class="lang-en">Software Engineering, Systems &amp; Networks</span>
+                    </div>
+                    <div class="skills-wrap">
+                        <span class="skill-chip featured">Linux / Administration Shell Bash</span>
+                        <span class="skill-chip featured">Python (Calcul &amp; Scripts)</span>
+                        <span class="skill-chip">Git / GitHub (CI/CD)</span>
+                        <span class="skill-chip">Java (Concurrence Multi-thread)</span>
+                        <span class="skill-chip">Réseaux Industriels &amp; Ethernet</span>
+                        <span class="skill-chip">DSP Audio (JUCE Framework)</span>
+                    </div>
                 </div>
             </section>
 
-            <!-- Soft Skills & Langues -->
-            <section>
-                <h2>
-                    <span class="section-prefix">&gt;</span>
-                    <span class="lang-fr">Soft Skills &amp; Langues</span>
-                    <span class="lang-en">Soft Skills &amp; Languages</span>
-                </h2>
-                <div class="tags-list">
-                    <span class="tag-badge highlight">Rigueur &amp; Analyse Logique</span>
-                    <span class="tag-badge highlight">Autonomie &amp; Proactivité</span>
-                    <span class="tag-badge">Adaptabilité Internationale</span>
-                    <span class="tag-badge">Communication Orale &amp; Écrite</span>
-                    <span class="tag-badge">Travail en Équipe</span>
-                    <span class="tag-badge">Français (Natif)</span>
-                    <span class="tag-badge">Anglais (B2+ Technique)</span>
-                    <span class="tag-badge">Allemand (Bases A2)</span>
+            <!-- Langues & Soft Skills -->
+            <section class="section-block" style="margin-bottom: 0;">
+                <div class="section-label">
+                    <span class="lang-fr">Langues, Mobilité &amp; Aptitudes</span>
+                    <span class="lang-en">Languages, Mobility &amp; Professional Traits</span>
+                </div>
+
+                <div class="lang-capsules">
+                    <div class="lang-card">
+                        <span class="lang-name">Français</span>
+                        <span class="lang-level">Langue maternelle</span>
+                    </div>
+                    <div class="lang-card">
+                        <span class="lang-name">Anglais</span>
+                        <span class="lang-level">B2+ (Technique &amp; Erasmus)</span>
+                    </div>
+                    <div class="lang-card">
+                        <span class="lang-name">Allemand</span>
+                        <span class="lang-level">Notions (A2)</span>
+                    </div>
+                    <div class="lang-card">
+                        <span class="lang-name">Permis B</span>
+                        <span class="lang-level">Véhiculé</span>
+                    </div>
                 </div>
             </section>
         </main>
-
-        <!-- Pied de Page -->
-        <footer class="site-footer">
-            <div>
-                <span>© 2026 Mael — CV Professionnel &amp; Technique</span>
-            </div>
-            <div class="footer-links">
-                <a href="index.html">Accueil</a>
-                <a href="about.html">À Propos</a>
-                <a href="projets.html">Projets</a>
-                <a href="parcours.html">Parcours</a>
-                <a href="cv.html">CV</a>
-            </div>
-        </footer>
     </div>
 
-    <script src="script.js"></script>
+    <!-- Toast Notification Flottant iOS -->
+    <div id="ios-toast" class="ios-toast" role="status" aria-live="polite"></div>
+
+    <script>
+        /* ==========================================================================
+           LOGIQUE INTERACTIVE CV — FLUIDITÉ iOS & SAUVEGARDE
+           ========================================================================== */
+
+        // 1. Toast Notification Apple
+        function showToast(msg) {
+            const toast = document.getElementById('ios-toast');
+            if (!toast) return;
+            toast.textContent = msg;
+            toast.classList.add('visible');
+            setTimeout(() => {
+                toast.classList.remove('visible');
+            }, 2600);
+        }
+
+        // 2. Gestion du Thème (Dark / Light)
+        function toggleTheme() {
+            const html = document.documentElement;
+            const current = html.getAttribute('data-theme') || 'dark';
+            const next = current === 'dark' ? 'light' : 'dark';
+            html.setAttribute('data-theme', next);
+            try { localStorage.setItem('portfolio_theme', next); } catch(e){}
+
+            const btn = document.getElementById('theme-toggle-btn');
+            if (btn) {
+                btn.innerHTML = next === 'dark' 
+                    ? '<span>☀️ <span class="lang-fr">Clair</span><span class="lang-en">Light</span></span>'
+                    : '<span>🌙 <span class="lang-fr">Sombre</span><span class="lang-en">Dark</span></span>';
+            }
+            showToast(next === 'dark' ? '✨ Mode Sombre activé' : '☀️ Mode Clair activé');
+        }
+
+        // 3. Gestion de la Langue (FR / EN)
+        function toggleLang() {
+            const html = document.documentElement;
+            const current = html.getAttribute('data-lang') || 'fr';
+            const next = current === 'fr' ? 'en' : 'fr';
+            html.setAttribute('data-lang', next);
+            try { localStorage.setItem('portfolio_lang', next); } catch(e){}
+
+            const btn = document.getElementById('lang-toggle-btn');
+            if (btn) {
+                btn.innerHTML = next === 'fr' ? '<span>🇬🇧 EN</span>' : '<span>🇫🇷 FR</span>';
+            }
+            showToast(next === 'fr' ? '🇫🇷 Langue : Français' : '🇬🇧 Language : English');
+        }
+
+        // 4. Mode Édition Directe (In-Place Edit)
+        let isEditing = false;
+        function toggleEditMode() {
+            isEditing = !isEditing;
+            const body = document.body;
+            const cvCard = document.getElementById('cv-content');
+            const editBtn = document.getElementById('edit-toggle-btn');
+
+            if (isEditing) {
+                body.classList.add('editing-active');
+                cvCard.setAttribute('contenteditable', 'true');
+                cvCard.setAttribute('spellcheck', 'false');
+                if (editBtn) {
+                    editBtn.classList.add('active');
+                    editBtn.innerHTML = '<span>🔒 <span class="lang-fr">Terminer</span><span class="lang-en">Done</span></span>';
+                }
+                showToast('✏️ Cliquez sur le texte pour le modifier');
+            } else {
+                body.classList.remove('editing-active');
+                cvCard.removeAttribute('contenteditable');
+                if (editBtn) {
+                    editBtn.classList.remove('active');
+                    editBtn.innerHTML = '<span>✏️ <span class="lang-fr">Éditer</span><span class="lang-en">Edit</span></span>';
+                }
+                showToast('🔒 Modifications verrouillées');
+            }
+        }
+
+        // 5. Sauvegarde du code HTML
+        function saveHTML() {
+            const wasEditing = isEditing;
+            const cvCard = document.getElementById('cv-content');
+            document.body.classList.remove('editing-active');
+            cvCard.removeAttribute('contenteditable');
+
+            const fullHtml = '<!DOCTYPE html>\n' + document.documentElement.outerHTML;
+            const blob = new Blob([fullHtml], { type: 'text/html;charset=utf-8' });
+            const link = document.createElement('a');
+            link.href = URL.createObjectURL(blob);
+            link.download = 'cv_modifie.html';
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+            URL.revokeObjectURL(link.href);
+
+            if (wasEditing) {
+                document.body.classList.add('editing-active');
+                cvCard.setAttribute('contenteditable', 'true');
+            }
+            showToast('💾 Fichier cv_modifie.html téléchargé !');
+        }
+
+        // 6. Impression & Export PDF A4
+        function downloadPDF() {
+            window.print();
+        }
+
+        // Initialisation de l'état mémorisé
+        document.addEventListener('DOMContentLoaded', () => {
+            try {
+                const savedTheme = localStorage.getItem('portfolio_theme');
+                if (savedTheme) {
+                    document.documentElement.setAttribute('data-theme', savedTheme);
+                    const btn = document.getElementById('theme-toggle-btn');
+                    if (btn && savedTheme === 'light') {
+                        btn.innerHTML = '<span>🌙 <span class="lang-fr">Sombre</span><span class="lang-en">Dark</span></span>';
+                    }
+                }
+                const savedLang = localStorage.getItem('portfolio_lang');
+                if (savedLang) {
+                    document.documentElement.setAttribute('data-lang', savedLang);
+                    const langBtn = document.getElementById('lang-toggle-btn');
+                    if (langBtn && savedLang === 'en') {
+                        langBtn.innerHTML = '<span>🇫🇷 FR</span>';
+                    }
+                }
+            } catch(e){}
+        });
+    </script>
 </body>
 </html>
