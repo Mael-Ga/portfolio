@@ -3,298 +3,286 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mael — Étudiant Ingénieur &amp; Développeur Systèmes / Backend</title>
-    <meta name="description" content="Portfolio d'ingénieur de Mael : architecture backend, systèmes embarqués, robotique ROS et développement bas-niveau.">
+    <title>Maël Galan — Portfolio Ingénieur | Accueil</title>
+    <meta name="description" content="Portfolio de Maël Galan, élève-ingénieur en 4ème année à l'ENIB : mécatronique, systèmes embarqués, robotique ROS et génie logiciel bas niveau.">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <!-- Arrière-plan Ambiant Immersif pour réfraction optique QuickLiquid -->
-    <div class="ambient-backdrop no-print" aria-hidden="true">
-        <div class="ambient-orb orb-1"></div>
-        <div class="ambient-orb orb-2"></div>
-        <div class="ambient-orb orb-3"></div>
-        <div class="ambient-grid"></div>
-    </div>
+    <!-- Halo Ambiant Supérieur -->
+    <div class="ambient-aurora" aria-hidden="true"></div>
 
-    <div class="site-wrapper">
-        <!-- En-tête Global avec Branding & Navigation (Dock Flottant Liquid Glass) -->
-        <header class="top-header no-print">
-            <div class="brand-block">
-                <a href="index.html" class="brand-link">
-                    <span class="brand-prompt">&gt;_</span>
-                    <span>mael::dev</span>
-                </a>
-                <span class="status-pill">
-                    <span class="pulse-dot"></span>
-                    <span class="lang-fr">Disponible</span>
-                    <span class="lang-en">Available</span>
-                </span>
-            </div>
+    <div class="content-container">
 
-            <nav class="nav-bar" aria-label="Navigation principale">
-                <a href="index.html" class="nav-link active">
+        <!-- Barre de Navigation iOS (Dynamic Glass Island) -->
+        <header class="ios-island no-print" aria-label="Navigation principale">
+            <a href="index.html" class="island-brand" title="Accueil">
+                <div class="island-avatar">MG</div>
+                <span class="island-title">Maël Galan</span>
+            </a>
+
+            <nav class="island-nav-links" aria-label="Navigation">
+                <a href="index.html" class="nav-pill-link active">
                     <span class="lang-fr">Accueil</span>
                     <span class="lang-en">Home</span>
                 </a>
-                <a href="about.html" class="nav-link">
+                <a href="about.html" class="nav-pill-link">
                     <span class="lang-fr">À Propos</span>
                     <span class="lang-en">About</span>
                 </a>
-                <a href="projets.html" class="nav-link">
+                <a href="projets.html" class="nav-pill-link">
                     <span class="lang-fr">Projets</span>
                     <span class="lang-en">Projects</span>
                 </a>
-                <a href="parcours.html" class="nav-link">
+                <a href="parcours.html" class="nav-pill-link">
                     <span class="lang-fr">Parcours</span>
                     <span class="lang-en">Career</span>
                 </a>
-                <a href="cv.html" class="nav-link cv-link">
-                    <span class="lang-fr">CV Format PDF</span>
-                    <span class="lang-en">CV / Resume</span>
+                <a href="cv.html" class="nav-pill-link" target="_blank" title="Consulter le CV officiel">
+                    <span class="lang-fr">CV PDF</span>
+                    <span class="lang-en">Resume</span>
                 </a>
             </nav>
+
+            <div class="island-controls">
+                <button id="theme-toggle-btn" class="ios-btn" onclick="toggleTheme()" title="Basculer le thème">
+                    <span class="lang-fr">Thème</span><span class="lang-en">Theme</span>
+                </button>
+                <button id="lang-toggle-btn" class="ios-btn" onclick="toggleLang()" title="Changer la langue">
+                    <span>EN</span>
+                </button>
+                <button id="edit-toggle-btn" class="ios-btn" onclick="toggleEditMode()" title="Éditer le texte directement">
+                    <span class="lang-fr">Éditer</span><span class="lang-en">Edit</span>
+                </button>
+                <button class="ios-btn" onclick="saveHTML()" title="Sauvegarder les modifications">
+                    <span>Sauvegarder</span>
+                </button>
+                <button class="ios-btn primary" onclick="downloadPDF()" title="Imprimer ou enregistrer en PDF">
+                    <span>PDF</span>
+                </button>
+            </div>
         </header>
 
-        <!-- Barre d'Outils Unifiée : Thème, Langue, Mode Édition, Export -->
-        <section class="controls-bar no-print" aria-label="Contrôles du portfolio">
-            <div class="controls-info">
-                <span>sys::station [v2.4]</span>
-                <span style="opacity: 0.5;">|</span>
-                <span class="lang-fr">Architecture statique &amp; éditable</span>
-                <span class="lang-en">Static &amp; editable architecture</span>
-            </div>
-
-            <div class="controls-buttons">
-                <button id="theme-toggle-btn" class="btn-ctrl" onclick="toggleTheme()" title="Basculer le thème">
-                    <span>☀️ <span class="lang-fr">Mode Clair</span><span class="lang-en">Light Mode</span></span>
-                </button>
-                <button id="lang-toggle-btn" class="btn-ctrl" onclick="toggleLang()" title="Changer la langue">
-                    <span>🇬🇧 English</span>
-                </button>
-                <button id="edit-toggle-btn" class="btn-ctrl edit-btn" onclick="toggleEditMode()" title="Modifier les textes directement">
-                    <span>✏️ <span class="lang-fr">Éditer</span><span class="lang-en">Edit</span></span>
-                </button>
-                <button class="btn-ctrl" onclick="saveHTML()" title="Télécharger la page HTML avec vos modifications">
-                    <span>💾 <span class="lang-fr">Sauvegarder HTML</span><span class="lang-en">Save HTML</span></span>
-                </button>
-                <button class="btn-ctrl primary" onclick="downloadPDF()" title="Imprimer ou exporter en PDF">
-                    <span>📄 <span class="lang-fr">Exporter PDF</span><span class="lang-en">Export PDF</span></span>
-                </button>
-            </div>
-        </section>
-
-        <!-- Bannière informant que le Mode Édition est actif -->
+        <!-- Bannière Mode Édition -->
         <div class="edit-mode-banner no-print">
-            <span>✏️ <strong>Mode Édition Actif :</strong> Cliquez sur n'importe quel texte pour le modifier directement. Cliquez ensuite sur "Sauvegarder HTML" pour exporter vos changements.</span>
-            <button class="btn-ctrl" onclick="toggleEditMode()" style="padding: 0.2rem 0.5rem; font-size: 0.75rem;">Fermer</button>
+            <span><strong>Mode Édition Activé :</strong> Cliquez sur n'importe quel texte pour le modifier directement sur la page.</span>
+            <button class="ios-btn" onclick="saveHTML()" style="padding: 0.3rem 0.75rem;">Sauvegarder</button>
         </div>
 
         <!-- Contenu Principal -->
-        <main class="content-card">
-            <div class="terminal-prompt font-mono">
-                <span class="user">mael</span>@<span class="host">workstation</span>:<span class="path">~/portfolio</span>$ ./overview --profile
-            </div>
+        <main class="content-card editable-area" id="page-content">
 
-            <!-- Zone Éditable : Hero & Pitch -->
-            <div class="editable-area">
-                <header style="margin-bottom: 2rem;">
-                    <h1>Mael</h1>
-                    <p class="font-mono" style="color: var(--accent-emerald); font-size: 1.15rem; font-weight: 500; margin-bottom: 0.8rem;">
-                        <span class="lang-fr">&gt; Étudiant Ingénieur ENIB &amp; Développeur Systèmes / Backend</span>
-                        <span class="lang-en">&gt; ENIB Engineering Student &amp; Backend / Systems Developer</span>
-                    </p>
+            <!-- Hero Header -->
+            <header class="hero-header">
+                <h1 class="hero-name">Maël Galan</h1>
+                <div class="hero-headline">
+                    <span class="lang-fr">Élève-Ingénieur ENIB (4ème année) — Mécatronique, Systèmes Embarqués &amp; Robotique</span>
+                    <span class="lang-en">ENIB 4th-Year Engineering Student — Mechatronics, Embedded Systems &amp; Robotics</span>
+                </div>
 
-                    <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1rem;">
-                        <span class="tag-badge highlight">ENIB Brest (Cycle Ingénieur)</span>
-                        <span class="tag-badge">Université Aristote de Thessalonique (Mobilité Erasmus)</span>
-                        <span class="tag-badge">Disponible : Missions, Stage &amp; Alternance</span>
-                        <span class="tag-badge">Mobilité : France &amp; International</span>
-                    </div>
-                </header>
+                <div class="status-capsule">
+                    <span class="status-dot"></span>
+                    <span class="lang-fr">Recherche Stage Assistant Ingénieur • 80 à 136 jours ouvrés (4 à 6 mois)</span>
+                    <span class="lang-en">Seeking Assistant Engineer Internship • 80 to 136 working days (4 to 6 months)</span>
+                </div>
 
-                <section style="margin-bottom: 2rem;">
-                    <p style="font-size: 1.05rem; line-height: 1.7; text-align: justify;">
-                        <span class="lang-fr">
-                            Futur ingénieur généraliste à dominante logicielle et électronique à l'<strong>École Nationale d'Ingénieurs de Brest (ENIB)</strong>, j'associe une solide rigueur mathématique et matérielle à une passion pour le développement de systèmes performants. Mon parcours comprend une mobilité internationale à l'<strong>Université Aristote de Thessalonique</strong> axée sur la mécatronique et les systèmes de contrôle.
-                        </span>
-                        <span class="lang-en">
-                            Future generalist engineer specializing in software and electronics at the <strong>École Nationale d'Ingénieurs de Brest (ENIB)</strong>, I combine mathematical and hardware rigor with a passion for designing high-performance systems. My background includes an international academic mobility at the <strong>Aristotle University of Thessaloniki</strong> centered on mechatronics and control systems.
-                        </span>
-                    </p>
-                    <p style="font-size: 1.05rem; line-height: 1.7; text-align: justify;">
-                        <span class="lang-fr">
-                            Du développement d'architectures backend asynchrones à haute fréquence de rafraîchissement (Java/Paper) à la programmation de nœuds robotiques temps réel (ROS Melodic) et d'algorithmes DSP en C++ (JUCE), je privilégie l'efficience computationnelle, la robustesse mémoire et l'élégance technique.
-                        </span>
-                        <span class="lang-en">
-                            From engineering asynchronous high-throughput backend systems (Java/Paper) to real-time robotic nodes (ROS Melodic) and C++ audio DSP algorithms (JUCE), I prioritize computational efficiency, strict memory safety, and technical craftsmanship.
-                        </span>
-                    </p>
-                </section>
-            </div>
+                <!-- Coordonnées & Liens -->
+                <div class="contact-strip">
+                    <span class="contact-pill highlight">
+                        Brest / Saint-Brieuc
+                    </span>
+                    <a href="mailto:maelgalan9@gmail.com" class="contact-pill">
+                        maelgalan9@gmail.com
+                    </a>
+                    <a href="tel:+33769421108" class="contact-pill">
+                        +33 7 69 42 11 08
+                    </a>
+                    <span class="contact-pill">
+                        Permis B — Véhiculé
+                    </span>
+                    <a href="https://mael-ga.github.io/portfolio/" target="_blank" rel="noopener" class="contact-pill">
+                        mael-ga.github.io/portfolio
+                    </a>
+                    <a href="https://github.com/mael-ga" target="_blank" rel="noopener" class="contact-pill">
+                        GitHub : mael-ga
+                    </a>
+                    <a href="cv.html" target="_blank" class="contact-pill highlight">
+                        CV Format A4
+                    </a>
+                </div>
+            </header>
 
-            <!-- Grille de Métriques Clés -->
+            <!-- Profil Professionnel & Pitch -->
             <section style="margin-bottom: 2.5rem;">
-                <h2>
-                    <span class="section-prefix">01.</span>
-                    <span class="lang-fr">Métriques &amp; Indicateurs Clés</span>
-                    <span class="lang-en">Key Metrics &amp; Indicators</span>
-                </h2>
+                <div class="section-label">
+                    <span class="lang-fr">Profil &amp; Démarche</span>
+                    <span class="lang-en">Profile &amp; Approach</span>
+                </div>
+                <p class="prose">
+                    <span class="lang-fr">
+                        Étudiant en 4ème année à l'<strong>École Nationale d'Ingénieurs de Brest (ENIB)</strong>, j'ai complété ma formation par un semestre international à l'<strong>Université Aristote de Thessalonique</strong> (Grèce, Erasmus 2026). Mon cursus associe l'électronique de commande, la mécanique et le développement logiciel.
+                    </span>
+                    <span class="lang-en">
+                        Currently in my 4th year at the <strong>École Nationale d'Ingénieurs de Brest (ENIB)</strong>, I complemented my engineering background with an international semester at the <strong>Aristotle University of Thessaloniki</strong> (Greece, Erasmus 2026), working across control electronics, mechanics, and software.
+                    </span>
+                </p>
+                <p class="prose">
+                    <span class="lang-fr">
+                        Mes projets portent principalement sur le développement bas niveau (C sur microcontrôleurs <strong>STM32</strong>), la robotique mobile autonome sous <strong>ROS</strong>, l'architecture logicielle de serveurs dédiés en Java pour des jeux multijoueurs en ligne, et le traitement du signal audio en C++.
+                    </span>
+                    <span class="lang-en">
+                        My practical work centers on low-level firmware (C on <strong>STM32</strong> MCUs), autonomous mobile robotics in <strong>ROS</strong>, multi-threaded server architectures in Java for online multiplayer games, and real-time audio signal processing in C++.
+                    </span>
+                </p>
+            </section>
 
-                <div class="metrics-grid editable-area">
+            <!-- Indicateurs & Métriques Clés -->
+            <section style="margin-bottom: 2.5rem;">
+                <div class="section-label">
+                    <span class="lang-fr">Domaines Clés &amp; Repères</span>
+                    <span class="lang-en">Key Focus Areas</span>
+                </div>
+
+                <div class="metrics-grid">
                     <div class="metric-card">
-                        <div class="metric-number">20 TPS</div>
-                        <div class="metric-label">Stabilité Tick-Rate</div>
-                        <div class="metric-desc">Moteur multijoueur SLASHER, zéro fuite mémoire sous charge asynchrone intensive.</div>
+                        <div class="metric-number">4ème Année</div>
+                        <div class="metric-label">Cycle Ingénieur ENIB</div>
+                        <div class="metric-desc">Formation généraliste : électronique, mécatronique, automatique et informatique industrielle.</div>
                     </div>
 
                     <div class="metric-card">
-                        <div class="metric-number">4+</div>
-                        <div class="metric-label">Langages Maîtrisés</div>
-                        <div class="metric-desc">Pratique approfondie de Java, C / C++, Rust et Python en contextes industriels et de recherche.</div>
+                        <div class="metric-number">Serveur Dédié</div>
+                        <div class="metric-label">Jeu Multijoueur en Ligne</div>
+                        <div class="metric-desc">Développement d'un jeu multijoueur en Java sous Linux, gestion des sockets réseau et synchronisation des joueurs.</div>
                     </div>
 
                     <div class="metric-card">
-                        <div class="metric-number">Erasmus</div>
-                        <div class="metric-label">Thessalonique 2026</div>
-                        <div class="metric-desc">Semestre international en mécatronique, robotique mobile et théorie du contrôle.</div>
+                        <div class="metric-number">C / STM32</div>
+                        <div class="metric-label">Systèmes Embarqués</div>
+                        <div class="metric-desc">Programmation bare-metal, registres, timers matériels, DMA et bus industriels (I²C, SPI, UART, CAN).</div>
                     </div>
 
                     <div class="metric-card">
-                        <div class="metric-number">A1 &amp; A2</div>
-                        <div class="metric-label">Prépa Intégrée ENIB</div>
-                        <div class="metric-desc">Socle fondamental : mathématiques appliquées, physique ondulatoire, électronique et algorithmique.</div>
+                        <div class="metric-number">Projet Primé</div>
+                        <div class="metric-label">Olympiades de l'Ingénierie</div>
+                        <div class="metric-desc">Projet UpStair : dispositif mécatronique d'accessibilité primé par un jury d'ingénieurs.</div>
                     </div>
                 </div>
             </section>
 
-            <!-- Piliers & Domaines d'Expertise -->
-            <section style="margin-bottom: 2rem;">
-                <h2>
-                    <span class="section-prefix">02.</span>
-                    <span class="lang-fr">Piliers d'Ingénierie &amp; Domaines de Compétences</span>
-                    <span class="lang-en">Engineering Pillars &amp; Core Domains</span>
-                </h2>
+            <!-- Piliers d'Ingénierie & Domaines d'Expertise -->
+            <section style="margin-bottom: 2.5rem;">
+                <div class="section-label">
+                    <span class="lang-fr">Compétences Techniques Principales</span>
+                    <span class="lang-en">Core Technical Competencies</span>
+                </div>
 
-                <div class="skills-columns editable-area">
+                <div class="skills-columns">
+                    <!-- Pilule 1 -->
                     <div class="skill-category-card">
                         <div class="skill-category-title">
-                            <span>⚡</span>
-                            <span class="lang-fr">Backend &amp; Concurrence</span>
-                            <span class="lang-en">Backend &amp; Concurrency</span>
+                            <span class="lang-fr">Systèmes Embarqués &amp; Électronique</span>
+                            <span class="lang-en">Embedded Systems &amp; Electronics</span>
                         </div>
-                        <p style="font-size: 0.9rem; margin-bottom: 0.8rem;">
-                            <span class="lang-fr">Conception d'architectures asynchrones distribuées, protocoles réseau bas-niveau, gestion thread-safe et minimisation des allocations d'objets.</span>
-                            <span class="lang-en">Distributed asynchronous system design, low-level network packet protocols, thread safety, and memory allocation optimization.</span>
+                        <p>
+                            <span class="lang-fr">Programmation C sur STM32, gestion des bus I²C, SPI, UART et CAN, conception de protections contre les surtensions transitoires (TVS, varistances) et tests sur banc de mesure.</span>
+                            <span class="lang-en">C programming on STM32 MCUs, communication buses (I²C, SPI, UART, CAN), transient protection design (TVS, varistors), and laboratory bench testing.</span>
                         </p>
                         <div class="tags-list">
-                            <span class="tag-badge">Java (Paper API)</span>
-                            <span class="tag-badge">Rust</span>
-                            <span class="tag-badge">Multithreading</span>
-                            <span class="tag-badge">YAML / JSON Specs</span>
+                            <span class="tag-badge highlight">STM32</span>
+                            <span class="tag-badge highlight">C Bas Niveau</span>
+                            <span class="tag-badge">Bus CAN / I²C</span>
+                            <span class="tag-badge">TVS &amp; MOVs</span>
+                            <span class="tag-badge">DMA</span>
                         </div>
                     </div>
 
+                    <!-- Pilule 2 -->
                     <div class="skill-category-card">
                         <div class="skill-category-title">
-                            <span>🤖</span>
-                            <span class="lang-fr">Robotique &amp; Systèmes Temps Réel</span>
-                            <span class="lang-en">Robotics &amp; Real-Time</span>
+                            <span class="lang-fr">Robotique &amp; Contrôle-Commande</span>
+                            <span class="lang-en">Robotics &amp; Control Systems</span>
                         </div>
-                        <p style="font-size: 0.9rem; margin-bottom: 0.8rem;">
-                            <span class="lang-fr">Programmation de nœuds ROS (Publishers/Subscribers), cinématique inverse, simulations physiques Gazebo/RViz et contrôle de drones.</span>
-                            <span class="lang-en">ROS node development (Publishers/Subscribers), inverse kinematics, physics simulation via Gazebo/RViz, and UAV trajectory planning.</span>
+                        <p>
+                            <span class="lang-fr">Développement de nœuds ROS en C++ et Python, modélisation cinématique, asservissements PID, simulations physiques sous Gazebo et visualisation RViz.</span>
+                            <span class="lang-en">ROS node development in C++ and Python, kinematic modeling, PID closed-loop control, physics simulations in Gazebo, and RViz visualization.</span>
                         </p>
                         <div class="tags-list">
-                            <span class="tag-badge">ROS Melodic</span>
-                            <span class="tag-badge">Gazebo / RViz</span>
+                            <span class="tag-badge highlight">ROS</span>
+                            <span class="tag-badge highlight">Gazebo</span>
+                            <span class="tag-badge">RViz</span>
                             <span class="tag-badge">C++</span>
                             <span class="tag-badge">Python</span>
+                            <span class="tag-badge">Asservissements</span>
                         </div>
                     </div>
 
+                    <!-- Pilule 3 -->
                     <div class="skill-category-card">
                         <div class="skill-category-title">
-                            <span>🔒</span>
-                            <span class="lang-fr">Systèmes Embarqués &amp; Sécurité</span>
-                            <span class="lang-en">Embedded Systems &amp; Hardware</span>
+                            <span class="lang-fr">Génie Logiciel &amp; Serveur</span>
+                            <span class="lang-en">Software Engineering &amp; Server Systems</span>
                         </div>
-                        <p style="font-size: 0.9rem; margin-bottom: 0.8rem;">
-                            <span class="lang-fr">Conception de protections contre les surtensions matérielles (Diodes TVS, MOVs) et sécurisation logicielle contre les buffer overflows.</span>
-                            <span class="lang-en">Hardware surge protection design (TVS Diodes, MOVs) and low-level firmware safety against memory corruption vulnerabilities.</span>
+                        <p>
+                            <span class="lang-fr">Développement Java multithread, création de modules et logique de jeu (ZenScript, YAML), gestion des flux réseau TCP/IP et administration de serveurs Linux.</span>
+                            <span class="lang-en">Multithreaded Java development, gameplay scripting (ZenScript, YAML), TCP/IP socket network management, and Linux dedicated server administration.</span>
                         </p>
                         <div class="tags-list">
-                            <span class="tag-badge">C / C++</span>
-                            <span class="tag-badge">Électronique</span>
-                            <span class="tag-badge">Diodes TVS</span>
-                            <span class="tag-badge">SolidWorks / Catia</span>
+                            <span class="tag-badge highlight">Java</span>
+                            <span class="tag-badge highlight">ZenScript / YAML</span>
+                            <span class="tag-badge">Réseau TCP/IP</span>
+                            <span class="tag-badge">Serveur Linux</span>
+                            <span class="tag-badge">Git</span>
                         </div>
                     </div>
 
+                    <!-- Pilule 4 -->
                     <div class="skill-category-card">
                         <div class="skill-category-title">
-                            <span>🎛️</span>
-                            <span class="lang-fr">Audio DSP &amp; Programmation Graphique</span>
-                            <span class="lang-en">Audio DSP &amp; Graphics</span>
+                            <span class="lang-fr">Audio DSP, Domotique &amp; CAO</span>
+                            <span class="lang-en">Audio DSP, Home IoT &amp; CAD</span>
                         </div>
-                        <p style="font-size: 0.9rem; margin-bottom: 0.8rem;">
-                            <span class="lang-fr">Développement de plugins audio VST pour le traitement du signal (saturateurs basses) et modélisation de scènes 3D interactives en C natif.</span>
-                            <span class="lang-en">VST audio plugin development for discrete signal processing (bass distortion algorithms) and interactive 3D rendering in pure C.</span>
+                        <p>
+                            <span class="lang-fr">Développement de plugins audio VST en C++ (JUCE), installations domotiques internes (IoT, capteurs, protocoles locaux) et conception mécanique 3D sous SolidWorks.</span>
+                            <span class="lang-en">Real-time VST audio plugins in C++ (JUCE), residential home automation (IoT sensors, local protocols), and 3D CAD modeling in SolidWorks.</span>
                         </p>
                         <div class="tags-list">
-                            <span class="tag-badge">C++ (JUCE)</span>
-                            <span class="tag-badge">Projucer</span>
-                            <span class="tag-badge">OpenGL / FreeGLUT</span>
-                            <span class="tag-badge">Traitement du Signal</span>
+                            <span class="tag-badge highlight">C++ (JUCE)</span>
+                            <span class="tag-badge highlight">Domotique IoT</span>
+                            <span class="tag-badge">SolidWorks</span>
+                            <span class="tag-badge">DSP Audio</span>
                         </div>
                     </div>
                 </div>
             </section>
 
-            <!-- Accès Rapide & Navigation Projets -->
-            <section style="margin-top: 2.5rem; border-top: 1px solid var(--glass-border); padding-top: 1.75rem;">
-                <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1.25rem;">
-                    <div>
-                        <span class="font-mono" style="color: var(--accent-emerald); font-size: 0.9rem; font-weight: 600;">&gt; Prochaine étape :</span>
-                        <span style="color: var(--text-secondary); font-size: 0.92rem; margin-left: 0.5rem;">
-                            <span class="lang-fr">Consulter les réalisations techniques ou l'historique de formation.</span>
-                            <span class="lang-en">Explore technical achievements or educational timeline.</span>
-                        </span>
-                    </div>
-                    <div style="display: flex; gap: 0.6rem; flex-wrap: wrap;">
-                        <a href="projets.html" class="btn-ctrl">
-                            <span class="lang-fr">Voir les 7 Projets →</span>
-                            <span class="lang-en">View 7 Projects →</span>
-                        </a>
-                        <a href="parcours.html" class="btn-ctrl">
-                            <span class="lang-fr">Parcours &amp; Expériences →</span>
-                            <span class="lang-en">Career &amp; Education →</span>
-                        </a>
-                        <a href="cv.html" class="btn-ctrl primary">
-                            <span class="lang-fr">Consulter le CV complet</span>
-                            <span class="lang-en">Full Resume / CV</span>
-                        </a>
-                    </div>
+            <!-- Navigation Rapide vers Projets & Parcours -->
+            <section style="margin-top: 2rem; border-top: 1px solid var(--glass-border); padding-top: 1.75rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+                <div>
+                    <span style="color: var(--text-secondary); font-size: 0.92rem;">
+                        <span class="lang-fr">Consulter les réalisations techniques :</span>
+                        <span class="lang-en">Explore technical projects:</span>
+                    </span>
+                </div>
+                <div style="display: flex; gap: 0.65rem; flex-wrap: wrap;">
+                    <a href="projets.html" class="ios-btn primary">
+                        <span class="lang-fr">Voir les Projets</span><span class="lang-en">View Projects</span>
+                    </a>
+                    <a href="parcours.html" class="ios-btn">
+                        <span class="lang-fr">Parcours &amp; Timeline</span><span class="lang-en">Career &amp; Timeline</span>
+                    </a>
+                    <a href="cv.html" class="ios-btn" target="_blank">
+                        <span class="lang-fr">Consulter le CV (PDF)</span><span class="lang-en">View Resume (PDF)</span>
+                    </a>
                 </div>
             </section>
+
         </main>
-
-        <!-- Pied de Page -->
-        <footer class="site-footer">
-            <div>
-                <span>© 2026 Mael — École Nationale d'Ingénieurs de Brest</span>
-            </div>
-            <div class="footer-links">
-                <a href="index.html">Accueil</a>
-                <a href="about.html">À Propos</a>
-                <a href="projets.html">Projets</a>
-                <a href="parcours.html">Parcours</a>
-                <a href="cv.html">CV</a>
-            </div>
-        </footer>
     </div>
 
-    <script src="quick-liquid.js"></script>
+    <!-- Toast Notification Flottant iOS -->
+    <div id="ios-toast" class="ios-toast" role="status" aria-live="polite"></div>
+
     <script src="script.js"></script>
 </body>
 </html>
