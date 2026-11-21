@@ -4,1216 +4,1031 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Maël Galan — Curriculum Vitae | Élève-Ingénieur ENIB</title>
-    <meta name="description" content="Curriculum Vitae de Maël Galan : Élève-ingénieur à l'ENIB, spécialisé en mécatronique, systèmes embarqués, robotique ROS et génie logiciel bas-niveau. Recherche stage assistant ingénieur.">
+    <meta name="description" content="CV de Maël Galan : Élève-ingénieur en 4ème année à l'ENIB, spécialisé en mécatronique, systèmes embarqués, robotique ROS et génie logiciel bas niveau. Recherche stage assistant ingénieur (80 à 136 jours ouvrés).">
 
     <style>
         /* ==========================================================================
-           APPLE iOS LIQUID GLASS DESIGN SYSTEM (iOS 18 / VisionOS Inspired)
-           Style épuré, authentique, ultra-premium, lisible et naturel (Non-IA)
+           CV MAËL GALAN — STYLE LINEAR / DARK SLATE
+           Calibration 1 Page A4 stricte (occupe 100% de la hauteur sans déborder)
            ========================================================================== */
-
-        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap');
 
         :root {
-            /* Typographie Apple System */
-            --font-sans: -apple-system, BlinkMacSystemFont, "Plus Jakarta Sans", "SF Pro Display", "SF Pro Text", "Helvetica Neue", sans-serif;
-            --font-mono: 'JetBrains Mono', SFMono-Regular, Menlo, monospace;
+            --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            --font-mono: 'JetBrains Mono', monospace;
 
-            /* iOS Dark Mode — Obsidian Deep Space */
-            --bg-canvas: #05070b;
-            --bg-glass-card: rgba(18, 22, 32, 0.65);
-            --bg-glass-subtle: rgba(255, 255, 255, 0.04);
-            --bg-glass-hover: rgba(255, 255, 255, 0.08);
-            --bg-glass-active: rgba(255, 255, 255, 0.12);
-            --bg-pill: rgba(255, 255, 255, 0.06);
+            /* Palette Slate Linear (Identique à index.html) */
+            --bg-base: #0b0f19;
+            --bg-surface: #111726;
+            --bg-surface-elevated: #161f33;
+            --bg-subtle: #1c2740;
+            --border: #222f49;
+            --border-hover: #334466;
 
-            /* Verre liquide optique */
-            --glass-border: rgba(255, 255, 255, 0.10);
-            --glass-border-highlight: rgba(255, 255, 255, 0.22);
-            --glass-specular: inset 0 1px 0 rgba(255, 255, 255, 0.25), 0 20px 40px -15px rgba(0, 0, 0, 0.6);
-            --glass-blur: blur(36px) saturate(180%);
+            --text-primary: #f8fafc;
+            --text-secondary: #94a3b8;
+            --text-muted: #64748b;
 
-            /* Textes & Contrastes */
-            --text-primary: #f5f5f7;
-            --text-secondary: #98989f;
-            --text-tertiary: #636366;
-
-            /* Accents iOS subtils */
-            --ios-blue: #2997ff;
-            --ios-blue-subtle: rgba(41, 151, 255, 0.12);
-            --ios-green: #30d158;
-            --ios-green-subtle: rgba(48, 209, 88, 0.14);
-            --ios-indigo: #5e5ce6;
-            --ios-amber: #ff9f0a;
-
-            /* Rayons de courbure Apple (Squircles) */
-            --radius-card: 26px;
-            --radius-item: 16px;
-            --radius-badge: 10px;
-            --radius-pill: 9999px;
-
-            /* Transitions */
-            --spring: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            --accent: #3b82f6;
+            --accent-subtle: rgba(59, 130, 246, 0.12);
+            --accent-hover: #2563eb;
+            --success: #10b981;
+            --success-subtle: rgba(16, 185, 129, 0.12);
+            --amber: #f59e0b;
         }
 
-        /* iOS Light Mode — Frosted Pearl Canvas */
         [data-theme="light"] {
-            --bg-canvas: #f5f5f7;
-            --bg-glass-card: rgba(255, 255, 255, 0.78);
-            --bg-glass-subtle: rgba(0, 0, 0, 0.025);
-            --bg-glass-hover: rgba(0, 0, 0, 0.05);
-            --bg-glass-active: rgba(0, 0, 0, 0.08);
-            --bg-pill: rgba(0, 0, 0, 0.04);
+            --bg-base: #f8fafc;
+            --bg-surface: #ffffff;
+            --bg-surface-elevated: #f1f5f9;
+            --bg-subtle: #e2e8f0;
+            --border: #cbd5e1;
+            --border-hover: #94a3b8;
 
-            --glass-border: rgba(0, 0, 0, 0.08);
-            --glass-border-highlight: rgba(255, 255, 255, 0.95);
-            --glass-specular: inset 0 1px 0 rgba(255, 255, 255, 1), 0 16px 36px -10px rgba(0, 0, 0, 0.06);
-            --glass-blur: blur(30px) saturate(190%);
+            --text-primary: #0f172a;
+            --text-secondary: #475569;
+            --text-muted: #64748b;
 
-            --text-primary: #1d1d1f;
-            --text-secondary: #6e6e73;
-            --text-tertiary: #86868b;
-
-            --ios-blue: #0071e3;
-            --ios-blue-subtle: rgba(0, 113, 227, 0.08);
-            --ios-green: #34c759;
-            --ios-green-subtle: rgba(52, 199, 89, 0.10);
-            --ios-indigo: #5856d6;
-            --ios-amber: #d97706;
+            --accent: #2563eb;
+            --accent-subtle: rgba(37, 99, 235, 0.08);
+            --accent-hover: #1d4ed8;
+            --success: #059669;
+            --success-subtle: rgba(5, 150, 105, 0.08);
         }
 
-        /* --- Reset & Layout Base --- */
         *, *::before, *::after {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
         }
 
-        html {
-            font-size: 16px;
-            scroll-behavior: smooth;
-            -webkit-text-size-adjust: 100%;
-        }
-
         body {
             font-family: var(--font-sans);
-            background-color: var(--bg-canvas);
+            background-color: var(--bg-base);
             color: var(--text-primary);
-            line-height: 1.6;
-            padding: 2rem 1.25rem 5rem 1.25rem;
+            line-height: 1.45;
+            padding: 1.5rem 1rem 3rem;
             min-height: 100vh;
-            transition: background-color 0.3s ease, color 0.3s ease;
             -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-            position: relative;
         }
 
-        /* Bilinguisme natif */
         [data-lang="fr"] .lang-en { display: none !important; }
         [data-lang="en"] .lang-fr { display: none !important; }
 
-        /* Arrière-plan subtil avec gradients optiques naturels (sans agressivité) */
-        .ambient-aurora {
-            position: fixed;
-            top: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 100vw;
-            max-width: 1400px;
-            height: 550px;
-            pointer-events: none;
-            z-index: 0;
-            background: radial-gradient(circle at 50% -10%, rgba(41, 151, 255, 0.12) 0%, rgba(94, 92, 230, 0.06) 40%, transparent 70%);
-            opacity: 0.85;
-            filter: blur(60px);
-        }
-
-        [data-theme="light"] .ambient-aurora {
-            background: radial-gradient(circle at 50% -10%, rgba(0, 113, 227, 0.08) 0%, rgba(88, 86, 214, 0.04) 40%, transparent 70%);
-        }
-
-        .content-container {
+        .container {
             max-width: 920px;
             margin: 0 auto;
-            position: relative;
-            z-index: 1;
         }
 
-        /* --- 1. Barre Flottante iOS (Dynamic Glass Island) --- */
-        .ios-island {
-            position: sticky;
-            top: 1.25rem;
-            z-index: 100;
-            margin-bottom: 2.25rem;
+        .svg-icon {
+            width: 14px;
+            height: 14px;
+            fill: none;
+            stroke: currentColor;
+            stroke-width: 2;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            vertical-align: middle;
+            flex-shrink: 0;
+        }
+
+        /* Barre d'action supérieure (Web uniquement) */
+        .top-navbar {
             display: flex;
             align-items: center;
             justify-content: space-between;
-            padding: 0.6rem 1rem;
-            background: var(--bg-glass-card);
-            backdrop-filter: var(--glass-blur);
-            -webkit-backdrop-filter: var(--glass-blur);
-            border: 1px solid var(--glass-border);
-            border-radius: var(--radius-pill);
-            box-shadow: var(--glass-specular);
-            transition: var(--spring);
+            padding: 0.75rem 1.25rem;
+            background: var(--bg-surface);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            margin-bottom: 1.5rem;
         }
 
-        .island-brand {
-            display: flex;
+        .brand-link {
+            display: inline-flex;
             align-items: center;
-            gap: 0.65rem;
-            text-decoration: none;
+            gap: 0.5rem;
             color: var(--text-primary);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 700;
         }
-
-        .island-avatar {
-            width: 32px;
-            height: 32px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, var(--ios-blue), var(--ios-indigo));
-            color: #ffffff;
+        .brand-pill {
+            width: 28px;
+            height: 28px;
+            border-radius: 6px;
+            background: var(--bg-surface-elevated);
+            border: 1px solid var(--border);
+            color: var(--accent);
             display: flex;
             align-items: center;
             justify-content: center;
-            font-weight: 700;
-            font-size: 0.85rem;
-            letter-spacing: -0.02em;
-            box-shadow: 0 2px 8px rgba(41, 151, 255, 0.3);
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            font-weight: 800;
         }
 
-        .island-title {
-            font-weight: 600;
-            font-size: 0.92rem;
-            letter-spacing: -0.01em;
-        }
-
-        .island-nav-links {
+        .nav-actions {
             display: flex;
             align-items: center;
-            gap: 0.35rem;
+            gap: 0.5rem;
         }
 
-        .nav-pill-link {
-            text-decoration: none;
-            font-size: 0.84rem;
-            font-weight: 500;
-            color: var(--text-secondary);
-            padding: 0.4rem 0.85rem;
-            border-radius: var(--radius-pill);
-            transition: var(--spring);
-        }
-
-        .nav-pill-link:hover {
-            color: var(--text-primary);
-            background: var(--bg-glass-hover);
-        }
-
-        .island-controls {
-            display: flex;
+        .btn {
+            display: inline-flex;
             align-items: center;
-            gap: 0.4rem;
-        }
-
-        .ios-btn {
-            background: var(--bg-glass-subtle);
+            gap: 0.45rem;
+            background: var(--bg-surface-elevated);
             color: var(--text-primary);
-            border: 1px solid var(--glass-border);
+            border: 1px solid var(--border);
             padding: 0.42rem 0.85rem;
-            border-radius: var(--radius-pill);
+            border-radius: 8px;
             font-family: inherit;
             font-size: 0.82rem;
             font-weight: 600;
             cursor: pointer;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.4rem;
-            transition: var(--spring);
-            user-select: none;
-            outline: none;
+            text-decoration: none;
+            transition: all 0.15s ease;
         }
-
-        .ios-btn:hover {
-            background: var(--bg-glass-hover);
-            border-color: var(--glass-border-highlight);
-            transform: translateY(-1px);
+        .btn:hover {
+            border-color: var(--border-hover);
+            background: var(--bg-subtle);
         }
-
-        .ios-btn:active {
-            transform: scale(0.97);
-        }
-
-        .ios-btn.primary {
-            background: var(--ios-blue);
+        .btn.primary {
+            background: var(--accent);
             color: #ffffff;
             border-color: transparent;
-            box-shadow: 0 4px 14px rgba(41, 151, 255, 0.3);
+        }
+        .btn.primary:hover {
+            background: var(--accent-hover);
         }
 
-        .ios-btn.primary:hover {
-            background: #1a88f0;
-            box-shadow: 0 6px 20px rgba(41, 151, 255, 0.4);
+        /* ==========================================================================
+           FEUILLE DU CV — RATIO ET DIMENSIONS A4
+           ========================================================================== */
+        .cv-document {
+            background: var(--bg-surface);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 2.25rem 2.6rem;
+            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.3);
         }
 
-        .ios-btn.active {
-            background: var(--ios-green-subtle);
-            color: var(--ios-green);
-            border-color: var(--ios-green);
+        /* En-tête */
+        .cv-head {
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 1rem;
+            margin-bottom: 1rem;
         }
 
-        /* --- 2. Document CV Principal (Carte Apple Liquid Glass) --- */
-        .cv-card {
-            background: var(--bg-glass-card);
-            backdrop-filter: var(--glass-blur);
-            -webkit-backdrop-filter: var(--glass-blur);
-            border: 1px solid var(--glass-border);
-            border-radius: var(--radius-card);
-            box-shadow: var(--glass-specular);
-            padding: 3rem 3.25rem;
-            transition: var(--spring);
-            position: relative;
-        }
-
-        @media (max-width: 768px) {
-            body { padding: 1rem 0.75rem 3rem 0.75rem; }
-            .ios-island { padding: 0.5rem 0.75rem; }
-            .island-nav-links { display: none; }
-            .cv-card { padding: 2rem 1.5rem; border-radius: 20px; }
-        }
-
-        /* --- 3. En-Tête du CV --- */
-        .cv-header {
-            border-bottom: 1px solid var(--glass-border);
-            padding-bottom: 2rem;
-            margin-bottom: 2.25rem;
-        }
-
-        .cv-header-top {
+        .head-row {
             display: flex;
             justify-content: space-between;
             align-items: flex-start;
             flex-wrap: wrap;
-            gap: 1.25rem;
-            margin-bottom: 0.85rem;
+            gap: 0.75rem;
+            margin-bottom: 0.6rem;
         }
 
-        .cv-name {
-            font-size: 2.6rem;
+        .candidate-name {
+            font-size: 2.1rem;
             font-weight: 800;
-            letter-spacing: -0.04em;
-            line-height: 1.1;
+            letter-spacing: -0.03em;
             color: var(--text-primary);
+            line-height: 1.1;
         }
 
-        .status-capsule {
+        .candidate-title {
+            font-size: 1.05rem;
+            font-weight: 600;
+            color: var(--accent);
+            margin-top: 0.2rem;
+            letter-spacing: -0.01em;
+        }
+
+        .status-badge {
             display: inline-flex;
             align-items: center;
-            gap: 0.55rem;
-            background: var(--ios-green-subtle);
-            border: 1px solid rgba(48, 209, 88, 0.25);
-            color: var(--ios-green);
-            font-size: 0.82rem;
+            gap: 0.45rem;
+            background: var(--success-subtle);
+            border: 1px solid rgba(16, 185, 129, 0.3);
+            color: var(--success);
+            padding: 0.32rem 0.75rem;
+            border-radius: 9999px;
+            font-size: 0.78rem;
             font-weight: 600;
-            padding: 0.38rem 0.9rem;
-            border-radius: var(--radius-pill);
+            white-space: nowrap;
         }
-
         .status-dot {
             width: 7px;
             height: 7px;
             border-radius: 50%;
-            background-color: var(--ios-green);
-            box-shadow: 0 0 8px var(--ios-green);
-            animation: pulseDot 2.2s infinite ease-in-out;
+            background: currentColor;
         }
 
-        @keyframes pulseDot {
-            0%, 100% { transform: scale(1); opacity: 1; }
-            50% { transform: scale(1.3); opacity: 0.6; }
-        }
-
-        .cv-headline {
-            font-size: 1.22rem;
-            font-weight: 600;
-            letter-spacing: -0.02em;
-            color: var(--ios-blue);
-            margin-bottom: 1.25rem;
-        }
-
-        .contact-strip {
+        .contacts-strip {
             display: flex;
             flex-wrap: wrap;
             align-items: center;
-            gap: 0.6rem;
+            gap: 0.45rem 1.1rem;
+            font-size: 0.82rem;
+            color: var(--text-secondary);
         }
 
-        .contact-pill {
+        .contact-item {
             display: inline-flex;
             align-items: center;
-            gap: 0.45rem;
-            background: var(--bg-pill);
-            border: 1px solid var(--glass-border);
-            color: var(--text-secondary);
-            font-size: 0.86rem;
-            font-weight: 500;
-            padding: 0.35rem 0.8rem;
-            border-radius: var(--radius-pill);
+            gap: 0.35rem;
+            color: inherit;
             text-decoration: none;
-            transition: var(--spring);
+            transition: color 0.15s ease;
+        }
+        .contact-item:hover { color: var(--text-primary); }
+
+        /* Profil express (3 lignes nettes) */
+        .profile-summary {
+            background: var(--bg-surface-elevated);
+            border-left: 3px solid var(--accent);
+            padding: 0.65rem 1rem;
+            border-radius: 0 8px 8px 0;
+            margin-bottom: 1.1rem;
+            font-size: 0.86rem;
+            line-height: 1.5;
+            color: var(--text-secondary);
+        }
+        .profile-summary strong { color: var(--text-primary); }
+
+        /* Grille principale 2 colonnes */
+        .body-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.25fr;
+            gap: 1.75rem;
+            margin-bottom: 1.1rem;
         }
 
-        .contact-pill:hover {
-            color: var(--text-primary);
-            background: var(--bg-glass-hover);
-            border-color: var(--glass-border-highlight);
-        }
-
-        .contact-pill.highlight {
-            color: var(--text-primary);
-            border-color: rgba(41, 151, 255, 0.3);
-            background: var(--ios-blue-subtle);
-        }
-
-        /* --- 4. Typographie des Sections --- */
-        .section-block {
-            margin-bottom: 2.25rem;
-        }
-
-        .section-label {
-            display: flex;
-            align-items: center;
-            gap: 0.65rem;
-            font-size: 0.82rem;
+        /* En-tête de sous-section */
+        .sec-head {
+            font-size: 0.76rem;
             font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 0.08em;
-            color: var(--text-tertiary);
-            margin-bottom: 1.15rem;
+            color: var(--text-muted);
+            margin-bottom: 0.75rem;
+            padding-bottom: 0.25rem;
+            border-bottom: 1px solid var(--border);
         }
 
-        .section-label::after {
-            content: '';
-            flex: 1;
-            height: 1px;
-            background: var(--glass-border);
-        }
-
-        .profile-summary {
-            font-size: 1.02rem;
-            line-height: 1.7;
-            color: var(--text-secondary);
-            text-align: justify;
-        }
-
-        .profile-summary strong {
-            color: var(--text-primary);
-            font-weight: 600;
-        }
-
-        /* --- 5. Grille Deux Colonnes Fluide --- */
-        .cv-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 2.5rem;
-        }
-
-        @media (max-width: 840px) {
-            .cv-grid {
-                grid-template-columns: 1fr;
-                gap: 1.75rem;
-            }
-        }
-
-        /* --- 6. Items / Cartes d'Expérience & Projets --- */
+        /* Entrée */
         .cv-entry {
-            margin-bottom: 1.6rem;
-            position: relative;
+            margin-bottom: 0.85rem;
         }
+        .cv-entry:last-child { margin-bottom: 0; }
 
-        .cv-entry:last-child {
-            margin-bottom: 0;
-        }
-
-        .entry-header {
+        .entry-top {
             display: flex;
             justify-content: space-between;
             align-items: baseline;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-            margin-bottom: 0.25rem;
+            gap: 0.4rem;
         }
 
         .entry-title {
-            font-size: 1.04rem;
+            font-size: 0.92rem;
             font-weight: 700;
-            letter-spacing: -0.01em;
             color: var(--text-primary);
+            letter-spacing: -0.01em;
         }
 
         .entry-date {
-            font-size: 0.82rem;
+            font-family: var(--font-mono);
+            font-size: 0.72rem;
             font-weight: 600;
-            color: var(--text-tertiary);
-            background: var(--bg-pill);
-            padding: 0.2rem 0.6rem;
-            border-radius: var(--radius-pill);
+            color: var(--text-muted);
+            background: var(--bg-surface-elevated);
+            padding: 0.1rem 0.45rem;
+            border-radius: 4px;
+            white-space: nowrap;
         }
 
-        .entry-subtitle {
-            font-size: 0.92rem;
+        .entry-sub {
+            font-size: 0.8rem;
             font-weight: 500;
-            color: var(--ios-blue);
-            margin-bottom: 0.55rem;
+            color: var(--accent);
+            margin-top: 0.1rem;
+            margin-bottom: 0.25rem;
         }
 
-        .entry-list {
-            padding-left: 1.25rem;
-            font-size: 0.92rem;
+        .entry-bullets {
+            padding-left: 1rem;
+            font-size: 0.82rem;
             color: var(--text-secondary);
-            line-height: 1.65;
+            line-height: 1.45;
         }
+        .entry-bullets li { margin-bottom: 0.2rem; }
+        .entry-bullets strong { color: var(--text-primary); }
 
-        .entry-list li {
-            margin-bottom: 0.35rem;
-        }
-
-        .entry-list strong {
-            color: var(--text-primary);
+        .award-tag {
+            display: inline-block;
+            font-size: 0.7rem;
             font-weight: 600;
+            color: var(--amber);
+            background: rgba(245, 158, 11, 0.12);
+            border: 1px solid rgba(245, 158, 11, 0.3);
+            padding: 0.08rem 0.4rem;
+            border-radius: 4px;
+            margin-left: 0.3rem;
+            vertical-align: middle;
         }
 
-        /* --- 7. Compétences & Outils (Badges Verre Liquide) --- */
-        .skills-group {
-            margin-bottom: 1.25rem;
+        /* Compétences techniques (3 colonnes compactes) */
+        .skills-block {
+            border-top: 1px solid var(--border);
+            padding-top: 0.9rem;
+            margin-bottom: 0.9rem;
         }
 
-        .skills-group-title {
-            font-size: 0.86rem;
-            font-weight: 600;
+        .skills-row {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.1rem;
+        }
+
+        .skill-group-title {
+            font-size: 0.78rem;
+            font-weight: 700;
             color: var(--text-primary);
-            margin-bottom: 0.6rem;
+            margin-bottom: 0.4rem;
+            letter-spacing: -0.01em;
         }
 
-        .skills-wrap {
+        .chips-wrap {
             display: flex;
             flex-wrap: wrap;
-            gap: 0.45rem;
+            gap: 0.3rem;
         }
 
-        .skill-chip {
-            background: var(--bg-glass-subtle);
-            border: 1px solid var(--glass-border);
-            color: var(--text-primary);
-            font-size: 0.84rem;
+        .chip {
+            font-size: 0.74rem;
             font-weight: 500;
-            padding: 0.32rem 0.75rem;
-            border-radius: var(--radius-badge);
-            transition: var(--spring);
-        }
-
-        .skill-chip:hover {
-            background: var(--bg-glass-hover);
-            border-color: var(--glass-border-highlight);
-            transform: translateY(-1px);
-        }
-
-        .skill-chip.featured {
-            background: var(--ios-blue-subtle);
-            border-color: rgba(41, 151, 255, 0.25);
-            color: var(--text-primary);
-            font-weight: 600;
-        }
-
-        /* --- 8. Langues & Atouts --- */
-        .lang-capsules {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 0.75rem;
-            margin-top: 0.5rem;
-        }
-
-        .lang-card {
-            background: var(--bg-glass-subtle);
-            border: 1px solid var(--glass-border);
-            padding: 0.85rem 1rem;
-            border-radius: var(--radius-item);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .lang-name {
-            font-size: 0.92rem;
-            font-weight: 600;
-            color: var(--text-primary);
-        }
-
-        .lang-level {
-            font-size: 0.82rem;
+            background: var(--bg-surface-elevated);
+            border: 1px solid var(--border);
             color: var(--text-secondary);
-            font-weight: 500;
+            padding: 0.18rem 0.48rem;
+            border-radius: 4px;
         }
-
-        /* --- 9. Bannière Mode Édition --- */
-        .edit-mode-banner {
-            display: none;
-            background: var(--ios-blue-subtle);
-            border: 1px solid rgba(41, 151, 255, 0.3);
+        .chip.highlight {
             color: var(--text-primary);
-            border-radius: var(--radius-item);
-            padding: 0.75rem 1.25rem;
-            margin-bottom: 1.5rem;
-            font-size: 0.88rem;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        body.editing-active .edit-mode-banner {
-            display: flex;
-        }
-
-        body.editing-active .editable-area {
-            outline: 2px dashed rgba(41, 151, 255, 0.4);
-            outline-offset: 8px;
-            cursor: text;
-        }
-
-        /* --- 10. Toast Notification --- */
-        .ios-toast {
-            position: fixed;
-            bottom: 2rem;
-            left: 50%;
-            transform: translateX(-50%) translateY(100px);
-            background: var(--bg-glass-card);
-            backdrop-filter: var(--glass-blur);
-            -webkit-backdrop-filter: var(--glass-blur);
-            border: 1px solid var(--glass-border-highlight);
-            color: var(--text-primary);
-            padding: 0.65rem 1.3rem;
-            border-radius: var(--radius-pill);
-            font-size: 0.88rem;
+            border-color: rgba(59, 130, 246, 0.4);
+            background: var(--accent-subtle);
             font-weight: 600;
-            box-shadow: var(--glass-specular);
-            z-index: 999;
-            opacity: 0;
-            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-            pointer-events: none;
         }
 
-        .ios-toast.visible {
-            transform: translateX(-50%) translateY(0);
-            opacity: 1;
+        /* Pied : Langues & Centres d'intérêt */
+        .footer-row {
+            display: grid;
+            grid-template-columns: 1fr 1.35fr;
+            gap: 1.5rem;
+            border-top: 1px solid var(--border);
+            padding-top: 0.85rem;
+            font-size: 0.8rem;
         }
 
-        /* --- 11. Optimisations Impression A4 (Print Strict & Précis) --- */
+        .footer-label {
+            font-size: 0.74rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--text-muted);
+            margin-bottom: 0.25rem;
+        }
+
+        .items-inline {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.3rem 0.75rem;
+            color: var(--text-secondary);
+        }
+        .items-inline strong { color: var(--text-primary); }
+
+        /* ==========================================================================
+           PRINT STRICT — EXACTEMENT 1 PAGE A4 (HAUTEUR PLEINE SANS DÉBORDEMENT)
+           Feuille A4 : 210mm x 297mm
+           Marges de page : 8mm (haut/bas) x 10mm (gauche/droite)
+           Hauteur utile disponible : 281mm
+           ========================================================================== */
+        @page {
+            size: A4 portrait;
+            margin: 8mm 10mm 7mm 10mm;
+        }
+
         @media print {
-            body {
+            html, body {
                 background: #ffffff !important;
                 color: #0f172a !important;
+                font-size: 8.8pt !important;
+                line-height: 1.38 !important;
                 padding: 0 !important;
-                font-size: 11pt;
+                margin: 0 !important;
+                width: 100% !important;
+                height: 100% !important;
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
             }
-            .ambient-aurora,
-            .ios-island,
-            .edit-mode-banner,
-            .ios-toast,
-            .no-print {
+
+            .no-print, .top-navbar {
                 display: none !important;
             }
-            .content-container {
+
+            .container {
                 max-width: 100% !important;
                 margin: 0 !important;
+                padding: 0 !important;
             }
-            .cv-card {
+
+            .cv-document {
                 background: transparent !important;
                 border: none !important;
                 box-shadow: none !important;
                 padding: 0 !important;
+                border-radius: 0 !important;
+                display: flex !important;
+                flex-direction: column !important;
+                justify-content: space-between !important;
+                height: 280mm !important; /* Calibré exactement sur la hauteur utile A4 */
+                max-height: 280mm !important;
+                overflow: hidden !important;
             }
-            .cv-header {
-                border-bottom: 2px solid #0f172a !important;
-                padding-bottom: 1.25rem !important;
-                margin-bottom: 1.5rem !important;
+
+            .cv-head {
+                border-bottom: 1.5pt solid #0f172a !important;
+                padding-bottom: 0.55rem !important;
+                margin-bottom: 0.55rem !important;
             }
-            .cv-name {
+
+            .candidate-name {
+                font-size: 20pt !important;
                 color: #0f172a !important;
-                font-size: 24pt !important;
             }
-            .cv-headline {
-                color: #0284c7 !important;
+
+            .candidate-title {
+                font-size: 10pt !important;
+                color: #1d4ed8 !important;
+                margin-top: 0.15rem !important;
             }
+
+            .status-badge {
+                border: 1pt solid #059669 !important;
+                background: #f0fdf4 !important;
+                color: #047857 !important;
+                font-size: 7.5pt !important;
+                padding: 0.15rem 0.55rem !important;
+            }
+
+            .status-dot {
+                background: #059669 !important;
+                width: 5px !important;
+                height: 5px !important;
+            }
+
+            .contacts-strip {
+                margin-top: 0.35rem !important;
+                gap: 0.25rem 0.85rem !important;
+                font-size: 7.8pt !important;
+                color: #334155 !important;
+            }
+
+            .profile-summary {
+                background: #f8fafc !important;
+                border-left: 2.5pt solid #1d4ed8 !important;
+                padding: 0.45rem 0.75rem !important;
+                margin-bottom: 0.65rem !important;
+                font-size: 8.2pt !important;
+                line-height: 1.38 !important;
+                color: #334155 !important;
+            }
+            .profile-summary strong { color: #0f172a !important; }
+
+            .body-grid {
+                grid-template-columns: 1fr 1.25fr !important;
+                gap: 1.25rem !important;
+                margin-bottom: 0.65rem !important;
+                flex-grow: 1 !important;
+            }
+
+            .sec-head {
+                font-size: 7.6pt !important;
+                color: #0f172a !important;
+                border-bottom: 1pt solid #cbd5e1 !important;
+                margin-bottom: 0.45rem !important;
+                padding-bottom: 0.15rem !important;
+            }
+
+            .cv-entry {
+                margin-bottom: 0.55rem !important;
+                page-break-inside: avoid !important;
+                break-inside: avoid !important;
+            }
+
             .entry-title {
+                font-size: 8.6pt !important;
                 color: #0f172a !important;
             }
-            .entry-subtitle {
-                color: #0284c7 !important;
-            }
+
             .entry-date {
+                font-size: 7.2pt !important;
                 background: #f1f5f9 !important;
                 color: #475569 !important;
-                border: 1px solid #e2e8f0 !important;
+                border: 0.5pt solid #cbd5e1 !important;
+                padding: 0.08rem 0.35rem !important;
             }
-            .section-label {
+
+            .entry-sub {
+                font-size: 7.8pt !important;
+                color: #1d4ed8 !important;
+                margin-bottom: 0.15rem !important;
+            }
+
+            .entry-bullets {
+                font-size: 7.6pt !important;
+                line-height: 1.32 !important;
+                padding-left: 0.9rem !important;
+                color: #334155 !important;
+            }
+            .entry-bullets li { margin-bottom: 0.15rem !important; }
+            .entry-bullets strong { color: #0f172a !important; }
+
+            .award-tag {
+                color: #b45309 !important;
+                background: #fef3c7 !important;
+                border: 0.5pt solid #fde68a !important;
+                font-size: 6.8pt !important;
+            }
+
+            .skills-block {
+                border-top: 1pt solid #cbd5e1 !important;
+                padding-top: 0.55rem !important;
+                margin-bottom: 0.55rem !important;
+                page-break-inside: avoid !important;
+                break-inside: avoid !important;
+            }
+
+            .skills-row {
+                gap: 0.85rem !important;
+            }
+
+            .skill-group-title {
+                font-size: 7.6pt !important;
                 color: #0f172a !important;
+                margin-bottom: 0.25rem !important;
             }
-            .section-label::after {
-                background: #cbd5e1 !important;
+
+            .chips-wrap {
+                gap: 0.2rem !important;
             }
-            .skill-chip {
+
+            .chip {
+                font-size: 7.2pt !important;
                 background: #f8fafc !important;
-                border: 1px solid #cbd5e1 !important;
+                border: 0.5pt solid #cbd5e1 !important;
+                color: #334155 !important;
+                padding: 0.1rem 0.38rem !important;
+            }
+            .chip.highlight {
+                border-color: #93c5fd !important;
+                background: #eff6ff !important;
+                color: #1d4ed8 !important;
+                font-weight: 700 !important;
+            }
+
+            .footer-row {
+                border-top: 1pt solid #cbd5e1 !important;
+                padding-top: 0.45rem !important;
+                gap: 1.1rem !important;
+                font-size: 7.4pt !important;
+                page-break-inside: avoid !important;
+                break-inside: avoid !important;
+            }
+
+            .footer-label {
+                font-size: 7.2pt !important;
                 color: #0f172a !important;
+                margin-bottom: 0.15rem !important;
             }
-            .skill-chip.featured {
-                background: #e0f2fe !important;
-                border-color: #7dd3fc !important;
+
+            .items-inline {
+                color: #334155 !important;
+                gap: 0.2rem 0.55rem !important;
             }
-            .status-capsule {
-                border: 1px solid #16a34a !important;
-                background: #f0fdf4 !important;
-                color: #16a34a !important;
-            }
-            .cv-grid {
-                display: grid !important;
-                grid-template-columns: 1fr 1fr !important;
-                gap: 1.75rem !important;
-            }
+            .items-inline strong { color: #0f172a !important; }
+        }
+
+        @media (max-width: 768px) {
+            body { padding: 1rem 0.5rem; }
+            .cv-document { padding: 1.5rem 1.1rem; }
+            .body-grid { grid-template-columns: 1fr; gap: 1.25rem; }
+            .skills-row { grid-template-columns: 1fr; gap: 0.85rem; }
+            .footer-row { grid-template-columns: 1fr; gap: 0.85rem; }
         }
     </style>
 </head>
 <body>
 
-    <!-- Halo Ambiant Supérieur -->
-    <div class="ambient-aurora" aria-hidden="true"></div>
+    <div class="container">
 
-    <div class="content-container">
-
-        <!-- Barre de Contrôle Flottante iOS (Dynamic Glass Island) -->
-        <header class="ios-island no-print" aria-label="Commandes du CV">
-            <a href="index.html" class="island-brand" title="Retour à l'accueil">
-                <div class="island-avatar">MG</div>
-                <span class="island-title">Maël Galan</span>
+        <!-- Barre supérieure de navigation & actions (Web) -->
+        <header class="top-navbar no-print">
+            <a href="index.html" class="brand-link" title="Retourner au portfolio">
+                <div class="brand-pill">MG</div>
+                <span>Maël Galan</span>
             </a>
 
-            <nav class="island-nav-links" aria-label="Navigation principale">
-                <a href="index.html" class="nav-pill-link">
-                    <span class="lang-fr">Accueil</span>
-                    <span class="lang-en">Home</span>
+            <div class="nav-actions">
+                <a href="index.html" class="btn">
+                    <svg class="svg-icon" viewBox="0 0 24 24"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+                    <span class="lang-fr">Portfolio</span><span class="lang-en">Portfolio</span>
                 </a>
-                <a href="about.html" class="nav-pill-link">
-                    <span class="lang-fr">À Propos</span>
-                    <span class="lang-en">About</span>
-                </a>
-                <a href="projets.html" class="nav-pill-link">
-                    <span class="lang-fr">Projets</span>
-                    <span class="lang-en">Projects</span>
-                </a>
-                <a href="parcours.html" class="nav-pill-link">
-                    <span class="lang-fr">Parcours</span>
-                    <span class="lang-en">Career</span>
-                </a>
-            </nav>
-
-            <div class="island-controls">
-                <button id="theme-toggle-btn" class="ios-btn" onclick="toggleTheme()" title="Basculer le thème">
-                    <span class="lang-fr">Thème</span><span class="lang-en">Theme</span>
+                <button class="btn" onclick="toggleTheme()" id="theme-btn" title="Basculer le thème">
+                    <svg class="svg-icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
                 </button>
-                <button id="lang-toggle-btn" class="ios-btn" onclick="toggleLang()" title="Changer la langue">
+                <button class="btn" onclick="toggleLang()" id="lang-btn" title="Switch language">
                     <span>EN</span>
                 </button>
-                <button id="edit-toggle-btn" class="ios-btn" onclick="toggleEditMode()" title="Éditer le texte directement">
-                    <span class="lang-fr">Éditer</span><span class="lang-en">Edit</span>
-                </button>
-                <button class="ios-btn primary" onclick="downloadPDF()" title="Imprimer ou enregistrer en PDF (A4)">
-                    <span>PDF</span>
+                <button class="btn primary" onclick="window.print()" title="Imprimer ou enregistrer en PDF (1 page A4)">
+                    <svg class="svg-icon" viewBox="0 0 24 24"><path d="M6 9V2h12v7M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
+                    <span class="lang-fr">Imprimer PDF (1 Page A4)</span>
+                    <span class="lang-en">Print PDF (1 Page A4)</span>
                 </button>
             </div>
         </header>
 
-        <!-- Bannière Mode Édition -->
-        <div class="edit-mode-banner no-print">
-            <span><strong>Mode Édition Activé :</strong> Vous pouvez modifier chaque texte directement sur la page.</span>
-            <button class="ios-btn" onclick="saveHTML()" style="padding: 0.3rem 0.75rem;">Sauvegarder</button>
-        </div>
+        <!-- FEUILLE CV (CALIBRÉE 1 PAGE A4 PLEINE HAUTEUR) -->
+        <main class="cv-document">
 
-        <!-- Document CV Liquid Glass -->
-        <main class="cv-card editable-area" id="cv-content">
-
-            <!-- En-tête Principal -->
-            <header class="cv-header">
-                <div class="cv-header-top">
+            <!-- EN-TÊTE -->
+            <header class="cv-head">
+                <div class="head-row">
                     <div>
-                        <h1 class="cv-name">Maël Galan</h1>
-                        <div class="cv-headline">
+                        <h1 class="candidate-name">Maël Galan</h1>
+                        <div class="candidate-title">
                             <span class="lang-fr">Élève-Ingénieur ENIB (4ème année) — Mécatronique, Systèmes Embarqués &amp; Robotique</span>
                             <span class="lang-en">ENIB 4th-Year Engineering Student — Mechatronics, Embedded Systems &amp; Robotics</span>
                         </div>
                     </div>
-                    <div class="status-capsule">
+                    <div class="status-badge">
                         <span class="status-dot"></span>
                         <span class="lang-fr">Recherche Stage Assistant Ingénieur • 80 à 136 jours ouvrés</span>
                         <span class="lang-en">Seeking Assistant Engineer Internship • 80 to 136 working days</span>
                     </div>
                 </div>
 
-                <!-- Coordonnées & Liens -->
-                <div class="contact-strip">
-                    <span class="contact-pill highlight">
-                        Brest / Saint-Brieuc
+                <div class="contacts-strip">
+                    <span class="contact-item">
+                        <svg class="svg-icon" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                        Brest / Saint-Brieuc (Bretagne)
                     </span>
-                    <a href="mailto:maelgalan9@gmail.com" class="contact-pill">
+                    <a href="mailto:maelgalan9@gmail.com" class="contact-item">
+                        <svg class="svg-icon" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
                         maelgalan9@gmail.com
                     </a>
-                    <a href="tel:+33769421108" class="contact-pill">
+                    <a href="tel:+33769421108" class="contact-item">
+                        <svg class="svg-icon" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
                         +33 7 69 42 11 08
                     </a>
-                    <span class="contact-pill">
-                        Permis B — Véhiculé
+                    <span class="contact-item">
+                        <svg class="svg-icon" viewBox="0 0 24 24"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+                        <span class="lang-fr">Permis B (Véhiculé)</span><span class="lang-en">Driver's License (Vehicle)</span>
                     </span>
-                    <a href="https://mael-ga.github.io/portfolio/" target="_blank" rel="noopener" class="contact-pill">
+                    <a href="https://mael-ga.github.io/portfolio/" target="_blank" rel="noopener" class="contact-item">
+                        <svg class="svg-icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
                         mael-ga.github.io/portfolio
                     </a>
-                    <a href="https://github.com/mael-ga" target="_blank" rel="noopener" class="contact-pill">
-                        GitHub : mael-ga
+                    <a href="https://github.com/mael-ga" target="_blank" rel="noopener" class="contact-item">
+                        <svg class="svg-icon" viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+                        github.com/mael-ga
                     </a>
                 </div>
             </header>
 
-            <!-- Profil Professionnel -->
-            <section class="section-block">
-                <div class="section-label">
-                    <span class="lang-fr">Profil Professionnel</span>
-                    <span class="lang-en">Professional Summary</span>
-                </div>
-                <p class="profile-summary">
-                    <span class="lang-fr">
-                        Élève-ingénieur en <strong>4ème année à l'École Nationale d'Ingénieurs de Brest (ENIB)</strong>, complété par un semestre international à l'<strong>Université Aristote de Thessalonique</strong> (Grèce, Erasmus 2026), je recherche un <strong>stage assistant ingénieur obligatoire de 80 à 136 jours ouvrés</strong>. Je conjugue une solide formation en mécatronique et automatique à une pratique avancée du développement bas niveau (C/C++, microcontrôleurs STM32, Linux) et de la robotique mobile (ROS, Gazebo). Mon objectif est d'apporter une contribution technique immédiate au sein d'un bureau d'études, d'un laboratoire R&amp;D ou sur des bancs de test et d'intégration.
-                    </span>
-                    <span class="lang-en">
-                        4th-year engineering student at the <strong>École Nationale d'Ingénieurs de Brest (ENIB)</strong>, complemented by an international Erasmus semester at the <strong>Aristotle University of Thessaloniki</strong> (Greece, 2026), seeking a <strong>mandatory assistant engineer internship of 80 to 136 working days</strong>. I combine a robust foundation in mechatronics and control systems with advanced proficiency in low-level development (C/C++, STM32 microcontrollers, Linux) and mobile robotics (ROS, Gazebo). Ready to deliver immediate technical value in R&amp;D, testing, or systems engineering.
-                    </span>
-                </p>
-            </section>
+            <!-- PROFIL PROFESSIONNEL BILINGUE -->
+            <div class="profile-summary">
+                <span class="lang-fr">
+                    Élève-ingénieur en 4ème année à l'<strong>École Nationale d'Ingénieurs de Brest (ENIB)</strong>, complété par un semestre international <strong>Erasmus en mécatronique &amp; robotique</strong> à l'Université Aristote de Thessalonique (Grèce, 2026). Je conjugue une solide formation en électronique et automatique à une pratique avancée du <strong>développement bas niveau (C bare-metal, STM32, Linux)</strong>, de la <strong>robotique mobile (ROS, Gazebo)</strong> et de l'architecture logicielle concurrente. Prêt à m'investir au sein d'un bureau d'études, d'un laboratoire R&amp;D ou sur des bancs de test et d'intégration.
+                </span>
+                <span class="lang-en">
+                    4th-year engineering student at <strong>École Nationale d'Ingénieurs de Brest (ENIB)</strong>, complemented by an international <strong>Erasmus semester in mechatronics &amp; robotics</strong> at Aristotle University of Thessaloniki (Greece, 2026). Combining strong control theory and electronics foundations with advanced proficiency in <strong>low-level C (STM32, Linux)</strong>, <strong>mobile robotics (ROS, Gazebo)</strong>, and concurrent software engineering. Ready to deliver immediate technical impact in R&amp;D, test bench bring-up, and mechatronic design.
+                </span>
+            </div>
 
-            <!-- Grille Centrale : Formation / Expérience & Projets d'Ingénierie -->
-            <div class="cv-grid">
+            <!-- CORPS 2 COLONNES -->
+            <div class="body-grid">
 
-                <!-- Colonne Gauche : Formation & Expérience -->
+                <!-- COLONNE GAUCHE : FORMATION & EXPÉRIENCE -->
                 <div>
                     <!-- Formation -->
-                    <section class="section-block">
-                        <div class="section-label">
+                    <section style="margin-bottom: 1.1rem;">
+                        <h2 class="sec-head">
                             <span class="lang-fr">Formation Académique</span>
                             <span class="lang-en">Education</span>
-                        </div>
+                        </h2>
 
                         <article class="cv-entry">
-                            <div class="entry-header">
-                                <span class="entry-title">Université Aristote de Thessalonique</span>
+                            <div class="entry-top">
+                                <span class="entry-title">Univ. Aristote de Thessalonique</span>
                                 <span class="entry-date">2026</span>
                             </div>
-                            <div class="entry-subtitle">
-                                <span class="lang-fr">Semestre International Erasmus — Grèce</span>
-                                <span class="lang-en">International Erasmus Semester — Greece</span>
+                            <div class="entry-sub">
+                                <span class="lang-fr">Semestre Erasmus — Grèce (Enseignement en anglais)</span>
+                                <span class="lang-en">Erasmus Semester — Greece (Taught in English)</span>
                             </div>
-                            <ul class="entry-list">
+                            <ul class="entry-bullets">
                                 <li>
-                                    <span class="lang-fr">Spécialisation en <strong>mécatronique</strong>, cinématique, robotique mobile et systèmes de contrôle-commande avancés.</span>
-                                    <span class="lang-en">Specialized coursework in <strong>mechatronics</strong>, mobile robotics, and advanced control systems.</span>
+                                    <span class="lang-fr"><strong>Mécatronique &amp; cinématique :</strong> commande avancée de robots, correcteurs PID, asservissements numériques.</span>
+                                    <span class="lang-en"><strong>Mechatronics &amp; kinematics:</strong> advanced robot control, PID tuning, digital control loops.</span>
                                 </li>
                                 <li>
-                                    <span class="lang-fr">Immersion en environnement académique international anglophone.</span>
-                                    <span class="lang-en">Full immersion in an international English-speaking academic environment.</span>
+                                    <span class="lang-fr">Pratique quotidienne de l'anglais technique en cours et projets.</span>
+                                    <span class="lang-en">Daily technical English immersion in lectures and project reports.</span>
                                 </li>
                             </ul>
                         </article>
 
                         <article class="cv-entry">
-                            <div class="entry-header">
-                                <span class="entry-title">École Nationale d'Ingénieurs de Brest (ENIB)</span>
+                            <div class="entry-top">
+                                <span class="entry-title">École Nationale d'Ingénieurs de Brest</span>
                                 <span class="entry-date">2023 – Présent</span>
                             </div>
-                            <div class="entry-subtitle">
-                                <span class="lang-fr">Formation d'Ingénieur Généraliste</span>
-                                <span class="lang-en">General Engineering Curriculum</span>
+                            <div class="entry-sub">
+                                <span class="lang-fr">Cycle Ingénieur Généraliste (4ème année)</span>
+                                <span class="lang-en">General Engineering Degree (4th year)</span>
                             </div>
-                            <ul class="entry-list">
+                            <ul class="entry-bullets">
                                 <li>
-                                    <span class="lang-fr">Sciences de l'ingénieur : électronique analogique et numérique, systèmes embarqués, génie logiciel, automatique et asservissements.</span>
-                                    <span class="lang-en">Engineering sciences: analog &amp; digital electronics, embedded systems, software engineering, and automation.</span>
+                                    <span class="lang-fr">Systèmes embarqués (STM32, C), automatique, électronique de puissance, POO (C++, Java).</span>
+                                    <span class="lang-en">Embedded systems (STM32, C), control theory, power electronics, OOP (C++, Java).</span>
                                 </li>
                                 <li>
                                     <span class="lang-fr">Cycle préparatoire intégré (A1/A2) validé avec mention.</span>
-                                    <span class="lang-en">Integrated preparatory cycle successfully completed.</span>
+                                    <span class="lang-en">Integrated preparatory cycle validated with honors.</span>
                                 </li>
                             </ul>
                         </article>
 
                         <article class="cv-entry">
-                            <div class="entry-header">
-                                <span class="entry-title">Lycée Chaptal</span>
+                            <div class="entry-top">
+                                <span class="entry-title">Lycée Chaptal — Saint-Brieuc</span>
                                 <span class="entry-date">2020 – 2023</span>
                             </div>
-                            <div class="entry-subtitle">
-                                <span class="lang-fr">Baccalauréat Général Scientifique</span>
-                                <span class="lang-en">General High School Diploma (STEM)</span>
+                            <div class="entry-sub">
+                                <span class="lang-fr">Baccalauréat Général (Sciences de l'Ingénieur &amp; Maths)</span>
+                                <span class="lang-en">High School Diploma (Engineering Sciences &amp; Math)</span>
                             </div>
-                            <ul class="entry-list">
-                                <li>
-                                    <span class="lang-fr">Spécialités : Sciences de l'Ingénieur &amp; Mathématiques.</span>
-                                    <span class="lang-en">Majors: Engineering Sciences &amp; Applied Mathematics.</span>
-                                </li>
-                            </ul>
                         </article>
                     </section>
 
-                    <!-- Expérience Professionnelle -->
-                    <section class="section-block">
-                        <div class="section-label">
+                    <!-- Expérience Pro -->
+                    <section>
+                        <h2 class="sec-head">
                             <span class="lang-fr">Expérience Professionnelle</span>
                             <span class="lang-en">Professional Experience</span>
-                        </div>
+                        </h2>
 
                         <article class="cv-entry">
-                            <div class="entry-header">
+                            <div class="entry-top">
                                 <span class="entry-title">Chambre de Métiers et de l'Artisanat</span>
                                 <span class="entry-date">2024 – 2025</span>
                             </div>
-                            <div class="entry-subtitle">
-                                <span class="lang-fr">Stagiaire Maintenance Systèmes, Matériel &amp; Réseaux</span>
-                                <span class="lang-en">IT Systems, Hardware &amp; Network Intern</span>
+                            <div class="entry-sub">
+                                <span class="lang-fr">Stagiaire — Systèmes, Matériel &amp; Réseaux (Bretagne)</span>
+                                <span class="lang-en">Intern — IT Systems, Hardware &amp; Networks (Brittany)</span>
                             </div>
-                            <ul class="entry-list">
+                            <ul class="entry-bullets">
                                 <li>
-                                    <span class="lang-fr">Déploiement d'images système (masterisation/ghosting) et maintenance opérationnelle de parcs informatiques.</span>
-                                    <span class="lang-en">System ghosting deployment, automated provisioning, and operating system maintenance.</span>
+                                    <span class="lang-fr"><strong>Déploiement d'images système (masterisation/ghosting)</strong> et automatisation du provisionnement sur parcs multi-sites.</span>
+                                    <span class="lang-en"><strong>System image deployment (ghosting)</strong> and automated provisioning across enterprise workstations.</span>
                                 </li>
                                 <li>
-                                    <span class="lang-fr">Diagnostic matériel approfondi, remplacement de composants et qualification de connectivité réseau filaire/Wi-Fi.</span>
-                                    <span class="lang-en">Hardware troubleshooting, component replacement, and network infrastructure diagnostics.</span>
+                                    <span class="lang-fr">Diagnostic matériel approfondi, remplacement de composants défaillants et qualification d'infrastructure réseau filaire/Wi-Fi.</span>
+                                    <span class="lang-en">Hardware troubleshooting, component replacement, and wired/Wi-Fi network validation.</span>
                                 </li>
                             </ul>
                         </article>
                     </section>
                 </div>
 
-                <!-- Colonne Droite : Projets Techniques Clés -->
+                <!-- COLONNE DROITE : PROJETS D'INGÉNIERIE CLÉS -->
                 <div>
-                    <section class="section-block">
-                        <div class="section-label">
+                    <section>
+                        <h2 class="sec-head">
                             <span class="lang-fr">Projets Majeurs d'Ingénierie</span>
                             <span class="lang-en">Key Engineering Projects</span>
-                        </div>
+                        </h2>
 
+                        <!-- 1. ROS -->
                         <article class="cv-entry">
-                            <div class="entry-header">
+                            <div class="entry-top">
                                 <span class="entry-title">Robotique Mobile Autonome &amp; ROS</span>
-                                <span class="entry-date">ROS / Gazebo</span>
+                                <span class="entry-date">C++ · Python · Linux</span>
                             </div>
-                            <div class="entry-subtitle">C++ / Python / Linux</div>
-                            <ul class="entry-list">
+                            <div class="entry-sub">ROS · Gazebo · RViz · Commande Cinématique</div>
+                            <ul class="entry-bullets">
                                 <li>
-                                    <span class="lang-fr">Conception et implémentation de <strong>nœuds ROS temps réel</strong> pour la simulation de trajectoires et le positionnement de vecteurs mobiles.</span>
-                                    <span class="lang-en">Developed real-time ROS nodes for trajectory planning and mobile platform kinematic simulations.</span>
+                                    <span class="lang-fr">Conception de <strong>nœuds ROS temps réel</strong> pour la commande cinématique et la planification de trajectoire d'un vecteur mobile autonome.</span>
+                                    <span class="lang-en">Designed real-time <strong>ROS nodes</strong> for kinematic control and trajectory planning of an autonomous mobile robot.</span>
                                 </li>
                                 <li>
-                                    <span class="lang-fr">Intégration d'environnements physiques sous Gazebo, visualisation des flux de données capteurs dans RViz.</span>
-                                    <span class="lang-en">Integrated physical models under Gazebo and analyzed multi-sensor data streams via RViz.</span>
+                                    <span class="lang-fr">Simulation physique sous <strong>Gazebo</strong>, flux capteurs (LiDAR, encodeurs, IMU) et supervision spatiale dans <strong>RViz</strong>.</span>
+                                    <span class="lang-en">Physics simulation in <strong>Gazebo</strong>, sensor pipeline (LiDAR, encoders, IMU), and teleoperation in <strong>RViz</strong>.</span>
                                 </li>
                             </ul>
                         </article>
 
+                        <!-- 2. STM32 -->
                         <article class="cv-entry">
-                            <div class="entry-header">
+                            <div class="entry-top">
                                 <span class="entry-title">Systèmes Embarqués &amp; Sécurité Matérielle</span>
-                                <span class="entry-date">STM32 / Hardware</span>
+                                <span class="entry-date">STM32 · C Bare-Metal</span>
                             </div>
-                            <div class="entry-subtitle">C Bas Niveau / Électronique de Protection</div>
-                            <ul class="entry-list">
+                            <div class="entry-sub">Bus I²C / SPI / UART / CAN · Protections TVS &amp; MOV</div>
+                            <ul class="entry-bullets">
                                 <li>
-                                    <span class="lang-fr">Programmation de microcontrôleurs <strong>STM32</strong> en C, gestion des timers, interruptions matérielles et bus série (I2C, SPI, UART).</span>
-                                    <span class="lang-en">Low-level C programming on STM32 MCUs, hardware interrupts, timers, and bus protocols (I2C, SPI, UART).</span>
+                                    <span class="lang-fr">Programmation bare-metal au registre en C : timers hardware, DMA, interruptions et bus série industriels.</span>
+                                    <span class="lang-en">Register-level C programming: hardware timers, DMA, interrupts, and industrial serial buses.</span>
                                 </li>
                                 <li>
-                                    <span class="lang-fr">Étude et implémentation de protections contre les transitoires électriques (diodes TVS, varistances MOVs) et audit de robustesse mémoire.</span>
-                                    <span class="lang-en">Hardware surge protection design (TVS diodes, MOVs) and memory safety verification in C.</span>
+                                    <span class="lang-fr">Dimensionnement de protections électriques transitoires (diodes TVS, varistances) et qualification sur banc de test.</span>
+                                    <span class="lang-en">Transient surge protection design (TVS diodes, MOVs) and bench validation with oscilloscope.</span>
                                 </li>
                             </ul>
                         </article>
 
+                        <!-- 3. UpStair -->
                         <article class="cv-entry">
-                            <div class="entry-header">
-                                <span class="entry-title">UpStair — Dispositif Mécatronique PMR</span>
-                                <span class="entry-date">Olympiades SI</span>
+                            <div class="entry-top">
+                                <span class="entry-title">
+                                    UpStair — Dispositif Mécatronique PMR
+                                    <span class="award-tag"><span class="lang-fr">Projet Primé</span><span class="lang-en">Awarded</span></span>
+                                </span>
+                                <span class="entry-date">SolidWorks · CAO 3D</span>
                             </div>
-                            <div class="entry-subtitle">SolidWorks / Conception Mécanique</div>
-                            <ul class="entry-list">
+                            <div class="entry-sub">
+                                <span class="lang-fr">Olympiades Nationales des Sciences de l'Ingénieur</span>
+                                <span class="lang-en">National Engineering Sciences Olympiad</span>
+                            </div>
+                            <ul class="entry-bullets">
                                 <li>
-                                    <span class="lang-fr">Conception CAO 3D et dimensionnement cinématique d'un système mécatronique d'accessibilité.</span>
-                                    <span class="lang-en">3D CAD design and kinematic dimensioning of a mechatronic accessibility mechanism.</span>
-                                </li>
-                                <li>
-                                    <span class="lang-fr"><strong>Projet primé aux Olympiades nationales des Sciences de l'Ingénieur</strong> pour son innovation mécanique.</span>
-                                    <span class="lang-en"><strong>National Engineering Olympiad Award</strong> for mechanical innovation.</span>
+                                    <span class="lang-fr">Conception CAO 3D et dimensionnement cinématique d'un système mécatronique d'aide à la montée d'escaliers. <strong>Projet primé au niveau national</strong>.</span>
+                                    <span class="lang-en">3D CAD design and kinematic sizing of an accessibility stair mechanism. <strong>National Olympiad Award</strong>.</span>
                                 </li>
                             </ul>
                         </article>
 
+                        <!-- 4. Serveur Dédié -->
                         <article class="cv-entry">
-                            <div class="entry-header">
-                                <span class="entry-title">Jeu Multijoueur en Ligne &amp; Serveur Dédié</span>
-                                <span class="entry-date">Java / Réseau</span>
+                            <div class="entry-top">
+                                <span class="entry-title">Moteur Asynchrone &amp; Serveur Multijoueur</span>
+                                <span class="entry-date">Java · Linux · TCP/IP</span>
                             </div>
-                            <div class="entry-subtitle">Java · ZenScript · Configurations YAML · TCP/IP · Linux</div>
-                            <ul class="entry-list">
+                            <div class="entry-sub">Multi-thread · ZenScript · YAML · 20 TPS Stable</div>
+                            <ul class="entry-bullets">
                                 <li>
-                                    <span class="lang-fr">Développement d'un jeu multijoueur en Java tournant sur serveur dédié sous Linux, avec création de modules personnalisés en ZenScript et YAML.</span>
-                                    <span class="lang-en">Developed an online multiplayer game in Java running on a dedicated Linux server, with custom modules in ZenScript and YAML.</span>
-                                </li>
-                                <li>
-                                    <span class="lang-fr">Gestion de l'architecture réseau (TCP/IP), synchronisation des joueurs et optimisation mémoire multithread pour assurer la fluidité sous forte affluence.</span>
-                                    <span class="lang-en">Handled network architecture (TCP/IP), player synchronization, and multithreaded memory tuning for smooth performance under load.</span>
+                                    <span class="lang-fr">Architecture réseau distribuée sous Linux : synchronisation sans verrou (lock-free), zéro pause GC, stabilité 20 TPS sous forte charge.</span>
+                                    <span class="lang-en">Distributed Linux server architecture: lock-free concurrency, minimized GC overhead, stable 20 TPS under load.</span>
                                 </li>
                             </ul>
                         </article>
 
+                        <!-- 5. DSP Audio -->
                         <article class="cv-entry">
-                            <div class="entry-header">
-                                <span class="entry-title">Traitement du Signal Numérique (DSP)</span>
-                                <span class="entry-date">C++ / JUCE</span>
+                            <div class="entry-top">
+                                <span class="entry-title">Traitement du Signal Audio Numérique (DSP)</span>
+                                <span class="entry-date">C++ · JUCE</span>
                             </div>
-                            <div class="entry-subtitle">Algorithmes Audio Temps Réel</div>
-                            <ul class="entry-list">
+                            <div class="entry-sub">Algorithmes Temps Réel 64-bit · Filtres IIR</div>
+                            <ul class="entry-bullets">
                                 <li>
-                                    <span class="lang-fr">Développement d'un saturateur harmonique 64-bit avec traitement non-linéaire à faible latence.</span>
-                                    <span class="lang-en">Developed a 64-bit harmonic saturator plugin using real-time non-linear DSP algorithms.</span>
+                                    <span class="lang-fr">Développement d'un saturateur harmonique non-linéaire à ultra-faible latence et filtres IIR sous contraintes temps réel strictes.</span>
+                                    <span class="lang-en">Developed low-latency 64-bit real-time harmonic saturator with IIR filtering using modern C++ and JUCE.</span>
                                 </li>
                             </ul>
                         </article>
                     </section>
                 </div>
+
             </div>
 
-            <!-- Compétences Techniques & Outils (Badges Verre Liquide) -->
-            <section class="section-block">
-                <div class="section-label">
+            <!-- COMPÉTENCES TECHNIQUES -->
+            <section class="skills-block">
+                <h2 class="sec-head">
                     <span class="lang-fr">Compétences Techniques &amp; Environnements</span>
                     <span class="lang-en">Technical Skills &amp; Tooling</span>
-                </div>
+                </h2>
 
-                <div class="skills-group">
-                    <div class="skills-group-title">
-                        <span class="lang-fr">Embarqué, Électronique &amp; Mesure</span>
-                        <span class="lang-en">Embedded, Electronics &amp; Instrumentation</span>
+                <div class="skills-row">
+                    <div>
+                        <div class="skill-group-title">
+                            <span class="lang-fr">Embarqué &amp; Électronique</span>
+                            <span class="lang-en">Embedded &amp; Electronics</span>
+                        </div>
+                        <div class="chips-wrap">
+                            <span class="chip highlight">STM32 (ARM Cortex)</span>
+                            <span class="chip highlight">C / C++ Bas Niveau</span>
+                            <span class="chip">CAN · I²C · SPI · UART</span>
+                            <span class="chip">DMA · Timers · IRQ</span>
+                            <span class="chip">Protections TVS / MOV</span>
+                            <span class="chip">Oscilloscope &amp; Banc de test</span>
+                        </div>
                     </div>
-                    <div class="skills-wrap">
-                        <span class="skill-chip featured">Microcontrôleurs STM32</span>
-                        <span class="skill-chip featured">C / C++ Bas Niveau</span>
-                        <span class="skill-chip">Bus I2C / SPI / UART / CAN</span>
-                        <span class="skill-chip">Protections TVS &amp; Varistances</span>
-                        <span class="skill-chip">Dépannage &amp; Diagnostic Matériel</span>
-                        <span class="skill-chip">Oscilloscope &amp; Analyseur Logique</span>
-                    </div>
-                </div>
 
-                <div class="skills-group">
-                    <div class="skills-group-title">
-                        <span class="lang-fr">Robotique, Automatisme &amp; Modélisation</span>
-                        <span class="lang-en">Robotics, Automation &amp; Simulation</span>
+                    <div>
+                        <div class="skill-group-title">
+                            <span class="lang-fr">Robotique &amp; Modélisation</span>
+                            <span class="lang-en">Robotics &amp; Modeling</span>
+                        </div>
+                        <div class="chips-wrap">
+                            <span class="chip highlight">ROS (Robot OS)</span>
+                            <span class="chip highlight">Gazebo &amp; RViz</span>
+                            <span class="chip">SolidWorks (CAO 3D)</span>
+                            <span class="chip">Asservissements &amp; PID</span>
+                            <span class="chip">Cinématique &amp; Dynamique</span>
+                            <span class="chip">Automates Industriels</span>
+                        </div>
                     </div>
-                    <div class="skills-wrap">
-                        <span class="skill-chip featured">ROS (Robot Operating System)</span>
-                        <span class="skill-chip featured">Gazebo &amp; RViz</span>
-                        <span class="skill-chip">SolidWorks (Conception CAO 3D)</span>
-                        <span class="skill-chip">Automates Industriels &amp; Contrôle-Commande</span>
-                        <span class="skill-chip">AnyLogic (Simulation de Flux)</span>
-                        <span class="skill-chip">Cinématique &amp; Asservissements</span>
-                    </div>
-                </div>
 
-                <div class="skills-group" style="margin-bottom: 0;">
-                    <div class="skills-group-title">
-                        <span class="lang-fr">Génie Logiciel, Systèmes &amp; Réseaux</span>
-                        <span class="lang-en">Software Engineering, Systems &amp; Networks</span>
-                    </div>
-                    <div class="skills-wrap">
-                        <span class="skill-chip featured">Linux / Administration Shell Bash</span>
-                        <span class="skill-chip featured">Python (Calcul &amp; Scripts)</span>
-                        <span class="skill-chip">Git / GitHub (CI/CD)</span>
-                        <span class="skill-chip">Java (Concurrence Multi-thread)</span>
-                        <span class="skill-chip">ZenScript / YAML</span>
-                        <span class="skill-chip">Réseaux Industriels &amp; Ethernet</span>
-                        <span class="skill-chip">DSP Audio (JUCE Framework)</span>
+                    <div>
+                        <div class="skill-group-title">
+                            <span class="lang-fr">Génie Logiciel &amp; Systèmes</span>
+                            <span class="lang-en">Software Engineering &amp; Systems</span>
+                        </div>
+                        <div class="chips-wrap">
+                            <span class="chip highlight">Linux &amp; Shell Bash</span>
+                            <span class="chip highlight">Python</span>
+                            <span class="chip">Java (Multi-thread)</span>
+                            <span class="chip">Git / GitHub</span>
+                            <span class="chip">Réseaux TCP/IP &amp; LAN</span>
+                            <span class="chip">DSP Audio (JUCE)</span>
+                        </div>
                     </div>
                 </div>
             </section>
 
-            <!-- Langues, Mobilité & Centres d'Intérêt -->
-            <section class="section-block" style="margin-bottom: 0;">
-                <div class="section-label">
-                    <span class="lang-fr">Langues, Mobilité &amp; Centres d'Intérêt</span>
-                    <span class="lang-en">Languages, Mobility &amp; Interests</span>
-                </div>
-
-                <div class="lang-capsules" style="margin-bottom: 1rem;">
-                    <div class="lang-card">
-                        <span class="lang-name">Français</span>
-                        <span class="lang-level">Langue maternelle</span>
+            <!-- PIED : LANGUES & CENTRES D'INTÉRÊT -->
+            <footer class="footer-row">
+                <div>
+                    <div class="footer-label">
+                        <span class="lang-fr">Langues &amp; Mobilité</span>
+                        <span class="lang-en">Languages &amp; Mobility</span>
                     </div>
-                    <div class="lang-card">
-                        <span class="lang-name">Anglais</span>
-                        <span class="lang-level">B2+ (Technique &amp; Erasmus)</span>
-                    </div>
-                    <div class="lang-card">
-                        <span class="lang-name">Allemand</span>
-                        <span class="lang-level">Notions (A2)</span>
-                    </div>
-                    <div class="lang-card">
-                        <span class="lang-name">Permis B</span>
-                        <span class="lang-level">Véhiculé</span>
+                    <div class="items-inline">
+                        <span><strong>Français :</strong> <span class="lang-fr">Natif</span><span class="lang-en">Native</span></span> •
+                        <span><strong>Anglais :</strong> B2+ (Erasmus)</span> •
+                        <span><strong>Allemand :</strong> A2</span> •
+                        <span><strong>Permis B :</strong> <span class="lang-fr">Véhiculé</span><span class="lang-en">Vehicle</span></span>
                     </div>
                 </div>
 
-                <!-- Centres d'intérêt -->
-                <div style="display: flex; flex-wrap: wrap; gap: 0.6rem; align-items: center; margin-top: 0.75rem;">
-                    <span style="font-size: 0.84rem; font-weight: 600; color: var(--text-primary);">
-                        <span class="lang-fr">Centres d'intérêt :</span>
-                        <span class="lang-en">Interests:</span>
-                    </span>
-                    <span class="skill-chip"><span class="lang-fr">Musique &amp; Plugins Audio DSP</span><span class="lang-en">Music &amp; Audio DSP Plugins</span></span>
-                    <span class="skill-chip"><span class="lang-fr">Escalade (Bloc &amp; Voie)</span><span class="lang-en">Climbing (Bouldering &amp; Lead)</span></span>
-                    <span class="skill-chip"><span class="lang-fr">Pratique Sportive &amp; Endurance</span><span class="lang-en">Sports &amp; Endurance</span></span>
-                    <span class="skill-chip"><span class="lang-fr">Domotique &amp; IoT Résidentiel</span><span class="lang-en">Home Automation &amp; IoT</span></span>
+                <div>
+                    <div class="footer-label">
+                        <span class="lang-fr">Centres d'intérêt</span>
+                        <span class="lang-en">Interests</span>
+                    </div>
+                    <div class="items-inline">
+                        <span><span class="lang-fr">Escalade (bloc &amp; voie)</span><span class="lang-en">Climbing (boulder &amp; lead)</span></span> •
+                        <span><span class="lang-fr">Musique &amp; plugins DSP</span><span class="lang-en">Music &amp; DSP plugins</span></span> •
+                        <span><span class="lang-fr">Domotique &amp; IoT</span><span class="lang-en">Home IoT</span></span> •
+                        <span><span class="lang-fr">Sport d'endurance</span><span class="lang-en">Endurance sports</span></span>
+                    </div>
                 </div>
-            </section>
+            </footer>
+
         </main>
     </div>
 
-    <!-- Toast Notification Flottant iOS -->
-    <div id="ios-toast" class="ios-toast" role="status" aria-live="polite"></div>
-
     <script>
-        /* ==========================================================================
-           LOGIQUE INTERACTIVE CV — FLUIDITÉ iOS & SAUVEGARDE
-           ========================================================================== */
-
-        // 1. Toast Notification Apple
-        function showToast(msg) {
-            const toast = document.getElementById('ios-toast');
-            if (!toast) return;
-            toast.textContent = msg;
-            toast.classList.add('visible');
-            setTimeout(() => {
-                toast.classList.remove('visible');
-            }, 2600);
-        }
-
-        // 2. Gestion du Thème (Dark / Light)
         function toggleTheme() {
             const html = document.documentElement;
-            const current = html.getAttribute('data-theme') || 'dark';
-            const next = current === 'dark' ? 'light' : 'dark';
+            const next = (html.getAttribute('data-theme') || 'dark') === 'dark' ? 'light' : 'dark';
             html.setAttribute('data-theme', next);
             try { localStorage.setItem('portfolio_theme', next); } catch(e){}
-
-            const btn = document.getElementById('theme-toggle-btn');
-            if (btn) {
-                btn.innerHTML = next === 'dark' 
-                    ? '<span>☀️ <span class="lang-fr">Clair</span><span class="lang-en">Light</span></span>'
-                    : '<span>🌙 <span class="lang-fr">Sombre</span><span class="lang-en">Dark</span></span>';
-            }
-            showToast(next === 'dark' ? '✨ Mode Sombre activé' : '☀️ Mode Clair activé');
         }
 
-        // 3. Gestion de la Langue (FR / EN)
         function toggleLang() {
             const html = document.documentElement;
             const current = html.getAttribute('data-lang') || 'fr';
             const next = current === 'fr' ? 'en' : 'fr';
             html.setAttribute('data-lang', next);
             try { localStorage.setItem('portfolio_lang', next); } catch(e){}
-
-            const btn = document.getElementById('lang-toggle-btn');
-            if (btn) {
-                btn.innerHTML = next === 'fr' ? '<span>🇬🇧 EN</span>' : '<span>🇫🇷 FR</span>';
-            }
-            showToast(next === 'fr' ? '🇫🇷 Langue : Français' : '🇬🇧 Language : English');
+            const btn = document.getElementById('lang-btn');
+            if (btn) btn.textContent = next === 'fr' ? 'EN' : 'FR';
         }
 
-        // 4. Mode Édition Directe (In-Place Edit)
-        let isEditing = false;
-        function toggleEditMode() {
-            isEditing = !isEditing;
-            const body = document.body;
-            const cvCard = document.getElementById('cv-content');
-            const editBtn = document.getElementById('edit-toggle-btn');
-
-            if (isEditing) {
-                body.classList.add('editing-active');
-                cvCard.setAttribute('contenteditable', 'true');
-                cvCard.setAttribute('spellcheck', 'false');
-                if (editBtn) {
-                    editBtn.classList.add('active');
-                    editBtn.innerHTML = '<span>🔒 <span class="lang-fr">Terminer</span><span class="lang-en">Done</span></span>';
-                }
-                showToast('✏️ Cliquez sur le texte pour le modifier');
-            } else {
-                body.classList.remove('editing-active');
-                cvCard.removeAttribute('contenteditable');
-                if (editBtn) {
-                    editBtn.classList.remove('active');
-                    editBtn.innerHTML = '<span>✏️ <span class="lang-fr">Éditer</span><span class="lang-en">Edit</span></span>';
-                }
-                showToast('🔒 Modifications verrouillées');
-            }
-        }
-
-        // 5. Sauvegarde du code HTML
-        function saveHTML() {
-            const wasEditing = isEditing;
-            const cvCard = document.getElementById('cv-content');
-            document.body.classList.remove('editing-active');
-            cvCard.removeAttribute('contenteditable');
-
-            const fullHtml = '<!DOCTYPE html>\n' + document.documentElement.outerHTML;
-            const blob = new Blob([fullHtml], { type: 'text/html;charset=utf-8' });
-            const link = document.createElement('a');
-            link.href = URL.createObjectURL(blob);
-            link.download = 'cv_modifie.html';
-            document.body.appendChild(link);
-            link.click();
-            document.body.removeChild(link);
-            URL.revokeObjectURL(link.href);
-
-            if (wasEditing) {
-                document.body.classList.add('editing-active');
-                cvCard.setAttribute('contenteditable', 'true');
-            }
-            showToast('💾 Fichier cv_modifie.html téléchargé !');
-        }
-
-        // 6. Impression & Export PDF A4
-        function downloadPDF() {
-            window.print();
-        }
-
-        // Initialisation de l'état mémorisé
         document.addEventListener('DOMContentLoaded', () => {
             try {
                 const savedTheme = localStorage.getItem('portfolio_theme');
-                if (savedTheme) {
-                    document.documentElement.setAttribute('data-theme', savedTheme);
-                    const btn = document.getElementById('theme-toggle-btn');
-                    if (btn && savedTheme === 'light') {
-                        btn.innerHTML = '<span>🌙 <span class="lang-fr">Sombre</span><span class="lang-en">Dark</span></span>';
-                    }
-                }
+                if (savedTheme) document.documentElement.setAttribute('data-theme', savedTheme);
                 const savedLang = localStorage.getItem('portfolio_lang');
                 if (savedLang) {
                     document.documentElement.setAttribute('data-lang', savedLang);
-                    const langBtn = document.getElementById('lang-toggle-btn');
-                    if (langBtn && savedLang === 'en') {
-                        langBtn.innerHTML = '<span>🇫🇷 FR</span>';
-                    }
+                    const btn = document.getElementById('lang-btn');
+                    if (btn && savedLang === 'en') btn.textContent = 'FR';
                 }
             } catch(e){}
         });

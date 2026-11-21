@@ -3,286 +3,1725 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Maël Galan — Portfolio Ingénieur | Accueil</title>
-    <meta name="description" content="Portfolio de Maël Galan, élève-ingénieur en 4ème année à l'ENIB : mécatronique, systèmes embarqués, robotique ROS et génie logiciel bas niveau.">
-    <link rel="stylesheet" href="style.css">
+    <title>Maël Galan — Élève-Ingénieur ENIB | Mécatronique &amp; Systèmes Embarqués</title>
+    <meta name="description" content="Portfolio de Maël Galan : Élève-ingénieur en 4ème année à l'ENIB, spécialisé en mécatronique, systèmes embarqués STM32, robotique ROS et génie logiciel bas niveau. Recherche stage assistant ingénieur (80 à 136 jours ouvrés).">
+
+    <style>
+        /* ==========================================================================
+           MAËL GALAN — PORTFOLIO INGÉNIEUR (STYLE LINEAR / DARK SLATE)
+           Architecture Single Page épurée, performante, professionnelle et non-IA
+           ========================================================================== */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+        :root {
+            --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            --font-mono: 'JetBrains Mono', monospace;
+
+            /* Palette Slate sombre sobre */
+            --bg-base: #0b0f19;
+            --bg-surface: #111726;
+            --bg-surface-elevated: #161f33;
+            --bg-subtle: #1c2740;
+            --border: #222f49;
+            --border-hover: #334466;
+
+            --text-primary: #f8fafc;
+            --text-secondary: #94a3b8;
+            --text-muted: #64748b;
+
+            --accent: #3b82f6;
+            --accent-subtle: rgba(59, 130, 246, 0.12);
+            --accent-hover: #2563eb;
+            --success: #10b981;
+            --success-subtle: rgba(16, 185, 129, 0.12);
+            --amber: #f59e0b;
+
+            --radius-card: 16px;
+            --radius-item: 10px;
+            --radius-pill: 9999px;
+            --transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        [data-theme="light"] {
+            --bg-base: #f8fafc;
+            --bg-surface: #ffffff;
+            --bg-surface-elevated: #f1f5f9;
+            --bg-subtle: #e2e8f0;
+            --border: #cbd5e1;
+            --border-hover: #94a3b8;
+
+            --text-primary: #0f172a;
+            --text-secondary: #475569;
+            --text-muted: #64748b;
+
+            --accent: #2563eb;
+            --accent-subtle: rgba(37, 99, 235, 0.08);
+            --accent-hover: #1d4ed8;
+            --success: #059669;
+            --success-subtle: rgba(5, 150, 105, 0.08);
+        }
+
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+        }
+
+        body {
+            font-family: var(--font-sans);
+            background-color: var(--bg-base);
+            color: var(--text-primary);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+        }
+
+        [data-lang="fr"] .lang-en { display: none !important; }
+        [data-lang="en"] .lang-fr { display: none !important; }
+
+        .container {
+            max-width: 1040px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        .svg-icon {
+            width: 16px;
+            height: 16px;
+            fill: none;
+            stroke: currentColor;
+            stroke-width: 2;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            vertical-align: middle;
+            flex-shrink: 0;
+        }
+
+        /* --- 1. Barre de navigation fixe (Sticky Navbar) --- */
+        .navbar-wrap {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: rgba(11, 15, 25, 0.9);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-bottom: 1px solid var(--border);
+            transition: var(--transition);
+        }
+        [data-theme="light"] .navbar-wrap {
+            background: rgba(255, 255, 255, 0.92);
+        }
+
+        .navbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 64px;
+        }
+
+        .nav-brand {
+            display: flex;
+            align-items: center;
+            gap: 0.65rem;
+            color: var(--text-primary);
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.95rem;
+            letter-spacing: -0.01em;
+        }
+
+        .brand-badge {
+            width: 32px;
+            height: 32px;
+            border-radius: 8px;
+            background: var(--bg-surface-elevated);
+            border: 1px solid var(--border);
+            color: var(--accent);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+            font-weight: 800;
+            font-family: var(--font-mono);
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
+            list-style: none;
+        }
+
+        .nav-link {
+            text-decoration: none;
+            color: var(--text-secondary);
+            font-size: 0.86rem;
+            font-weight: 500;
+            padding: 0.45rem 0.85rem;
+            border-radius: 6px;
+            transition: var(--transition);
+        }
+        .nav-link:hover {
+            color: var(--text-primary);
+            background: var(--bg-surface);
+        }
+        .nav-link.active {
+            color: var(--text-primary);
+            font-weight: 600;
+            background: var(--bg-surface-elevated);
+        }
+
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.45rem;
+            background: var(--bg-surface);
+            color: var(--text-primary);
+            border: 1px solid var(--border);
+            padding: 0.45rem 0.85rem;
+            border-radius: 8px;
+            font-family: inherit;
+            font-size: 0.84rem;
+            font-weight: 600;
+            cursor: pointer;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        .btn:hover {
+            border-color: var(--border-hover);
+            background: var(--bg-surface-elevated);
+        }
+        .btn.primary {
+            background: var(--accent);
+            color: #ffffff;
+            border-color: transparent;
+        }
+        .btn.primary:hover {
+            background: var(--accent-hover);
+        }
+
+        /* --- 2. Sections & Typographie --- */
+        section {
+            padding: 5rem 0;
+            border-bottom: 1px solid var(--border);
+        }
+        section:last-of-type { border-bottom: none; }
+
+        .section-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            font-size: 0.78rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--accent);
+            margin-bottom: 0.75rem;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            font-weight: 800;
+            letter-spacing: -0.03em;
+            color: var(--text-primary);
+            line-height: 1.2;
+            margin-bottom: 0.75rem;
+        }
+
+        .section-subtitle {
+            font-size: 1.05rem;
+            color: var(--text-secondary);
+            max-width: 720px;
+            margin-bottom: 2.5rem;
+        }
+
+        /* --- 3. Hero Section --- */
+        .hero-section {
+            padding: 6rem 0 5rem;
+        }
+
+        .status-capsule {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.55rem;
+            background: var(--success-subtle);
+            border: 1px solid rgba(16, 185, 129, 0.3);
+            color: var(--success);
+            padding: 0.35rem 0.85rem;
+            border-radius: var(--radius-pill);
+            font-size: 0.82rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+        }
+        .status-dot {
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: currentColor;
+        }
+
+        .hero-name {
+            font-size: clamp(2.5rem, 5.5vw, 4rem);
+            font-weight: 800;
+            letter-spacing: -0.04em;
+            line-height: 1.08;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+        }
+
+        .hero-tagline {
+            font-size: clamp(1.15rem, 2.2vw, 1.35rem);
+            font-weight: 500;
+            color: var(--text-secondary);
+            max-width: 820px;
+            line-height: 1.55;
+            margin-bottom: 2rem;
+        }
+        .hero-tagline strong {
+            color: var(--text-primary);
+            font-weight: 600;
+        }
+
+        .hero-contacts {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.6rem 1.25rem;
+            align-items: center;
+            margin-bottom: 2.25rem;
+            font-size: 0.88rem;
+            color: var(--text-secondary);
+        }
+        .hero-contact-item {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.45rem;
+            color: inherit;
+            text-decoration: none;
+            transition: color 0.15s;
+        }
+        .hero-contact-item:hover { color: var(--text-primary); }
+
+        .hero-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+        }
+
+        /* --- 4. Section À Propos & Métriques --- */
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+            margin-bottom: 3rem;
+        }
+
+        .metric-card {
+            background: var(--bg-surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-item);
+            padding: 1.35rem 1.25rem;
+            transition: var(--transition);
+        }
+        .metric-card:hover {
+            border-color: var(--border-hover);
+            transform: translateY(-2px);
+        }
+
+        .metric-value {
+            font-size: 1.55rem;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            color: var(--accent);
+            line-height: 1.1;
+            margin-bottom: 0.35rem;
+        }
+        .metric-label {
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 0.35rem;
+        }
+        .metric-desc {
+            font-size: 0.82rem;
+            color: var(--text-muted);
+            line-height: 1.45;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1.25fr 1fr;
+            gap: 2.5rem;
+        }
+
+        .about-text p {
+            font-size: 0.98rem;
+            color: var(--text-secondary);
+            line-height: 1.75;
+            margin-bottom: 1.25rem;
+        }
+        .about-text strong {
+            color: var(--text-primary);
+            font-weight: 600;
+        }
+
+        .work-methods-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 0.85rem;
+        }
+
+        .method-card {
+            background: var(--bg-surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-item);
+            padding: 1rem 1.15rem;
+        }
+
+        .method-title {
+            font-size: 0.92rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 0.25rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .method-desc {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            line-height: 1.5;
+        }
+
+        /* Passions / Activités concrètes */
+        .interests-strip {
+            margin-top: 2.5rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border);
+        }
+
+        .interests-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+            margin-top: 1.25rem;
+        }
+
+        .interest-card {
+            background: var(--bg-surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-item);
+            padding: 1.15rem;
+            transition: var(--transition);
+        }
+        .interest-card:hover { border-color: var(--border-hover); }
+
+        .interest-name {
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 0.35rem;
+            display: flex;
+            align-items: center;
+            gap: 0.45rem;
+        }
+
+        .interest-detail {
+            font-size: 0.82rem;
+            color: var(--text-secondary);
+            line-height: 1.5;
+        }
+
+        /* --- 5. Section Projets avec Filtres --- */
+        .filter-bar {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .filter-btn {
+            background: var(--bg-surface);
+            border: 1px solid var(--border);
+            color: var(--text-secondary);
+            padding: 0.4rem 0.9rem;
+            border-radius: var(--radius-pill);
+            font-family: inherit;
+            font-size: 0.84rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        .filter-btn:hover {
+            color: var(--text-primary);
+            border-color: var(--border-hover);
+        }
+        .filter-btn.active {
+            background: var(--accent);
+            color: #ffffff;
+            border-color: transparent;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+        }
+
+        .project-card {
+            background: var(--bg-surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-card);
+            padding: 1.75rem;
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+        }
+        .project-card:hover {
+            border-color: var(--border-hover);
+            transform: translateY(-2px);
+        }
+        .project-card.featured {
+            border-color: rgba(59, 130, 246, 0.4);
+            background: linear-gradient(180deg, var(--bg-surface) 0%, rgba(59, 130, 246, 0.03) 100%);
+        }
+
+        .project-badge-line {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 0.85rem;
+        }
+
+        .category-badge {
+            font-size: 0.74rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            color: var(--accent);
+            background: var(--accent-subtle);
+            padding: 0.2rem 0.6rem;
+            border-radius: 4px;
+        }
+
+        .award-badge {
+            font-size: 0.72rem;
+            font-weight: 700;
+            color: var(--amber);
+            background: rgba(245, 158, 11, 0.12);
+            border: 1px solid rgba(245, 158, 11, 0.3);
+            padding: 0.15rem 0.55rem;
+            border-radius: 4px;
+        }
+
+        .project-heading {
+            font-size: 1.2rem;
+            font-weight: 700;
+            letter-spacing: -0.01em;
+            color: var(--text-primary);
+            margin-bottom: 0.35rem;
+        }
+
+        .project-stack {
+            font-size: 0.84rem;
+            font-weight: 500;
+            color: var(--accent);
+            margin-bottom: 0.85rem;
+        }
+
+        .project-body {
+            font-size: 0.88rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+            margin-bottom: 1.25rem;
+            flex-grow: 1;
+        }
+        .project-body strong { color: var(--text-primary); }
+
+        .chips-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.35rem;
+            margin-top: auto;
+        }
+
+        .tech-chip {
+            font-family: var(--font-mono);
+            font-size: 0.76rem;
+            font-weight: 500;
+            background: var(--bg-surface-elevated);
+            border: 1px solid var(--border);
+            color: var(--text-secondary);
+            padding: 0.18rem 0.55rem;
+            border-radius: 4px;
+        }
+
+        /* --- 6. Section Parcours & Timeline --- */
+        .timeline {
+            position: relative;
+            padding-left: 2rem;
+            margin: 2rem 0 3rem;
+        }
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 7px;
+            top: 10px;
+            bottom: 10px;
+            width: 2px;
+            background: var(--border);
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 2.25rem;
+        }
+        .timeline-item:last-child { margin-bottom: 0; }
+
+        .timeline-node {
+            position: absolute;
+            left: -2rem;
+            top: 5px;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background: var(--accent);
+            border: 3px solid var(--bg-base);
+        }
+
+        .timeline-year {
+            display: inline-block;
+            font-family: var(--font-mono);
+            font-size: 0.78rem;
+            font-weight: 700;
+            color: var(--text-muted);
+            background: var(--bg-surface);
+            border: 1px solid var(--border);
+            padding: 0.15rem 0.55rem;
+            border-radius: 4px;
+            margin-bottom: 0.35rem;
+        }
+
+        .timeline-title {
+            font-size: 1.15rem;
+            font-weight: 700;
+            letter-spacing: -0.01em;
+            color: var(--text-primary);
+            margin-bottom: 0.2rem;
+        }
+
+        .timeline-org {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--accent);
+            margin-bottom: 0.75rem;
+        }
+
+        .timeline-points {
+            padding-left: 1.15rem;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+        .timeline-points li { margin-bottom: 0.35rem; }
+        .timeline-points strong { color: var(--text-primary); }
+
+        /* Modalités de stage */
+        .stage-terms {
+            background: var(--bg-surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-card);
+            padding: 2rem;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+        }
+
+        .term-item-title {
+            font-size: 0.78rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--text-muted);
+            margin-bottom: 0.35rem;
+        }
+        .term-item-val {
+            font-size: 1.2rem;
+            font-weight: 800;
+            color: var(--text-primary);
+            margin-bottom: 0.25rem;
+        }
+        .term-item-desc {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        /* --- 7. Section Compétences --- */
+        .skills-mega-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+        }
+
+        .skill-pillar {
+            background: var(--bg-surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-card);
+            padding: 1.75rem;
+        }
+
+        .pillar-header {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+        }
+
+        .pillar-desc {
+            font-size: 0.88rem;
+            color: var(--text-secondary);
+            line-height: 1.55;
+            margin-bottom: 1.25rem;
+        }
+
+        /* --- 8. Footer & Contact --- */
+        .footer-section {
+            background: var(--bg-surface);
+            padding: 4rem 0 3rem;
+            border-top: 1px solid var(--border);
+        }
+
+        .footer-grid {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-brand-title {
+            font-size: 1.3rem;
+            font-weight: 800;
+            color: var(--text-primary);
+            margin-bottom: 0.35rem;
+        }
+        .footer-brand-sub {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            max-width: 420px;
+        }
+
+        .footer-links-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0.6rem;
+            list-style: none;
+        }
+        .footer-links-list a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.9rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.45rem;
+            transition: color 0.15s;
+        }
+        .footer-links-list a:hover { color: var(--text-primary); }
+
+        .footer-bottom {
+            padding-top: 2rem;
+            border-top: 1px solid var(--border);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+            font-size: 0.82rem;
+            color: var(--text-muted);
+        }
+
+        /* --- Responsive Mobile & Tablette --- */
+        @media (max-width: 900px) {
+            .metrics-grid { grid-template-columns: repeat(2, 1fr); }
+            .about-grid { grid-template-columns: 1fr; }
+            .projects-grid { grid-template-columns: 1fr; }
+            .skills-mega-grid { grid-template-columns: 1fr; }
+            .interests-grid { grid-template-columns: repeat(2, 1fr); }
+            .stage-terms { grid-template-columns: 1fr; }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .metrics-grid { grid-template-columns: 1fr; }
+            .interests-grid { grid-template-columns: 1fr; }
+            section { padding: 3.5rem 0; }
+        }
+    </style>
 </head>
 <body>
 
-    <!-- Halo Ambiant Supérieur -->
-    <div class="ambient-aurora" aria-hidden="true"></div>
-
-    <div class="content-container">
-
-        <!-- Barre de Navigation iOS (Dynamic Glass Island) -->
-        <header class="ios-island no-print" aria-label="Navigation principale">
-            <a href="index.html" class="island-brand" title="Accueil">
-                <div class="island-avatar">MG</div>
-                <span class="island-title">Maël Galan</span>
+    <!-- 1. BARRE DE NAVIGATION STICKY -->
+    <header class="navbar-wrap">
+        <div class="container navbar">
+            <a href="#hero" class="nav-brand" title="Haut de page">
+                <div class="brand-badge">MG</div>
+                <span>Maël Galan</span>
             </a>
 
-            <nav class="island-nav-links" aria-label="Navigation">
-                <a href="index.html" class="nav-pill-link active">
-                    <span class="lang-fr">Accueil</span>
-                    <span class="lang-en">Home</span>
-                </a>
-                <a href="about.html" class="nav-pill-link">
-                    <span class="lang-fr">À Propos</span>
-                    <span class="lang-en">About</span>
-                </a>
-                <a href="projets.html" class="nav-pill-link">
-                    <span class="lang-fr">Projets</span>
-                    <span class="lang-en">Projects</span>
-                </a>
-                <a href="parcours.html" class="nav-pill-link">
-                    <span class="lang-fr">Parcours</span>
-                    <span class="lang-en">Career</span>
-                </a>
-                <a href="cv.html" class="nav-pill-link" target="_blank" title="Consulter le CV officiel">
-                    <span class="lang-fr">CV PDF</span>
-                    <span class="lang-en">Resume</span>
-                </a>
+            <!-- Liens Scroll Spy -->
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="#about" class="nav-link"><span class="lang-fr">À Propos</span><span class="lang-en">About</span></a></li>
+                    <li><a href="#projets" class="nav-link"><span class="lang-fr">Projets</span><span class="lang-en">Projects</span></a></li>
+                    <li><a href="#parcours" class="nav-link"><span class="lang-fr">Parcours</span><span class="lang-en">Journey</span></a></li>
+                    <li><a href="#competences" class="nav-link"><span class="lang-fr">Compétences</span><span class="lang-en">Skills</span></a></li>
+                </ul>
             </nav>
 
-            <div class="island-controls">
-                <button id="theme-toggle-btn" class="ios-btn" onclick="toggleTheme()" title="Basculer le thème">
-                    <span class="lang-fr">Thème</span><span class="lang-en">Theme</span>
+            <!-- Actions droite : CV A4 mis en valeur + Thème + Langue -->
+            <div class="nav-actions">
+                <button class="btn" onclick="toggleTheme()" id="theme-btn" title="Basculer le thème">
+                    <svg class="svg-icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
                 </button>
-                <button id="lang-toggle-btn" class="ios-btn" onclick="toggleLang()" title="Changer la langue">
+                <button class="btn" onclick="toggleLang()" id="lang-btn" title="Switch language">
                     <span>EN</span>
                 </button>
-                <button id="edit-toggle-btn" class="ios-btn" onclick="toggleEditMode()" title="Éditer le texte directement">
-                    <span class="lang-fr">Éditer</span><span class="lang-en">Edit</span>
-                </button>
-                <button class="ios-btn" onclick="saveHTML()" title="Sauvegarder les modifications">
-                    <span>Sauvegarder</span>
-                </button>
-                <button class="ios-btn primary" onclick="downloadPDF()" title="Imprimer ou enregistrer en PDF">
-                    <span>PDF</span>
-                </button>
+                <!-- Bouton CV bien visible -->
+                <a href="cv.html" class="btn primary" title="Consulter le CV (Format A4)">
+                    <svg class="svg-icon" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+                    <span>Curriculum Vitae</span>
+                </a>
             </div>
-        </header>
-
-        <!-- Bannière Mode Édition -->
-        <div class="edit-mode-banner no-print">
-            <span><strong>Mode Édition Activé :</strong> Cliquez sur n'importe quel texte pour le modifier directement sur la page.</span>
-            <button class="ios-btn" onclick="saveHTML()" style="padding: 0.3rem 0.75rem;">Sauvegarder</button>
         </div>
+    </header>
 
-        <!-- Contenu Principal -->
-        <main class="content-card editable-area" id="page-content">
-
-            <!-- Hero Header -->
-            <header class="hero-header">
-                <h1 class="hero-name">Maël Galan</h1>
-                <div class="hero-headline">
-                    <span class="lang-fr">Élève-Ingénieur ENIB (4ème année) — Mécatronique, Systèmes Embarqués &amp; Robotique</span>
-                    <span class="lang-en">ENIB 4th-Year Engineering Student — Mechatronics, Embedded Systems &amp; Robotics</span>
-                </div>
-
+    <main>
+        <!-- 2. HERO SECTION -->
+        <section class="hero-section" id="hero">
+            <div class="container">
                 <div class="status-capsule">
                     <span class="status-dot"></span>
                     <span class="lang-fr">Recherche Stage Assistant Ingénieur • 80 à 136 jours ouvrés (4 à 6 mois)</span>
                     <span class="lang-en">Seeking Assistant Engineer Internship • 80 to 136 working days (4 to 6 months)</span>
                 </div>
 
-                <!-- Coordonnées & Liens -->
-                <div class="contact-strip">
-                    <span class="contact-pill highlight">
-                        Brest / Saint-Brieuc
+                <h1 class="hero-name">Maël Galan</h1>
+
+                <p class="hero-tagline">
+                    <span class="lang-fr">
+                        Élève-Ingénieur en 4ème année à l'<strong>ENIB</strong>, spécialisé en <strong>mécatronique</strong>, <strong>systèmes embarqués STM32</strong>, <strong>robotique ROS</strong> et génie logiciel bas niveau.
                     </span>
-                    <a href="mailto:maelgalan9@gmail.com" class="contact-pill">
+                    <span class="lang-en">
+                        4th-Year Engineering Student at <strong>ENIB</strong>, specialized in <strong>mechatronics</strong>, <strong>STM32 embedded systems</strong>, <strong>ROS robotics</strong>, and low-level software engineering.
+                    </span>
+                </p>
+
+                <div class="hero-contacts">
+                    <span class="hero-contact-item">
+                        <svg class="svg-icon" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                        Brest / Saint-Brieuc (Bretagne)
+                    </span>
+                    <a href="mailto:maelgalan9@gmail.com" class="hero-contact-item">
+                        <svg class="svg-icon" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
                         maelgalan9@gmail.com
                     </a>
-                    <a href="tel:+33769421108" class="contact-pill">
+                    <a href="tel:+33769421108" class="hero-contact-item">
+                        <svg class="svg-icon" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
                         +33 7 69 42 11 08
                     </a>
-                    <span class="contact-pill">
-                        Permis B — Véhiculé
+                    <span class="hero-contact-item">
+                        <svg class="svg-icon" viewBox="0 0 24 24"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+                        <span class="lang-fr">Permis B (Véhiculé)</span><span class="lang-en">Driver's License (Vehicle)</span>
                     </span>
-                    <a href="https://mael-ga.github.io/portfolio/" target="_blank" rel="noopener" class="contact-pill">
-                        mael-ga.github.io/portfolio
-                    </a>
-                    <a href="https://github.com/mael-ga" target="_blank" rel="noopener" class="contact-pill">
-                        GitHub : mael-ga
-                    </a>
-                    <a href="cv.html" target="_blank" class="contact-pill highlight">
-                        CV Format A4
+                    <a href="https://github.com/mael-ga" target="_blank" rel="noopener" class="hero-contact-item">
+                        <svg class="svg-icon" viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+                        github.com/mael-ga
                     </a>
                 </div>
-            </header>
 
-            <!-- Profil Professionnel & Pitch -->
-            <section style="margin-bottom: 2.5rem;">
-                <div class="section-label">
+                <div class="hero-actions">
+                    <a href="#projets" class="btn primary">
+                        <span class="lang-fr">Découvrir les Projets</span>
+                        <span class="lang-en">Explore Projects</span>
+                    </a>
+                    <a href="cv.html" class="btn">
+                        <span class="lang-fr">Consulter le CV (A4)</span>
+                        <span class="lang-en">View Resume (A4)</span>
+                    </a>
+                    <a href="#parcours" class="btn">
+                        <span class="lang-fr">Parcours Académique</span>
+                        <span class="lang-en">Academic Career</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. SECTION À PROPOS -->
+        <section id="about">
+            <div class="container">
+                <div class="section-tag">
                     <span class="lang-fr">Profil &amp; Démarche</span>
                     <span class="lang-en">Profile &amp; Approach</span>
                 </div>
-                <p class="prose">
-                    <span class="lang-fr">
-                        Étudiant en 4ème année à l'<strong>École Nationale d'Ingénieurs de Brest (ENIB)</strong>, j'ai complété ma formation par un semestre international à l'<strong>Université Aristote de Thessalonique</strong> (Grèce, Erasmus 2026). Mon cursus associe l'électronique de commande, la mécanique et le développement logiciel.
-                    </span>
-                    <span class="lang-en">
-                        Currently in my 4th year at the <strong>École Nationale d'Ingénieurs de Brest (ENIB)</strong>, I complemented my engineering background with an international semester at the <strong>Aristotle University of Thessaloniki</strong> (Greece, Erasmus 2026), working across control electronics, mechanics, and software.
-                    </span>
+                <h2 class="section-title">
+                    <span class="lang-fr">À Propos de Moi</span>
+                    <span class="lang-en">About Me</span>
+                </h2>
+                <p class="section-subtitle">
+                    <span class="lang-fr">Formation rigoureuse à l'interface du matériel et du logiciel, complétée par une ouverture internationale.</span>
+                    <span class="lang-en">Rigorous training at the hardware-software boundary, complemented by international academic immersion.</span>
                 </p>
-                <p class="prose">
-                    <span class="lang-fr">
-                        Mes projets portent principalement sur le développement bas niveau (C sur microcontrôleurs <strong>STM32</strong>), la robotique mobile autonome sous <strong>ROS</strong>, l'architecture logicielle de serveurs dédiés en Java pour des jeux multijoueurs en ligne, et le traitement du signal audio en C++.
-                    </span>
-                    <span class="lang-en">
-                        My practical work centers on low-level firmware (C on <strong>STM32</strong> MCUs), autonomous mobile robotics in <strong>ROS</strong>, multi-threaded server architectures in Java for online multiplayer games, and real-time audio signal processing in C++.
-                    </span>
-                </p>
-            </section>
 
-            <!-- Indicateurs & Métriques Clés -->
-            <section style="margin-bottom: 2.5rem;">
-                <div class="section-label">
-                    <span class="lang-fr">Domaines Clés &amp; Repères</span>
-                    <span class="lang-en">Key Focus Areas</span>
-                </div>
-
+                <!-- 4 Indicateurs Métriques Clés -->
                 <div class="metrics-grid">
                     <div class="metric-card">
-                        <div class="metric-number">4ème Année</div>
-                        <div class="metric-label">Cycle Ingénieur ENIB</div>
-                        <div class="metric-desc">Formation généraliste : électronique, mécatronique, automatique et informatique industrielle.</div>
+                        <div class="metric-value">4ème Année</div>
+                        <div class="metric-label"><span class="lang-fr">Cycle Ingénieur ENIB</span><span class="lang-en">ENIB Engineering Cycle</span></div>
+                        <div class="metric-desc"><span class="lang-fr">Électronique, mécatronique, automatique et informatique industrielle.</span><span class="lang-en">Electronics, mechatronics, control systems, and industrial computing.</span></div>
                     </div>
-
                     <div class="metric-card">
-                        <div class="metric-number">Serveur Dédié</div>
-                        <div class="metric-label">Jeu Multijoueur en Ligne</div>
-                        <div class="metric-desc">Développement d'un jeu multijoueur en Java sous Linux, gestion des sockets réseau et synchronisation des joueurs.</div>
+                        <div class="metric-value">Erasmus 2026</div>
+                        <div class="metric-label"><span class="lang-fr">Univ. Thessalonique</span><span class="lang-en">Thessaloniki Univ.</span></div>
+                        <div class="metric-desc"><span class="lang-fr">Cinématique des robots et automatique avancée en environnement anglophone.</span><span class="lang-en">Robot kinematics and advanced control theory in an English-speaking environment.</span></div>
                     </div>
-
                     <div class="metric-card">
-                        <div class="metric-number">C / STM32</div>
-                        <div class="metric-label">Systèmes Embarqués</div>
-                        <div class="metric-desc">Programmation bare-metal, registres, timers matériels, DMA et bus industriels (I²C, SPI, UART, CAN).</div>
+                        <div class="metric-value">4 à 6 Mois</div>
+                        <div class="metric-label"><span class="lang-fr">Disponibilité Stage</span><span class="lang-en">Internship Availability</span></div>
+                        <div class="metric-desc"><span class="lang-fr">80 à 136 jours ouvrés, mobile Bretagne et France entière.</span><span class="lang-en">80 to 136 working days, mobile in Brittany and throughout France.</span></div>
                     </div>
-
                     <div class="metric-card">
-                        <div class="metric-number">Projet Primé</div>
-                        <div class="metric-label">Olympiades de l'Ingénierie</div>
-                        <div class="metric-desc">Projet UpStair : dispositif mécatronique d'accessibilité primé par un jury d'ingénieurs.</div>
+                        <div class="metric-value"><span class="lang-fr">Projet Primé</span><span class="lang-en">Award Winner</span></div>
+                        <div class="metric-label"><span class="lang-fr">Olympiades SI</span><span class="lang-en">Engineering Olympiad</span></div>
+                        <div class="metric-desc"><span class="lang-fr">UpStair : dispositif mécatronique primé au niveau national.</span><span class="lang-en">UpStair: mechatronic accessibility device awarded nationally.</span></div>
                     </div>
                 </div>
-            </section>
 
-            <!-- Piliers d'Ingénierie & Domaines d'Expertise -->
-            <section style="margin-bottom: 2.5rem;">
-                <div class="section-label">
-                    <span class="lang-fr">Compétences Techniques Principales</span>
-                    <span class="lang-en">Core Technical Competencies</span>
-                </div>
-
-                <div class="skills-columns">
-                    <!-- Pilule 1 -->
-                    <div class="skill-category-card">
-                        <div class="skill-category-title">
-                            <span class="lang-fr">Systèmes Embarqués &amp; Électronique</span>
-                            <span class="lang-en">Embedded Systems &amp; Electronics</span>
-                        </div>
+                <!-- Grille Présentation + Méthode de travail -->
+                <div class="about-grid">
+                    <div class="about-text">
                         <p>
-                            <span class="lang-fr">Programmation C sur STM32, gestion des bus I²C, SPI, UART et CAN, conception de protections contre les surtensions transitoires (TVS, varistances) et tests sur banc de mesure.</span>
-                            <span class="lang-en">C programming on STM32 MCUs, communication buses (I²C, SPI, UART, CAN), transient protection design (TVS, varistors), and laboratory bench testing.</span>
+                            <span class="lang-fr">
+                                Je suis <strong>Maël Galan</strong>, élève-ingénieur en 4ème année à l'<strong>École Nationale d'Ingénieurs de Brest (ENIB)</strong>. Mon parcours combine les disciplines fondamentales de la mécatronique (électronique, cinématique, asservissements) avec une solide pratique du génie logiciel bas niveau et réseau.
+                            </span>
+                            <span class="lang-en">
+                                I am <strong>Maël Galan</strong>, a 4th-year engineering student at the <strong>École Nationale d'Ingénieurs de Brest (ENIB)</strong>. My curriculum bridges core mechatronic disciplines (electronics, kinematics, control theory) with hands-on low-level and network software engineering.
+                            </span>
                         </p>
-                        <div class="tags-list">
-                            <span class="tag-badge highlight">STM32</span>
-                            <span class="tag-badge highlight">C Bas Niveau</span>
-                            <span class="tag-badge">Bus CAN / I²C</span>
-                            <span class="tag-badge">TVS &amp; MOVs</span>
-                            <span class="tag-badge">DMA</span>
-                        </div>
+                        <p>
+                            <span class="lang-fr">
+                                Mon domaine de prédilection se situe au contact direct du silicium : programmer des microcontrôleurs <strong>STM32 en C bare-metal</strong>, maîtriser les bus industriels (I²C, SPI, UART, CAN), et concevoir des étages de protection électrique. En parallèle, j'interviens sur la robotique mobile sous <strong>ROS &amp; Gazebo</strong> et sur des architectures de serveurs distribués sous Linux.
+                            </span>
+                            <span class="lang-en">
+                                My primary focus lies close to the hardware: programming <strong>STM32 microcontrollers in bare-metal C</strong>, mastering industrial serial buses (I²C, SPI, UART, CAN), and implementing transient surge protection. In parallel, I build autonomous mobile robotics under <strong>ROS &amp; Gazebo</strong> and distributed Linux server architectures.
+                            </span>
+                        </p>
+                        <p>
+                            <span class="lang-fr">
+                                Complété par un semestre international à l'<strong>Université Aristote de Thessalonique (Grèce, 2026)</strong> entièrement suivi en anglais, je suis à la recherche d'un <strong>stage assistant ingénieur de 4 à 6 mois</strong> pour contribuer activement au sein d'une équipe de conception, R&amp;D ou banc d'essai.
+                            </span>
+                            <span class="lang-en">
+                                Enriched by an international semester at the <strong>Aristotle University of Thessaloniki (Greece, 2026)</strong> taught in English, I am seeking a <strong>4-to-6-month assistant engineer internship</strong> to deliver immediate technical value in R&amp;D or systems engineering.
+                            </span>
+                        </p>
                     </div>
 
-                    <!-- Pilule 2 -->
-                    <div class="skill-category-card">
-                        <div class="skill-category-title">
-                            <span class="lang-fr">Robotique &amp; Contrôle-Commande</span>
-                            <span class="lang-en">Robotics &amp; Control Systems</span>
+                    <!-- Piliers de méthode -->
+                    <div class="work-methods-grid">
+                        <div class="method-card">
+                            <div class="method-title">
+                                <svg class="svg-icon" viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                                <span class="lang-fr">Rigueur d'Ingénierie</span>
+                                <span class="lang-en">Engineering Rigor</span>
+                            </div>
+                            <div class="method-desc">
+                                <span class="lang-fr">Dimensionnement préalable, modélisation mathématique et validation méthodique pas-à-pas sur banc d'essai.</span>
+                                <span class="lang-en">Preliminary dimensioning, mathematical modeling, and systematic step-by-step test bench bring-up.</span>
+                            </div>
                         </div>
-                        <p>
-                            <span class="lang-fr">Développement de nœuds ROS en C++ et Python, modélisation cinématique, asservissements PID, simulations physiques sous Gazebo et visualisation RViz.</span>
-                            <span class="lang-en">ROS node development in C++ and Python, kinematic modeling, PID closed-loop control, physics simulations in Gazebo, and RViz visualization.</span>
-                        </p>
-                        <div class="tags-list">
-                            <span class="tag-badge highlight">ROS</span>
-                            <span class="tag-badge highlight">Gazebo</span>
-                            <span class="tag-badge">RViz</span>
-                            <span class="tag-badge">C++</span>
-                            <span class="tag-badge">Python</span>
-                            <span class="tag-badge">Asservissements</span>
-                        </div>
-                    </div>
 
-                    <!-- Pilule 3 -->
-                    <div class="skill-category-card">
-                        <div class="skill-category-title">
-                            <span class="lang-fr">Génie Logiciel &amp; Serveur</span>
-                            <span class="lang-en">Software Engineering &amp; Server Systems</span>
+                        <div class="method-card">
+                            <div class="method-title">
+                                <svg class="svg-icon" viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+                                <span class="lang-fr">Pratique du Terrain</span>
+                                <span class="lang-en">Hands-On Mindset</span>
+                            </div>
+                            <div class="method-desc">
+                                <span class="lang-fr">Câblage physique, diagnostic matériel, mesure à l'oscilloscope et qualification de bancs de test en laboratoire.</span>
+                                <span class="lang-en">Physical wiring, hardware troubleshooting, oscilloscope probing, and lab bench testing.</span>
+                            </div>
                         </div>
-                        <p>
-                            <span class="lang-fr">Développement Java multithread, création de modules et logique de jeu (ZenScript, YAML), gestion des flux réseau TCP/IP et administration de serveurs Linux.</span>
-                            <span class="lang-en">Multithreaded Java development, gameplay scripting (ZenScript, YAML), TCP/IP socket network management, and Linux dedicated server administration.</span>
-                        </p>
-                        <div class="tags-list">
-                            <span class="tag-badge highlight">Java</span>
-                            <span class="tag-badge highlight">ZenScript / YAML</span>
-                            <span class="tag-badge">Réseau TCP/IP</span>
-                            <span class="tag-badge">Serveur Linux</span>
-                            <span class="tag-badge">Git</span>
-                        </div>
-                    </div>
 
-                    <!-- Pilule 4 -->
-                    <div class="skill-category-card">
-                        <div class="skill-category-title">
-                            <span class="lang-fr">Audio DSP, Domotique &amp; CAO</span>
-                            <span class="lang-en">Audio DSP, Home IoT &amp; CAD</span>
-                        </div>
-                        <p>
-                            <span class="lang-fr">Développement de plugins audio VST en C++ (JUCE), installations domotiques internes (IoT, capteurs, protocoles locaux) et conception mécanique 3D sous SolidWorks.</span>
-                            <span class="lang-en">Real-time VST audio plugins in C++ (JUCE), residential home automation (IoT sensors, local protocols), and 3D CAD modeling in SolidWorks.</span>
-                        </p>
-                        <div class="tags-list">
-                            <span class="tag-badge highlight">C++ (JUCE)</span>
-                            <span class="tag-badge highlight">Domotique IoT</span>
-                            <span class="tag-badge">SolidWorks</span>
-                            <span class="tag-badge">DSP Audio</span>
+                        <div class="method-card">
+                            <div class="method-title">
+                                <svg class="svg-icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+                                <span class="lang-fr">Autonomie &amp; Anglais</span>
+                                <span class="lang-en">Autonomy &amp; English</span>
+                            </div>
+                            <div class="method-desc">
+                                <span class="lang-fr">Aisance en milieu international anglophone (Erasmus), veille technique et assimilation rapide d'outils complexes.</span>
+                                <span class="lang-en">Fluency in English-speaking academic environments (Erasmus), proactive learning, and rapid adoption of complex tools.</span>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </section>
 
-            <!-- Navigation Rapide vers Projets & Parcours -->
-            <section style="margin-top: 2rem; border-top: 1px solid var(--glass-border); padding-top: 1.75rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+                <!-- Centres d'intérêt & Passions -->
+                <div class="interests-strip">
+                    <div class="section-tag">
+                        <span class="lang-fr">Centres d'Intérêt Concrets</span>
+                        <span class="lang-en">Personal Interests</span>
+                    </div>
+                    <div class="interests-grid">
+                        <div class="interest-card">
+                            <div class="interest-name">
+                                <svg class="svg-icon" viewBox="0 0 24 24"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
+                                <span class="lang-fr">Musique &amp; Audio DSP</span>
+                                <span class="lang-en">Music &amp; Audio DSP</span>
+                            </div>
+                            <div class="interest-detail">
+                                <span class="lang-fr">Développement de plugins de traitement du signal en C++ (JUCE), MAO et synthèse sonore.</span>
+                                <span class="lang-en">Signal processing plugin engineering in C++ (JUCE), DAW sound design, and synthesis.</span>
+                            </div>
+                        </div>
+
+                        <div class="interest-card">
+                            <div class="interest-name">
+                                <svg class="svg-icon" viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+                                <span class="lang-fr">Escalade (Bloc &amp; Voie)</span>
+                                <span class="lang-en">Climbing (Boulder &amp; Lead)</span>
+                            </div>
+                            <div class="interest-detail">
+                                <span class="lang-fr">Lecture technique des mouvements, gestion de l'effort, persévérance et maîtrise du stress.</span>
+                                <span class="lang-en">Technical route reading, composure under physical fatigue, perseverance, and mental focus.</span>
+                            </div>
+                        </div>
+
+                        <div class="interest-card">
+                            <div class="interest-name">
+                                <svg class="svg-icon" viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+                                <span class="lang-fr">Domotique &amp; IoT</span>
+                                <span class="lang-en">Home IoT &amp; Sensors</span>
+                            </div>
+                            <div class="interest-detail">
+                                <span class="lang-fr">Montages personnels : nœuds de capteurs connectés, réseau local MQTT et automatismes.</span>
+                                <span class="lang-en">Personal builds: wireless connected sensor nodes, local MQTT messaging, and automation.</span>
+                            </div>
+                        </div>
+
+                        <div class="interest-card">
+                            <div class="interest-name">
+                                <svg class="svg-icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8"/></svg>
+                                <span class="lang-fr">Sport &amp; Endurance</span>
+                                <span class="lang-en">Sports &amp; Endurance</span>
+                            </div>
+                            <div class="interest-detail">
+                                <span class="lang-fr">Discipline sportive quotidienne, maintien de la condition physique et énergie durable.</span>
+                                <span class="lang-en">Daily athletic routine, cardiovascular endurance, mental discipline, and steady stamina.</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- 4. SECTION PROJETS AVEC FILTRES (8 PROJETS BILINGUES COMPLETS) -->
+        <section id="projets">
+            <div class="container">
+                <div class="section-tag">
+                    <span class="lang-fr">Réalisations Techniques</span>
+                    <span class="lang-en">Technical Projects</span>
+                </div>
+                <h2 class="section-title">
+                    <span class="lang-fr">Projets &amp; Systèmes d'Ingénierie</span>
+                    <span class="lang-en">Engineering Projects &amp; Systems</span>
+                </h2>
+                <p class="section-subtitle">
+                    <span class="lang-fr">Conceptions en systèmes embarqués, robotique mobile, architectures réseau et traitement numérique du signal.</span>
+                    <span class="lang-en">Work across embedded firmware, autonomous robotics, network architectures, and digital signal processing.</span>
+                </p>
+
+                <!-- Filtres par catégorie -->
+                <div class="filter-bar">
+                    <button class="filter-btn active" onclick="filterProjects('all', this)">
+                        <span class="lang-fr">Tous les projets</span><span class="lang-en">All Projects</span>
+                    </button>
+                    <button class="filter-btn" onclick="filterProjects('embedded', this)">
+                        <span class="lang-fr">Embarqué &amp; Robotique</span><span class="lang-en">Embedded &amp; Robotics</span>
+                    </button>
+                    <button class="filter-btn" onclick="filterProjects('network', this)">
+                        <span class="lang-fr">Serveur &amp; Réseau</span><span class="lang-en">Server &amp; Network</span>
+                    </button>
+                    <button class="filter-btn" onclick="filterProjects('audio', this)">
+                        <span class="lang-fr">Audio DSP &amp; 3D</span><span class="lang-en">Audio DSP &amp; 3D</span>
+                    </button>
+                    <button class="filter-btn" onclick="filterProjects('iot', this)">
+                        <span class="lang-fr">Domotique &amp; IoT</span><span class="lang-en">Home IoT</span>
+                    </button>
+                </div>
+
+                <!-- Grille des 8 Projets -->
+                <div class="projects-grid">
+
+                    <!-- Projet 1 : ROS & Robotique Mobile -->
+                    <article class="project-card" data-category="embedded">
+                        <div class="project-badge-line">
+                            <span class="category-badge"><span class="lang-fr">Robotique Mobile</span><span class="lang-en">Mobile Robotics</span></span>
+                            <span class="tech-chip">ROS / Gazebo</span>
+                        </div>
+                        <h3 class="project-heading">
+                            <span class="lang-fr">Génération de Trajectoires &amp; Nœuds Temps Réel sous ROS</span>
+                            <span class="lang-en">Trajectory Planning &amp; Real-Time Nodes under ROS</span>
+                        </h3>
+                        <div class="project-stack">ROS · Gazebo · RViz · C++ · Python · Linux · Cinématique</div>
+                        <div class="project-body">
+                            <span class="lang-fr">
+                                <strong>Contexte :</strong> Modélisation et simulation cinématique d'un robot mobile autonome en environnement contrôlé (Université Aristote de Thessalonique / ENIB).<br>
+                                <strong>Réalisé :</strong> Conception et implémentation de nœuds ROS temps réel (Publishers/Subscribers) pour la commande cinématique. Simulation physique sous Gazebo avec intégration de capteurs (LiDAR, encodeurs, IMU) et supervision spatiale dans RViz.<br>
+                                <strong>Résultat :</strong> Validation des boucles de commande fermées et prise en main opérationnelle de l'écosystème ROS sous Linux.
+                            </span>
+                            <span class="lang-en">
+                                <strong>Context:</strong> Kinematic modeling and simulation of an autonomous mobile robot in a controlled environment (Aristotle University of Thessaloniki / ENIB).<br>
+                                <strong>Achieved:</strong> Developed real-time ROS nodes (Publishers/Subscribers) for motion control. Integrated simulated physics in Gazebo with sensor streaming (LiDAR, encoders, IMU) and spatial visualization in RViz.<br>
+                                <strong>Result:</strong> Validated closed-loop control laws and gained solid working experience with Linux-based ROS architectures.
+                            </span>
+                        </div>
+                        <div class="chips-row">
+                            <span class="tech-chip">ROS</span>
+                            <span class="tech-chip">Gazebo</span>
+                            <span class="tech-chip">RViz</span>
+                            <span class="tech-chip">C++</span>
+                            <span class="tech-chip">Python</span>
+                            <span class="tech-chip">Cinématique</span>
+                        </div>
+                    </article>
+
+                    <!-- Projet 2 : STM32 Bare-Metal -->
+                    <article class="project-card" data-category="embedded">
+                        <div class="project-badge-line">
+                            <span class="category-badge"><span class="lang-fr">Systèmes Embarqués</span><span class="lang-en">Embedded Systems</span></span>
+                            <span class="tech-chip">STM32 / Hardware</span>
+                        </div>
+                        <h3 class="project-heading">
+                            <span class="lang-fr">Programmation Bare-Metal STM32 &amp; Protection des Circuits</span>
+                            <span class="lang-en">Bare-Metal STM32 Programming &amp; Circuit Protection</span>
+                        </h3>
+                        <div class="project-stack">C Bas Niveau · STM32 · I²C · SPI · UART · CAN · Diodes TVS &amp; Varistances</div>
+                        <div class="project-body">
+                            <span class="lang-fr">
+                                <strong>Contexte :</strong> Développer des micrologiciels robustes au contact direct du microcontrôleur tout en protégeant les entrées/sorties face aux surtensions industrielles.<br>
+                                <strong>Réalisé :</strong> Programmation bare-metal en C (accès registres directs, GPIO, timers matériels, contrôleurs DMA, routines NVIC). Mise en œuvre des bus I²C, SPI, UART et CAN. Dimensionnement de protections physiques contre les surtensions transitoires (diodes TVS, varistances MOVs).<br>
+                                <strong>Résultat :</strong> Firmware réactif et stable, qualifié sur banc de mesure avec oscilloscope et analyseur logique.
+                            </span>
+                            <span class="lang-en">
+                                <strong>Context:</strong> Write low-level firmware close to microcontroller hardware while protecting I/O lines against industrial transient surges.<br>
+                                <strong>Achieved:</strong> Bare-metal C programming (direct registers, GPIO, hardware timers, DMA, interrupt handlers). Implemented I²C, SPI, UART, and CAN communication protocols. Sized transient surge protection components (TVS diodes, varistors) and reviewed C memory management.<br>
+                                <strong>Result:</strong> Reliable firmware validated on test benches using oscilloscopes and logic analyzers.
+                            </span>
+                        </div>
+                        <div class="chips-row">
+                            <span class="tech-chip">C Bare-Metal</span>
+                            <span class="tech-chip">STM32</span>
+                            <span class="tech-chip">Bus CAN</span>
+                            <span class="tech-chip">DMA / Timers</span>
+                            <span class="tech-chip">TVS &amp; MOV</span>
+                        </div>
+                    </article>
+
+                    <!-- Projet 3 : UpStair Olympiades SI (Primé) -->
+                    <article class="project-card featured" data-category="embedded">
+                        <div class="project-badge-line">
+                            <span class="category-badge"><span class="lang-fr">Mécatronique</span><span class="lang-en">Mechatronics</span></span>
+                            <span class="award-badge"><span class="lang-fr">Projet Primé National</span><span class="lang-en">National Award</span></span>
+                        </div>
+                        <h3 class="project-heading">UpStair — Dispositif Mécanique d'Accessibilité PMR</h3>
+                        <div class="project-stack">SolidWorks · CAO 3D · Cinématique · Calculs RDM</div>
+                        <div class="project-body">
+                            <span class="lang-fr">
+                                <strong>Contexte :</strong> Développer un mécanisme mécatronique facilitant le franchissement de marches d'escaliers pour personnes à mobilité réduite.<br>
+                                <strong>Réalisé :</strong> Modélisation 3D complète sous SolidWorks, dimensionnement cinématique de la chaîne de transmission, calculs de résistance des matériaux (RDM) et soutenance orale devant un jury d'ingénieurs.<br>
+                                <strong>Résultat :</strong> <strong>Projet primé aux Olympiades Nationales des Sciences de l'Ingénieur</strong> pour l'innovation de la cinématique retenue.
+                            </span>
+                            <span class="lang-en">
+                                <strong>Context:</strong> Develop a mechanical accessibility device to help individuals with reduced mobility navigate stair steps.<br>
+                                <strong>Achieved:</strong> Complete 3D CAD modeling in SolidWorks, kinematic sizing of the mechanical drive, stress calculations (mechanics of materials), and presentation before an engineering jury.<br>
+                                <strong>Result:</strong> <strong>Nationally awarded at the Engineering Sciences Olympiads</strong> for the design of the mechanism.
+                            </span>
+                        </div>
+                        <div class="chips-row">
+                            <span class="tech-chip">SolidWorks</span>
+                            <span class="tech-chip">CAO 3D</span>
+                            <span class="tech-chip">Cinématique</span>
+                            <span class="tech-chip">RDM</span>
+                            <span class="tech-chip">Mécatronique</span>
+                        </div>
+                    </article>
+
+                    <!-- Projet 4 : Serveur Dédié Asynchrone -->
+                    <article class="project-card featured" data-category="network">
+                        <div class="project-badge-line">
+                            <span class="category-badge"><span class="lang-fr">Serveur &amp; Réseau</span><span class="lang-en">Server &amp; Network</span></span>
+                            <span class="tech-chip">Java / Linux</span>
+                        </div>
+                        <h3 class="project-heading">
+                            <span class="lang-fr">Jeu Multijoueur en Ligne &amp; Serveur Dédié</span>
+                            <span class="lang-en">Online Multiplayer Game &amp; Dedicated Server</span>
+                        </h3>
+                        <div class="project-stack">Java · ZenScript · Configurations YAML · TCP/IP · Serveur Dédié Linux</div>
+                        <div class="project-body">
+                            <span class="lang-fr">
+                                <strong>Contexte :</strong> Concevoir et déployer une infrastructure serveur en ligne dédiée capable d'accueillir des joueurs simultanément avec une latence minimale.<br>
+                                <strong>Réalisé :</strong> Développement de la logique serveur en Java et modules personnalisés en ZenScript et YAML. Gestion des connexions réseau (sockets TCP/IP), synchronisation des actions et structuration multithread sans verrou pour éviter les blocages. Déploiement et administration sous Linux.<br>
+                                <strong>Résultat :</strong> Serveur en production stable et réactif sous forte charge, validant la maîtrise de la concurrence mémoire et du réseau.
+                            </span>
+                            <span class="lang-en">
+                                <strong>Context:</strong> Design and run an online multiplayer game on a dedicated server, handling simultaneous players with low latency.<br>
+                                <strong>Achieved:</strong> Developed server logic in Java and created custom game mechanics using ZenScript and YAML configurations. Managed TCP/IP socket connections, player state synchronization, and multithreaded architecture to prevent execution bottlenecks. Deployed and administered the dedicated server on Linux with telemetry monitoring.<br>
+                                <strong>Result:</strong> Stable server running in production with smooth gameplay, demonstrating solid skills in networking, concurrency, and system administration.
+                            </span>
+                        </div>
+                        <div class="chips-row">
+                            <span class="tech-chip">Java Multi-thread</span>
+                            <span class="tech-chip">TCP/IP</span>
+                            <span class="tech-chip">ZenScript / YAML</span>
+                            <span class="tech-chip">Admin Linux</span>
+                            <span class="tech-chip">Lock-free</span>
+                        </div>
+                    </article>
+
+                    <!-- Projet 5 : Plugins Audio DSP (JUCE) -->
+                    <article class="project-card" data-category="audio">
+                        <div class="project-badge-line">
+                            <span class="category-badge"><span class="lang-fr">Traitement du Signal</span><span class="lang-en">Signal Processing</span></span>
+                            <span class="tech-chip">C++ / JUCE</span>
+                        </div>
+                        <h3 class="project-heading">
+                            <span class="lang-fr">Plugins Audio DSP en C++ (Framework JUCE)</span>
+                            <span class="lang-en">Audio DSP Plugins in C++ (JUCE Framework)</span>
+                        </h3>
+                        <div class="project-stack">C++ Moderne · Framework JUCE · Calcul 64-bit · Filtres IIR · VST3 / AU</div>
+                        <div class="project-body">
+                            <span class="lang-fr">
+                                <strong>Contexte :</strong> Développer des outils logiciels de traitement sonore temps réel utilisables en station de travail audio numérique (DAW).<br>
+                                <strong>Réalisé :</strong> Développement en C++ avec JUCE d'un saturateur harmonique 64-bit. Calcul de courbes non-linéaires (tangente hyperbolique), filtres numériques IIR pour l'égalisation et boucle de traitement temps réel sans allocation dynamique (real-time safe).<br>
+                                <strong>Résultat :</strong> Plugins fonctionnels et stables dans les séquenceurs professionnels du marché à ultra-faible latence.
+                            </span>
+                            <span class="lang-en">
+                                <strong>Context:</strong> Develop real-time audio processing plugins compatible with digital audio workstations (DAWs) for music production and mixing.<br>
+                                <strong>Achieved:</strong> Engineered a 64-bit harmonic saturator plugin in modern C++ using JUCE. Implemented non-linear curves (tanh soft saturation), IIR digital filtering, and a real-time safe audio processing loop with zero dynamic heap allocations.<br>
+                                <strong>Result:</strong> Functional and stable VST3/AU plugins running seamlessly inside major DAWs with transparent performance.
+                            </span>
+                        </div>
+                        <div class="chips-row">
+                            <span class="tech-chip">C++ Moderne</span>
+                            <span class="tech-chip">JUCE Framework</span>
+                            <span class="tech-chip">DSP Audio</span>
+                            <span class="tech-chip">Filtres IIR</span>
+                            <span class="tech-chip">VST3</span>
+                        </div>
+                    </article>
+
+                    <!-- Projet 6 : Domotique & Écosystème IoT -->
+                    <article class="project-card" data-category="iot">
+                        <div class="project-badge-line">
+                            <span class="category-badge"><span class="lang-fr">Domotique &amp; IoT</span><span class="lang-en">Home IoT</span></span>
+                            <span class="tech-chip">MQTT / ESP32</span>
+                        </div>
+                        <h3 class="project-heading">
+                            <span class="lang-fr">Installation Domotique Résidentielle &amp; Capteurs IoT</span>
+                            <span class="lang-en">Residential Home Automation &amp; IoT Sensors</span>
+                        </h3>
+                        <div class="project-stack">ESP32 / STM32 · Broker MQTT · Capteurs Environnementaux · Automatismes Locaux</div>
+                        <div class="project-body">
+                            <span class="lang-fr">
+                                <strong>Contexte :</strong> Automatiser des fonctions de l'habitat via une installation locale privée sans dépendance de serveurs cloud tiers.<br>
+                                <strong>Réalisé :</strong> Conception et déploiement de plusieurs modules : capteurs basse consommation (température, humidité, présence), communication réseau via broker MQTT local, pilotage de relais de puissance et dashboard de suivi local.<br>
+                                <strong>Résultat :</strong> Réseau domestique autonome, économe en énergie et fiable, illustrant l'intégration concrète de protocoles IoT.
+                            </span>
+                            <span class="lang-en">
+                                <strong>Context:</strong> Automate residential home functions through a private local connected setup without third-party cloud dependencies.<br>
+                                <strong>Achieved:</strong> Designed and deployed domestic IoT nodes: low-power wireless environmental sensors (temperature, humidity, presence), MQTT local message bus, relay actuator drivers, and a local monitoring dashboard.<br>
+                                <strong>Result:</strong> Autonomous, robust, and energy-efficient connected setup demonstrating practical integration of IoT protocols and microcontrollers.
+                            </span>
+                        </div>
+                        <div class="chips-row">
+                            <span class="tech-chip">ESP32 / STM32</span>
+                            <span class="tech-chip">MQTT</span>
+                            <span class="tech-chip">IoT Basse Conso</span>
+                            <span class="tech-chip">Relais de Puissance</span>
+                        </div>
+                    </article>
+
+                    <!-- Projet 7 : Simulation AnyLogic -->
+                    <article class="project-card" data-category="network">
+                        <div class="project-badge-line">
+                            <span class="category-badge"><span class="lang-fr">Modélisation &amp; Simulation</span><span class="lang-en">Modeling &amp; Simulation</span></span>
+                            <span class="tech-chip">AnyLogic / Java</span>
+                        </div>
+                        <h3 class="project-heading">
+                            <span class="lang-fr">Simulation de Communication Biomoléculaire Nanoscopique</span>
+                            <span class="lang-en">Nanoscale Biomolecular Communication Simulation</span>
+                        </h3>
+                        <div class="project-stack">AnyLogic · Modélisation Multi-agents · Diffusion Stochastique · Java</div>
+                        <div class="project-body">
+                            <span class="lang-fr">
+                                <strong>Contexte :</strong> Étude théorique et simulation de protocoles de transmission biomoléculaire à l'échelle nanométrique pour de futurs diagnostics in-vivo.<br>
+                                <strong>Réalisé :</strong> Modélisation multi-agents sous AnyLogic simulant la diffusion brownienne de molécules émettrices et réceptrices en milieu fluide. Comparaison des modulations par impulsion (CSK vs PPM) face au bruit thermique.<br>
+                                <strong>Résultat :</strong> Évaluation quantitative du taux d'erreur et des interférences inter-symboles pour les canaux moléculaires.
+                            </span>
+                            <span class="lang-en">
+                                <strong>Context:</strong> Research and simulation of nanoscale biomolecular communication protocols for in-vivo diagnostic applications.<br>
+                                <strong>Achieved:</strong> Multi-agent simulation in AnyLogic modeling Brownian motion of molecular carriers in fluid mediums. Benchmarking of modulation schemes (CSK vs PPM) under thermal noise.<br>
+                                <strong>Result:</strong> Quantitative evaluation of bit error rates and inter-symbol interference in molecular channels.
+                            </span>
+                        </div>
+                        <div class="chips-row">
+                            <span class="tech-chip">AnyLogic</span>
+                            <span class="tech-chip">Java</span>
+                            <span class="tech-chip">Multi-agents</span>
+                            <span class="tech-chip">Processus Stochastiques</span>
+                        </div>
+                    </article>
+
+                    <!-- Projet 8 : Moteur Graphique 3D C / OpenGL -->
+                    <article class="project-card" data-category="audio">
+                        <div class="project-badge-line">
+                            <span class="category-badge"><span class="lang-fr">Infographie 3D</span><span class="lang-en">3D Graphics</span></span>
+                            <span class="tech-chip">C / OpenGL</span>
+                        </div>
+                        <h3 class="project-heading">
+                            <span class="lang-fr">Moteur de Rendu 3D en C Natif &amp; OpenGL</span>
+                            <span class="lang-en">3D Rendering Engine in C &amp; OpenGL</span>
+                        </h3>
+                        <div class="project-stack">C Natif · OpenGL · FreeGLUT · Calcul Matriciel MVP · Éclairage de Phong</div>
+                        <div class="project-body">
+                            <span class="lang-fr">
+                                <strong>Contexte :</strong> Développer un pipeline de rendu 3D interactif sans dépendre d'un moteur tiers en manipulant directement les primitives graphiques.<br>
+                                <strong>Réalisé :</strong> Programmation en C natif avec l'API OpenGL. Implémentation mathématique des transformations (matrices Modèle-Vue-Projection), modèle d'éclairage de Phong, gestion de caméra en temps réel et boucle d'événements.<br>
+                                <strong>Résultat :</strong> Moteur fluide à plus de 60 FPS permettant d'appréhender les fondements mathématiques de l'infographie temps réel.
+                            </span>
+                            <span class="lang-en">
+                                <strong>Context:</strong> Build an interactive 3D rendering pipeline from scratch without relying on existing game engines.<br>
+                                <strong>Achieved:</strong> Programmed in native C using OpenGL. Mathematical implementation of space transformations (MVP matrices), Phong illumination model, real-time camera controls, and event loop handling.<br>
+                                <strong>Result:</strong> Smooth 60+ FPS rendering loop providing deep insight into 3D linear algebra and real-time graphics pipelines.
+                            </span>
+                        </div>
+                        <div class="chips-row">
+                            <span class="tech-chip">C Natif</span>
+                            <span class="tech-chip">OpenGL</span>
+                            <span class="tech-chip">Calcul Matriciel</span>
+                            <span class="tech-chip">Rendu Temps Réel</span>
+                        </div>
+                    </article>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. SECTION PARCOURS ACADÉMIQUE & PROFESSIONNEL -->
+        <section id="parcours">
+            <div class="container">
+                <div class="section-tag">
+                    <span class="lang-fr">Chronologie</span>
+                    <span class="lang-en">Timeline</span>
+                </div>
+                <h2 class="section-title">
+                    <span class="lang-fr">Parcours Académique &amp; Expériences</span>
+                    <span class="lang-en">Academic &amp; Professional Journey</span>
+                </h2>
+                <p class="section-subtitle">
+                    <span class="lang-fr">Formation d'ingénieur généraliste à l'ENIB, semestre Erasmus en Grèce et expérience de maintenance en milieu structuré.</span>
+                    <span class="lang-en">General engineering degree at ENIB, international Erasmus semester in Greece, and technical internship experience.</span>
+                </p>
+
+                <!-- Timeline verticale -->
+                <div class="timeline">
+
+                    <!-- Étape 1 : Erasmus Thessalonique -->
+                    <div class="timeline-item">
+                        <div class="timeline-node"></div>
+                        <span class="timeline-year">2026</span>
+                        <h3 class="timeline-title">
+                            <span class="lang-fr">Semestre International Erasmus — Mécatronique &amp; Robotique</span>
+                            <span class="lang-en">International Erasmus Semester — Mechatronics &amp; Robotics</span>
+                        </h3>
+                        <div class="timeline-org">
+                            <span class="lang-fr">Université Aristote de Thessalonique — Grèce</span>
+                            <span class="lang-en">Aristotle University of Thessaloniki — Greece</span>
+                        </div>
+                        <ul class="timeline-points">
+                            <li>
+                                <span class="lang-fr"><strong>Cours en anglais :</strong> cinématique et dynamique des robots, automatique continue et discrète (PID, espace d'état) et asservissements.</span>
+                                <span class="lang-en"><strong>Taught in English:</strong> robot kinematics and dynamics, continuous and digital control systems (PID, state-space representations), and feedback regulation.</span>
+                            </li>
+                            <li>
+                                <span class="lang-fr"><strong>Projets pratiques :</strong> programmation de nœuds sous ROS et simulations sous Gazebo en environnement international.</span>
+                                <span class="lang-en"><strong>Hands-on coursework:</strong> trajectory planning in ROS and physics simulations under Gazebo.</span>
+                            </li>
+                            <li>
+                                <span class="lang-fr">Immersion complète et pratique quotidienne de l'anglais technique.</span>
+                                <span class="lang-en">Daily use of technical English in lectures, lab reports, and collaborative group projects.</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Étape 2 : Stage Chambre de Métiers -->
+                    <div class="timeline-item">
+                        <div class="timeline-node"></div>
+                        <span class="timeline-year">2024 – 2025</span>
+                        <h3 class="timeline-title">
+                            <span class="lang-fr">Stagiaire — Maintenance Systèmes, Matériel &amp; Réseaux</span>
+                            <span class="lang-en">Intern — IT Systems, Hardware &amp; Network Maintenance</span>
+                        </h3>
+                        <div class="timeline-org">
+                            <span class="lang-fr">Chambre de Métiers et de l'Artisanat (Bretagne)</span>
+                            <span class="lang-en">Chamber of Trades and Crafts (Brittany)</span>
+                        </div>
+                        <ul class="timeline-points">
+                            <li>
+                                <span class="lang-fr"><strong>Déploiement d'images système (masterisation) :</strong> préparation, clonage et automatisation du provisionnement sur postes hétérogènes multi-sites.</span>
+                                <span class="lang-en"><strong>System image deployment:</strong> OS master preparation, cloning, and automated provisioning across enterprise workstations.</span>
+                            </li>
+                            <li>
+                                <span class="lang-fr"><strong>Diagnostic matériel approfondi :</strong> remplacement de composants (disques, RAM, alimentations) et vérification d'infrastructures réseau filaire / Wi-Fi.</span>
+                                <span class="lang-en"><strong>Hardware troubleshooting:</strong> component testing and replacement (drives, RAM, power supplies), and Ethernet / Wi-Fi network verification.</span>
+                            </li>
+                            <li>
+                                <span class="lang-fr">Respect des procédures de maintenance structurées et support technique direct aux utilisateurs.</span>
+                                <span class="lang-en">Adherence to technical maintenance procedures, ticketing workflows, and user technical support.</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Étape 3 : ENIB Brest -->
+                    <div class="timeline-item">
+                        <div class="timeline-node"></div>
+                        <span class="timeline-year">2023 – Présent</span>
+                        <h3 class="timeline-title">
+                            <span class="lang-fr">Formation d'Ingénieur Généraliste — Cycle Ingénieur (4ème année)</span>
+                            <span class="lang-en">General Engineering Program — Engineering Cycle (4th year)</span>
+                        </h3>
+                        <div class="timeline-org">École Nationale d'Ingénieurs de Brest (ENIB)</div>
+                        <ul class="timeline-points">
+                            <li>
+                                <span class="lang-fr"><strong>Systèmes embarqués :</strong> programmation bare-metal en C sur STM32 (accès direct registres, GPIO, Timers, DMA, interruptions NVIC), bus de communication I²C, SPI, UART, CAN.</span>
+                                <span class="lang-en"><strong>Embedded systems:</strong> C programming on STM32 MCUs (direct registers, GPIO, Timers, DMA, NVIC interrupts), serial buses I²C, SPI, UART, CAN.</span>
+                            </li>
+                            <li>
+                                <span class="lang-fr"><strong>Électronique :</strong> amplificateurs opérationnels, filtres actifs, électronique de puissance, protections contre les transitoires électriques (diodes TVS, varistances MOVs).</span>
+                                <span class="lang-en"><strong>Electronics:</strong> analog and digital circuits, op-amps, active filters, ADC/DAC, and transient surge suppression devices (TVS diodes, varistors).</span>
+                            </li>
+                            <li>
+                                <span class="lang-fr"><strong>Automatique &amp; Asservissements :</strong> modélisation de systèmes dynamiques, réponse fréquentielle, correcteurs PID et simulation sous MATLAB / Simulink.</span>
+                                <span class="lang-en"><strong>Control systems:</strong> physical system modeling, frequency response analysis, PID controllers, and MATLAB / Simulink simulations.</span>
+                            </li>
+                            <li>
+                                <span class="lang-fr"><strong>Génie logiciel :</strong> programmation orientée objet (C++, Java), structures de données, concurrence multithread et versioning sous Git.</span>
+                                <span class="lang-en"><strong>Software engineering:</strong> object-oriented programming (C++, Java), data structures, multithreading, and Git version control.</span>
+                            </li>
+                            <li>
+                                <span class="lang-fr">Cycle préparatoire intégré (A1/A2) validé avec mention.</span>
+                                <span class="lang-en">Integrated preparatory cycle completed with honors.</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Étape 4 : Olympiades SI -->
+                    <div class="timeline-item">
+                        <div class="timeline-node"></div>
+                        <span class="timeline-year">2022 – 2023</span>
+                        <h3 class="timeline-title">
+                            <span class="lang-fr">Olympiades Nationales des Sciences de l'Ingénieur — Projet UpStair</span>
+                            <span class="lang-en">National Engineering Sciences Olympiad — UpStair Project</span>
+                        </h3>
+                        <div class="timeline-org">Lycée Chaptal, Saint-Brieuc</div>
+                        <ul class="timeline-points">
+                            <li>
+                                <span class="lang-fr">Conception et modélisation 3D sous <strong>SolidWorks</strong> d'un dispositif mécatronique d'aide à la montée d'escaliers pour personnes à mobilité réduite.</span>
+                                <span class="lang-en">3D CAD design and modeling in SolidWorks of a mechanical stair-climbing aid for persons with reduced mobility.</span>
+                            </li>
+                            <li>
+                                <span class="lang-fr">Dimensionnement cinématique, analyse des contraintes (RDM) et soutenance orale devant un jury d'ingénieurs.</span>
+                                <span class="lang-en">Kinematic sizing, mechanics of materials stress analysis, and oral defense before a jury of industry engineers.</span>
+                            </li>
+                            <li>
+                                <span class="lang-fr"><strong>Projet récompensé au niveau national</strong> pour la conception de la solution mécanique.</span>
+                                <span class="lang-en"><strong>Awarded nationally</strong> for the mechanical innovation of the chosen solution.</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Étape 5 : Baccalauréat Général -->
+                    <div class="timeline-item">
+                        <div class="timeline-node"></div>
+                        <span class="timeline-year">2020 – 2023</span>
+                        <h3 class="timeline-title">
+                            <span class="lang-fr">Baccalauréat Général Scientifique — Spécialités SI &amp; Mathématiques</span>
+                            <span class="lang-en">General High School Diploma — Engineering Sciences &amp; Mathematics</span>
+                        </h3>
+                        <div class="timeline-org">Lycée Chaptal, Saint-Brieuc</div>
+                        <ul class="timeline-points">
+                            <li>
+                                <span class="lang-fr">Spécialités Sciences de l'Ingénieur et Mathématiques. Analyse de systèmes pluritechnologiques et modélisation mécanique. Mention obtenue.</span>
+                                <span class="lang-en">STEM curriculum focusing on engineering sciences and mathematics. Multi-technology system analysis and mechanics. Academic honors.</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                </div>
+
+                <!-- Modalités du Stage Assistant Ingénieur -->
+                <div class="stage-terms">
+                    <div>
+                        <div class="term-item-title"><span class="lang-fr">Durée Requise</span><span class="lang-en">Required Duration</span></div>
+                        <div class="term-item-val">80 à 136 <span class="lang-fr">Jours</span><span class="lang-en">Days</span></div>
+                        <div class="term-item-desc"><span class="lang-fr">Stage assistant ingénieur obligatoire (environ 4 à 6 mois).</span><span class="lang-en">Mandatory assistant engineer internship (approx. 4 to 6 months).</span></div>
+                    </div>
+                    <div>
+                        <div class="term-item-title"><span class="lang-fr">Disponibilité</span><span class="lang-en">Availability</span></div>
+                        <div class="term-item-val"><span class="lang-fr">Immédiate</span><span class="lang-en">Immediate</span></div>
+                        <div class="term-item-desc"><span class="lang-fr">Prêt à intégrer un bureau d'études, laboratoire R&amp;D ou banc d'essai.</span><span class="lang-en">Ready to integrate R&amp;D engineering teams, testing labs, or design offices.</span></div>
+                    </div>
+                    <div>
+                        <div class="term-item-title"><span class="lang-fr">Mobilité</span><span class="lang-en">Mobility</span></div>
+                        <div class="term-item-val"><span class="lang-fr">Permis B (Véhiculé)</span><span class="lang-en">Driver's License (Vehicle)</span></div>
+                        <div class="term-item-desc"><span class="lang-fr">Brest, Saint-Brieuc, Bretagne et France entière.</span><span class="lang-en">Brest, Saint-Brieuc, Brittany, and throughout France.</span></div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- 6. SECTION COMPÉTENCES TECHNIQUES -->
+        <section id="competences">
+            <div class="container">
+                <div class="section-tag">
+                    <span class="lang-fr">Savoir-faire</span>
+                    <span class="lang-en">Core Skills</span>
+                </div>
+                <h2 class="section-title">
+                    <span class="lang-fr">Compétences Techniques &amp; Environnements</span>
+                    <span class="lang-en">Technical Skills &amp; Environments</span>
+                </h2>
+                <p class="section-subtitle">
+                    <span class="lang-fr">Outils, langages et protocoles maîtrisés et mis en pratique lors des projets et laboratoires.</span>
+                    <span class="lang-en">Languages, tools, and protocols mastered and applied through coursework and independent projects.</span>
+                </p>
+
+                <div class="skills-mega-grid">
+                    <!-- Pilier 1 : Embarqué & Électronique -->
+                    <div class="skill-pillar">
+                        <div class="pillar-header">
+                            <svg class="svg-icon" viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+                            <span><span class="lang-fr">Systèmes Embarqués &amp; Électronique</span><span class="lang-en">Embedded Systems &amp; Electronics</span></span>
+                        </div>
+                        <div class="pillar-desc">
+                            <span class="lang-fr">Programmation au registre près, bus industriels, conditionnement de signaux et protections matérielles.</span>
+                            <span class="lang-en">Register-level C programming, industrial communication buses, signal conditioning, and hardware protection.</span>
+                        </div>
+                        <div class="chips-row">
+                            <span class="tech-chip">STM32 (Cortex-M)</span>
+                            <span class="tech-chip">C Bare-Metal</span>
+                            <span class="tech-chip">Bus CAN</span>
+                            <span class="tech-chip">I²C / SPI / UART</span>
+                            <span class="tech-chip">DMA &amp; Timers</span>
+                            <span class="tech-chip">Protections TVS / MOV</span>
+                            <span class="tech-chip">Oscilloscope &amp; Banc de test</span>
+                            <span class="tech-chip">Filtres Actifs &amp; AOP</span>
+                        </div>
+                    </div>
+
+                    <!-- Pilier 2 : Robotique & Automatisme -->
+                    <div class="skill-pillar">
+                        <div class="pillar-header">
+                            <svg class="svg-icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+                            <span><span class="lang-fr">Robotique &amp; Contrôle-Commande</span><span class="lang-en">Robotics &amp; Control Systems</span></span>
+                        </div>
+                        <div class="pillar-desc">
+                            <span class="lang-fr">Environnements robotiques distribués, simulation cinématique, correcteurs PID et modélisation 3D.</span>
+                            <span class="lang-en">Distributed robotics frameworks, kinematic simulations, PID controllers, and 3D CAD modeling.</span>
+                        </div>
+                        <div class="chips-row">
+                            <span class="tech-chip">ROS (Robot OS)</span>
+                            <span class="tech-chip">Gazebo &amp; RViz</span>
+                            <span class="tech-chip">SolidWorks (CAO 3D)</span>
+                            <span class="tech-chip">Cinématique Robot</span>
+                            <span class="tech-chip">Correcteurs PID</span>
+                            <span class="tech-chip">Automates Industriels</span>
+                            <span class="tech-chip">MATLAB / Simulink</span>
+                        </div>
+                    </div>
+
+                    <!-- Pilier 3 : Logiciel & Systèmes -->
+                    <div class="skill-pillar">
+                        <div class="pillar-header">
+                            <svg class="svg-icon" viewBox="0 0 24 24"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+                            <span><span class="lang-fr">Génie Logiciel &amp; Systèmes</span><span class="lang-en">Software Engineering &amp; Systems</span></span>
+                        </div>
+                        <div class="pillar-desc">
+                            <span class="lang-fr">Concurrence multithread, administration serveurs sous Linux, scripting et traitement audio temps réel.</span>
+                            <span class="lang-en">Multithreaded concurrency, dedicated Linux server operations, Python scripting, and real-time audio DSP.</span>
+                        </div>
+                        <div class="chips-row">
+                            <span class="tech-chip">Linux &amp; Shell Bash</span>
+                            <span class="tech-chip">Python</span>
+                            <span class="tech-chip">Java Multithread</span>
+                            <span class="tech-chip">C++ Moderne</span>
+                            <span class="tech-chip">Git &amp; GitHub</span>
+                            <span class="tech-chip">Réseaux TCP/IP &amp; LAN</span>
+                            <span class="tech-chip">DSP Audio (JUCE)</span>
+                            <span class="tech-chip">AnyLogic</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <!-- 7. FOOTER & CONTACT -->
+    <footer class="footer-section" id="contact">
+        <div class="container">
+            <div class="footer-grid">
                 <div>
-                    <span style="color: var(--text-secondary); font-size: 0.92rem;">
-                        <span class="lang-fr">Consulter les réalisations techniques :</span>
-                        <span class="lang-en">Explore technical projects:</span>
-                    </span>
+                    <div class="footer-brand-title">Maël Galan</div>
+                    <div class="footer-brand-sub">
+                        <span class="lang-fr">Élève-Ingénieur ENIB (4ème année) — Mécatronique, Systèmes Embarqués &amp; Robotique. Disponible pour un stage assistant ingénieur de 80 à 136 jours ouvrés.</span>
+                        <span class="lang-en">4th-Year Engineering Student at ENIB — Mechatronics, Embedded Systems &amp; Robotics. Available for an assistant engineer internship of 80 to 136 working days.</span>
+                    </div>
                 </div>
-                <div style="display: flex; gap: 0.65rem; flex-wrap: wrap;">
-                    <a href="projets.html" class="ios-btn primary">
-                        <span class="lang-fr">Voir les Projets</span><span class="lang-en">View Projects</span>
-                    </a>
-                    <a href="parcours.html" class="ios-btn">
-                        <span class="lang-fr">Parcours &amp; Timeline</span><span class="lang-en">Career &amp; Timeline</span>
-                    </a>
-                    <a href="cv.html" class="ios-btn" target="_blank">
-                        <span class="lang-fr">Consulter le CV (PDF)</span><span class="lang-en">View Resume (PDF)</span>
-                    </a>
+
+                <div>
+                    <ul class="footer-links-list">
+                        <li>
+                            <a href="mailto:maelgalan9@gmail.com">
+                                <svg class="svg-icon" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                                maelgalan9@gmail.com
+                            </a>
+                        </li>
+                        <li>
+                            <a href="tel:+33769421108">
+                                <svg class="svg-icon" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                                +33 7 69 42 11 08
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://github.com/mael-ga" target="_blank" rel="noopener">
+                                <svg class="svg-icon" viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+                                github.com/mael-ga
+                            </a>
+                        </li>
+                        <li>
+                            <a href="cv.html">
+                                <svg class="svg-icon" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                                <span class="lang-fr">Curriculum Vitae (Format A4)</span>
+                                <span class="lang-en">Curriculum Vitae (A4 Format)</span>
+                            </a>
+                        </li>
+                    </ul>
                 </div>
-            </section>
+            </div>
 
-        </main>
-    </div>
+            <div class="footer-bottom">
+                <span>© 2026 Maël Galan — <span class="lang-fr">Élève-Ingénieur ENIB Brest</span><span class="lang-en">ENIB Engineering Student</span></span>
+                <span><span class="lang-fr">Conçu avec rigueur · Hébergé sur GitHub Pages</span><span class="lang-en">Engineered for performance · Hosted on GitHub Pages</span></span>
+            </div>
+        </div>
+    </footer>
 
-    <!-- Toast Notification Flottant iOS -->
-    <div id="ios-toast" class="ios-toast" role="status" aria-live="polite"></div>
+    <!-- LOGIQUE INTERACTIVE : SCROLLSPY, FILTRES, THÈME, BILINGUISME -->
+    <script>
+        // 1. Thème Clair / Sombre
+        function toggleTheme() {
+            const html = document.documentElement;
+            const next = (html.getAttribute('data-theme') || 'dark') === 'dark' ? 'light' : 'dark';
+            html.setAttribute('data-theme', next);
+            try { localStorage.setItem('portfolio_theme', next); } catch(e){}
+        }
 
-    <script src="script.js"></script>
+        // 2. Langue FR / EN (Bascule intégrale instantanée)
+        function toggleLang() {
+            const html = document.documentElement;
+            const current = html.getAttribute('data-lang') || 'fr';
+            const next = current === 'fr' ? 'en' : 'fr';
+            html.setAttribute('data-lang', next);
+            try { localStorage.setItem('portfolio_lang', next); } catch(e){}
+            const btn = document.getElementById('lang-btn');
+            if (btn) btn.textContent = next === 'fr' ? 'EN' : 'FR';
+        }
+
+        // 3. Filtrage dynamique des 8 projets
+        function filterProjects(category, btnElement) {
+            const cards = document.querySelectorAll('.project-card');
+            const buttons = document.querySelectorAll('.filter-btn');
+
+            buttons.forEach(b => b.classList.remove('active'));
+            if (btnElement) btnElement.classList.add('active');
+
+            cards.forEach(card => {
+                const cardCat = card.getAttribute('data-category') || '';
+                if (category === 'all' || cardCat === category) {
+                    card.style.display = 'flex';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        // 4. ScrollSpy pour mettre en surbrillance le lien de nav actif
+        const sections = document.querySelectorAll('section[id]');
+        const navLinks = document.querySelectorAll('.nav-link');
+
+        window.addEventListener('scroll', () => {
+            let current = '';
+            const scrollY = window.pageYOffset;
+
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop - 120;
+                const sectionHeight = section.offsetHeight;
+                if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === '#' + current) {
+                    link.classList.add('active');
+                }
+            });
+        }, { passive: true });
+
+        // 5. Initialisation
+        document.addEventListener('DOMContentLoaded', () => {
+            try {
+                const st = localStorage.getItem('portfolio_theme');
+                if (st) document.documentElement.setAttribute('data-theme', st);
+
+                const sl = localStorage.getItem('portfolio_lang');
+                if (sl) {
+                    document.documentElement.setAttribute('data-lang', sl);
+                    const btn = document.getElementById('lang-btn');
+                    if (btn && sl === 'en') btn.textContent = 'FR';
+                }
+            } catch(e){}
+        });
+    </script>
 </body>
 </html>
